@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f8fd">
+  <meta name="description" content="AgentX gives every delegated coding task its own persistent workspace in your AWS account, entered from Slack or your coding tool and returned for human review.">
+  <title>AgentX — Remote work for coding agents</title><link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><script src="assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="site-rail" aria-label="Site index">
+    <a class="rail-brand" href="index.html"><span>AgentX</span><small>ISOLATED EXECUTION<br>FOR AGENT WORK</small></a>
+    <nav class="rail-nav" aria-label="Page sections">
+      <a class="is-current" href="#home"><span>01</span>HOME</a><a href="#architecture"><span>02</span>ARCHITECTURE</a><a href="#runtime"><span>03</span>RUNTIME</a><a href="#security"><span>04</span>SECURITY</a><a href="#developer-experience"><span>05</span>DEV EXPERIENCE</a><a href="#deployment"><span>06</span>DEPLOYMENT</a><a href="#extensions"><span>07</span>EXTENSIONS</a><a href="#about"><span>08</span>ABOUT</a>
+    </nav>
+    <div class="rail-foot"><span>A MORE LEGIBLE<br>WAY TO DELEGATE</span><i></i><small>QEDLY / AGENTX</small></div>
+  </aside>
+  <div class="site-main">
+    <header class="topbar"><a class="wordmark-mobile" href="index.html">AgentX<span> / SYSTEMS ATLAS</span></a><nav aria-label="Top navigation"><a href="#runtime">CODE</a><span>/</span><a href="#architecture">RUN</a><span>/</span><a href="docs/index.html">UNDERSTAND</a><i></i><a class="top-status" href="docs/index.html#readiness">SOURCE STATUS <span aria-hidden="true">↗</span></a></nav><a class="mobile-nav" href="docs/index.html">DOCS <span aria-hidden="true">↗</span></a></header>
+    <main id="main">
+      <section class="hero" id="home">
+        <div class="hero-copy"><p class="eyebrow">A REMOTE RUNTIME FOR CODING AGENTS</p><h1>Remote work<br>for coding agents.</h1><p class="hero-deck">Give every delegated task a persistent workspace in your AWS account. Start in Slack or hand work over from Claude Code, Codex, or Cursor. Pick it back up, inspect the change, and keep the merge decision with a person.</p><div class="hero-actions"><a class="button button-blue" href="#architecture">See the architecture <span aria-hidden="true">→</span></a><a class="button button-ghost" href="docs/index.html#first-run">Check the first-task path <span aria-hidden="true">↗</span></a></div><p class="hero-callout"><span class="red-tick"></span> YOUR ACCOUNT · YOUR MODEL ACCESS · YOUR REVIEW</p></div>
+        <figure class="atlas-figure" id="architecture">
+          <svg class="atlas-svg" viewBox="0 0 920 630" role="img" aria-labelledby="atlas-title atlas-desc">
+            <title id="atlas-title">AgentX task path: from Slack or MCP into a persistent isolated worker, then to human review</title>
+            <desc id="atlas-desc">An isometric architecture cutaway shows Slack and MCP handoffs entering AgentX orchestration, then a task-specific EC2 worker with encrypted EBS storage, and a GitHub pull request for configured checks and human review. A red annotation notes the public release is not available yet.</desc>
+            <defs>
+              <pattern id="blue-grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#d5e2f2" stroke-width=".65"/></pattern>
+              <pattern id="fine-grid" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M7 0H0V7" fill="none" stroke="#e2eaf4" stroke-width=".5"/></pattern>
+              <marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4 0 8" fill="none" stroke="#1b58b2" stroke-width="1.5"/></marker>
+              <filter id="paper-shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#42618d" flood-opacity=".09"/></filter>
+            </defs>
+            <rect width="920" height="630" fill="url(#blue-grid)"/>
+            <g class="axis-lines" fill="none" stroke="#9db7d8" stroke-width=".9"><path d="M20 490 408 266 895 548"/><path d="M20 522 408 298 895 580"/><path d="M110 590 498 366 920 610" stroke-dasharray="2 6"/></g>
+            <g class="callout callout-one"><path d="M134 145H226V208"/><circle cx="226" cy="208" r="3"/><text x="16" y="108" class="number">1. INGEST</text><text x="16" y="127">Slack thread or</text><text x="16" y="143">developer MCP task.</text></g>
+            <g class="callout callout-two"><path d="M288 69V114L355 153"/><circle cx="355" cy="153" r="3"/><text x="178" y="32" class="number">2. ROUTE</text><text x="178" y="50">AgentX orchestrator +</text><text x="178" y="66">control plane.</text></g>
+            <g class="callout callout-three"><path d="M681 91V138L625 184"/><circle cx="625" cy="184" r="3"/><text x="685" y="40" class="number">3. ISOLATED WORKSPACE</text><text x="685" y="59">One EC2 worker</text><text x="685" y="76">per task.</text></g>
+            <g class="callout callout-four"><path d="M810 272H864V327"/><circle cx="864" cy="327" r="3"/><text x="770" y="227" class="number">4. REVIEW</text><text x="770" y="246">Configured checks.</text><text x="770" y="263">A person merges.</text></g>
+            <!-- Handoff source: real entry points, shown as a document rather than a fabricated UI. -->
+            <g class="input-sheet" filter="url(#paper-shadow)"><path d="M52 222H156L189 255V354H52Z" fill="#f9fbff" stroke="#3270c2" stroke-width="1.3"/><path d="M156 222V255H189" fill="none" stroke="#3270c2"/><text x="68" y="280" class="sheet-overline">TASK HANDOFF</text><text x="68" y="307" class="sheet-title">Slack</text><text x="68" y="328" class="sheet-body">or MCP from</text><text x="68" y="344" class="sheet-body">Claude · Codex · Cursor</text><path d="M69 365h88m-88 9h55" stroke="#afc3df"/></g>
+            <!-- Entry flows converge at routing, then cross the workspace boundary. -->
+            <g fill="none" stroke="#1b58b2" stroke-width="1.7"><path d="M189 286H239V355H305" marker-end="url(#blue-arrow)"/><path d="M189 337H239V355"/><path d="M388 355H450" marker-end="url(#blue-arrow)"/><path d="M701 355H764" marker-end="url(#blue-arrow)"/></g>
+            <circle class="signal-dot" r="4"><animateMotion path="M189 286 H239 V355 H450 H701 H764" dur="6s" repeatCount="indefinite"/></circle>
+            <!-- Routing plane stays outside the per-task execution boundary. -->
+            <g class="router"><path d="m305 326 41-24 42 24-42 24z" fill="#e5eef9" stroke="#1b58b2"/><path d="m305 326v54l41 24v-54z" fill="#f5f8fd" stroke="#1b58b2"/><path d="m388 326v54l-42 24v-54z" fill="#eaf1fb" stroke="#1b58b2"/><text x="320" y="371" class="router-name">AGENTX</text><text x="321" y="389" class="router-caption">ROUTING</text></g>
+            <!-- Isometric cutaway: one worker, one task boundary, one durable disk. -->
+            <g class="workspace" filter="url(#paper-shadow)">
+              <path d="m450 230 132-76 132 76-132 76z" fill="#edf4fc" stroke="#1b58b2" stroke-width="1.4"/>
+              <path d="m450 230v175l132 76V306z" fill="#f6f9fe" stroke="#1b58b2" stroke-width="1.4"/>
+              <path d="m714 230v175l-132 76V306z" fill="#e8f0fa" stroke="#1b58b2" stroke-width="1.4"/>
+              <path d="m471 233 111-64 111 64-111 64z" fill="url(#fine-grid)" stroke="#6f94c2" stroke-dasharray="4 4"/>
+              <path d="m471 233v147l111 64V297" fill="none" stroke="#8eabd0" stroke-dasharray="3 5"/>
+              <path d="m693 233v147l-111 64" fill="none" stroke="#8eabd0" stroke-dasharray="3 5"/>
+              <text x="493" y="210" class="space-tag">PER-TASK EXECUTION BOUNDARY</text>
+              <path d="m494 266 87-50 87 50-87 50z" fill="#fbfdff" stroke="#1b58b2" stroke-width="1.2"/>
+              <path d="m494 266v67l87 50v-67z" fill="#f3f7fd" stroke="#1b58b2" stroke-width="1.2"/>
+              <path d="m668 266v67l-87 50v-67z" fill="#e4edf9" stroke="#1b58b2" stroke-width="1.2"/>
+              <path d="m512 268 69-40 69 40-69 40z" fill="#e3edf9" stroke="#7a9dc9"/>
+              <text x="545" y="278" class="worker-name">EC2 WORKER</text><text x="540" y="300" class="worker-detail">Pi coding session</text><text x="531" y="320" class="worker-detail">repo · tools · task context</text>
+              <path d="m525 360 56-32 56 32-56 32z" fill="#dce8f6" stroke="#1b58b2"/><path d="m525 360v18l56 33v-19z" fill="#edf4fc" stroke="#1b58b2"/><path d="m637 360v18l-56 33v-19z" fill="#d6e4f4" stroke="#1b58b2"/><text x="563" y="370" class="ebs-label">ENCRYPTED EBS</text>
+              <text x="484" y="430" class="worker-state">WORKER MAY STOP WHEN IDLE</text><text x="501" y="447" class="worker-state">FILES + SESSION STATE REMAIN</text>
+            </g>
+            <!-- A review packet, not simulated code output. -->
+            <g class="review-sheet" filter="url(#paper-shadow)"><path d="M764 284h113l25 25v121H764z" fill="#fbfdff" stroke="#3270c2" stroke-width="1.2"/><path d="M877 284v25h25" fill="none" stroke="#3270c2"/><text x="779" y="335" class="sheet-overline">GITHUB</text><text x="779" y="359" class="sheet-title">Pull request</text><path d="M779 373h102" stroke="#9db7d8"/><text x="779" y="393" class="sheet-body">checks → review</text><text x="779" y="410" class="sheet-body">person merges</text></g>
+            <g class="red-note"><path d="M51 432v23m-11-11h22"/><text x="72" y="439">SOURCE ACCESS</text><text x="72" y="455">NOT PUBLIC YET</text></g>
+            <text x="55" y="557" class="diagram-coordinate">CONTEXT / REPOSITORY · TOOLS · TASK INSTRUCTIONS</text>
+            <text x="550" y="536" class="diagram-coordinate">RUNTIME / EC2 + ENCRYPTED EBS</text>
+            <text x="773" y="454" class="tiny-coord">NOT TO SCALE</text>
+          </svg>
+          <figcaption><span>FIG. 01</span><span>SYSTEM MAP · SIMPLIFIED VIEW, NOT A LIVE SESSION.</span><span>US-EAST-1*</span></figcaption>
+        </figure>
+        <div class="hero-endnote"><span>01 / SYSTEMS ATLAS</span><span>* CURRENT DOCUMENTED REGION · NO PUBLIC RELEASE YET</span></div>
+      </section>
+
+      <section class="split-audience" id="runtime">
+        <article class="audience-panel leaders"><div class="panel-index">02</div><div class="audience-copy"><p class="eyebrow">FOR LEADERS</p><h2>For people accountable<br>for delivery.</h2><p>Give coding work a defined place to run, with an AWS account you own, a visible cost model, and a human review point you can explain.</p><ul class="proof-list"><li>Clear account boundary</li><li>Persistent task workspace</li><li>Person keeps merge authority</li></ul><a href="docs/index.html#costs" class="panel-link">OWNERSHIP &amp; COST <span>↗</span></a></div><div class="leader-art" aria-label="Line drawing of a bridge representing a visible handoff" role="img"><svg viewBox="0 0 330 225"><g fill="none" stroke="#3c75b7" stroke-width="1"><path d="M18 179Q82 144 148 179T292 179M14 188Q82 154 148 188T298 188M22 168h274M45 160 66 115h30l27 45m28 0 22-54h34l27 54"/><path d="M55 115h41M157 106h49M65 115v48m30-48v48m74-54v54m34-54v54"/><path d="m66 162 30 0m74 0h50m-140 0 38 18m53-18 49 18" stroke-dasharray="2 4"/><path d="M10 198H310M29 205h268" stroke="#9db7d8"/></g><g fill="#d65249"><path d="M133 40v24m-11-12h22"/><circle cx="133" cy="52" r="2"/></g><text x="140" y="43" fill="#315f98" font-size="8" font-family="monospace">HUMAN REVIEW</text><text x="27" y="218" fill="#7188a8" font-size="7" font-family="monospace">VISIBLE HANDOFF / EXPLICIT OWNER</text></svg></div></article>
+        <article class="audience-panel builders" id="developer-experience"><div class="panel-index">03</div><div class="audience-copy"><p class="eyebrow">FOR BUILDERS</p><h2>For people who build.</h2><p>Use the tools already in the team’s hands. Hand a task to a remote worker, keep the thread and workspace available, and inspect what comes back.</p><ul class="proof-list"><li>Slack and MCP entry points</li><li>Claude Code · Codex · Cursor</li><li>Linear · Jira · Asana · remote MCP</li></ul><a href="docs/index.html#connections" class="panel-link">CONNECTIONS &amp; TASKS <span>↗</span></a></div><div class="builder-art" aria-label="Exploded isometric diagram of a task workspace and tool connections" role="img"><svg viewBox="0 0 310 245"><g fill="none" stroke="#2d68b0" stroke-width="1"><path d="m47 66 100-58 105 58-102 60zM47 66v28l103 61V127M252 66v28l-102 61"/><path d="m60 105 89-52 89 52-90 52zM60 105v25l88 53v-26m90-52v26l-90 52"/><path d="m75 145 74-43 74 43-75 44zM75 145v23l74 44v-23m74-44v23l-74 44"/><path d="m92 190 56-32 57 32-57 33z"/><path d="M149 9v-6m103 67 16 0m-163 61-19 11" stroke-dasharray="3 4"/><path d="m150 3-8 5m8-5 8 5m102 67-8-5m8 5-8 5"/></g><g fill="#1b58b2"><circle cx="149" cy="65" r="4"/><circle cx="150" cy="119" r="4"/><circle cx="149" cy="165" r="4"/></g><g fill="#d65249"><path d="M276 26v22m-10-11h20"/><circle cx="276" cy="37" r="2"/></g><text x="204" y="21" fill="#315f98" font-size="8" font-family="monospace">TASK STATE</text><text x="18" y="229" fill="#7188a8" font-size="7" font-family="monospace">TOOL HANDOFF / WORKSPACE / ARTIFACT</text></svg></div></article>
+      </section>
+
+      <section class="deployment-band" id="deployment"><div class="band-head"><span>04 / DEPLOYMENT &amp; OWNERSHIP</span><span>YOUR CLOUD · YOUR BILL</span></div><div class="deploy-grid"><div><h2>Infrastructure first.<br>Clear-eyed from day one.</h2><p>AgentX deploys in your AWS account. The installer presents a resource plan and estimate before creation. A separate AWS account is the meaningful environment boundary.</p><a href="docs/index.html#first-run" class="panel-link">FIRST TASK PREREQUISITES <span>↗</span></a></div><div class="cost-board"><div class="cost-head"><span>EXAMPLE MONTH / SOURCE ESTIMATE</span><span>US-EAST-1</span></div><div class="cost-row"><span>2 NAT gateways + Slack service</span><span>ALWAYS-ON BASE</span></div><div class="cost-row"><span>60 worker hours · 10 retained workspaces</span><span>EXAMPLE USE</span></div><div class="cost-row"><span>1,000 turns · 100 coding sessions</span><span>DEFAULT BEDROCK</span></div><div class="cost-total"><span>Illustrative monthly estimate</span><strong>≈ $211</strong></div><small>September 2026 price inputs. Not a quote. Excludes NAT data processing; actual model, region, storage, traffic and usage costs vary.</small></div></div><p class="boundary-note" id="security"><span>RED MARK / ACCOUNT BOUNDARY</span> Environments in the same AWS account are not a security boundary from each other. Use separate accounts where separation is required.</p></section>
+
+      <section class="extension-band" id="extensions"><div class="band-head"><span>05 / EXTENSIONS</span><span>WORK WHERE IT STARTS</span></div><h2>Connections should fit the task.</h2><div class="extension-flow"><div><small>TEAM CONVERSATION</small><b>Slack</b><span>Start · follow · share</span></div><i>↘</i><div><small>DEVELOPER TOOL</small><b>MCP task tools</b><span>Start · continue · open PR</span></div><i>↘</i><div><small>PROJECT CONTEXT</small><b>Linear · Jira · Asana</b><span>Remote MCP connectors</span></div></div><p>These are entry and project-context connections; the task workspace remains the place the coding work runs.</p></section>
+
+      <section class="status-band" id="about"><div class="status-mark"><span>RELEASE</span><b>NOT<br>OUT YET</b><small>FSL-1.1-ALv2</small></div><div><p class="eyebrow">06 / ABOUT AGENTX</p><h2>AgentX itself is source-available.<br>Still private, with no public install.</h2><p>AgentX is licensed FSL-1.1-ALv2. Each release becomes Apache 2.0 two years after it ships. The repository is private today; no public release or npm package is published. Until the release path is verified, the right first step is to understand the system and its prerequisites—not run a broken install command.</p><div class="status-actions"><a href="docs/index.html">READ THE FIELD GUIDE <span>↗</span></a><a href="https://github.com/orgs/qedly/repositories">QEDLY ON GITHUB <span>↗</span></a></div></div></section>
+      <footer class="site-footer"><span>AGENTX / A QEDLY ENGINEERING PROJECT</span><span>SOURCE REVIEWED · B9F008B · 05 OCT 2026</span><a href="docs/index.html">DOCUMENTATION ↗</a></footer>
+    </main>
+  </div>
+</body>
+</html>
