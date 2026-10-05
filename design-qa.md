@@ -18,7 +18,7 @@ No actionable P0/P1/P2 visual or interaction finding remains in the inspected st
 - **Spacing and layout:** the desktop hero keeps the reference's left headline/right explanation arrangement. Familiar task, AWS, diff, and PR visuals remain in four columns with aligned headings and captions. Mobile stacks those steps. The additional detail is grouped within the workflow rather than scattered across unrelated cards. Documentation separates sidebar navigation from the reading column on desktop and reflows on mobile.
 - **Colors and tokens:** near-black, warm white, cobalt actions/selection, and pale blue retain the approved direction. Actual vendor logo colors are preserved. Passed/failed/unverified descriptions are text, not a decorative universal green-pass signal.
 - **Assets and image quality:** genuine Slack/AWS and licensed Phosphor icon assets remain sharp. The four diagrams use editable Excalidraw sources and official vector exports. The return path is cropped from that official export. No rasterized screenshot replaces semantic page text or controls. Diagrams reserve their image dimensions; full-size links and text equivalents are provided.
-- **Copy/content:** the complete coding workflow is explicit, with positive human authority: “You decide what gets merged.” The CSV example and patch are consistently constructed examples. Public release remains in preparation; installation is a simple deferred destination. Rovara is display branding; AgentX and agentx retain their technical identity.
+- **Copy/content:** the complete coding workflow is explicit, with positive human authority: “You decide what gets merged.” The CSV workflow remains clearly illustrative. The separate Django patch and benchmark output are recorded artifacts with explicit provenance and limits. Public release remains in preparation; installation is a simple deferred destination. Rovara is display branding; AgentX and agentx retain their technical identity.
 
 ## Comparison history and fixes
 
@@ -26,7 +26,7 @@ No actionable P0/P1/P2 visual or interaction finding remains in the inspected st
 2. Diagram review found clipped/wrapped verification labels and a crowded retry path. Reflowed labels and moved the retry loop; exported again with Excalidraw. Post-fix evidence: `connected-verification.png`.
 3. Architecture review required a visible Slack result-return path and the connector gateway inside the AWS boundary. Updated the editable source and export. Post-fix evidence: `connected-architecture.png`.
 4. Mechanical design scan identified tiny mobile functional labels. Raised them; reviewed the 390px stage controls again. Post-fix evidence: `connected-mobile.png`.
-5. Final source/implementation comparison found no further P0/P1/P2 issue. No visual changes followed that final comparison.
+5. Final source/implementation comparison found no further P0/P1/P2 issue. The recorded-evidence section was added below the approved opening; a fresh final comparison retained the same hero and workflow design.
 
 ## Browser checks — observed locally
 
@@ -35,7 +35,8 @@ No actionable P0/P1/P2 visual or interaction finding remains in the inspected st
 - Mobile captures: `connected-mobile-home.png`, `connected-mobile.png`, `connected-mobile-docs.png`.
 - Manual stage selection, ArrowRight navigation, play/pause, and full five-stage playback worked. At the end, the control became “Replay walkthrough.” The progress strip describes the explanation, not a live task.
 - Playback stops when the document becomes hidden or the player is offscreen. Reduced-motion emulation hides playback and preserves direct stage selection without spatial animation.
-- The example-diff modal opens, Escape closes it, and focus returns to its trigger. The mobile menu opens with an accurate expanded state and closes with Escape.
+- The recorded-patch modal opens, Escape closes it, and focus returns to “Inspect the patch.” The 390px dialog was inspected and captured as `recorded-patch-mobile.png`. The mobile menu opens with an accurate expanded state and closes with Escape.
+- The recorded benchmark reference was inspected at 390px and 1280px with no page overflow. Its inline raw-output disclosure shows 22 tests, OK, and exit code 0; its method disclosure identifies the prompt hint, historical date, and limits. Captures: `recorded-evidence-mobile.png` and `recorded-evidence-desktop.png`. Artifact hashes and reported counts reconcile in the local checker.
 - With JavaScript disabled, every explanation stage remains visible and the static navigation/disclosure remains usable. Restored scripting afterward.
 - The actual runtime exposed Motion and its animate API. Reviewed browser console warnings/errors were empty.
 
@@ -45,7 +46,7 @@ No actionable P0/P1/P2 visual or interaction finding remains in the inspected st
 
 Impeccable context and one detector pass were used. Tiny functional text was fixed. Uppercase short labels, the approved Anton display scale, and tracking are deliberate visual choices; unused legacy style rules can also appear in detector results. No claim of zero mechanical warnings is made. The older PRODUCT.md schema was not silently migrated.
 
-The available Slack record did not include a complete request/diff/raw-check-output/candidate/PR packet. The constructed example remains labelled; a complete preferred run was requested from the owner. Brag was researched and a storyboard prepared, but no video was rendered. Installation is intentionally deferred. No AWS acceptance run, product release, main-branch merge, or live-site publication was performed.
+The available Slack record did not include a complete packet. After the owner delegated the selection, a saved Django benchmark run was found locally. It is presented separately from the illustrative CSV workflow, with its patch, raw harness output, grader report, hashes, and methodological limits. No launch configuration, capability, private endpoint, or full transcript is exported. This is historical benchmark evidence, not a live Slack-to-PR run or acceptance of the current runtime verification loop. Brag was researched and a storyboard prepared, but no video was rendered. Installation is intentionally deferred. No AWS acceptance run, product release, main-branch merge, or live-site publication was performed.
 
 ## Implementation checklist
 
@@ -55,7 +56,7 @@ The available Slack record did not include a complete request/diff/raw-check-out
 - [x] Split documentation into tutorials and focused references.
 - [x] Keep the installation placeholder simple.
 - [x] Compare final browser rendering with the approved visual source.
-- [ ] Substitute a verified complete real-task packet when available.
+- [x] Add an inspectable saved benchmark packet with qualified provenance, separate from the illustrative workflow.
 - [ ] Produce the Brag video from the prepared brief if commissioned.
 - [ ] Review and approve the draft before public deployment.
 

@@ -1,5 +1,6 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { resolve, dirname } from "node:path";
+import { createHash } from "node:crypto";
 
 const root = resolve("site");
 const failures = [];
@@ -90,12 +91,47 @@ if (
   !get("docs/index.html").includes("below 23")
 )
   failures.push("Supported Node range missing");
+const recordRoot = "assets/evidence/django-11099";
+const record = JSON.parse(get(`${recordRoot}/record.json`));
+for (const [name, artifact] of Object.entries(record.artifacts)) {
+  const data = readFileSync(resolve(root, recordRoot, name));
+  if (
+    data.length !== artifact.bytes ||
+    createHash("sha256").update(data).digest("hex") !== artifact.sha256
+  )
+    failures.push(`Recorded benchmark artifact changed: ${name}`);
+}
+const report = JSON.parse(get(`${recordRoot}/harness-report.json`))[
+  record.instanceId
+];
+if (!report?.resolved || !report.patch_successfully_applied)
+  failures.push("Recorded benchmark grader outcome mismatch");
+for (const [key, count] of [
+  ["FAIL_TO_PASS", record.failToPass],
+  ["PASS_TO_PASS", record.passToPass],
+]) {
+  const group = report?.tests_status?.[key];
+  if (
+    group?.success.length !== count.passed ||
+    group?.failure.length !== count.total - count.passed
+  )
+    failures.push(`Recorded benchmark count mismatch: ${key}`);
+}
+if (
+  !get(`${recordRoot}/test-output.txt`).includes(
+    `Ran ${record.failToPass.total + record.passToPass.total} tests`,
+  )
+)
+  failures.push("Recorded benchmark raw output count mismatch");
 if (failures.length) {
   failures.forEach((x) => console.error(`FAIL: ${x}`));
   process.exit(1);
 }
 console.log(
   `PASS: ${pages.length} pages; local routes, anchors, assets, approved copy, release status, source pin, and interaction hooks.`,
+);
+console.log(
+  "PASS: recorded benchmark artifact hashes and reported test counts reconcile.",
 );
 console.log(
   "Browser interaction, visual, accessibility and live-install checks require separate evidence.",

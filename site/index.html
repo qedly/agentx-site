@@ -517,34 +517,48 @@
         </div>
       </section>
       <section class="shell evidence-fallback" id="evidence">
-        <p class="eyebrow">Constructed example / not a recorded run</p>
-        <h2>Open the work, then ask better questions.</h2>
+        <p class="eyebrow">Recorded benchmark / 30 September 2026</p>
+        <h2>A real fix. Evidence you can open.</h2>
         <p>
-          Inspect this illustrative CSV patch. The evidence reference shows how
-          to read checks and missing results.
+          Django’s username validators accepted a trailing newline. AgentX
+          changed two expressions. The saved benchmark report records 22 passing
+          tests. Open the patch and the output behind that result.
         </p>
-        <a class="button" href="#example-diff" data-evidence="example-diff"
-          >Inspect the example diff</a
+        <a class="button" href="#recorded-diff" data-evidence="recorded-diff"
+          >Inspect the patch</a
         >
-        <details id="example-diff">
-          <summary>Example patch and review question</summary>
+        <a class="text-link" href="docs/evidence/index.html#recorded-run"
+          >Open the test evidence</a
+        >
+        <details id="recorded-diff">
+          <summary>Recorded Django validator patch</summary>
           <div class="report-detail">
             <p class="report-label">
-              Illustrative code · no runtime result claimed
+              AgentX benchmark patch · django__django-11099
             </p>
-            <pre><code>- return records.map(formatRow).join("\n");
-+ return records
-+   .filter(record =&gt; record != null)
-+   .map(formatRow)
-+   .join("\n");</code></pre>
+            <pre><code>django/contrib/auth/validators.py
+
+ASCIIUsernameValidator and UnicodeUsernameValidator:
+- regex = r'^[\w.@+-]+$'
++ regex = r'\A[\w.@+-]+\Z'</code></pre>
             <p>
-              Does skipping null records match the requested behavior? Are empty
-              field values preserved? Inspect the tests that cover both before
-              merging.
+              Both validators now require the entire username to match. The
+              saved grader report marks this selected benchmark task resolved:
+              three bug checks and nineteen regression checks passed.
             </p>
-            <a href="docs/evidence/index.html#example"
-              >Open the full example packet</a
-            >
+            <div class="artifact-links">
+              <a href="assets/evidence/django-11099/patch.diff" download
+                >Download the complete patch</a
+              >
+              <a href="docs/evidence/index.html#recorded-run"
+                >Inspect the recorded evidence and method</a
+              >
+            </div>
+            <p class="source-note">
+              Historical benchmark evidence, not a live Slack-to-PR
+              demonstration or a full Django test-suite result. Reviewed
+              artifacts; not rerun during this website review.
+            </p>
           </div>
         </details>
       </section>

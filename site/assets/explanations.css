@@ -872,3 +872,15 @@ button[hidden] {
 .journey-stop:disabled {
   cursor: default;
 }
+/* Recorded evidence stays a readable list of concrete artifacts. */
+.artifact-links {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  border-block: 1px solid var(--line);
+}
+.artifact-links a {
+  min-height: 2rem;
+  overflow-wrap: anywhere;
+}

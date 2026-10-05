@@ -12,3 +12,7 @@ The generated design mock is a visual reference, not a website image asset or ev
 ## Editable system diagrams
 
 Original diagram content derived from inspected AgentX mainline and the approved site story. Editable Excalidraw JSON lives in docs/diagrams; static SVG exports live in site/assets/diagrams. Official renderer: @excalidraw/excalidraw 0.18.0 (MIT), used only during local asset production. Website visitors do not download that renderer. Excalidraw diagram skill guidance: https://github.com/coleam00/excalidraw-diagram-skill (reviewed 2026-10-05). No Brag music, SFX, or rendered media is distributed in this website change.
+
+## Recorded benchmark
+
+The Django validator patch context is BSD-3-Clause; the complete official Django license is retained in `site/assets/evidence/django-11099/Django-LICENSE.txt`, retrieved from upstream commit d26b2424437dabeeca94d7900b37d2df4410da0c. The patch, harness output, and report are saved AgentX evaluation artifacts, with hashes and qualified provenance. Request text is a derived summary. Django is identified as the benchmark repository, not a customer or endorser. No launch capability, private endpoint, storage identifiers, or full transcript is included.

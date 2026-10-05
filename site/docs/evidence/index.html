@@ -162,6 +162,127 @@
               not prove all code is correct.
             </p>
           </section>
+          <section id="recorded-run">
+            <p class="eyebrow">Recorded benchmark / 30 September 2026</p>
+            <h2>A real patch, with its test evidence.</h2>
+            <p>
+              Django’s ASCII and Unicode username validators accepted a trailing
+              newline. In this saved SWE-bench Verified run, AgentX changed both
+              regular expressions to require a complete match.
+            </p>
+            <p>
+              The recorded grader marked the task resolved. Its three bug checks
+              and nineteen regression checks passed; the raw output records 22
+              tests and exit code 0.
+            </p>
+            <div class="artifact-links">
+              <a href="../../assets/evidence/django-11099/request-summary.txt"
+                >Task request summary</a
+              >
+              <a href="../../assets/evidence/django-11099/patch.diff" download
+                >Download the generated patch</a
+              >
+              <a
+                href="../../assets/evidence/django-11099/test-output.txt"
+                download
+                >Download raw harness test output</a
+              >
+              <a
+                href="../../assets/evidence/django-11099/harness-report.json"
+                download
+                >Download benchmark grader report</a
+              >
+              <a href="../../assets/evidence/django-11099/record.json" download
+                >Download run metadata and artifact hashes</a
+              >
+            </div>
+            <details id="recorded-test-output">
+              <summary>Read the recorded test result</summary>
+              <div class="report-detail">
+                <p>
+                  Raw output excerpts. Environment setup and database logs are
+                  omitted here; the downloadable output is unchanged.
+                </p>
+                <pre><code>test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
+test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
+test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
+test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_validate (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok
+test_validate (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok
+test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok
+test_validate (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok
+test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_changed (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_validate_password (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok
+test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.047s
+
+OK
+
+&gt;&gt;&gt;&gt;&gt; Test Exit Code: 0
+</code></pre>
+              </div>
+            </details>
+            <details>
+              <summary>What this record establishes</summary>
+              <div class="report-detail">
+                <p>
+                  Task: <code>django__django-11099</code>. Run:
+                  <code>d13ed785-404c-56fc-8787-e95f88170d65</code>. Recorded
+                  session began 30 September 2026 at 23:22 UTC, using Claude
+                  Sonnet 4.6 through Amazon Bedrock.
+                </p>
+                <p>
+                  The patch, test output, and grader report are unchanged copies
+                  of saved local benchmark artifacts, inspected on 5 October.
+                  Their SHA-256 hashes are recorded. The request is a summary
+                  derived from the recorded prompt. The prompt itself suggested
+                  the regex-anchor fix and instructed the agent to edit source
+                  files only; the evaluation harness supplied the tests.
+                </p>
+                <p>
+                  The grader’s <code>FAIL_TO_PASS</code> and
+                  <code>PASS_TO_PASS</code> groups describe benchmark-defined
+                  expectations. They are not a fresh before/after run by this
+                  website reviewer. No new evaluation was run here.
+                </p>
+                <p>
+                  This is one selected historical task, not an aggregate solve
+                  rate, a model comparison, the full Django test suite, customer
+                  proof, or qualification of the current runtime verification
+                  loop. It does not show the live Slack-to-PR workflow. The
+                  benchmark generated a patch, not an AgentX pull request.
+                </p>
+                <p>
+                  <a href="https://github.com/django/django/pull/11099"
+                    >Django’s historical upstream PR</a
+                  >
+                  provides problem context; it was not submitted by AgentX.
+                  Django is not a customer or endorser.
+                  <a
+                    href="../../assets/evidence/django-11099/Django-LICENSE.txt"
+                    >Django license</a
+                  >
+                  ·
+                  <a href="../../assets/evidence/django-11099/README.txt"
+                    >Record notes</a
+                  >.
+                </p>
+              </div>
+            </details>
+          </section>
           <section id="example">
             <p class="eyebrow">Constructed example / not runtime proof</p>
             <h2>Inspect a CSV task packet.</h2>
