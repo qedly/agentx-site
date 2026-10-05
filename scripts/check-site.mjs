@@ -4,16 +4,14 @@ import { createHash } from "node:crypto";
 
 const root = resolve("site");
 const failures = [];
+const docPages = JSON.parse(readFileSync("docs/content/pages.json", "utf8"));
 const pages = [
   "index.html",
   "how-it-works/index.html",
   "deployment/index.html",
-  "docs/index.html",
-  "docs/tasks/index.html",
-  "docs/coding-tools/index.html",
-  "docs/configuration/index.html",
-  "docs/evidence/index.html",
-  "docs/operations/index.html",
+  ...docPages.map((p) =>
+    p.slug ? `docs/${p.slug}/index.html` : "docs/index.html",
+  ),
 ];
 const get = (file) => readFileSync(resolve(root, file), "utf8");
 const walk = (dir) =>
@@ -32,7 +30,11 @@ for (const page of pages) {
   if (!html.includes("Skip to content")) failures.push(`${page}: no skip link`);
   if (!html.includes("Rovara"))
     failures.push(`${page}: inconsistent display brand`);
-  if (!html.includes("Public release in preparation"))
+  if (
+    !html.includes("Public release in preparation") &&
+    !html.includes("Installation coming soon") &&
+    !html.includes("docs-status")
+  )
     failures.push(`${page}: release status missing`);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   if (new Set(ids).size !== ids.length) failures.push(`${page}: duplicate IDs`);
@@ -84,11 +86,11 @@ const js = get("assets/site.js");
 if (!js.includes("showModal") || !js.includes("close"))
   failures.push("Evidence dialog behavior missing");
 const ledger = JSON.parse(get("data/claims.json"));
-if (!get("docs/index.html").includes(ledger.source.commit.slice(0, 12)))
+if (!get("docs/release/index.html").includes(ledger.source.commit.slice(0, 12)))
   failures.push("Source pin mismatch in docs");
 if (
-  !get("docs/index.html").includes("22.19.0") ||
-  !get("docs/index.html").includes("below 23")
+  !get("docs/release/index.html").includes("22.19.0") ||
+  !get("docs/release/index.html").includes("below 23")
 )
   failures.push("Supported Node range missing");
 const recordRoot = "assets/evidence/django-11099";

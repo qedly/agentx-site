@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Recorded benchmark example — Rovara</title>
+<meta name="description" content="A real code change with its saved test output, grader result and method.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/benchmarks/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="index.html" aria-current="page">Recorded benchmark example</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Reference</div>
+<header class="docs-title">
+<p class="docs-kind">Example</p>
+<h1>Recorded benchmark example</h1>
+<p>A real code change with its saved test output, grader result and method.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#recorded-run">Fixing Django’s username validation</a>
+<a href="#method">How to read this result</a>
+<a href="#campaign">Larger benchmark results</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="recorded-run">
+<h2>Fixing Django’s username validation<a class="doc-heading-link" href="#recorded-run" aria-label="Link to section Fixing Django’s username validation">#</a>
+</h2>
+
+
+            <p>
+              Django’s ASCII and Unicode username validators accepted a trailing
+              newline. In this saved SWE-bench Verified run, AgentX changed both
+              regular expressions to require a complete match.
+            </p>
+            <p>
+              The recorded grader marked the task resolved. Its three bug checks
+              and nineteen regression checks passed; the raw output records 22
+              tests and exit code 0.
+            </p>
+            <div class="artifact-links">
+              <a href="../../assets/evidence/django-11099/request-summary.txt"
+                >Task request summary</a
+              >
+              <a href="../../assets/evidence/django-11099/patch.diff" download
+                >Download the generated patch</a
+              >
+              <a
+                href="../../assets/evidence/django-11099/test-output.txt"
+                download
+                >Download raw harness test output</a
+              >
+              <a
+                href="../../assets/evidence/django-11099/harness-report.json"
+                download
+                >Download benchmark grader report</a
+              >
+              <a href="../../assets/evidence/django-11099/record.json" download
+                >Download run metadata and artifact hashes</a
+              >
+            </div>
+            <details id="recorded-test-output">
+              <summary>Read the recorded test result</summary>
+              <div class="report-detail">
+                <p>
+                  Raw output excerpts. Environment setup and database logs are
+                  omitted here; the downloadable output is unchanged.
+                </p>
+                <pre>
+<code>test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
+test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
+test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
+test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_validate (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
+test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok
+test_validate (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok
+test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok
+test_validate (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok
+test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_changed (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_validate_password (auth_tests.test_validators.PasswordValidationTest) ... ok
+test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok
+test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.047s
+
+OK
+
+&gt;&gt;&gt;&gt;&gt; Test Exit Code: 0
+</code>
+</pre>
+              </div>
+            </details>
+            <details>
+              <summary>What this record establishes</summary>
+              <div class="report-detail">
+                <p>
+                  Task: <code>django__django-11099</code>. Run:
+                  <code>d13ed785-404c-56fc-8787-e95f88170d65</code>. Recorded
+                  session began 30 September 2026 at 23:22 UTC, using Claude
+                  Sonnet 4.6 through Amazon Bedrock.
+                </p>
+                <p>
+                  The patch, test output, and grader report are unchanged copies
+                  of saved local benchmark artifacts, inspected on 5 October.
+                  Their SHA-256 hashes are recorded. The request is a summary
+                  derived from the recorded prompt. The prompt itself suggested
+                  the regex-anchor fix and instructed the agent to edit source
+                  files only; the evaluation harness supplied the tests.
+                </p>
+                <p>
+                  The grader’s <code>FAIL_TO_PASS</code> and
+                  <code>PASS_TO_PASS</code> groups describe benchmark-defined
+                  expectations. They are not a fresh before/after run by this
+                  website reviewer. No new evaluation was run here.
+                </p>
+                <p>
+                  This is one selected historical task, not an aggregate solve
+                  rate, a model comparison, the full Django test suite, customer
+                  proof, or qualification of the current runtime verification
+                  loop. It does not show the live Slack-to-PR workflow. The
+                  benchmark generated a patch, not an AgentX pull request.
+                </p>
+                <p>
+                  <a href="https://github.com/django/django/pull/11099"
+                    >Django’s historical upstream PR</a
+                  >
+                  provides problem context; it was not submitted by AgentX.
+                  Django is not a customer or endorser.
+                  <a
+                    href="../../assets/evidence/django-11099/Django-LICENSE.txt"
+                    >Django license</a
+                  >
+                  ·
+                  <a href="../../assets/evidence/django-11099/README.txt"
+                    >Record notes</a
+                  >.
+                </p>
+              </div>
+            </details>
+          </section>
+<section id="method">
+<h2>How to read this result<a class="doc-heading-link" href="#method" aria-label="Link to section How to read this result">#</a>
+</h2>
+<p>The report records <strong>3 bug checks</strong> and <strong>19 regression checks</strong> passing. Those are benchmark-defined expectations for this task. They are not a fresh verification run performed by the website reviewer.</p>
+<p>Use this record to inspect one patch and its evidence. It does not establish an overall solve rate, customer outcomes or a captured Slack-to-PR workflow.</p>
+</section>
+<section id="campaign">
+<h2>Larger benchmark results<a class="doc-heading-link" href="#campaign" aria-label="Link to section Larger benchmark results">#</a>
+</h2>
+<p>A campaign scorecard needs the complete run list, dataset and task selection, model settings, retries, failed or cancelled runs and raw grader reports. Each dataset should have its own report. A headline percentage alone leaves out too much context.</p>
+<p>The downloadable records above are the currently inspected example. More campaign reports can be added once their complete artifacts are reconciled.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../mcp/index.html">
+<span>Previous</span>MCP tool reference</a>
+<a href="../troubleshooting/index.html">
+<span>Next</span>Troubleshooting →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#recorded-run">Fixing Django’s username validation</a>
+<a href="#method">How to read this result</a>
+<a href="#campaign">Larger benchmark results</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

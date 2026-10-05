@@ -1,412 +1,228 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#faf9f6" />
-    <title>Evidence you can inspect. — Rovara</title>
-    <meta
-      name="description"
-      content="Read the patch, the checks, and their limits together."
-    />
-    <link rel="canonical" href="https://rovara-dev.github.io/docs/evidence/" />
-    <meta property="og:title" content="Evidence you can inspect. — Rovara" />
-    <meta
-      property="og:description"
-      content="Read the patch, the checks, and their limits together."
-    />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <link rel="icon" href="../../assets/icons/git-pull-request.svg" />
-    <link
-      rel="preload"
-      href="../../assets/fonts/inter-600.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="../../assets/site.css" />
-    <script src="../../assets/vendor/motion.js" defer></script>
-    <script src="../../assets/site.js" defer></script>
-    <link rel="stylesheet" href="../../assets/explanations.css" />
-    <link rel="stylesheet" href="../../assets/refined.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header shell">
-      <a class="wordmark" href="../../index.html" aria-label="Rovara home"
-        >Rovara</a
-      ><button
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-        aria-label="Open navigation"
-      >
-        <img
-          class="icon"
-          src="../../assets/icons/list.svg"
-          alt=""
-          width="24"
-          height="24"
-          aria-hidden="true"
-        />
-      </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-        <a href="../../index.html#product">Product</a
-        ><a href="../../how-it-works/index.html">How it works</a
-        ><a href="../../docs/index.html" aria-current="page">Docs</a
-        ><a class="button primary" href="../../deployment/index.html"
-          >Installation status
-          <img
-            class="icon white"
-            src="../../assets/icons/arrow-up-right.svg"
-            alt=""
-            width="24"
-            height="24"
-            aria-hidden="true"
-        /></a>
-      </nav>
-    </header>
-    <main id="main">
-      <div class="compact-intro shell">
-        <p class="eyebrow">Documentation</p>
-        <h1>Evidence you can inspect.</h1>
-        <p class="intro-text">
-          Read the patch, the checks, and their limits together.
-        </p>
-      </div>
-      <div class="reading-layout shell">
-        <nav class="doc-nav" aria-label="Documentation">
-          <a href="../index.html">Documentation home</a
-          ><a href="../tasks/index.html">First task in Slack</a
-          ><a href="../coding-tools/index.html">Coding-tool handoff</a
-          ><a href="../configuration/index.html">Projects & checks</a
-          ><a href="../evidence/index.html" aria-current="page"
-            >Evidence reference</a
-          ><a href="../operations/index.html">Workspace operations</a
-          ><a href="../../deployment/index.html">Installation — coming soon</a>
-        </nav>
-        <article class="doc-article">
-          <section>
-            <h2>Three different layers</h2>
-            <div class="explanation-rows">
-              <div>
-                <h3>Task checks</h3>
-                <p>
-                  The verification extension reruns usable checks when the
-                  coding session finishes and compares before/after where
-                  possible. It can produce <code>checks.json</code>.
-                </p>
-              </div>
-              <div>
-                <h3>Publication checks</h3>
-                <p>
-                  PR publication prepares the candidate and runs readiness
-                  checks. Configured CodeBuild gates produce additional
-                  evidence.
-                </p>
-              </div>
-              <div>
-                <h3>Repository CI</h3>
-                <p>
-                  Your repository’s checks and merge rules remain authoritative
-                  for its normal review process.
-                </p>
-              </div>
-            </div>
-            <p>
-              A passing task report does not establish that all publication
-              checks or repository CI ran on the same candidate.
-            </p>
-          </section>
-          <section>
-            <h2>Interpret the result</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Result</th>
-                  <th>What it means</th>
-                  <th>What to inspect</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Passed</td>
-                  <td>The named command passed during this run.</td>
-                  <td>Command, output, environment, coverage.</td>
-                </tr>
-                <tr>
-                  <td>Regression</td>
-                  <td>It passed before and fails now.</td>
-                  <td>Before/after output and the patch.</td>
-                </tr>
-                <tr>
-                  <td>Already failing</td>
-                  <td>It failed before and still fails.</td>
-                  <td>Whether the requested change addresses it.</td>
-                </tr>
-                <tr>
-                  <td>No baseline</td>
-                  <td>There is no earlier result for comparison.</td>
-                  <td>The current outcome; no invented prior pass.</td>
-                </tr>
-                <tr>
-                  <td>Not verified / not run</td>
-                  <td>The required observation is missing.</td>
-                  <td>Reason and the next check needed.</td>
-                </tr>
-              </tbody>
-            </table>
-            <p>
-              A regression gets at most one extra coding attempt. Remaining
-              failures stay visible. Checks provide bounded evidence; they do
-              not prove all code is correct.
-            </p>
-          </section>
-          <section id="recorded-run">
-            <p class="eyebrow">Recorded benchmark / 30 September 2026</p>
-            <h2>A real patch, with its test evidence.</h2>
-            <p>
-              Django’s ASCII and Unicode username validators accepted a trailing
-              newline. In this saved SWE-bench Verified run, AgentX changed both
-              regular expressions to require a complete match.
-            </p>
-            <p>
-              The recorded grader marked the task resolved. Its three bug checks
-              and nineteen regression checks passed; the raw output records 22
-              tests and exit code 0.
-            </p>
-            <div class="artifact-links">
-              <a href="../../assets/evidence/django-11099/request-summary.txt"
-                >Task request summary</a
-              >
-              <a href="../../assets/evidence/django-11099/patch.diff" download
-                >Download the generated patch</a
-              >
-              <a
-                href="../../assets/evidence/django-11099/test-output.txt"
-                download
-                >Download raw harness test output</a
-              >
-              <a
-                href="../../assets/evidence/django-11099/harness-report.json"
-                download
-                >Download benchmark grader report</a
-              >
-              <a href="../../assets/evidence/django-11099/record.json" download
-                >Download run metadata and artifact hashes</a
-              >
-            </div>
-            <details id="recorded-test-output">
-              <summary>Read the recorded test result</summary>
-              <div class="report-detail">
-                <p>
-                  Raw output excerpts. Environment setup and database logs are
-                  omitted here; the downloadable output is unchanged.
-                </p>
-                <pre><code>test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
-test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
-test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok
-test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
-test_validate (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
-test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
-test_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok
-test_help_text (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok
-test_validate (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok
-test_help_text (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok
-test_validate (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok
-test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_password_changed (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_validate_password (auth_tests.test_validators.PasswordValidationTest) ... ok
-test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok
-test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok
-
-----------------------------------------------------------------------
-Ran 22 tests in 0.047s
-
-OK
-
-&gt;&gt;&gt;&gt;&gt; Test Exit Code: 0
-</code></pre>
-              </div>
-            </details>
-            <details>
-              <summary>What this record establishes</summary>
-              <div class="report-detail">
-                <p>
-                  Task: <code>django__django-11099</code>. Run:
-                  <code>d13ed785-404c-56fc-8787-e95f88170d65</code>. Recorded
-                  session began 30 September 2026 at 23:22 UTC, using Claude
-                  Sonnet 4.6 through Amazon Bedrock.
-                </p>
-                <p>
-                  The patch, test output, and grader report are unchanged copies
-                  of saved local benchmark artifacts, inspected on 5 October.
-                  Their SHA-256 hashes are recorded. The request is a summary
-                  derived from the recorded prompt. The prompt itself suggested
-                  the regex-anchor fix and instructed the agent to edit source
-                  files only; the evaluation harness supplied the tests.
-                </p>
-                <p>
-                  The grader’s <code>FAIL_TO_PASS</code> and
-                  <code>PASS_TO_PASS</code> groups describe benchmark-defined
-                  expectations. They are not a fresh before/after run by this
-                  website reviewer. No new evaluation was run here.
-                </p>
-                <p>
-                  This is one selected historical task, not an aggregate solve
-                  rate, a model comparison, the full Django test suite, customer
-                  proof, or qualification of the current runtime verification
-                  loop. It does not show the live Slack-to-PR workflow. The
-                  benchmark generated a patch, not an AgentX pull request.
-                </p>
-                <p>
-                  <a href="https://github.com/django/django/pull/11099"
-                    >Django’s historical upstream PR</a
-                  >
-                  provides problem context; it was not submitted by AgentX.
-                  Django is not a customer or endorser.
-                  <a
-                    href="../../assets/evidence/django-11099/Django-LICENSE.txt"
-                    >Django license</a
-                  >
-                  ·
-                  <a href="../../assets/evidence/django-11099/README.txt"
-                    >Record notes</a
-                  >.
-                </p>
-              </div>
-            </details>
-          </section>
-          <section id="example">
-            <p class="eyebrow">Constructed example / not runtime proof</p>
-            <h2>Inspect a CSV task packet.</h2>
-            <p>
-              This example explains what a reviewer should look for. It is not
-              output from an observed AgentX run and is not a downloadable
-              <code>checks.json</code> schema.
-            </p>
-            <details id="diff" open>
-              <summary>Code diff — proposed empty-record handling</summary>
-              <div class="report-detail">
-                <pre><code>--- src/export/csv.ts
-+++ src/export/csv.ts
-- return records.map(formatRow).join("\n");
-+ return records
-+   .filter(record =&gt; record != null)
-+   .map(formatRow)
-+   .join("\n");</code></pre>
-                <p>
-                  Review whether skipping null records is the intended behavior
-                  and whether legitimate empty field values are preserved.
-                </p>
-              </div>
-            </details>
-            <details id="test-output">
-              <summary>Test evidence — before, after, and unavailable</summary>
-              <div class="report-detail">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Check</th>
-                      <th>Before</th>
-                      <th>After</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Existing CSV tests</td>
-                      <td>Passed</td>
-                      <td>Passed</td>
-                    </tr>
-                    <tr>
-                      <td>New null-record test</td>
-                      <td>No baseline</td>
-                      <td>Passed</td>
-                    </tr>
-                    <tr>
-                      <td>Database integration</td>
-                      <td>Unavailable</td>
-                      <td>Not run</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p>
-                  Illustrative outcomes only. No pass count, timing, exit code,
-                  or raw output is invented. A real packet will link the
-                  command, environment, output, and candidate.
-                </p>
-              </div>
-            </details>
-            <details id="check-report">
-              <summary>
-                Review questions — what does the evidence cover?
-              </summary>
-              <div class="report-detail">
-                <ul>
-                  <li>Which commands actually ran, and where?</li>
-                  <li>Which had an earlier result?</li>
-                  <li>Did any passing check regress?</li>
-                  <li>Which checks were skipped, unavailable, or not rerun?</li>
-                  <li>
-                    Does the evidence apply to the candidate being reviewed?
-                  </li>
-                </ul>
-                <p>
-                  In this scenario, the database integration is unverified.
-                  Request it before merging if it is required for this change.
-                </p>
-              </div>
-            </details>
-          </section>
-          <section>
-            <h2>Publication behavior</h2>
-            <p>
-              A reporting-enabled new PR can be opened as a draft with failing
-              checks. Older compatible publication paths can refuse a new PR
-              when readiness fails. Appending or syncing an existing PR still
-              refuses a failing readiness check.
-            </p>
-            <p>
-              CodeBuild results provide evidence, not an automatic publication
-              gate. A draft PR alone is not proof that the change is ready. Your
-              team decides what gets merged.
-            </p>
-          </section>
-          <div class="source-note">
-            Source reviewed: AgentX mainline <code>8acb7ac00c97</code> · 5
-            October 2026. These guides describe inspected code; the public
-            installation path is still in preparation.
-          </div>
-        </article>
-      </div>
-    </main>
-    <footer class="site-footer shell">
-      <div>
-        <a class="wordmark" href="../../index.html">Rovara</a>
-        <p>
-          Remote coding. Visible evidence.<br />Built on the AgentX project.
-        </p>
-      </div>
-      <div>
-        <p>
-          Public release in preparation<br />Current code license:
-          FSL-1.1-ALv2.<br />Source-available; not an open-source release.
-        </p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="../../how-it-works/index.html">Workflow</a
-        ><a href="../../docs/index.html">Docs</a
-        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
-          >Website source</a
-        >
-      </nav>
-    </footer>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Review changes and checks — Rovara</title>
+<meta name="description" content="Understand the diff and the evidence before deciding what to merge.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/evidence/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="index.html" aria-current="page">Review changes and checks</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Work with Rovara</div>
+<header class="docs-title">
+<p class="docs-kind">Guide</p>
+<h1>Review changes and checks</h1>
+<p>Understand the diff and the evidence before deciding what to merge.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#review">Start with the change</a>
+<a href="#results">Read the result</a>
+<a href="#layers">Know which checks you are looking at</a>
+<a href="#pull-requests">Review a draft PR</a>
+<a href="#recorded-run">Inspect a real example</a>
+<a href="#example">Review checklist</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="review">
+<h2>Start with the change<a class="doc-heading-link" href="#review" aria-label="Link to section Start with the change">#</a>
+</h2>
+<p>Read the diff against the task you requested. Then inspect the named checks, their output and anything that was not verified. The agent’s summary is useful context; the diff and output are what you inspect.</p>
+</section>
+<section id="results">
+<h2>Read the result<a class="doc-heading-link" href="#results" aria-label="Link to section Read the result">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Meaning</th>
+<th>Your next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passed</td>
+<td>The named command passed in that run.</td>
+<td>Check that it covers your change.</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>A check passed before and fails now.</td>
+<td>Inspect the failure and ask for a fix.</td>
+</tr>
+<tr>
+<td>Already failing</td>
+<td>The check failed before the change too.</td>
+<td>Decide whether this task should address it.</td>
+</tr>
+<tr>
+<td>No baseline</td>
+<td>There is no earlier result for comparison.</td>
+<td>Read the current output without assuming an earlier pass.</td>
+</tr>
+<tr>
+<td>Not verified / not run</td>
+<td>The required observation is missing.</td>
+<td>Read the reason and request the missing check if needed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When a previously passing check regresses, the runtime gives the agent at most one extra attempt. Any remaining failure stays visible.</p>
+</section>
+<section id="layers">
+<h2>Know which checks you are looking at<a class="doc-heading-link" href="#layers" aria-label="Link to section Know which checks you are looking at">#</a>
+</h2>
+<dl>
+<dt>Task checks</dt>
+<dd>At a normal session finish, the runtime reruns usable checks and compares before/after where possible. Results can be saved in <code>checks.json</code>.</dd>
+<dt>PR preparation checks</dt>
+<dd>Publication prepares the candidate and runs readiness commands. Configured CodeBuild gates produce additional evidence.</dd>
+<dt>Repository CI</dt>
+<dd>Your repository’s checks and merge rules run through its normal GitHub review process.</dd>
+</dl>
+<p>A passing result from one layer does not establish that every other check ran on the same candidate. Check the command, environment and candidate reference attached to the evidence.</p>
+</section>
+<section id="pull-requests">
+<h2>Review a draft PR<a class="doc-heading-link" href="#pull-requests" aria-label="Link to section Review a draft PR">#</a>
+</h2>
+<p>A draft PR is ready for your review; it can still contain failing or missing checks. Read the check report alongside the diff and your repository’s CI. <strong>You decide what gets merged.</strong>
+</p>
+<p>CodeBuild results add evidence. Your repository’s merge rules determine which checks must pass before merging.</p>
+<details>
+<summary>Technical detail: PR publication paths</summary>
+<p>A reporting-enabled new PR can open as a draft with failing checks described. Older publication paths may refuse a new PR when readiness fails. Appending or syncing an existing PR refuses failing readiness checks. CodeBuild results do not automatically block PR publication.</p>
+</details>
+</section>
+<section id="recorded-run">
+<h2>Inspect a real example<a class="doc-heading-link" href="#recorded-run" aria-label="Link to section Inspect a real example">#</a>
+</h2>
+<p>A saved Django task shows the actual patch and test output behind one benchmark result.</p>
+<a class="doc-inline-cta" href="../benchmarks/index.html">Read the recorded task →</a>
+</section>
+<section id="example">
+<h2>Review checklist<a class="doc-heading-link" href="#example" aria-label="Link to section Review checklist">#</a>
+</h2>
+<ul>
+<li>Does the change meet the request and preserve its constraints?</li>
+<li>Which checks actually ran, on which code, in which environment?</li>
+<li>What failed, regressed or could not be verified?</li>
+<li>Do task evidence and repository CI cover the PR you are reviewing?</li>
+<li>What additional check or human review do you need?</li>
+</ul>
+<p>If an important integration could not be tested, keep that gap visible and request the check before merging.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../coding-tools/index.html">
+<span>Previous</span>Connect your coding tool</a>
+<a href="../operations/index.html">
+<span>Next</span>Workspaces and costs →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#review">Start with the change</a>
+<a href="#results">Read the result</a>
+<a href="#layers">Know which checks you are looking at</a>
+<a href="#pull-requests">Review a draft PR</a>
+<a href="#recorded-run">Inspect a real example</a>
+<a href="#example">Review checklist</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
 </html>

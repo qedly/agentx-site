@@ -1,0 +1,130 @@
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { resolve, relative, dirname } from "node:path";
+const checkOnly = process.argv.includes("--check");
+const output = (file, content) => {
+  if (checkOnly) {
+    if (readFileSync(file, "utf8") !== content)
+      throw new Error("Generated docs are stale: " + file);
+  } else {
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, content);
+  }
+};
+const pages = JSON.parse(readFileSync("docs/content/pages.json", "utf8"));
+const site = resolve("site");
+const groups = [
+  "Start here",
+  "Work with Rovara",
+  "Configure",
+  "Reference",
+  "Help",
+];
+const pathFor = (p) =>
+  p.slug ? `docs/${p.slug}/index.html` : "docs/index.html";
+const escape = (s) =>
+  s
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+const text = (s) =>
+  s
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+const search = [];
+for (let i = 0; i < pages.length; i++) {
+  const p = pages[i],
+    file = resolve(site, pathFor(p));
+  const link = (target) =>
+    relative(dirname(file), resolve(site, target)).replaceAll("\\", "/") ||
+    "index.html";
+  const toc = p.sections
+    .map((s) => `<a href="#${s.id}">${escape(s.title)}</a>`)
+    .join("");
+  const nav = groups
+    .map(
+      (g) =>
+        `<div class="docs-nav-group"><p>${g}</p>${pages
+          .filter((x) => x.group === g)
+          .map(
+            (x) =>
+              `<a href="${link(pathFor(x))}" ${x.slug === p.slug ? 'aria-current="page"' : ""}>${escape(x.title)}</a>`,
+          )
+          .join(
+            "",
+          )}${g === "Start here" ? `<a href="${link("deployment/index.html")}">Installation <span>Coming soon</span></a>` : ""}</div>`,
+    )
+    .join("");
+  const sections = p.sections
+    .map(
+      (s) =>
+        `<section id="${s.id}"><h2>${escape(s.title)}<a class="doc-heading-link" href="#${s.id}" aria-label="Link to section ${escape(s.title)}">#</a></h2>${s.html}</section>`,
+    )
+    .join("\n");
+  const prev = pages[i - 1],
+    next = pages[i + 1];
+  const pager = `<nav class="docs-pager" aria-label="Next and previous pages">${prev ? `<a href="${link(pathFor(prev))}"><span>Previous</span>${escape(prev.title)}</a>` : "<div></div>"}${next ? `<a href="${link(pathFor(next))}"><span>Next</span>${escape(next.title)} →</a>` : ""}</nav>`;
+  const legacy =
+    p.slug === ""
+      ? '<div class="legacy-doc-links">' +
+        [
+          "operate",
+          "workflow",
+          "checks",
+          "architecture",
+          "connections",
+          "models",
+          "security",
+          "license",
+          "install",
+          "release",
+          "mcp",
+        ]
+          .map((id) => `<span id="${id}"></span>`)
+          .join("") +
+        "</div>"
+      : "";
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f5ef"><title>${escape(p.title)} — Rovara</title><meta name="description" content="${escape(p.lead)}"><link rel="canonical" href="https://rovara-dev.github.io/${p.slug ? `docs/${p.slug}/` : "docs/"}"><link rel="icon" href="${link("assets/icons/git-pull-request.svg")}"><link rel="preload" href="${link("assets/fonts/inter-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${link("assets/site.css")}"><link rel="stylesheet" href="${link("assets/refined.css")}"><link rel="stylesheet" href="${link("assets/docs.css")}"><script src="${link("assets/docs.js")}" defer></script></head><body class="docs-page"><noscript><style>.docs-search-trigger{display:none}</style></noscript><a class="skip-link" href="#main">Skip to content</a><header class="docs-header"><div class="docs-brand"><a href="${link("index.html")}" aria-label="Rovara home">Rovara</a><span>Docs</span></div><button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog"><img src="${link("assets/icons/magnifying-glass.svg")}" width="18" height="18" alt=""><span>Search documentation</span><kbd>⌘ K</kbd></button><nav aria-label="Main navigation"><a href="${link("index.html")}">Product</a><a href="${link("docs/release/index.html")}" class="docs-status" title="Public release in preparation">Preview docs</a></nav></header><div class="docs-layout"><aside class="docs-sidebar"><details class="docs-nav-disclosure" open><summary>Browse documentation</summary><nav aria-label="Documentation">${nav}</nav></details></aside><main id="main" class="docs-content"><div class="docs-breadcrumb"><a href="${link("docs/index.html")}">Documentation</a><span>/</span>${escape(p.group)}</div><header class="docs-title"><p class="docs-kind">${escape(p.kind)}</p><h1>${escape(p.title)}</h1><p>${escape(p.lead)}</p></header><details class="docs-mobile-toc"><summary>On this page</summary><nav aria-label="Page sections">${toc}</nav></details><article class="docs-article">${sections}</article>${legacy}<div class="docs-maintenance"><span>Reviewed 5 October 2026</span><a href="${link("docs/release/index.html")}#documentation">How these docs are maintained</a><a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a></div>${pager}<footer class="docs-footer"><span>Rovara · Coding agents in your AWS account.</span><a href="${link("docs/release/index.html")}#license">Licence</a></footer></main><aside class="docs-toc"><nav aria-label="On this page"><p>On this page</p>${toc}</nav></aside></div><dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="${link("data/docs-search.json")}"><div class="docs-search-heading"><h2 id="docs-search-title">Search documentation</h2><button data-search-close aria-label="Close search">Esc</button></div><label class="sr-only" for="docs-search-input">Search terms</label><input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off"><p class="docs-search-status" aria-live="polite"></p><ul class="docs-search-results"></ul><p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p></dialog></body></html>`;
+  output(file, html.replace(/></g, ">\n<").replace(/[ \t]+$/gm, "") + "\n");
+  search.push({
+    title: p.title,
+    group: p.group,
+    url: pathFor(p),
+    description: p.lead,
+    body: text(sections),
+  });
+  for (const s of p.sections)
+    search.push({
+      title: s.title,
+      page: p.title,
+      group: p.group,
+      url: `${pathFor(p)}#${s.id}`,
+      description: text(s.html).slice(0, 180),
+      body: text(s.html),
+    });
+}
+output(
+  resolve(site, "data/docs-search.json"),
+  JSON.stringify(search, null, 2) + "\n",
+);
+const guide = pages
+  .filter((p) => !["benchmarks", "release"].includes(p.slug))
+  .map(
+    (p) =>
+      `# ${p.title}\n\n${p.lead}\n\n` +
+      p.sections.map((s) => `## ${s.title}\n\n${text(s.html)}`).join("\n\n"),
+  )
+  .join("\n\n");
+output(
+  resolve(site, "agent-guide.md"),
+  `# Rovara agent guide\n\nPublic installation is coming soon. These guides cover an existing deployed AgentX environment. Commands retain the agentx name. Source reviewed at 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86 on 5 October 2026.\n\n${guide}\n`,
+);
+console.log(
+  `Generated ${pages.length} documentation pages and ${search.length} searchable pages/sections.`,
+);

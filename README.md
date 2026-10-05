@@ -17,7 +17,7 @@ Open `http://127.0.0.1:8766/`. Choose another port with `npm run dev -- --port 8
 - `site/index.html`: compact product story, illustrative task handoff, exact recorded Django diff/output, leaders/developers value and a 20-second video.
 - `site/how-it-works/index.html`: workflow, check outcomes, account boundary and human review.
 - `site/deployment/index.html`: a simple installation-coming-soon placeholder, as requested.
-- `site/docs/index.html`: documentation hub with separate task, coding-tool, configuration, evidence, and operations guides.
+- `site/docs/index.html`: documentation hub with eleven pages, persistent navigation, local full-text search, copyable examples and page contents.
 
 All pages use relative links. Evidence controls open an accessible native dialog; without JavaScript they lead to expandable explanations. Mobile navigation remains available without JavaScript. Reduced motion is respected.
 
@@ -29,7 +29,7 @@ AGENTX_SOURCE=/path/to/current/AgentX npm run check:claims
 npm run build
 ```
 
-`check` inspects local routes, anchors, assets and required copy. It also checks artifact hashes/test counts and that both homepage regex excerpts match the preserved patch. `check:claims` checks pinned source references against the authorized AgentX clone, verifies that its fetched mainline has not advanced, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. Fresh code review and runtime evidence still qualify product claims.
+`check` first checks that generated documentation and its search index match their authoring source, then inspects local routes, anchors, assets and required copy. It also checks artifact hashes/test counts and that both homepage regex excerpts match the preserved patch. `check:claims` checks pinned source references against the authorized AgentX clone, verifies that its fetched mainline has not advanced, reconciles all eleven developer MCP tool names, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. Fresh code review and runtime evidence still qualify product claims.
 
 `build` copies the static artifact to `dist/`. GitHub Pages currently uploads `site/` directly; no framework or runtime backend is needed.
 
@@ -41,7 +41,7 @@ Live URL: `https://rovara-dev.github.io/`. `.github/workflows/pages.yml` deploys
 
 `site/data/claims.json` records the reviewed source commit and primary references. Fetch current product mainline, read the affected implementation, then update the pin and copy together. Do not advertise a public installer until the product source, license and release artifacts are actually available.
 
-The current source license is FSL-1.1-ALv2. “Open source,” public install commands, customer results, benchmark scores, security certification and automatic merge-gate promises are not justified by this website build. Public display branding does not rename CLI commands, authorization or evidence identities.
+The current source license is FSL-1.1-ALv2. “Open source,” public install commands, customer results, aggregate benchmark scores, security certification and automatic merge-gate promises are not justified by this website build. Public display branding does not rename CLI commands, authorization or evidence identities.
 
 Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance: `ASSET-LICENSES.md`. Browser evidence: `design-qa.md`.
 
@@ -50,3 +50,13 @@ Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance
 Editable task journey, architecture, verification, and lifecycle sources: `docs/diagrams/`. Their SVG exports ship without a diagram runtime. User-started Motion walkthrough has direct stage selection, pause/replay, keyboard controls, reduced-motion handling, and a static no-JavaScript fallback.
 
 The CSV workflow is a constructed explanation, not real run evidence. A separate historical Django benchmark now has an inspectable patch, raw harness output, grader report, and allowlisted metadata in `site/assets/evidence/django-11099/`. Hashes and test counts are checked by `npm run check`. This selected task is not a full Slack-to-PR demo, aggregate solve rate, or proof of the current verification loop. The locally rendered 20-second video is embedded with controls, captions and a transcript. Production notes live in `docs/video/`; share media lives in `site/assets/video/`. No public deployment has been performed for this redesign.
+
+## Documentation authoring
+
+Edit `docs/content/pages.json` and run `npm run docs:generate`. The generator writes all documentation pages, the search index and `site/agent-guide.md` from the same content. Do not edit those generated files directly. `npm run check` refuses stale generated output.
+
+The reading order is overview → concepts → first Slack task → coding-tool connection → review → workspaces → configuration → MCP reference → recorded benchmark → troubleshooting → release and licence. Tutorials state their prerequisites, user action, expected result and next step. The public installation path remains the owner's requested placeholder.
+
+`site/assets/docs.css` and `site/assets/docs.js` provide the docs shell, responsive navigation, native search dialog, keyboard controls and copy buttons. Docs retain native links and disclosures without JavaScript. Search is hidden without JavaScript.
+
+Fresh reference review and browser checks: `docs/research/docs-review-2026-10-05.md`. This records website checks, not live AgentX deployment acceptance. The current recorded Django example remains historical evidence, not a campaign-wide score.

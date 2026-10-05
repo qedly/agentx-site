@@ -43,3 +43,7 @@ No actionable P0/P1/P2 finding remains in inspected states. Local design review,
 Local website/media implementation and scoped verification. No AWS acceptance, new AgentX product tests, public release, main merge or live deployment. Owner retains publication control.
 
 final result: passed
+
+## Documentation rebuild — 5 October 2026
+
+Eleven docs pages checked in the browser at desktop 1440px and mobile 390px. No page-level horizontal overflow; no broken desktop images. MCP reference also checked at 320px. Exercised sidebar, page contents, previous/next, local search, no results, keyboard result selection, Escape/focus restoration and exact Codex command copy. Native navigation survives disabled JavaScript; search hides. Licence/source-pin details live on their own page. Fourteen total website pages pass local checks. See `docs/research/docs-review-2026-10-05.md` for sources and limitations. No live AgentX install or new benchmark runs performed.

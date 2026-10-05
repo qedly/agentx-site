@@ -1204,3 +1204,32 @@
     margin-left: 28%;
   }
 }
+
+/* Product/footer detail lives in named docs, not a dense marketing footer. */
+.simplified-footer {
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 24px;
+}
+.simplified-footer .wordmark {
+  font-size: 24px;
+}
+.simplified-footer p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.simplified-footer .footer-links {
+  font-size: 12px;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+@media (max-width: 760px) {
+  .simplified-footer {
+    grid-template-columns: 1fr;
+  }
+  .simplified-footer .footer-links {
+    justify-content: flex-start;
+  }
+}

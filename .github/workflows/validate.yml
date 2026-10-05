@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: 22
       - name: Check routes, artifacts and the exact homepage patch
-        run: node scripts/check-site.mjs
+        run: npm run check
       - name: Build the static website
         run: node scripts/build.mjs

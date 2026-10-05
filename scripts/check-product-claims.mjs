@@ -15,7 +15,7 @@ const ledger = JSON.parse(
 );
 const failures = [];
 const docsHtml = readFileSync(
-  resolve("site/docs/index.html"),
+  resolve("site/docs/release/index.html"),
   "utf8",
 ).toLowerCase();
 const git = (...args) =>
@@ -29,7 +29,7 @@ try {
 }
 if (!docsHtml.includes(commit.slice(0, 12).toLowerCase()))
   failures.push(
-    "field guide source snapshot does not match the claim ledger commit",
+    "documentation source snapshot does not match the claim ledger commit",
   );
 const sourceRef = git("rev-parse", `${ledger.source.ref}^{commit}`);
 if (sourceRef !== commit)
@@ -49,6 +49,15 @@ for (const claim of ledger.claims) {
   }
   console.log(`reviewed source reference: ${claim.id}`);
 }
+
+// Keep the developer tool reference in sync with actual tool definitions.
+const toolSource = readSource("packages/mcp/src/tools.ts");
+const sourceTools = [...toolSource.matchAll(/name:\s*"(agentx_[a-z_]+)"/g)].map(x => x[1]).sort();
+const toolDoc = readFileSync(resolve("site/docs/mcp/index.html"), "utf8");
+const documentedTools = [...toolDoc.matchAll(/<td>\s*<code>(agentx_[a-z_]+)<\/code>\s*<\/td>/g)].map(x => x[1]).sort();
+if (JSON.stringify(sourceTools) !== JSON.stringify(documentedTools))
+  failures.push("MCP tool reference differs from pinned implementation");
+else console.log(`MCP reference reconciles: ${sourceTools.length} developer tools`);
 
 // Derive the advertised figure from the actual source formula and sample load.
 const cost = readSource("packages/cli/src/init/cost.ts");

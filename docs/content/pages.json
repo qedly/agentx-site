@@ -1,0 +1,381 @@
+[
+  {
+    "slug": "",
+    "title": "Rovara documentation",
+    "group": "Start here",
+    "lead": "Learn how to delegate a coding task, inspect the work and continue in the same AWS workspace.",
+    "kind": "Overview",
+    "sections": [
+      {
+        "id": "what-is-rovara",
+        "title": "What is Rovara?",
+        "html": "<p>Rovara runs a coding agent in your AWS account. Give it a task from Slack, Claude Code, Codex or Cursor. The agent works in a remote workspace and brings back code changes and evidence from tests and checks.</p><p>Review the work, ask for changes, then request a pull request. <strong>You decide what gets merged.</strong></p>"
+      },
+      {
+        "id": "start",
+        "title": "Choose your starting point",
+        "html": "<div class=\"doc-start-grid\"><a class=\"doc-start\" href=\"tasks/index.html\"><img src=\"../assets/icons/slack-icon.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Start from Slack</strong><span>Request a change, review it and ask for a draft PR.</span><span class=\"doc-start-action\">Follow your first task →</span></a><a class=\"doc-start\" href=\"coding-tools/index.html\"><img src=\"../assets/icons/terminal.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Start from your coding tool</strong><span>Connect Claude Code, Codex or Cursor and hand off a task.</span><span class=\"doc-start-action\">Connect your tool →</span></a></div><div class=\"doc-callout\"><strong>New to the project?</strong><p>Public installation is coming soon. You can explore the workflow now; the task guides assume your team already has a deployed environment.</p><a href=\"../deployment/index.html\">Installation status →</a></div>"
+      },
+      {
+        "id": "learn",
+        "title": "Understand the essentials",
+        "html": "<ul class=\"doc-link-list\"><li><a href=\"concepts/index.html\">Core concepts</a><span>Projects, tasks, workspaces and check evidence.</span></li><li><a href=\"evidence/index.html\">Review changes and checks</a><span>Read the diff, understand the result and decide what to do next.</span></li><li><a href=\"operations/index.html\">Manage workspaces and costs</a><span>Continue, cancel or close work without confusing those actions.</span></li></ul>"
+      },
+      {
+        "id": "configure",
+        "title": "Configure your team’s environment",
+        "html": "<p>For the person who owns the deployment:</p><ul><li><a href=\"configuration/index.html\">Configure repositories, setup commands and checks.</a></li><li><a href=\"../how-it-works/index.html#architecture\">See the system architecture and service boundaries.</a></li><li><a href=\"troubleshooting/index.html\">Find the next step when something goes wrong.</a></li></ul>"
+      },
+      {
+        "id": "examples",
+        "title": "See a recorded task",
+        "html": "<p>Explore a saved Django benchmark task with the exact patch, raw test output and grader report. See what changed and what the evidence covers.</p><a class=\"doc-inline-cta\" href=\"benchmarks/index.html\">Inspect the benchmark example →</a>"
+      }
+    ]
+  },
+  {
+    "slug": "concepts",
+    "title": "Core concepts",
+    "group": "Start here",
+    "lead": "Five ideas help you understand where work happens and what comes back.",
+    "kind": "Concepts",
+    "sections": [
+      {
+        "id": "project",
+        "title": "Project",
+        "html": "<p>A project defines the repositories the agent can work on, how to prepare them and which checks to run. Your team’s administrator configures it. A Slack channel can be connected to that project.</p><p>For example, an <code>export-service</code> project can contain its repository, dependency-install command and test command.</p>"
+      },
+      {
+        "id": "task",
+        "title": "Task",
+        "html": "<p>A task is a coding request and its follow-ups. It has an ID, progress, changed files and any available result artifacts. Be specific about the behavior you want and the constraints to preserve.</p>"
+      },
+      {
+        "id": "workspace",
+        "title": "Workspace",
+        "html": "<p>The agent works on a remote EC2 worker in your AWS account. Its workspace keeps the repository files and conversation state for follow-ups. Compute can stop when idle while storage remains.</p><p>A coding-tool task stays private unless shared or project policy requires sharing. A Slack request is visible in its channel thread.</p>"
+      },
+      {
+        "id": "evidence",
+        "title": "Check evidence",
+        "html": "<p>The code diff shows what changed. Test and check output shows what was exercised. A result may pass, fail or be unavailable. Read the report instead of relying only on the agent’s summary.</p><p>Task checks, pull-request preparation checks and repository CI are separate observations. <a href=\"../evidence/index.html\">Learn how to review them.</a></p>"
+      },
+      {
+        "id": "pull-request",
+        "title": "Pull request",
+        "html": "<p>You request a PR when there is work to review. Coding-tool PRs open as drafts by default. Your team reviews the diff and CI through its existing GitHub process and decides what gets merged.</p><p><a href=\"../tasks/index.html\">Walk through a first task →</a></p>"
+      }
+    ]
+  },
+  {
+    "slug": "tasks",
+    "title": "Your first task in Slack",
+    "group": "Work with Rovara",
+    "lead": "Request a small change, inspect the result and ask for a draft pull request.",
+    "kind": "Guide",
+    "sections": [
+      {
+        "id": "before-you-start",
+        "title": "Before you start",
+        "html": "<p>Your team needs a deployed environment, a configured project and a Slack channel connected to it. Use the app mention installed in your workspace; the examples below use <code>@AgentX</code>.</p><div class=\"doc-callout\"><strong>Installation coming soon</strong><p>If your team has not deployed the project yet, start with the <a href=\"../../deployment/index.html\">installation status</a>. This guide begins after setup.</p></div>"
+      },
+      {
+        "id": "request",
+        "title": "1. Give it a task",
+        "html": "<p>In the project’s Slack channel, describe the change and how you want it checked. Start with one small, reviewable change.</p><pre><code>@AgentX Fix CSV exports that include empty records.\nKeep the existing column order and add a regression test.\nReport the changed files and the checks that ran.</code></pre><h3>What happens next</h3><p>The request gets a thread. The agent prepares a workspace, posts progress and returns a result. Initial workspace preparation can take several minutes.</p><p>If an action asks for confirmation, read it before choosing <strong>Approve</strong> or <strong>Cancel</strong>. The project’s policy determines which orchestrator actions need confirmation.</p>"
+      },
+      {
+        "id": "review",
+        "title": "2. Inspect the work",
+        "html": "<p>Read the changed files and available test output. Check which commands passed, failed or were not run. A completed coding task can still have failing or missing checks.</p><ul><li>Does the diff solve the requested problem?</li><li>Do the tests cover the behavior you care about?</li><li>Is anything failed, skipped or not verified?</li></ul><p><a href=\"../evidence/index.html\">How to read the check results →</a></p>"
+      },
+      {
+        "id": "continue",
+        "title": "3. Ask for a follow-up",
+        "html": "<p>Reply in the same thread after the current work has ended. The follow-up uses the same workspace and conversation.</p><pre><code>@AgentX Also handle a file with only empty records.\nKeep the existing changes and rerun the relevant checks.</code></pre>"
+      },
+      {
+        "id": "pull-request",
+        "title": "4. Request a draft PR",
+        "html": "<pre><code>@AgentX Open a draft pull request for this change.</code></pre><p>Open the returned PR link. Review the diff, task evidence and repository CI. A draft PR can contain unfinished work or failing checks. <strong>You decide what gets merged.</strong></p>"
+      },
+      {
+        "id": "finish",
+        "title": "5. Preserve the work, then close",
+        "html": "<p>When you are finished, ask to close the workspace.</p><pre><code>@AgentX Close this workspace.</code></pre><p>If closure reports unpublished work, preserve or publish the changes before trying again. Cancellation stops current work; closing a workspace is a separate action.</p><p><a href=\"../operations/index.html\">Manage the workspace →</a></p>"
+      }
+    ]
+  },
+  {
+    "slug": "coding-tools",
+    "title": "Connect your coding tool",
+    "group": "Work with Rovara",
+    "lead": "Delegate from Claude Code, Codex or Cursor through an MCP connection.",
+    "kind": "Guide",
+    "sections": [
+      {
+        "id": "before-you-start",
+        "title": "Before you start",
+        "html": "<p>You need a deployed environment, project access and the installed <code>agentx</code> CLI. Public installation instructions are coming soon. These commands connect an existing environment; they do not deploy it.</p><p>Rovara is the public name. Existing command and tool names still use <code>AgentX</code> and <code>agentx</code>.</p>"
+      },
+      {
+        "id": "connect",
+        "title": "1. Add the MCP connection",
+        "html": "<p>Run the command for the client you use.</p><h3>Claude Code</h3><pre><code>agentx mcp install --client claude-code</code></pre><h3>Codex</h3><pre><code>agentx mcp install --client codex</code></pre><h3>Cursor</h3><pre><code>agentx mcp install --client cursor</code></pre><p>Reopen your client if the server does not appear. Complete sign-in when prompted.</p>"
+      },
+      {
+        "id": "delegate",
+        "title": "2. Give complete instructions",
+        "html": "<p>Ask your coding tool to find your projects and delegate the task:</p><pre><code>List my available AgentX projects.\nIn export-service, fix CSV exports that include empty records.\nKeep the column order, add a regression test,\nand report the changed files and check evidence.</code></pre><p>The remote worker receives the task instructions, not your entire local conversation. Include the details it needs.</p>"
+      },
+      {
+        "id": "inspect",
+        "title": "3. Follow the result",
+        "html": "<p>You receive a task ID. Ask your client to check it or wait for it. After the task ends, inspect the summary, changed files, available artifacts and any PR links.</p><pre><code>Check the status of task &lt;task-id&gt; and show its latest progress.</code></pre><p>A wait can time out while the task continues. Check the same task rather than creating a duplicate. <a href=\"../mcp/index.html\">MCP tool reference →</a></p>"
+      },
+      {
+        "id": "continue",
+        "title": "4. Continue or open a PR",
+        "html": "<p>Ask for follow-up work after the current task has ended. The same workspace and branch are reused.</p><pre><code>Continue task &lt;task-id&gt;. Also cover a file with only empty records.\nKeep the existing changes and rerun the relevant checks.</code></pre><p>When ready for review, ask to open a draft PR. Check the task again to find its URL; PR creation can finish after the tool call returns.</p>"
+      },
+      {
+        "id": "share",
+        "title": "Sharing into Slack",
+        "html": "<p>Tasks are private by default unless the project requires sharing. <strong>View</strong> mode lets channel members watch. <strong>Continue</strong> mode, when allowed, lets them send follow-ups in the thread. Check the channel and mode before sharing.</p><p>When finished, close the task to release its workspace. <a href=\"../operations/index.html\">Workspace actions →</a></p>"
+      }
+    ]
+  },
+  {
+    "slug": "evidence",
+    "title": "Review changes and checks",
+    "group": "Work with Rovara",
+    "lead": "Understand the diff and the evidence before deciding what to merge.",
+    "kind": "Guide",
+    "sections": [
+      {
+        "id": "review",
+        "title": "Start with the change",
+        "html": "<p>Read the diff against the task you requested. Then inspect the named checks, their output and anything that was not verified. The agent’s summary is useful context; the diff and output are what you inspect.</p>"
+      },
+      {
+        "id": "results",
+        "title": "Read the result",
+        "html": "<div class=\"doc-table-wrap\"><table><thead><tr><th>Result</th><th>Meaning</th><th>Your next step</th></tr></thead><tbody><tr><td>Passed</td><td>The named command passed in that run.</td><td>Check that it covers your change.</td></tr><tr><td>Regression</td><td>A check passed before and fails now.</td><td>Inspect the failure and ask for a fix.</td></tr><tr><td>Already failing</td><td>The check failed before the change too.</td><td>Decide whether this task should address it.</td></tr><tr><td>No baseline</td><td>There is no earlier result for comparison.</td><td>Read the current output without assuming an earlier pass.</td></tr><tr><td>Not verified / not run</td><td>The required observation is missing.</td><td>Read the reason and request the missing check if needed.</td></tr></tbody></table></div><p>When a previously passing check regresses, the runtime gives the agent at most one extra attempt. Any remaining failure stays visible.</p>"
+      },
+      {
+        "id": "layers",
+        "title": "Know which checks you are looking at",
+        "html": "<dl><dt>Task checks</dt><dd>At a normal session finish, the runtime reruns usable checks and compares before/after where possible. Results can be saved in <code>checks.json</code>.</dd><dt>PR preparation checks</dt><dd>Publication prepares the candidate and runs readiness commands. Configured CodeBuild gates produce additional evidence.</dd><dt>Repository CI</dt><dd>Your repository’s checks and merge rules run through its normal GitHub review process.</dd></dl><p>A passing result from one layer does not establish that every other check ran on the same candidate. Check the command, environment and candidate reference attached to the evidence.</p>"
+      },
+      {
+        "id": "pull-requests",
+        "title": "Review a draft PR",
+        "html": "<p>A draft PR is ready for your review; it can still contain failing or missing checks. Read the check report alongside the diff and your repository’s CI. <strong>You decide what gets merged.</strong></p><p>CodeBuild results add evidence. Your repository’s merge rules determine which checks must pass before merging.</p><details><summary>Technical detail: PR publication paths</summary><p>A reporting-enabled new PR can open as a draft with failing checks described. Older publication paths may refuse a new PR when readiness fails. Appending or syncing an existing PR refuses failing readiness checks. CodeBuild results do not automatically block PR publication.</p></details>"
+      },
+      {
+        "id": "recorded-run",
+        "title": "Inspect a real example",
+        "html": "<p>A saved Django task shows the actual patch and test output behind one benchmark result.</p><a class=\"doc-inline-cta\" href=\"../benchmarks/index.html\">Read the recorded task →</a>"
+      },
+      {
+        "id": "example",
+        "title": "Review checklist",
+        "html": "<ul><li>Does the change meet the request and preserve its constraints?</li><li>Which checks actually ran, on which code, in which environment?</li><li>What failed, regressed or could not be verified?</li><li>Do task evidence and repository CI cover the PR you are reviewing?</li><li>What additional check or human review do you need?</li></ul><p>If an important integration could not be tested, keep that gap visible and request the check before merging.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "operations",
+    "title": "Workspaces and costs",
+    "group": "Work with Rovara",
+    "lead": "Keep the context you need, stop the work you do not, and understand what remains on the bill.",
+    "kind": "Guide",
+    "sections": [
+      {
+        "id": "continue",
+        "title": "Come back to the same workspace",
+        "html": "<p>Follow-ups reuse the files and conversation state. Idle compute can stop while the workspace remains. Continue the same task or Slack thread when you want to pick up where it left off.</p><p>Retained storage still costs money while compute is idle.</p>"
+      },
+      {
+        "id": "actions",
+        "title": "Cancel, close or remove",
+        "html": "<div class=\"doc-table-wrap\"><table><thead><tr><th>Action</th><th>What it does</th><th>What to remember</th></tr></thead><tbody><tr><td>Cancel a task</td><td>Stops the current work.</td><td>Inspect status and any partial changes. This is not workspace closure.</td></tr><tr><td>Close a workspace</td><td>Checks for unpublished work before releasing workspace storage.</td><td>Preserve unfinished changes if closure refuses.</td></tr><tr><td>Remove the environment</td><td>A separate operator teardown procedure.</td><td>Use the release-matched instructions when published.</td></tr></tbody></table></div><p><a href=\"../../how-it-works/index.html#continue\">See the workspace lifecycle →</a></p>"
+      },
+      {
+        "id": "status",
+        "title": "Understand task status",
+        "html": "<p>Coding-tool tasks can be <code>STARTING</code>, <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELLED</code>, <code>INTERRUPTED</code> or <code>CLOSED</code>.</p><p><code>SUCCEEDED</code> describes task execution, not a guarantee that every check passed. A timed-out wait can leave the task running. Read its current status and evidence before retrying.</p>"
+      },
+      {
+        "id": "costs",
+        "title": "What you pay for",
+        "html": "<p>You pay for AWS services, retained storage and model usage. Task usage telemetry, installer estimates and budget alerts help explain usage. Budget alerts are notifications, not spending caps.</p><div class=\"doc-callout\"><strong>Illustrative estimate: about $211 per month</strong><p>Assumes us-east-1, default Bedrock models, 1,000 turns, 100 worker sessions, 60 instance-hours and 10 retained workspaces. The source pricing calculation returns $211.13. This is an example, not a subscription price; actual usage and prices vary.</p></div>"
+      },
+      {
+        "id": "health",
+        "title": "Check environment health",
+        "html": "<p>With an installed CLI and operator access, use:</p><pre><code>agentx --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre><p>Read the reported failures before making changes. Public upgrade, recovery and teardown instructions will arrive with the installation guide.</p><p><a href=\"../troubleshooting/index.html\">Troubleshoot a problem →</a></p>"
+      }
+    ]
+  },
+  {
+    "slug": "configuration",
+    "title": "Projects and checks",
+    "group": "Configure",
+    "lead": "Set the repositories, setup commands and checks the coding agent should use.",
+    "kind": "Configuration",
+    "sections": [
+      {
+        "id": "project-file",
+        "title": "Define a project",
+        "html": "\n            \n            <p>\n              A project file names repositories, setup commands,\n              readiness checks, and orchestration guidance. It contains\n              credential references, not secret values. Deployment and sign-in\n              settings belong to a separate deployment file.\n            </p>\n            <h3>Example project configuration</h3>\n            <pre><code>name: export-service\nrevision: 1\nrepositories:\n  - name: export-service\n    url: https://github.com/example/export-service.git\n    path: repo/export-service\n    defaultBranch: main\n    credentialRef: github-agentx-sdlc\nsetup:\n  - cwd: repo/export-service\n    executable: npm\n    args: [ci]\n    timeoutSeconds: 600\nreadiness:\n  - cwd: repo/export-service\n    executable: npm\n    args: [test]\n    timeoutSeconds: 600\norchestratorInstructions: &gt;-\n  Delegate repository reads, edits, builds, and tests\n  to the remote AgentX worker.</code></pre>\n            <p>\n              Replace the example repository and credential reference with your\n              configured project values. Use <code>agentx admin project register --help</code> to see the registration options for your installed version. Increase the immutable revision before\n              changing a registered definition.\n            </p>\n          "
+      },
+      {
+        "id": "checks",
+        "title": "Choose the checks",
+        "html": "\n            \n            <p>\n              Use readiness commands for your test suite, lint, or type check.\n              Each command has a working directory, executable, arguments, and\n              timeout. If no readiness commands are available, the runtime can\n              use recognized agent test commands; that gives narrower coverage.\n            </p>\n            <p>\n              A configured devcontainer runs shell, setup, and readiness in the\n              prepared project environment. Adding one to a later project\n              revision does not move an existing workspace into it.\n            </p>\n          "
+      },
+      {
+        "id": "access",
+        "title": "Models, connections and access",
+        "html": "\n            \n            <dl>\n              <dt>Models</dt>\n              <dd>\n                Choose approved provider/model pairs. Worker and orchestration\n                configuration are distinct. External providers receive model\n                requests outside AWS.\n              </dd>\n              <dt>Connectors</dt>\n              <dd>\n                Linear, Jira, Asana, GitHub, and remote MCP tools have\n                configured project scopes and server-side credential handling.\n              </dd>\n              <dt>Action policy</dt>\n              <dd>\n                Rules allow, ask, or deny orchestrator tool calls. They do not\n                gate every shell command or file edit on the coding worker.\n              </dd>\n              <dt>Developer tasks</dt>\n              <dd>\n                Project settings control whether coding-tool tasks are enabled\n                and how they may be shared into Slack.\n              </dd>\n            </dl>\n            <p>\n              Do not place credentials in command environment fields or project\n              YAML. Verify scope and provider availability before enabling a\n              connection.\n            </p>\n          "
+      }
+    ]
+  },
+  {
+    "slug": "mcp",
+    "title": "MCP tool reference",
+    "group": "Reference",
+    "lead": "The developer tools exposed to Claude Code, Codex and Cursor by the AgentX MCP server.",
+    "kind": "Reference",
+    "sections": [
+      {
+        "id": "connect",
+        "title": "Connect a client",
+        "html": "<p>Start with the <a href=\"../coding-tools/index.html\">coding-tool connection guide</a>. Tool names keep the <code>agentx_</code> prefix. The coding client calls these tools; you normally ask for the action in plain language.</p>"
+      },
+      {
+        "id": "tools",
+        "title": "Developer tools",
+        "html": "<div class=\"doc-table-wrap\"><table><thead><tr><th>Tool</th><th>Use</th></tr></thead><tbody><tr><td><code>agentx_whoami</code></td><td><strong>Check your environment and sign-in</strong><br>Returns developer identity, environment and API versions.</td></tr><tr><td><code>agentx_list_projects</code></td><td><strong>Find projects you can use</strong><br>Returns authorized projects and their task/sharing policies.</td></tr><tr><td><code>agentx_start_task</code></td><td><strong>Delegate a task</strong><br>Give the exact project name and complete instructions. Returns a task ID; wait_seconds is optional.</td></tr><tr><td><code>agentx_get_task</code></td><td><strong>Inspect status and results</strong><br>Returns progress, changed files, artifacts and PR links when available.</td></tr><tr><td><code>agentx_wait_for_task</code></td><td><strong>Wait for work to end</strong><br>Waits 1–600 seconds. A timeout does not stop the task.</td></tr><tr><td><code>agentx_list_tasks</code></td><td><strong>Find your existing tasks</strong><br>Lists tasks; use the returned IDs to inspect or continue them.</td></tr><tr><td><code>agentx_continue_task</code></td><td><strong>Send a follow-up</strong><br>Requires the task ID and complete new instructions. Reuses the workspace and branch after the current run ends.</td></tr><tr><td><code>agentx_cancel_task</code></td><td><strong>Stop current work</strong><br>Cancels the task; cancelling a wait alone does not do this.</td></tr><tr><td><code>agentx_close_task</code></td><td><strong>Release the workspace</strong><br>Checks for unpublished work; inspect the result if closure refuses.</td></tr><tr><td><code>agentx_share_task</code></td><td><strong>Share into the project’s Slack channel</strong><br>View lets others watch; continue permits follow-ups when project policy allows.</td></tr><tr><td><code>agentx_open_pull_request</code></td><td><strong>Request a PR</strong><br>Requires task ID and title. Draft defaults to true; inspect the task later for the PR URL.</td></tr></tbody></table></div>"
+      },
+      {
+        "id": "retry",
+        "title": "Waits and retries",
+        "html": "<p>Waits can time out without cancelling the task. Check the existing task before starting duplicate work. Mutating tools use request IDs to recognize retries; a new request ID means a new action.</p><p>Continuing a task that is still running returns <code>TASK_BUSY</code>. Wait for its current run to end.</p>"
+      },
+      {
+        "id": "permissions",
+        "title": "Access and sharing",
+        "html": "<p>Project access and task policy are enforced by the server. Sharing into Slack must follow that project’s channel and sharing policy. Additional admin tools depend on a valid admin sign-in; they are outside this developer-tool table.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "benchmarks",
+    "title": "Recorded benchmark example",
+    "group": "Reference",
+    "lead": "A real code change with its saved test output, grader result and method.",
+    "kind": "Example",
+    "sections": [
+      {
+        "id": "recorded-run",
+        "title": "Fixing Django’s username validation",
+        "html": "\n            \n            \n            <p>\n              Django’s ASCII and Unicode username validators accepted a trailing\n              newline. In this saved SWE-bench Verified run, AgentX changed both\n              regular expressions to require a complete match.\n            </p>\n            <p>\n              The recorded grader marked the task resolved. Its three bug checks\n              and nineteen regression checks passed; the raw output records 22\n              tests and exit code 0.\n            </p>\n            <div class=\"artifact-links\">\n              <a href=\"../../assets/evidence/django-11099/request-summary.txt\"\n                >Task request summary</a\n              >\n              <a href=\"../../assets/evidence/django-11099/patch.diff\" download\n                >Download the generated patch</a\n              >\n              <a\n                href=\"../../assets/evidence/django-11099/test-output.txt\"\n                download\n                >Download raw harness test output</a\n              >\n              <a\n                href=\"../../assets/evidence/django-11099/harness-report.json\"\n                download\n                >Download benchmark grader report</a\n              >\n              <a href=\"../../assets/evidence/django-11099/record.json\" download\n                >Download run metadata and artifact hashes</a\n              >\n            </div>\n            <details id=\"recorded-test-output\">\n              <summary>Read the recorded test result</summary>\n              <div class=\"report-detail\">\n                <p>\n                  Raw output excerpts. Environment setup and database logs are\n                  omitted here; the downloadable output is unchanged.\n                </p>\n                <pre><code>test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok\ntest_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok\ntest_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest) ... ok\ntest_help_text (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok\ntest_validate (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok\ntest_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok\ntest_validate_django_supplied_file (auth_tests.test_validators.CommonPasswordValidatorTest) ... ok\ntest_help_text (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok\ntest_validate (auth_tests.test_validators.MinimumLengthValidatorTest) ... ok\ntest_help_text (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok\ntest_validate (auth_tests.test_validators.NumericPasswordValidatorTest) ... ok\ntest_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_password_changed (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_password_changed_with_custom_validator (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_validate_password (auth_tests.test_validators.PasswordValidationTest) ... ok\ntest_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok\ntest_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.047s\n\nOK\n\n&gt;&gt;&gt;&gt;&gt; Test Exit Code: 0\n</code></pre>\n              </div>\n            </details>\n            <details>\n              <summary>What this record establishes</summary>\n              <div class=\"report-detail\">\n                <p>\n                  Task: <code>django__django-11099</code>. Run:\n                  <code>d13ed785-404c-56fc-8787-e95f88170d65</code>. Recorded\n                  session began 30 September 2026 at 23:22 UTC, using Claude\n                  Sonnet 4.6 through Amazon Bedrock.\n                </p>\n                <p>\n                  The patch, test output, and grader report are unchanged copies\n                  of saved local benchmark artifacts, inspected on 5 October.\n                  Their SHA-256 hashes are recorded. The request is a summary\n                  derived from the recorded prompt. The prompt itself suggested\n                  the regex-anchor fix and instructed the agent to edit source\n                  files only; the evaluation harness supplied the tests.\n                </p>\n                <p>\n                  The grader’s <code>FAIL_TO_PASS</code> and\n                  <code>PASS_TO_PASS</code> groups describe benchmark-defined\n                  expectations. They are not a fresh before/after run by this\n                  website reviewer. No new evaluation was run here.\n                </p>\n                <p>\n                  This is one selected historical task, not an aggregate solve\n                  rate, a model comparison, the full Django test suite, customer\n                  proof, or qualification of the current runtime verification\n                  loop. It does not show the live Slack-to-PR workflow. The\n                  benchmark generated a patch, not an AgentX pull request.\n                </p>\n                <p>\n                  <a href=\"https://github.com/django/django/pull/11099\"\n                    >Django’s historical upstream PR</a\n                  >\n                  provides problem context; it was not submitted by AgentX.\n                  Django is not a customer or endorser.\n                  <a\n                    href=\"../../assets/evidence/django-11099/Django-LICENSE.txt\"\n                    >Django license</a\n                  >\n                  ·\n                  <a href=\"../../assets/evidence/django-11099/README.txt\"\n                    >Record notes</a\n                  >.\n                </p>\n              </div>\n            </details>\n          "
+      },
+      {
+        "id": "method",
+        "title": "How to read this result",
+        "html": "<p>The report records <strong>3 bug checks</strong> and <strong>19 regression checks</strong> passing. Those are benchmark-defined expectations for this task. They are not a fresh verification run performed by the website reviewer.</p><p>Use this record to inspect one patch and its evidence. It does not establish an overall solve rate, customer outcomes or a captured Slack-to-PR workflow.</p>"
+      },
+      {
+        "id": "campaign",
+        "title": "Larger benchmark results",
+        "html": "<p>A campaign scorecard needs the complete run list, dataset and task selection, model settings, retries, failed or cancelled runs and raw grader reports. Each dataset should have its own report. A headline percentage alone leaves out too much context.</p><p>The downloadable records above are the currently inspected example. More campaign reports can be added once their complete artifacts are reconciled.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "troubleshooting",
+    "title": "Troubleshooting",
+    "group": "Help",
+    "lead": "Find the next useful check before repeating work or changing the environment.",
+    "kind": "Help",
+    "sections": [
+      {
+        "id": "channel",
+        "title": "The Slack channel does not respond",
+        "html": "<p>Confirm you used the installed app mention in a project-bound channel. Ask the administrator to check the channel binding and the registered project. A newly registered project revision applies to new threads.</p>"
+      },
+      {
+        "id": "sign-in",
+        "title": "The coding tool asks me to sign in",
+        "html": "<p>Complete the installed client’s sign-in flow. Ask the client to use <code>agentx_whoami</code> to confirm the environment and identity. If a tool reports a version mismatch, use the CLI version matched to that deployment.</p>"
+      },
+      {
+        "id": "projects",
+        "title": "My project is missing",
+        "html": "<p>Ask for <code>agentx_list_projects</code>. Project access may depend on membership in its Slack channel. Ask an administrator to check access and whether developer tasks are enabled. A Slack-unavailable notice can mean some channel-derived projects are temporarily missing.</p>"
+      },
+      {
+        "id": "wait",
+        "title": "The wait timed out",
+        "html": "<p>Ask for <code>agentx_get_task</code> with the same task ID. The task can still be running. Cancelling a wait only stops the wait.</p>"
+      },
+      {
+        "id": "busy",
+        "title": "A follow-up says TASK_BUSY",
+        "html": "<p>The previous run is still active. Wait for it to end, or explicitly cancel the task if you want to stop that work. Send the follow-up afterward.</p>"
+      },
+      {
+        "id": "unverified",
+        "title": "The result says not verified",
+        "html": "<p>Read the reason and identify which check is missing. Missing setup, an unavailable command or a stopped task can leave no usable result. Ask for the required check instead of assuming the change passed.</p>"
+      },
+      {
+        "id": "close",
+        "title": "The workspace will not close",
+        "html": "<p>Inspect the unpublished-work report and preserve the remaining changes. Close again after the work is published or otherwise safely kept. Do not confuse cancel with close.</p>"
+      },
+      {
+        "id": "operator",
+        "title": "The environment itself is unhealthy",
+        "html": "<p>An operator with access can run:</p><pre><code>agentx --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre><p>When asking for help, include the CLI version, task ID, exact error and relevant redacted output. Keep credentials out of reports.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "release",
+    "title": "Release and licence",
+    "group": "Help",
+    "lead": "Where the project stands and where to find the technical details.",
+    "kind": "Status",
+    "sections": [
+      {
+        "id": "availability",
+        "title": "Public installation is coming soon",
+        "html": "<p>The public self-hosted installation guide is not available yet. These docs explain the currently inspected code and show how to work with an environment your team has already deployed.</p><p><a href=\"../../deployment/index.html\">Installation status →</a></p>"
+      },
+      {
+        "id": "names",
+        "title": "Rovara and AgentX",
+        "html": "<p><strong>Rovara</strong> is the public-facing name used on this website. The current source project, CLI and integration tool names still use <strong>AgentX</strong>, <code>agentx</code> and <code>agentx_…</code>. Use those names in commands and existing app mentions.</p>"
+      },
+      {
+        "id": "license",
+        "title": "Current licence",
+        "html": "<p>The inspected product code uses <strong>FSL-1.1-ALv2</strong>. That is not an Apache-licensed open-source release at launch. The source licence grants a future Apache 2.0 licence effective on the second anniversary of the date the software is made available.</p><p>Read the complete <a href=\"../../assets/legal/AgentX-LICENSE.txt\">current product licence</a> for its terms. Website source and product source are separate repositories.</p>"
+      },
+      {
+        "id": "requirements",
+        "title": "Runtime requirements",
+        "html": "<p>The current AgentX package declares Node <strong>22.19.0</strong> or newer, <strong>below 23</strong>. Setup also depends on AWS, GitHub, Slack or a coding-tool connection, and configured model access. Installation instructions will specify the release-matched prerequisites.</p>"
+      },
+      {
+        "id": "documentation",
+        "title": "How these docs are maintained",
+        "html": "<p>Reviewed against AgentX mainline <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>, fetched 5 October 2026. Commands, MCP tools and project fields are checked against the source. The <a href=\"../../data/claims.json\">source reference record</a> preserves the reviewed implementation anchors.</p><p>Source review and a website build do not prove a clean AWS installation. A published release needs its own fresh installation and first-task verification.</p>"
+      }
+    ]
+  }
+]

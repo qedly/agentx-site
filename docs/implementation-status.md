@@ -47,3 +47,9 @@ objective_digest_match: true
 ```
 
 Verification is local website/media verification. Publication, product release and AWS acceptance are separate.
+
+## Documentation follow-up
+
+Rebuilt eleven docs pages around persistent grouped navigation, local search, copyable examples, page contents and a useful reading sequence. Added concepts, troubleshooting, exact eleven-tool MCP reference and a dedicated recorded benchmark. Simplified marketing footers; naming, licence, source pin and prerequisites have a dedicated page. Installation remains the owner's placeholder.
+
+Fresh code references match pinned mainline. Local fourteen-page checks, generator freshness, exact MCP tool names, benchmark artifact checks, JS syntax and static build pass. Browser exercised all docs at 1440px/390px, narrow reference at 320px, search/keyboard/copy/navigation and no-JavaScript fallback. The scoped postflight and sources are in `docs/research/docs-review-2026-10-05.md`. Full evaluation campaigns await raw artifacts through the existing AgentX sign-in; no aggregate numbers were published.

@@ -1,191 +1,201 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#faf9f6" />
-    <title>Hand off from your coding tool. — Rovara</title>
-    <meta
-      name="description"
-      content="Use Claude Code, Codex, or Cursor to delegate work to a remote AgentX task."
-    />
-    <link
-      rel="canonical"
-      href="https://rovara-dev.github.io/docs/coding-tools/"
-    />
-    <meta
-      property="og:title"
-      content="Hand off from your coding tool. — Rovara"
-    />
-    <meta
-      property="og:description"
-      content="Use Claude Code, Codex, or Cursor to delegate work to a remote AgentX task."
-    />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <link rel="icon" href="../../assets/icons/git-pull-request.svg" />
-    <link
-      rel="preload"
-      href="../../assets/fonts/inter-600.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="../../assets/site.css" />
-    <script src="../../assets/vendor/motion.js" defer></script>
-    <script src="../../assets/site.js" defer></script>
-    <link rel="stylesheet" href="../../assets/explanations.css" />
-    <link rel="stylesheet" href="../../assets/refined.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header shell">
-      <a class="wordmark" href="../../index.html" aria-label="Rovara home"
-        >Rovara</a
-      ><button
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-        aria-label="Open navigation"
-      >
-        <img
-          class="icon"
-          src="../../assets/icons/list.svg"
-          alt=""
-          width="24"
-          height="24"
-          aria-hidden="true"
-        />
-      </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-        <a href="../../index.html#product">Product</a
-        ><a href="../../how-it-works/index.html">How it works</a
-        ><a href="../../docs/index.html" aria-current="page">Docs</a
-        ><a class="button primary" href="../../deployment/index.html"
-          >Installation status
-          <img
-            class="icon white"
-            src="../../assets/icons/arrow-up-right.svg"
-            alt=""
-            width="24"
-            height="24"
-            aria-hidden="true"
-        /></a>
-      </nav>
-    </header>
-    <main id="main">
-      <div class="compact-intro shell">
-        <p class="eyebrow">Documentation</p>
-        <h1>Hand off from your coding tool.</h1>
-        <p class="intro-text">
-          Use Claude Code, Codex, or Cursor to delegate work to a remote AgentX
-          task.
-        </p>
-      </div>
-      <div class="reading-layout shell">
-        <nav class="doc-nav" aria-label="Documentation">
-          <a href="../index.html">Documentation home</a
-          ><a href="../tasks/index.html">First task in Slack</a
-          ><a href="../coding-tools/index.html" aria-current="page"
-            >Coding-tool handoff</a
-          ><a href="../configuration/index.html">Projects & checks</a
-          ><a href="../evidence/index.html">Evidence reference</a
-          ><a href="../operations/index.html">Workspace operations</a
-          ><a href="../../deployment/index.html">Installation — coming soon</a>
-        </nav>
-        <article class="doc-article">
-          <section>
-            <h2>Connect after installation</h2>
-            <p>
-              You need an installed environment, project access, and the
-              installed AgentX CLI. The public installation path is coming soon.
-            </p>
-            <p>Register the MCP connection for your client:</p>
-            <pre><code>agentx mcp install --client claude-code
-agentx mcp install --client codex
-agentx mcp install --client cursor</code></pre>
-            <p>
-              Choose the one command for your client. Reopen the client if it
-              does not show the new server. Sign in when prompted. These
-              commands configure a client connection; they do not deploy AgentX.
-            </p>
-          </section>
-          <section>
-            <h2>Delegate with complete instructions</h2>
-            <blockquote>
-              List my available AgentX projects. In the export-service project,
-              fix CSV exports that include empty records. Keep the column order,
-              add a regression test, and report the diff and check evidence.
-            </blockquote>
-            <p>
-              The client uses <code>agentx_list_projects</code> and
-              <code>agentx_start_task</code>. The remote worker receives the
-              task prompt, not your entire local conversation. Include all
-              requirements it needs.
-            </p>
-            <h3>Expected result</h3>
-            <p>
-              A task ID, then status, progress, summary, changed files,
-              artifacts, and PR links when available. Use
-              <code>agentx_get_task</code> or
-              <code>agentx_wait_for_task</code> to inspect it.
-            </p>
-            <h3>If waiting times out</h3>
-            <p>
-              A timed-out wait can leave the task running. Ask for its current
-              status instead of submitting duplicate work. Cancelling a wait is
-              different from cancelling the task.
-            </p>
-          </section>
-          <section>
-            <h2>Continue, share, and review</h2>
-            <p>
-              Use <code>agentx_continue_task</code> for a follow-up in the same
-              workspace. Once the task ends, request
-              <code>agentx_open_pull_request</code> for a draft PR, then inspect
-              its URL with <code>agentx_get_task</code>.
-            </p>
-            <p>
-              Tasks are private unless shared or project policy requires
-              sharing. <code>agentx_share_task</code> offers view mode or, when
-              allowed, continue mode so channel members can steer it. Inspect
-              the sharing destination and mode before asking to share.
-            </p>
-            <p>
-              When finished, <code>agentx_close_task</code> checks for
-              unpublished work before releasing the workspace.
-              <code>agentx_cancel_task</code> stops the current task; it is not
-              closure.
-            </p>
-          </section>
-          <div class="source-note">
-            Source reviewed: AgentX mainline <code>8acb7ac00c97</code> · 5
-            October 2026. These guides describe inspected code; the public
-            installation path is still in preparation.
-          </div>
-        </article>
-      </div>
-    </main>
-    <footer class="site-footer shell">
-      <div>
-        <a class="wordmark" href="../../index.html">Rovara</a>
-        <p>
-          Remote coding. Visible evidence.<br />Built on the AgentX project.
-        </p>
-      </div>
-      <div>
-        <p>
-          Public release in preparation<br />Current code license:
-          FSL-1.1-ALv2.<br />Source-available; not an open-source release.
-        </p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="../../how-it-works/index.html">Workflow</a
-        ><a href="../../docs/index.html">Docs</a
-        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
-          >Website source</a
-        >
-      </nav>
-    </footer>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Connect your coding tool — Rovara</title>
+<meta name="description" content="Delegate from Claude Code, Codex or Cursor through an MCP connection.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/coding-tools/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="index.html" aria-current="page">Connect your coding tool</a>
+<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Work with Rovara</div>
+<header class="docs-title">
+<p class="docs-kind">Guide</p>
+<h1>Connect your coding tool</h1>
+<p>Delegate from Claude Code, Codex or Cursor through an MCP connection.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#before-you-start">Before you start</a>
+<a href="#connect">1. Add the MCP connection</a>
+<a href="#delegate">2. Give complete instructions</a>
+<a href="#inspect">3. Follow the result</a>
+<a href="#continue">4. Continue or open a PR</a>
+<a href="#share">Sharing into Slack</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="before-you-start">
+<h2>Before you start<a class="doc-heading-link" href="#before-you-start" aria-label="Link to section Before you start">#</a>
+</h2>
+<p>You need a deployed environment, project access and the installed <code>agentx</code> CLI. Public installation instructions are coming soon. These commands connect an existing environment; they do not deploy it.</p>
+<p>Rovara is the public name. Existing command and tool names still use <code>AgentX</code> and <code>agentx</code>.</p>
+</section>
+<section id="connect">
+<h2>1. Add the MCP connection<a class="doc-heading-link" href="#connect" aria-label="Link to section 1. Add the MCP connection">#</a>
+</h2>
+<p>Run the command for the client you use.</p>
+<h3>Claude Code</h3>
+<pre>
+<code>agentx mcp install --client claude-code</code>
+</pre>
+<h3>Codex</h3>
+<pre>
+<code>agentx mcp install --client codex</code>
+</pre>
+<h3>Cursor</h3>
+<pre>
+<code>agentx mcp install --client cursor</code>
+</pre>
+<p>Reopen your client if the server does not appear. Complete sign-in when prompted.</p>
+</section>
+<section id="delegate">
+<h2>2. Give complete instructions<a class="doc-heading-link" href="#delegate" aria-label="Link to section 2. Give complete instructions">#</a>
+</h2>
+<p>Ask your coding tool to find your projects and delegate the task:</p>
+<pre>
+<code>List my available AgentX projects.
+In export-service, fix CSV exports that include empty records.
+Keep the column order, add a regression test,
+and report the changed files and check evidence.</code>
+</pre>
+<p>The remote worker receives the task instructions, not your entire local conversation. Include the details it needs.</p>
+</section>
+<section id="inspect">
+<h2>3. Follow the result<a class="doc-heading-link" href="#inspect" aria-label="Link to section 3. Follow the result">#</a>
+</h2>
+<p>You receive a task ID. Ask your client to check it or wait for it. After the task ends, inspect the summary, changed files, available artifacts and any PR links.</p>
+<pre>
+<code>Check the status of task &lt;task-id&gt; and show its latest progress.</code>
+</pre>
+<p>A wait can time out while the task continues. Check the same task rather than creating a duplicate. <a href="../mcp/index.html">MCP tool reference →</a>
+</p>
+</section>
+<section id="continue">
+<h2>4. Continue or open a PR<a class="doc-heading-link" href="#continue" aria-label="Link to section 4. Continue or open a PR">#</a>
+</h2>
+<p>Ask for follow-up work after the current task has ended. The same workspace and branch are reused.</p>
+<pre>
+<code>Continue task &lt;task-id&gt;. Also cover a file with only empty records.
+Keep the existing changes and rerun the relevant checks.</code>
+</pre>
+<p>When ready for review, ask to open a draft PR. Check the task again to find its URL; PR creation can finish after the tool call returns.</p>
+</section>
+<section id="share">
+<h2>Sharing into Slack<a class="doc-heading-link" href="#share" aria-label="Link to section Sharing into Slack">#</a>
+</h2>
+<p>Tasks are private by default unless the project requires sharing. <strong>View</strong> mode lets channel members watch. <strong>Continue</strong> mode, when allowed, lets them send follow-ups in the thread. Check the channel and mode before sharing.</p>
+<p>When finished, close the task to release its workspace. <a href="../operations/index.html">Workspace actions →</a>
+</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../tasks/index.html">
+<span>Previous</span>Your first task in Slack</a>
+<a href="../evidence/index.html">
+<span>Next</span>Review changes and checks →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#before-you-start">Before you start</a>
+<a href="#connect">1. Add the MCP connection</a>
+<a href="#delegate">2. Give complete instructions</a>
+<a href="#inspect">3. Follow the result</a>
+<a href="#continue">4. Continue or open a PR</a>
+<a href="#share">Sharing into Slack</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
 </html>

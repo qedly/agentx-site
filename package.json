@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/preview.mjs",
-    "check": "node scripts/check-site.mjs",
+    "check": "node scripts/generate-docs.mjs --check && node scripts/check-site.mjs",
     "check:claims": "node scripts/check-product-claims.mjs",
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "docs:generate": "node scripts/generate-docs.mjs"
   },
   "engines": {
     "node": ">=20"
