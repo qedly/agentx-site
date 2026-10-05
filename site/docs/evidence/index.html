@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>Evidence you can inspect. — Rovara</title>
+    <meta
+      name="description"
+      content="Read the patch, the checks, and their limits together."
+    />
+    <link rel="canonical" href="https://rovara-dev.github.io/docs/evidence/" />
+    <meta property="og:title" content="Evidence you can inspect. — Rovara" />
+    <meta
+      property="og:description"
+      content="Read the patch, the checks, and their limits together."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../assets/icons/git-pull-request.svg" />
+    <link
+      rel="preload"
+      href="../../assets/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <script src="../../assets/vendor/motion.js" defer></script>
+    <script src="../../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../../assets/explanations.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="wordmark" href="../../index.html" aria-label="Rovara home"
+        >Rovara</a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        <img
+          class="icon"
+          src="../../assets/icons/list.svg"
+          alt=""
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../../index.html#product">Product</a
+        ><a href="../../how-it-works/index.html">How it works</a
+        ><a href="../../docs/index.html" aria-current="page">Docs</a
+        ><a class="button primary" href="../../deployment/index.html"
+          >Install
+          <img
+            class="icon white"
+            src="../../assets/icons/arrow-up-right.svg"
+            alt=""
+            width="24"
+            height="24"
+            aria-hidden="true"
+        /></a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="compact-intro shell">
+        <p class="eyebrow">Documentation</p>
+        <h1>Evidence you can inspect.</h1>
+        <p class="intro-text">
+          Read the patch, the checks, and their limits together.
+        </p>
+      </div>
+      <div class="reading-layout shell">
+        <nav class="doc-nav" aria-label="Documentation">
+          <a href="../index.html">Documentation home</a
+          ><a href="../tasks/index.html">First task in Slack</a
+          ><a href="../coding-tools/index.html">Coding-tool handoff</a
+          ><a href="../configuration/index.html">Projects & checks</a
+          ><a href="../evidence/index.html" aria-current="page"
+            >Evidence reference</a
+          ><a href="../operations/index.html">Workspace operations</a
+          ><a href="../../deployment/index.html">Installation — coming soon</a>
+        </nav>
+        <article class="doc-article">
+          <section>
+            <h2>Three different layers</h2>
+            <div class="explanation-rows">
+              <div>
+                <h3>Task checks</h3>
+                <p>
+                  The verification extension reruns usable checks when the
+                  coding session finishes and compares before/after where
+                  possible. It can produce <code>checks.json</code>.
+                </p>
+              </div>
+              <div>
+                <h3>Publication checks</h3>
+                <p>
+                  PR publication prepares the candidate and runs readiness
+                  checks. Configured CodeBuild gates produce additional
+                  evidence.
+                </p>
+              </div>
+              <div>
+                <h3>Repository CI</h3>
+                <p>
+                  Your repository’s checks and merge rules remain authoritative
+                  for its normal review process.
+                </p>
+              </div>
+            </div>
+            <p>
+              A passing task report does not establish that all publication
+              checks or repository CI ran on the same candidate.
+            </p>
+          </section>
+          <section>
+            <h2>Interpret the result</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Result</th>
+                  <th>What it means</th>
+                  <th>What to inspect</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Passed</td>
+                  <td>The named command passed during this run.</td>
+                  <td>Command, output, environment, coverage.</td>
+                </tr>
+                <tr>
+                  <td>Regression</td>
+                  <td>It passed before and fails now.</td>
+                  <td>Before/after output and the patch.</td>
+                </tr>
+                <tr>
+                  <td>Already failing</td>
+                  <td>It failed before and still fails.</td>
+                  <td>Whether the requested change addresses it.</td>
+                </tr>
+                <tr>
+                  <td>No baseline</td>
+                  <td>There is no earlier result for comparison.</td>
+                  <td>The current outcome; no invented prior pass.</td>
+                </tr>
+                <tr>
+                  <td>Not verified / not run</td>
+                  <td>The required observation is missing.</td>
+                  <td>Reason and the next check needed.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              A regression gets at most one extra coding attempt. Remaining
+              failures stay visible. Checks provide bounded evidence; they do
+              not prove all code is correct.
+            </p>
+          </section>
+          <section id="example">
+            <p class="eyebrow">Constructed example / not runtime proof</p>
+            <h2>Inspect a CSV task packet.</h2>
+            <p>
+              This example explains what a reviewer should look for. It is not
+              output from an observed AgentX run and is not a downloadable
+              <code>checks.json</code> schema.
+            </p>
+            <details id="diff" open>
+              <summary>Code diff — proposed empty-record handling</summary>
+              <div class="report-detail">
+                <pre><code>--- src/export/csv.ts
++++ src/export/csv.ts
+- return records.map(formatRow).join("\n");
++ return records
++   .filter(record =&gt; record != null)
++   .map(formatRow)
++   .join("\n");</code></pre>
+                <p>
+                  Review whether skipping null records is the intended behavior
+                  and whether legitimate empty field values are preserved.
+                </p>
+              </div>
+            </details>
+            <details id="test-output">
+              <summary>Test evidence — before, after, and unavailable</summary>
+              <div class="report-detail">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Check</th>
+                      <th>Before</th>
+                      <th>After</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Existing CSV tests</td>
+                      <td>Passed</td>
+                      <td>Passed</td>
+                    </tr>
+                    <tr>
+                      <td>New null-record test</td>
+                      <td>No baseline</td>
+                      <td>Passed</td>
+                    </tr>
+                    <tr>
+                      <td>Database integration</td>
+                      <td>Unavailable</td>
+                      <td>Not run</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>
+                  Illustrative outcomes only. No pass count, timing, exit code,
+                  or raw output is invented. A real packet will link the
+                  command, environment, output, and candidate.
+                </p>
+              </div>
+            </details>
+            <details id="check-report">
+              <summary>
+                Review questions — what does the evidence cover?
+              </summary>
+              <div class="report-detail">
+                <ul>
+                  <li>Which commands actually ran, and where?</li>
+                  <li>Which had an earlier result?</li>
+                  <li>Did any passing check regress?</li>
+                  <li>Which checks were skipped, unavailable, or not rerun?</li>
+                  <li>
+                    Does the evidence apply to the candidate being reviewed?
+                  </li>
+                </ul>
+                <p>
+                  In this scenario, the database integration is unverified.
+                  Request it before merging if it is required for this change.
+                </p>
+              </div>
+            </details>
+          </section>
+          <section>
+            <h2>Publication behavior</h2>
+            <p>
+              A reporting-enabled new PR can be opened as a draft with failing
+              checks. Older compatible publication paths can refuse a new PR
+              when readiness fails. Appending or syncing an existing PR still
+              refuses a failing readiness check.
+            </p>
+            <p>
+              CodeBuild results provide evidence, not an automatic publication
+              gate. A draft PR alone is not proof that the change is ready. Your
+              team decides what gets merged.
+            </p>
+          </section>
+          <div class="source-note">
+            Source reviewed: AgentX mainline <code>8acb7ac00c97</code> · 5
+            October 2026. These guides describe inspected code; the public
+            installation path is still in preparation.
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer shell">
+      <div>
+        <a class="wordmark" href="../../index.html">Rovara</a>
+        <p>
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
+        </p>
+      </div>
+      <div>
+        <p>
+          Public release in preparation<br />Current code license:
+          FSL-1.1-ALv2.<br />Source-available; not an open-source release.
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../../how-it-works/index.html">Workflow</a
+        ><a href="../../docs/index.html">Docs</a
+        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
+          >Website source</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>Your first task in Slack. — Rovara</title>
+    <meta
+      name="description"
+      content="A bounded change, check evidence, and a follow-up. For a project channel already connected to an installed environment."
+    />
+    <link rel="canonical" href="https://rovara-dev.github.io/docs/tasks/" />
+    <meta property="og:title" content="Your first task in Slack. — Rovara" />
+    <meta
+      property="og:description"
+      content="A bounded change, check evidence, and a follow-up. For a project channel already connected to an installed environment."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../assets/icons/git-pull-request.svg" />
+    <link
+      rel="preload"
+      href="../../assets/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <script src="../../assets/vendor/motion.js" defer></script>
+    <script src="../../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../../assets/explanations.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="wordmark" href="../../index.html" aria-label="Rovara home"
+        >Rovara</a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        <img
+          class="icon"
+          src="../../assets/icons/list.svg"
+          alt=""
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../../index.html#product">Product</a
+        ><a href="../../how-it-works/index.html">How it works</a
+        ><a href="../../docs/index.html" aria-current="page">Docs</a
+        ><a class="button primary" href="../../deployment/index.html"
+          >Install
+          <img
+            class="icon white"
+            src="../../assets/icons/arrow-up-right.svg"
+            alt=""
+            width="24"
+            height="24"
+            aria-hidden="true"
+        /></a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="compact-intro shell">
+        <p class="eyebrow">Documentation</p>
+        <h1>Your first task in Slack.</h1>
+        <p class="intro-text">
+          A bounded change, check evidence, and a follow-up. For a project
+          channel already connected to an installed environment.
+        </p>
+      </div>
+      <div class="reading-layout shell">
+        <nav class="doc-nav" aria-label="Documentation">
+          <a href="../index.html">Documentation home</a
+          ><a href="../tasks/index.html" aria-current="page"
+            >First task in Slack</a
+          ><a href="../coding-tools/index.html">Coding-tool handoff</a
+          ><a href="../configuration/index.html">Projects & checks</a
+          ><a href="../evidence/index.html">Evidence reference</a
+          ><a href="../operations/index.html">Workspace operations</a
+          ><a href="../../deployment/index.html">Installation — coming soon</a>
+        </nav>
+        <article class="doc-article">
+          <section>
+            <h2>Before you start</h2>
+            <p>
+              Your admin has deployed the environment, registered the repository
+              and project, and bound this Slack channel to that project.
+              Installation instructions are coming soon.
+            </p>
+          </section>
+          <section>
+            <p class="eyebrow">01 / Request</p>
+            <h2>Give a complete, bounded task.</h2>
+            <div class="example-message">
+              <img
+                src="../../assets/icons/slack-icon.svg"
+                width="36"
+                height="36"
+                alt="Slack"
+              />
+              <div>
+                <b>Example request</b>
+                <p>
+                  @AgentX Fix CSV exports that include empty records. Add a
+                  regression test. Keep the existing column order. Report what
+                  changed and the commands that ran.
+                </p>
+              </div>
+            </div>
+            <p>
+              Use your workspace’s app mention. Say the expected behavior and
+              constraints. Repository inspection and changes happen on the
+              remote worker.
+            </p>
+            <h3>What you should see</h3>
+            <p>
+              A thread for this request with acknowledgement, workspace
+              preparation, progress, and a result. First workspace preparation
+              can take several minutes.
+            </p>
+            <h3>If it asks for confirmation</h3>
+            <p>
+              Inspect the proposed action. Approve runs that action; Cancel
+              drops it. Confirmation depends on the project action policy and
+              interpreted request.
+            </p>
+          </section>
+          <section>
+            <p class="eyebrow">02 / Inspect</p>
+            <h2>Read the work and its evidence.</h2>
+            <p>
+              Inspect changed files, the agent’s account, and the runtime’s
+              check report when available. Read failures and anything marked not
+              verified before treating the task as ready.
+            </p>
+            <a href="../evidence/index.html">How to interpret check evidence</a>
+            <h3>If the result is incomplete</h3>
+            <p>
+              Ask a specific follow-up in the same thread. For a stopped or
+              failed run, inspect the status and reported failure before
+              starting another task.
+            </p>
+          </section>
+          <section>
+            <p class="eyebrow">03 / Continue</p>
+            <h2>Refine it in the same thread.</h2>
+            <blockquote>
+              @AgentX Also handle a file with only empty records. Keep the
+              existing changes and rerun the relevant checks.
+            </blockquote>
+            <p>
+              Continuing the same thread reuses its workspace and conversation
+              context. Retained storage still costs money when compute is idle.
+            </p>
+          </section>
+          <section>
+            <p class="eyebrow">04 / Review</p>
+            <h2>Ask for the pull request.</h2>
+            <blockquote>
+              @AgentX Open a draft pull request for this change.
+            </blockquote>
+            <p>
+              PR creation is an explicit action. Inspect its URL, diff, check
+              evidence, and repository CI. A draft may contain failing checks;
+              your team decides what gets merged.
+            </p>
+          </section>
+          <section>
+            <p class="eyebrow">05 / Finish</p>
+            <h2>Close only after preserving the work.</h2>
+            <blockquote>@AgentX Close this workspace.</blockquote>
+            <p>
+              Closure checks for unpublished work. If it refuses, inspect the
+              unfinished changes and preserve them before retrying.
+              <a href="../operations/index.html">Stop, close, and cleanup</a>.
+            </p>
+          </section>
+          <div class="source-note">
+            Source reviewed: AgentX mainline <code>8acb7ac00c97</code> · 5
+            October 2026. These guides describe inspected code; the public
+            installation path is still in preparation.
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer shell">
+      <div>
+        <a class="wordmark" href="../../index.html">Rovara</a>
+        <p>
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
+        </p>
+      </div>
+      <div>
+        <p>
+          Public release in preparation<br />Current code license:
+          FSL-1.1-ALv2.<br />Source-available; not an open-source release.
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../../how-it-works/index.html">Workflow</a
+        ><a href="../../docs/index.html">Docs</a
+        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
+          >Website source</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

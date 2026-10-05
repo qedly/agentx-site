@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#faf9f6" />
+    <title>Give it a task. Get the work back. — Rovara</title>
     <meta
       name="description"
-      content="A coding agent in your AWS account. Delegate from Slack or your coding tool, inspect code changes and check evidence, and keep the final merge with your team."
+      content="A coding agent in your AWS account. Code changes and check evidence for your review."
     />
-    <title>Give it a task. Get the work back. — Rovara</title>
     <link rel="canonical" href="https://rovara-dev.github.io/" />
     <meta
       property="og:title"
@@ -16,17 +16,11 @@
     />
     <meta
       property="og:description"
-      content="A coding agent in your AWS account. Delegate from Slack or your coding tool, inspect code changes and check evidence, and keep the final merge with your team."
+      content="A coding agent in your AWS account. Code changes and check evidence for your review."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Rovara" />
-    <meta property="og:url" content="https://rovara-dev.github.io/" />
     <meta name="twitter:card" content="summary" />
-    <link
-      rel="icon"
-      href="assets/icons/git-pull-request.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="assets/icons/git-pull-request.svg" />
     <link
       rel="preload"
       href="assets/fonts/anton-400.woff2"
@@ -37,6 +31,7 @@
     <link rel="stylesheet" href="assets/site.css" />
     <script src="assets/vendor/motion.js" defer></script>
     <script src="assets/site.js" defer></script>
+    <link rel="stylesheet" href="assets/explanations.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -62,7 +57,7 @@
         ><a href="how-it-works/index.html">How it works</a
         ><a href="docs/index.html">Docs</a
         ><a class="button primary" href="deployment/index.html"
-          >Deployment guide
+          >Install
           <img
             class="icon white"
             src="assets/icons/arrow-up-right.svg"
@@ -81,14 +76,14 @@
         </div>
         <div class="hero-copy">
           <p>
-            Hand off a coding task from Slack or your coding tool. Rovara works
-            in your AWS account and brings back code changes and evidence from
-            tests and checks for you to inspect.
+            Rovara is a coding agent that works in your AWS account. Give it a
+            task from Slack or your coding tool. Get back code changes and
+            evidence from tests and checks to inspect.
           </p>
           <p class="authority">You decide what gets merged.</p>
           <div class="hero-actions">
             <a class="button primary" href="deployment/index.html"
-              >Deployment guide
+              >Install
               <img
                 class="icon white"
                 src="assets/icons/arrow-up-right.svg"
@@ -97,7 +92,7 @@
                 height="24"
                 aria-hidden="true" /></a
             ><a class="button" href="#workflow"
-              >Explore the workflow
+              >See a task unfold
               <img
                 class="icon"
                 src="assets/icons/arrow-right.svg"
@@ -115,14 +110,30 @@
         id="workflow"
         aria-labelledby="workflow-title"
       >
-        <div class="shell">
+        <div class="shell" data-journey>
           <h2 class="section-label" id="workflow-title">
             Illustrative workflow
           </h2>
+          <div class="journey-toolbar">
+            <p class="eyebrow">One task. Follow every handoff.</p>
+            <button class="motion-control" type="button" data-play hidden>
+              Play walkthrough
+            </button>
+          </div>
           <div class="workflow-grid">
             <article class="workflow-step">
               <p class="step-number">01</p>
-              <h3>Give it a task</h3>
+              <h3>
+                <button
+                  class="workflow-stage"
+                  data-step="0"
+                  type="button"
+                  aria-pressed="true"
+                  disabled
+                >
+                  Give it a task
+                </button>
+              </h3>
               <div class="step-visual slack-task">
                 <img
                   class="slack-logo"
@@ -145,7 +156,17 @@
             </article>
             <article class="workflow-step">
               <p class="step-number">02</p>
-              <h3>Rovara does the work</h3>
+              <h3>
+                <button
+                  class="workflow-stage"
+                  data-step="1"
+                  type="button"
+                  aria-pressed="false"
+                  disabled
+                >
+                  Rovara does the work
+                </button>
+              </h3>
               <div class="step-visual">
                 <img
                   class="aws-logo"
@@ -175,23 +196,33 @@
             </article>
             <article class="workflow-step">
               <p class="step-number">03</p>
-              <h3>Inspect the work</h3>
+              <h3>
+                <button
+                  class="workflow-stage"
+                  data-step="2"
+                  type="button"
+                  aria-pressed="false"
+                  disabled
+                >
+                  Inspect the work
+                </button>
+              </h3>
               <div class="step-visual evidence-visual">
                 <div class="diff-preview">
                   <div class="file-label">src/export/csv.ts</div>
                   <code
                     ><span class="diff-line removed"
-                      >− const rows = data.map(formatRow)</span
+                      >− records.map(formatRow)</span
                     ><span class="diff-line added"
-                      >+ const rows = data.map(formatRow)<br />&nbsp;&nbsp;&nbsp;&nbsp;.filter(Boolean)</span
+                      >+ records<br />&nbsp; .filter(r =&gt; r != null)<br />&nbsp;
+                      .map(formatRow)</span
                     ></code
                   >
                 </div>
                 <div class="evidence-buttons">
                   <a
                     class="evidence-button"
-                    href="#test-output"
-                    data-evidence="test-output"
+                    href="docs/evidence/index.html#test-output"
                     ><img
                       class="icon"
                       src="assets/icons/file-text.svg"
@@ -204,8 +235,7 @@
                     ></a
                   ><a
                     class="evidence-button"
-                    href="#check-report"
-                    data-evidence="check-report"
+                    href="docs/evidence/index.html#check-report"
                     ><img
                       class="icon"
                       src="assets/icons/file-text.svg"
@@ -230,7 +260,17 @@
             </article>
             <article class="workflow-step">
               <p class="step-number">04</p>
-              <h3>Your review</h3>
+              <h3>
+                <button
+                  class="workflow-stage"
+                  data-step="3"
+                  type="button"
+                  aria-pressed="false"
+                  disabled
+                >
+                  Your review
+                </button>
+              </h3>
               <div class="step-visual">
                 <div class="pr-icon">
                   <img
@@ -242,328 +282,308 @@
                 </div>
                 <div class="review-panel">
                   <b>Review changes</b>
-                  <p>Open a draft pull request for your review.</p>
+                  <p>Ask for a draft PR to review.</p>
                 </div>
               </div>
               <p class="step-caption">You decide what gets merged.</p>
             </article>
           </div>
-          <a class="continue-link" href="how-it-works/index.html#continue"
-            ><img
-              class="icon blue"
-              src="assets/icons/arrow-u-up-left.svg"
-              alt=""
-              width="24"
-              height="24"
-              aria-hidden="true"
-            />Continue in the same workspace</a
-          >
-        </div>
-      </section>
-      <section class="shell" aria-labelledby="return-title">
-        <h2 class="return-heading" id="return-title">
-          Pick up where the task left off.
-        </h2>
-        <div class="evidence-statement">
-          <h2><span>Code to review.</span><span>Evidence to inspect.</span></h2>
-          <p>
-            See the changes, the test output, and what ran or could not be
-            checked. Keep the final decision with your team.
-          </p>
-        </div>
-      </section>
-      <section class="editorial-section shell" id="use-cases">
-        <div class="section-intro">
-          <h2>Start with a task<br />you can review.</h2>
-          <p>
-            A focused bug fix, a small improvement, or a missing test. Give
-            Rovara a clear request and use the returned change to decide what
-            comes next.
-          </p>
-        </div>
-        <div class="task-examples">
-          <article class="task-example">
-            <p class="eyebrow">01 / Fix</p>
-            <h3>“Fix the CSV export bug.”</h3>
-            <p>
-              Describe the failure and the expected behavior. Inspect the patch
-              and the available checks before accepting it.
-            </p>
-          </article>
-          <article class="task-example">
-            <p class="eyebrow">02 / Improve</p>
-            <h3>“Add pagination to this endpoint.”</h3>
-            <p>
-              Delegate a bounded change while you work elsewhere. Follow up in
-              the same workspace when you want an adjustment.
-            </p>
-          </article>
-          <article class="task-example">
-            <p class="eyebrow">03 / Test</p>
-            <h3>“Add coverage for this edge case.”</h3>
-            <p>
-              Ask for a concrete test. Review what it exercises and read its
-              output alongside the code.
-            </p>
-          </article>
-        </div>
-      </section>
-      <section class="editorial-section shell" id="connections">
-        <div class="section-intro">
-          <h2>Start where<br />your team works.</h2>
-          <p>
-            Slack for the team conversation. Your coding tool for a developer
-            handoff. Project connections for useful context.
-          </p>
-        </div>
-        <div class="connections-grid">
-          <article class="connection-item">
-            <div class="brand-row">
-              <img
-                src="assets/icons/slack-icon.svg"
-                alt="Slack"
-                width="34"
-                height="34"
-              />
-            </div>
-            <h3>Give it a task in Slack.</h3>
-            <p>
-              Start in a project channel, follow the task in its thread, and ask
-              for a follow-up.
-            </p>
-          </article>
-          <article class="connection-item">
-            <div class="brand-row">
-              <img
-                src="assets/icons/claude-icon.svg"
-                alt="Claude Code"
-                width="34"
-                height="34"
-              /><img
-                src="assets/icons/openai-icon.svg"
-                alt="Codex"
-                width="34"
-                height="34"
-              /><img
-                src="assets/icons/cursor.svg"
-                alt="Cursor"
-                width="34"
-                height="34"
-              />
-            </div>
-            <h3>Hand off from your coding tool.</h3>
-            <p>
-              The MCP interface lets Claude Code, Codex, and Cursor start and
-              manage remote tasks.
-            </p>
-          </article>
-          <article class="connection-item">
-            <div class="brand-row">
-              <img
-                src="assets/icons/linear-icon.svg"
-                alt="Linear"
-                width="34"
-                height="34"
-              /><img
-                src="assets/icons/jira.svg"
-                alt="Jira"
-                width="34"
-                height="34"
-              /><img
-                src="assets/icons/asana-icon.svg"
-                alt="Asana"
-                width="34"
-                height="34"
-              />
-            </div>
-            <h3>Bring project context.</h3>
-            <p>
-              Configure Linear, Jira, Asana, or another remote MCP connection
-              for the project.
-            </p>
-          </article>
-        </div>
-        <a class="text-link" href="docs/index.html#connections"
-          >Read about connections
-          <img
-            class="icon"
-            src="assets/icons/arrow-right.svg"
-            alt=""
-            width="24"
-            height="24"
-            aria-hidden="true"
-        /></a>
-      </section>
-      <section class="editorial-section ownership-section shell" id="ownership">
-        <div>
-          <p class="eyebrow">For engineering leaders</p>
-          <h2>Your infrastructure.<br />Your review.<br />Your decision.</h2>
-          <p>
-            Give developers a place for delegated work while keeping the
-            environment, cost, and final merge visible to your team.
-          </p>
-          <a class="text-link" href="how-it-works/index.html#architecture"
-            >Explore the system
+          <div class="continuation-path">
             <img
-              class="icon"
-              src="assets/icons/arrow-right.svg"
-              alt=""
-              width="24"
-              height="24"
-              aria-hidden="true"
-          /></a>
+              width="1215"
+              height="125"
+              src="assets/diagrams/return-path.svg"
+              alt="Follow-up returns to the same AWS workspace"
+            /><button
+              class="workflow-stage"
+              type="button"
+              data-step="4"
+              aria-pressed="false"
+              disabled
+            >
+              Continue in the same workspace
+            </button>
+          </div>
+          <div class="journey-progress" aria-hidden="true"><div></div></div>
+          <div class="journey-panels">
+            <article class="journey-panel" id="journey-panel-0" data-panel="0">
+              <p class="eyebrow">01 / Request</p>
+              <h3>Your request</h3>
+              <p class="journey-example">
+                “Fix CSV exports with empty records. Add a regression test. Keep
+                the column order.”
+              </p>
+              <p>
+                Start from a project channel or an authorized coding-tool
+                connection.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-1" data-panel="1">
+              <p class="eyebrow">02 / Work</p>
+              <h3>The agent works remotely</h3>
+              <p class="journey-example">
+                The remote coding agent reads the repository, makes the change,
+                and runs commands in its prepared workspace.
+              </p>
+              <p>
+                The work happens in your AWS account. Your laptop is the entry
+                point.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-2" data-panel="2">
+              <p class="eyebrow">03 / Evidence</p>
+              <h3>Inspect the patch and checks</h3>
+              <p class="journey-example">
+                Read the code diff alongside the checks that passed, failed, or
+                could not be verified.
+              </p>
+              <p>
+                The runtime reruns usable checks; an agent’s success message is
+                not the report.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-3" data-panel="3">
+              <p class="eyebrow">04 / Review</p>
+              <h3>Request a pull request</h3>
+              <p class="journey-example">
+                “Open a draft PR for review.” Inspect the patch and its check
+                evidence with your team.
+              </p>
+              <p>
+                PR creation is a separate request. You decide what gets merged.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-4" data-panel="4">
+              <p class="eyebrow">05 / Continue</p>
+              <h3>Pick up where you left off</h3>
+              <p class="journey-example">
+                “Also handle a file that contains only empty records.” Continue
+                in the retained workspace.
+              </p>
+              <p>
+                Idle compute can stop while files and conversation state remain.
+              </p>
+            </article>
+          </div>
+          <p class="scenario-note">
+            Illustrative scenario, not a recorded run.
+            <a href="docs/evidence/index.html#example"
+              >Inspect the example packet</a
+            >.
+          </p>
         </div>
-        <dl class="ownership-list">
-          <div>
-            <dt>Runs in your AWS account.</dt>
-            <dd>
-              Your team deploys and operates the environment. Code and task
-              state live in your account; model calls go to the provider you
-              configure.
-            </dd>
-          </div>
-          <div>
-            <dt>Shows the work behind the answer.</dt>
-            <dd>
-              Inspect code changes and available check evidence. Missing checks
-              and unresolved failures remain visible.
-            </dd>
-          </div>
-          <div>
-            <dt>Keeps the merge with your team.</dt>
-            <dd>
-              The workflow hands back a pull request for review. Your existing
-              repository permissions and CI rules still apply.
-            </dd>
-          </div>
-          <div>
-            <dt>Makes costs legible.</dt>
-            <dd>
-              The installer previews resources and a cost estimate. AWS and
-              model usage are your team’s bill.
-            </dd>
-          </div>
-        </dl>
       </section>
-      <section class="evidence-fallback shell" id="evidence">
-        <h2>What is in the evidence?</h2>
-        <p>
-          Open a sample explanation. These examples describe the report format,
-          not the result of a live task.
-        </p>
-        <details id="test-output">
-          <summary>Test output</summary>
-          <div class="report-detail">
-            <p class="report-label">ILLUSTRATIVE REPORT · NO LIVE RUN SHOWN</p>
-            <p>
-              Inspect the command and its output, rather than relying on the
-              agent’s summary. A real task reports the checks it could run.
-            </p>
-            <dl>
-              <div>
-                <dt>Command</dt>
-                <dd><code>npm test -- tests/export.test.ts</code></dd>
-              </div>
-              <div>
-                <dt>Output</dt>
-                <dd>
-                  The test’s output would appear here. This illustration makes
-                  no claim that the test has passed.
-                </dd>
-              </div>
-              <div>
-                <dt>What to inspect</dt>
-                <dd>
-                  The named test, its exit outcome, and any failures or
-                  timeouts.
-                </dd>
-              </div>
-            </dl>
-            <p>
-              A passing command is evidence about that run. Your review and
-              repository CI still matter.
-            </p>
-          </div>
-        </details>
-        <details id="check-report">
-          <summary>Check report</summary>
-          <div class="report-detail">
-            <p class="report-label">ILLUSTRATIVE REPORT · NO LIVE RUN SHOWN</p>
-            <p>
-              The check report separates the agent’s claim from the checks the
-              runtime ran.
-            </p>
-            <dl>
-              <div>
-                <dt>Check source</dt>
-                <dd>
-                  Project-configured checks, or recognized test commands from
-                  the coding session.
-                </dd>
-              </div>
-              <div>
-                <dt>Before / after</dt>
-                <dd>
-                  Where a baseline is available, compare whether the check
-                  passed before the change and what happened after it.
-                </dd>
-              </div>
-              <div>
-                <dt>Outcome</dt>
-                <dd>
-                  Passed, failed, timed out, or not rerun. A run without usable
-                  checks is marked not verified.
-                </dd>
-              </div>
-              <div>
-                <dt>Next step</dt>
-                <dd>
-                  Inspect failures, ask for a follow-up, or review the pull
-                  request. You decide what gets merged.
-                </dd>
-              </div>
-            </dl>
-            <p>
-              Check output is reported evidence. It is not a guarantee that the
-              code is correct.
-            </p>
-          </div>
-        </details>
-      </section>
-      <section class="get-started" id="deployment">
-        <div class="shell">
-          <h2>Know what it takes<br />to run your first task.</h2>
+      <section class="shell value-statement">
+        <h2 class="return-heading">Pick up where the task left off.</h2>
+        <div class="value-split">
+          <h2>Code to review.<br />Evidence to inspect.</h2>
           <div>
             <p>
-              Review the prerequisites, account boundary, and cost model. A
-              public install is being prepared; there is no published package
-              yet.
+              Give the work somewhere to run. Review what changed and what was
+              checked. Ask for an adjustment without starting from scratch.
             </p>
-            <a class="button primary" href="deployment/index.html"
-              >Deployment guide
+            <a class="text-link" href="how-it-works/index.html"
+              >Explore the system
               <img
-                class="icon white"
-                src="assets/icons/arrow-up-right.svg"
-                alt=""
+                src="assets/icons/arrow-right.svg"
+                class="icon"
                 width="24"
                 height="24"
-                aria-hidden="true"
+                alt=""
             /></a>
           </div>
         </div>
       </section>
+      <section class="shell editorial-section">
+        <div>
+          <p class="eyebrow">For builders and their teams</p>
+          <h2>Useful work.<br />A clear handoff.</h2>
+        </div>
+        <div class="benefit-rows">
+          <div>
+            <h3>Developers</h3>
+            <p>
+              Delegate a bounded bug fix, test, or refactor. Inspect the patch,
+              then continue the task in the same workspace.
+            </p>
+          </div>
+          <div>
+            <h3>CTOs &amp; engineering leaders</h3>
+            <p>
+              Keep the infrastructure in your account. Give reviewers code and
+              check evidence to examine. Keep the final merge decision with your
+              team.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="shell editorial-section" id="connections">
+        <div>
+          <p class="eyebrow">Connections with a job to do</p>
+          <h2>Start where<br />your team works.</h2>
+        </div>
+        <div class="connection-rows">
+          <div>
+            <div class="logo-line">
+              <img
+                src="assets/icons/slack-icon.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><strong>Slack</strong>
+            </div>
+            <p>
+              Start a task in a project channel. Progress and results return to
+              its thread.
+            </p>
+          </div>
+          <div>
+            <div class="logo-line">
+              <img
+                src="assets/icons/claude-icon.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><img
+                src="assets/icons/openai-icon.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><img
+                src="assets/icons/cursor.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><strong>Your coding tool</strong>
+            </div>
+            <p>
+              Hand off through MCP from Claude Code, Codex, or Cursor. The
+              remote AgentX worker does the delegated work.
+            </p>
+          </div>
+          <div>
+            <div class="logo-line">
+              <img
+                src="assets/icons/linear-icon.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><img
+                src="assets/icons/jira.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><img
+                src="assets/icons/asana-icon.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><strong>Project context</strong>
+            </div>
+            <p>
+              Configured Linear, Jira, Asana, and remote MCP connections provide
+              scoped tools to the orchestrator.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="ownership-strip">
+        <div class="shell">
+          <p class="eyebrow">Your task. Your AWS. Your call.</p>
+          <h2>Your infrastructure.<br />Your review.<br />Your decision.</h2>
+          <div>
+            <p>
+              AWS runs your workspaces and control services. Your team
+              configures model access and integrations. Retained storage and
+              model usage have costs.
+            </p>
+            <a class="text-link" href="how-it-works/index.html#architecture"
+              >See what runs where
+              <img
+                src="assets/icons/arrow-right.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+            /></a>
+          </div>
+        </div>
+      </section>
+      <section class="shell evidence-fallback" id="evidence">
+        <p class="eyebrow">Constructed example / not a recorded run</p>
+        <h2>Open the work, then ask better questions.</h2>
+        <p>
+          Inspect this illustrative CSV patch. The evidence reference shows how
+          to read checks and missing results.
+        </p>
+        <a class="button" href="#example-diff" data-evidence="example-diff"
+          >Inspect the example diff</a
+        >
+        <details id="example-diff">
+          <summary>Example patch and review question</summary>
+          <div class="report-detail">
+            <p class="report-label">
+              Illustrative code · no runtime result claimed
+            </p>
+            <pre><code>- return records.map(formatRow).join("\n");
++ return records
++   .filter(record =&gt; record != null)
++   .map(formatRow)
++   .join("\n");</code></pre>
+            <p>
+              Does skipping null records match the requested behavior? Are empty
+              field values preserved? Inspect the tests that cover both before
+              merging.
+            </p>
+            <a href="docs/evidence/index.html#example"
+              >Open the full example packet</a
+            >
+          </div>
+        </details>
+      </section>
+      <section class="shell next-action">
+        <p class="eyebrow">Public release in preparation</p>
+        <h2>See the work before you try it.</h2>
+        <p>
+          The installation guide is coming soon. Explore the workflow and the
+          evidence reference today.
+        </p>
+        <a class="button primary" href="docs/index.html"
+          >Read the docs
+          <img
+            src="assets/icons/arrow-right.svg"
+            class="icon"
+            width="24"
+            height="24"
+            alt="" /></a
+        ><a class="button" href="deployment/index.html"
+          >Installation status
+          <img
+            src="assets/icons/arrow-up-right.svg"
+            class="icon"
+            width="24"
+            height="24"
+            alt=""
+        /></a>
+      </section>
     </main>
     <dialog class="evidence-dialog" aria-labelledby="dialog-title">
       <div class="dialog-top">
-        <h2 id="dialog-title">Evidence</h2>
+        <h2 id="dialog-title">Example diff</h2>
         <button class="dialog-close" aria-label="Close evidence">
           <img
-            class="icon"
             src="assets/icons/x.svg"
-            alt=""
+            class="icon"
             width="24"
             height="24"
-            aria-hidden="true"
+            alt=""
           />
         </button>
       </div>
@@ -573,8 +593,7 @@
       <div>
         <a class="wordmark" href="index.html">Rovara</a>
         <p>
-          Remote coding. Visible evidence.<br />Rovara is the public brand of
-          the AgentX project.
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
         </p>
       </div>
       <div>

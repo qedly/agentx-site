@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>Configure the project, then its checks. — Rovara</title>
+    <meta
+      name="description"
+      content="Make repository preparation, verification commands, and permitted tools explicit."
+    />
+    <link
+      rel="canonical"
+      href="https://rovara-dev.github.io/docs/configuration/"
+    />
+    <meta
+      property="og:title"
+      content="Configure the project, then its checks. — Rovara"
+    />
+    <meta
+      property="og:description"
+      content="Make repository preparation, verification commands, and permitted tools explicit."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../assets/icons/git-pull-request.svg" />
+    <link
+      rel="preload"
+      href="../../assets/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <script src="../../assets/vendor/motion.js" defer></script>
+    <script src="../../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../../assets/explanations.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="wordmark" href="../../index.html" aria-label="Rovara home"
+        >Rovara</a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        <img
+          class="icon"
+          src="../../assets/icons/list.svg"
+          alt=""
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../../index.html#product">Product</a
+        ><a href="../../how-it-works/index.html">How it works</a
+        ><a href="../../docs/index.html" aria-current="page">Docs</a
+        ><a class="button primary" href="../../deployment/index.html"
+          >Install
+          <img
+            class="icon white"
+            src="../../assets/icons/arrow-up-right.svg"
+            alt=""
+            width="24"
+            height="24"
+            aria-hidden="true"
+        /></a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="compact-intro shell">
+        <p class="eyebrow">Documentation</p>
+        <h1>Configure the project, then its checks.</h1>
+        <p class="intro-text">
+          Make repository preparation, verification commands, and permitted
+          tools explicit.
+        </p>
+      </div>
+      <div class="reading-layout shell">
+        <nav class="doc-nav" aria-label="Documentation">
+          <a href="../index.html">Documentation home</a
+          ><a href="../tasks/index.html">First task in Slack</a
+          ><a href="../coding-tools/index.html">Coding-tool handoff</a
+          ><a href="../configuration/index.html" aria-current="page"
+            >Projects & checks</a
+          ><a href="../evidence/index.html">Evidence reference</a
+          ><a href="../operations/index.html">Workspace operations</a
+          ><a href="../../deployment/index.html">Installation — coming soon</a>
+        </nav>
+        <article class="doc-article">
+          <section>
+            <h2>A project is the working contract.</h2>
+            <p>
+              A versioned project file names repositories, setup commands,
+              readiness checks, and orchestration guidance. It contains
+              credential references, not secret values. Deployment and sign-in
+              settings belong to a separate deployment file.
+            </p>
+            <h3>Example project configuration</h3>
+            <pre><code>name: export-service
+revision: 1
+repositories:
+  - name: export-service
+    url: https://github.com/example/export-service.git
+    path: repo/export-service
+    defaultBranch: main
+    credentialRef: github-agentx-sdlc
+setup:
+  - cwd: repo/export-service
+    executable: npm
+    args: [ci]
+    timeoutSeconds: 600
+readiness:
+  - cwd: repo/export-service
+    executable: npm
+    args: [test]
+    timeoutSeconds: 600
+orchestratorInstructions: &gt;-
+  Delegate repository reads, edits, builds, and tests
+  to the remote AgentX worker.</code></pre>
+            <p>
+              Replace the example repository and credential reference with your
+              configured project values. Register through
+              <code>agentx admin project register</code> using the installed
+              version’s command help. Increase the immutable revision before
+              changing a registered definition.
+            </p>
+          </section>
+          <section>
+            <h2>Choose checks that cover the work.</h2>
+            <p>
+              Use readiness commands for your test suite, lint, or type check.
+              Each command has a working directory, executable, arguments, and
+              timeout. If no readiness commands are available, the runtime can
+              use recognized agent test commands; that gives narrower coverage.
+            </p>
+            <p>
+              A configured devcontainer runs shell, setup, and readiness in the
+              prepared project environment. Adding one to a later project
+              revision does not move an existing workspace into it.
+            </p>
+          </section>
+          <section>
+            <h2>Configure access deliberately.</h2>
+            <dl>
+              <dt>Models</dt>
+              <dd>
+                Choose approved provider/model pairs. Worker and orchestration
+                configuration are distinct. External providers receive model
+                requests outside AWS.
+              </dd>
+              <dt>Connectors</dt>
+              <dd>
+                Linear, Jira, Asana, GitHub, and remote MCP tools have
+                configured project scopes and server-side credential handling.
+              </dd>
+              <dt>Action policy</dt>
+              <dd>
+                Rules allow, ask, or deny orchestrator tool calls. They do not
+                gate every shell command or file edit on the coding worker.
+              </dd>
+              <dt>Developer tasks</dt>
+              <dd>
+                Project settings control whether coding-tool tasks are enabled
+                and how they may be shared into Slack.
+              </dd>
+            </dl>
+            <p>
+              Do not place credentials in command environment fields or project
+              YAML. Verify scope and provider availability before enabling a
+              connection.
+            </p>
+          </section>
+          <div class="source-note">
+            Source reviewed: AgentX mainline <code>8acb7ac00c97</code> · 5
+            October 2026. These guides describe inspected code; the public
+            installation path is still in preparation.
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer shell">
+      <div>
+        <a class="wordmark" href="../../index.html">Rovara</a>
+        <p>
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
+        </p>
+      </div>
+      <div>
+        <p>
+          Public release in preparation<br />Current code license:
+          FSL-1.1-ALv2.<br />Source-available; not an open-source release.
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../../how-it-works/index.html">Workflow</a
+        ><a href="../../docs/index.html">Docs</a
+        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
+          >Website source</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -4,29 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#faf9f6" />
+    <title>Installation — Rovara</title>
     <meta
       name="description"
-      content="The prerequisites, ownership, and costs behind your first coding task. Prepare for a public self-hosted install without guessing what setup requires."
+      content="The public self-hosted installation guide is coming soon."
     />
-    <title>Run it in your AWS account. — Rovara</title>
     <link rel="canonical" href="https://rovara-dev.github.io/deployment/" />
-    <meta property="og:title" content="Run it in your AWS account. — Rovara" />
+    <meta property="og:title" content="Installation — Rovara" />
     <meta
       property="og:description"
-      content="The prerequisites, ownership, and costs behind your first coding task. Prepare for a public self-hosted install without guessing what setup requires."
+      content="The public self-hosted installation guide is coming soon."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Rovara" />
-    <meta
-      property="og:url"
-      content="https://rovara-dev.github.io/deployment/"
-    />
     <meta name="twitter:card" content="summary" />
-    <link
-      rel="icon"
-      href="../assets/icons/git-pull-request.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="../assets/icons/git-pull-request.svg" />
     <link
       rel="preload"
       href="../assets/fonts/anton-400.woff2"
@@ -37,6 +28,7 @@
     <link rel="stylesheet" href="../assets/site.css" />
     <script src="../assets/vendor/motion.js" defer></script>
     <script src="../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../assets/explanations.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -62,8 +54,11 @@
         <a href="../index.html#product">Product</a
         ><a href="../how-it-works/index.html">How it works</a
         ><a href="../docs/index.html">Docs</a
-        ><a class="button primary" href="../deployment/index.html"
-          >Deployment guide
+        ><a
+          class="button primary"
+          href="../deployment/index.html"
+          aria-current="page"
+          >Install
           <img
             class="icon white"
             src="../assets/icons/arrow-up-right.svg"
@@ -74,342 +69,31 @@
         /></a>
       </nav>
     </header>
-    <main id="main" class="shell">
-      <div class="page-hero">
-        <p class="eyebrow">Deployment guide</p>
-        <h1>Run it in your AWS account.</h1>
-        <p>
-          The prerequisites, ownership, and costs behind your first coding task.
-          Prepare for a public self-hosted install without guessing what setup
-          requires.
+    <main id="main">
+      <div class="compact-intro shell">
+        <p class="eyebrow">Public release in preparation</p>
+        <h1>Your AWS.<br />Installation coming soon.</h1>
+        <p class="intro-text">
+          The public self-hosted installation guide will live here. It is not
+          available yet.
         </p>
-        <p class="release-note">Public release in preparation</p>
       </div>
-      <div class="reading-layout">
-        <nav class="doc-nav" aria-label="On this page">
-          <a href="#readiness">01 / Release status</a
-          ><a href="#prerequisites">02 / Prerequisites</a
-          ><a href="#ownership">03 / Ownership</a><a href="#costs">04 / Costs</a
-          ><a href="#first-run">05 / First task</a
-          ><a href="#operate">06 / Operate and remove</a>
-        </nav>
-        <article>
-          <section class="doc-content" id="readiness">
-            <p class="eyebrow">01 / Release status</p>
-            <h2>Public install is being prepared.</h2>
-            <p>
-              There is no published AgentX release, public product repository,
-              or npm installer yet. This is the deployment guide for the project
-              now branded Rovara; it is not an installable public release.
-            </p>
-            <p>
-              Current source-checkout installation needs authorized repository
-              access, locally built release assets, and worker and Slack
-              container images that your team builds and pushes. No public
-              <code>npx</code> command is offered here.
-            </p>
-            <div class="doc-callout">
-              <b>What will appear here at release</b>
-              <p>
-                A public source link, the exact release version, a complete
-                install command, version-matched instructions, and a verified
-                first-task path.
-              </p>
-            </div>
-            <p>
-              The current code uses FSL-1.1-ALv2, a source-available license.
-              Each release converts to Apache 2.0 two years after it ships. An
-              open-source-at-launch decision would require changing the actual
-              repository license first.
-            </p>
-          </section>
-          <section class="doc-content" id="prerequisites">
-            <p class="eyebrow">02 / Prerequisites</p>
-            <h2>Prepare the account and connections.</h2>
-            <div class="table-wrap">
-              <table class="docs-table">
-                <thead>
-                  <tr>
-                    <th>Requirement</th>
-                    <th>What your team needs</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>AWS</td>
-                    <td>
-                      A dedicated account, administrator access for first setup,
-                      and capacity in <code>us-east-1</code>. The installer
-                      checks worker capacity and two free Elastic IPs.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Node.js</td>
-                    <td>
-                      <code>22.19.0</code> or newer within the 22.x series,
-                      below 23. If your CloudShell session runs Node 20, upgrade it before setup.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>GitHub</td>
-                    <td>
-                      Permission to create a GitHub App and grant it access to
-                      the selected repositories.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Slack</td>
-                    <td>
-                      Permission to create and install a Slack app. Your
-                      workspace administrator may need to approve it.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Model access</td>
-                    <td>
-                      Amazon Bedrock is the default. Anthropic, OpenAI, or
-                      OpenRouter can also be configured; rates and availability
-                      depend on your provider.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-          <section class="doc-content" id="ownership">
-            <p class="eyebrow">03 / Ownership</p>
-            <h2>You operate the environment.</h2>
-            <p>
-              The installer deploys the environment through CloudFormation
-              stacks in your AWS account. Your team owns operation, upgrades,
-              credentials, costs, and cleanup. The technical CLI remains
-              <code>agentx</code>.
-            </p>
-            <figure class="boundary-diagram">
-              <div class="external-services">
-                <div>
-                  <img
-                    src="../assets/icons/slack-icon.svg"
-                    alt="Slack"
-                    width="26"
-                    height="26"
-                  /><span>Slack / coding tool</span>
-                </div>
-                <div>
-                  <img
-                    src="../assets/icons/github-icon.svg"
-                    alt="GitHub"
-                    width="26"
-                    height="26"
-                  /><span>Your repositories</span>
-                </div>
-                <div>
-                  <img
-                    class="icon blue"
-                    src="../assets/icons/terminal-window.svg"
-                    alt=""
-                    width="24"
-                    height="24"
-                    aria-hidden="true"
-                  /><span>Configured model provider</span>
-                </div>
-              </div>
-              <div class="account-zone">
-                <div class="account-label">
-                  YOUR AWS ACCOUNT · DEPLOYED AND OPERATED BY YOUR TEAM
-                </div>
-                <div class="account-services">
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/cloud.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>Control plane + orchestrator</b>
-                    <p>
-                      Routes requests, authorizes project access, and tracks
-                      task state.
-                    </p>
-                  </div>
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/cpu.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>EC2 coding worker</b>
-                    <p>
-                      Isolated task execution in the project’s prepared
-                      environment.
-                    </p>
-                  </div>
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/database.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>Encrypted EBS workspace</b>
-                    <p>Retains task files when idle compute stops.</p>
-                  </div>
-                </div>
-              </div>
-              <figcaption>
-                A simplified component and ownership map. Slack, GitHub, and the
-                configured model provider are external services; this is not an
-                exhaustive network diagram.
-              </figcaption>
-            </figure>
-            <p>
-              Use a dedicated account for the installation. The AWS account is
-              the documented security boundary; environment names do not provide
-              an account-level boundary.
-            </p>
-            <p>
-              For credentials, use the version-matched hidden prompts and setup
-              guide. Never put tokens into a Slack task, commit them to a
-              repository, or publish them in a demo.
-            </p>
-          </section>
-          <section class="doc-content" id="costs">
-            <p class="eyebrow">04 / Costs</p>
-            <h2>See the cost before you create.</h2>
-            <p>
-              The installer shows a resource plan and a monthly estimate before
-              creating the environment. Your team pays AWS and model charges and
-              can configure a monthly budget alert.
-            </p>
-            <div class="doc-callout">
-              <b>About $211/month in one illustrative workload.</b>
-              <p>
-                <code>us-east-1</code>; September 2026 price inputs; default
-                Bedrock models; 1,000 turns, 100 worker sessions, 60 worker
-                instance-hours, and 10 retained workspaces. Derived from the
-                installer’s pricing formula, not a quote. NAT data processing
-                and some usage-dependent charges are excluded.
-              </p>
-            </div>
-            <p>
-              Two NAT gateways and the always-on Slack service create a baseline
-              cost. Worker hours, retained EBS storage, model use, and data
-              transfer change the total. OpenRouter model cost is not included
-              in the estimate because the estimator has no price on file.
-            </p>
-            <p>
-              A budget alert is a notification, not a spending cap. Stopping
-              idle workers reduces compute use; it does not stop
-              retained-storage or always-on-service charges.
-            </p>
-          </section>
-          <section class="doc-content" id="first-run">
-            <p class="eyebrow">05 / First task</p>
-            <h2>A small change. A complete handoff.</h2>
-            <ol class="number-list">
-              <li>
-                <div>
-                  <b>Deploy the environment.</b>
-                  <p>
-                    Review the resource and cost plan before confirming
-                    creation. Use the install guide that matches your exact
-                    source or release version.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>Connect the project.</b>
-                  <p>
-                    Install the GitHub and Slack apps, configure developer
-                    sign-in, and register the repositories and project checks.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>Confirm the connection.</b>
-                  <p>
-                    Verify a reply in the project Slack channel. For an MCP
-                    handoff, sign in as a developer with access to that project.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>Give it a small task.</b>
-                  <p>
-                    Use a test repository. Ask for a bounded bug fix, inspect
-                    the change and reported checks, then request a draft pull
-                    request for review.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>Follow up, then close deliberately.</b>
-                  <p>
-                    Continue the task once to confirm persistence. Use the
-                    version-matched operator guide to close the workspace and
-                    remove the test deployment when finished.
-                  </p>
-                </div>
-              </li>
-            </ol>
-          </section>
-          <section class="doc-content" id="operate">
-            <p class="eyebrow">06 / Operate and remove</p>
-            <h2>Know the exit before you install.</h2>
-            <p>
-              Before running a deployment, identify the environment, account,
-              and region. Keep its operator guide and installation record
-              available for upgrades and recovery.
-            </p>
-            <p>
-              Closing a task workspace and removing the AWS environment are
-              different actions. Workspace storage, GitHub and Slack app
-              installations, and external provider settings can need separate
-              cleanup. Use the removal instructions for the installed version
-              and confirm the resources and retained data before deleting
-              anything.
-            </p>
-            <p>
-              There is no standalone teardown command on this page: the public
-              release and its operator guide must ship together. For a source
-              installation today, use <code>docs/install.md</code>,
-              <code>docs/releases.md</code>, and the environment operator
-              documentation in your authorized checkout.
-            </p>
-            <a class="text-link" href="../docs/index.html"
-              >Read the documentation
-              <img
-                class="icon"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-            /></a>
-          </section>
-          <div class="source-note">
-            Source review: AgentX mainline <code>8acb7ac00c97</code> · 05
-            October 2026. This identifies inspected implementation, not a
-            completed live install or a customer outcome.
-            <a href="../data/claims.json">Claim references</a>.
-          </div>
-        </article>
-      </div>
+      <section class="shell install-placeholder">
+        <p>
+          Explore the task workflow and documentation while the public release
+          is prepared.
+        </p>
+        <a class="button primary" href="../how-it-works/index.html"
+          >See how it works</a
+        ><a class="button" href="../docs/index.html">Read the docs</a>
+        <p class="release-note">No public install command is provided yet.</p>
+      </section>
     </main>
     <footer class="site-footer shell">
       <div>
         <a class="wordmark" href="../index.html">Rovara</a>
         <p>
-          Remote coding. Visible evidence.<br />Rovara is the public brand of
-          the AgentX project.
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
         </p>
       </div>
       <div>

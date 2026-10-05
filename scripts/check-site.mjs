@@ -8,6 +8,11 @@ const pages = [
   "how-it-works/index.html",
   "deployment/index.html",
   "docs/index.html",
+  "docs/tasks/index.html",
+  "docs/coding-tools/index.html",
+  "docs/configuration/index.html",
+  "docs/evidence/index.html",
+  "docs/operations/index.html",
 ];
 const get = (file) => readFileSync(resolve(root, file), "utf8");
 const walk = (dir) =>

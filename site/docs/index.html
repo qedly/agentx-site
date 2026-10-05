@@ -4,26 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#faf9f6" />
+    <title>Documentation — Rovara</title>
     <meta
       name="description"
-      content="A practical guide for the people deploying the environment, the developers delegating tasks, and the team reviewing the work."
+      content="Task tutorials and technical reference for the AgentX-based Rovara workflow."
     />
-    <title>Understand it. Then run it. — Rovara</title>
     <link rel="canonical" href="https://rovara-dev.github.io/docs/" />
-    <meta property="og:title" content="Understand it. Then run it. — Rovara" />
+    <meta property="og:title" content="Documentation — Rovara" />
     <meta
       property="og:description"
-      content="A practical guide for the people deploying the environment, the developers delegating tasks, and the team reviewing the work."
+      content="Task tutorials and technical reference for the AgentX-based Rovara workflow."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Rovara" />
-    <meta property="og:url" content="https://rovara-dev.github.io/docs/" />
     <meta name="twitter:card" content="summary" />
-    <link
-      rel="icon"
-      href="../assets/icons/git-pull-request.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="../assets/icons/git-pull-request.svg" />
     <link
       rel="preload"
       href="../assets/fonts/anton-400.woff2"
@@ -34,6 +28,7 @@
     <link rel="stylesheet" href="../assets/site.css" />
     <script src="../assets/vendor/motion.js" defer></script>
     <script src="../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../assets/explanations.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -60,7 +55,7 @@
         ><a href="../how-it-works/index.html">How it works</a
         ><a href="../docs/index.html" aria-current="page">Docs</a
         ><a class="button primary" href="../deployment/index.html"
-          >Deployment guide
+          >Install
           <img
             class="icon white"
             src="../assets/icons/arrow-up-right.svg"
@@ -71,514 +66,126 @@
         /></a>
       </nav>
     </header>
-    <main id="main" class="shell">
-      <div class="page-hero">
+    <main id="main">
+      <div class="compact-intro shell">
         <p class="eyebrow">Documentation</p>
-        <h1>Understand it.<br />Then run it.</h1>
-        <p>
-          A practical guide for the people deploying the environment, the
-          developers delegating tasks, and the team reviewing the work.
+        <h1>Start with a task.<br />Go deeper when you need to.</h1>
+        <p class="intro-text">
+          Practical guides for developers. Operating details for the team that
+          owns the environment.
         </p>
-        <p class="release-note">Public release in preparation</p>
       </div>
-      <div class="reading-layout">
-        <nav class="doc-nav" aria-label="On this page">
-          <a href="#overview">01 / Overview</a
-          ><a href="#first-run">02 / Administrator setup</a
-          ><a href="#developer">03 / Developer handoff</a
-          ><a href="#checks">04 / Check evidence</a
-          ><a href="#operate">05 / Task lifecycle</a
-          ><a href="#architecture">06 / Architecture</a
-          ><a href="#connections">07 / Connections</a
-          ><a href="#costs">08 / Cost model</a
-          ><a href="#boundaries">09 / Trust boundaries</a
-          ><a href="#evidence">10 / Evaluation</a
-          ><a href="#readiness">11 / Release and license</a>
-        </nav>
-        <article>
-          <section class="doc-content" id="overview">
-            <p class="eyebrow">01 / Overview</p>
-            <h2>A coding agent with a reviewable handoff.</h2>
-            <p>
-              Rovara is the public display brand for AgentX. The underlying
-              project, CLI command, configuration, and evidence identifiers
-              remain <code>agentx</code> / AgentX.
-            </p>
-            <p>
-              Start a task from Slack or hand it over from Claude Code, Codex,
-              or Cursor through MCP. The remote coding agent works in a
-              persistent workspace in your AWS account. Inspect the returned
-              code and available test and check evidence. Your team decides what
-              gets merged.
-            </p>
-            <div class="doc-callout">
-              <b>Public release in preparation</b>
+      <div class="shell docs-home">
+        <section id="start">
+          <p class="eyebrow">Tutorials &amp; reference</p>
+          <a class="doc-route" href="tasks/index.html"
+            ><span>01</span>
+            <div>
+              <h2>First task in Slack</h2>
+              <p>Request → inspect → follow up → PR → close.</p>
+            </div>
+            <img
+              src="../assets/icons/arrow-right.svg"
+              class="icon"
+              width="24"
+              height="24"
+              alt="" /></a
+          ><a class="doc-route" href="coding-tools/index.html"
+            ><span>02</span>
+            <div>
+              <h2>Coding-tool handoff</h2>
               <p>
-                The product source is currently private and there is no
-                published installer. These pages explain the inspected
-                implementation and setup requirements. A public command and
-                complete version-matched install path will be added with the
-                release.
+                Connect an installed environment and delegate a complete task.
               </p>
             </div>
-          </section>
-          <section class="doc-content" id="first-run">
-            <p class="eyebrow">02 / Administrator setup</p>
-            <h2>Start with the deployment guide.</h2>
-            <div class="table-wrap">
-              <table class="docs-table">
-                <thead>
-                  <tr>
-                    <th>Requirement</th>
-                    <th>What your team needs</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>AWS</td>
-                    <td>
-                      A dedicated account, administrator access for first setup,
-                      and capacity in <code>us-east-1</code>. The installer
-                      checks worker capacity and two free Elastic IPs.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Node.js</td>
-                    <td>
-                      <code>22.19.0</code> or newer within the 22.x series,
-                      below 23. If your CloudShell session runs Node 20, upgrade it before setup.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>GitHub</td>
-                    <td>
-                      Permission to create a GitHub App and grant it access to
-                      the selected repositories.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Slack</td>
-                    <td>
-                      Permission to create and install a Slack app. Your
-                      workspace administrator may need to approve it.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Model access</td>
-                    <td>
-                      Amazon Bedrock is the default. Anthropic, OpenAI, or
-                      OpenRouter can also be configured; rates and availability
-                      depend on your provider.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p>
-              Source-checkout installation currently builds release assets
-              locally and needs images you build and push yourself. Follow the
-              authorized checkout’s <code>docs/install.md</code> and
-              <code>docs/releases.md</code>; the public release path is not
-              available yet.
-            </p>
-            <p>
-              First setup uses administrator credentials. Later operations use
-              the narrower operator role created by setup. The documented
-              account boundary matters when choosing where to deploy.
-            </p>
-            <a class="text-link" href="../deployment/index.html#first-run"
-              >First-task checklist
-              <img
-                class="icon"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-            /></a>
-          </section>
-          <section class="doc-content" id="developer">
-            <p class="eyebrow">03 / Developer handoff</p>
-            <h2>Use Slack or your coding tool.</h2>
-            <h3>In Slack</h3>
-            <p>
-              Use a configured project channel and mention the app with a
-              concrete task. Keep follow-ups in the task’s thread so the
-              workspace can be resumed. Ask to inspect progress or request a
-              pull request when ready.
-            </p>
-            <h3>From Claude Code, Codex, or Cursor</h3>
-            <p>
-              The MCP server exposes developer tools for allowed projects and
-              remote tasks: start, check, continue, share, cancel, close, and
-              request a pull request. Developer sign-in and project access are
-              prerequisites.
-            </p>
-            <p>
-              After the CLI has been built or installed from an authorized
-              source, its MCP setup entry is:
-            </p>
-            <div class="command">
-              <pre><code>agentx mcp install</code></pre>
-              <button
-                class="copy-button"
-                data-copy
-                aria-label="Copy command"
-                hidden
-              >
-                <img
-                  class="icon"
-                  src="../assets/icons/copy.svg"
-                  alt=""
-                  width="24"
-                  height="24"
-                  aria-hidden="true"
-                />
-              </button>
-            </div>
-            <p class="copy-status" role="status" aria-live="polite"></p>
-            <p>
-              This configures the MCP integration; it does not download a public
-              package or deploy the AWS environment. Use the CLI’s
-              version-matched instructions for your coding tool and developer
-              sign-in.
-            </p>
-          </section>
-          <section class="doc-content" id="checks">
-            <p class="eyebrow">04 / Check evidence</p>
-            <h2>What ran. What failed. What is missing.</h2>
-            <p>
-              The worker installs a verification extension in new and resumed
-              coding sessions. At the end of a completed turn, it runs
-              project-configured checks when present, or recognized test
-              commands from the session. It can compare against an available
-              before-change baseline and give the agent one extra attempt on
-              regression.
-            </p>
-            <p>
-              The worker stores a <code>checks.json</code> report, with command
-              labels, outcomes, and output. Task results can carry a compact
-              report with output tails. Full output and compact task output can
-              therefore differ in length.
-            </p>
-            <div class="table-wrap">
-              <table class="docs-table">
-                <thead>
-                  <tr>
-                    <th>Evidence</th>
-                    <th>How to read it</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Passed command</td>
-                    <td>
-                      The named command passed in the reported run. Check
-                      whether its coverage is relevant.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Regression</td>
-                    <td>
-                      A check known to pass before the change failed after it.
-                      An unresolved regression remains visible after the extra
-                      attempt.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Failure / timeout</td>
-                    <td>
-                      Inspect the named command, output, and baseline. A failure
-                      with no baseline is not automatically a new regression.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Not verified</td>
-                    <td>
-                      No usable checks, a stop, an error, or unrerun checks can
-                      prevent a verified report. Read the reported reason.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <h3>At pull request publication</h3>
-            <p>
-              Publication runs registered readiness checks and sends the
-              candidate commit to configured CodeBuild checks. The
-              reporting-enabled path can open a draft PR with failing checks;
-              compatible older paths without reporting can refuse publication on
-              readiness failure.
-            </p>
-            <p>
-              Checks are reported evidence. They do not guarantee correctness,
-              establish that every task is verified, or prove every check ran on
-              the exact final PR commit. CodeBuild results do not automatically
-              block PR creation. Your repository’s merge rules and human review
-              remain in force.
-            </p>
-          </section>
-          <section class="doc-content" id="operate">
-            <p class="eyebrow">05 / Task lifecycle</p>
-            <h2>Continue, cancel, and close deliberately.</h2>
-            <p>
-              A follow-up resumes the task’s workspace and conversation. Idle
-              workers can stop while encrypted workspace storage remains.
-              Retained volumes continue to incur storage charges.
-            </p>
-            <p>
-              Cancellation stops task work; workspace closure is a separate
-              lifecycle operation. Inspect the task state and the
-              version-matched operator instructions before cleanup. Do not treat
-              stopping a worker as removing the complete environment.
-            </p>
-            <p>
-              For installation recovery, updates, logs, and teardown, use the
-              operator documentation matching the installed source commit or
-              release. These public pages do not claim a clean-room install or
-              live AWS acceptance run has completed.
-            </p>
-          </section>
-          <section class="doc-content" id="architecture">
-            <p class="eyebrow">06 / Architecture</p>
-            <h2>The infrastructure you operate.</h2>
-            <figure class="boundary-diagram">
-              <div class="external-services">
-                <div>
-                  <img
-                    src="../assets/icons/slack-icon.svg"
-                    alt="Slack"
-                    width="26"
-                    height="26"
-                  /><span>Slack / coding tool</span>
-                </div>
-                <div>
-                  <img
-                    src="../assets/icons/github-icon.svg"
-                    alt="GitHub"
-                    width="26"
-                    height="26"
-                  /><span>Your repositories</span>
-                </div>
-                <div>
-                  <img
-                    class="icon blue"
-                    src="../assets/icons/terminal-window.svg"
-                    alt=""
-                    width="24"
-                    height="24"
-                    aria-hidden="true"
-                  /><span>Configured model provider</span>
-                </div>
-              </div>
-              <div class="account-zone">
-                <div class="account-label">
-                  YOUR AWS ACCOUNT · DEPLOYED AND OPERATED BY YOUR TEAM
-                </div>
-                <div class="account-services">
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/cloud.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>Control plane + orchestrator</b>
-                    <p>
-                      Routes requests, authorizes project access, and tracks
-                      task state.
-                    </p>
-                  </div>
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/cpu.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>EC2 coding worker</b>
-                    <p>
-                      Isolated task execution in the project’s prepared
-                      environment.
-                    </p>
-                  </div>
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/database.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>Encrypted EBS workspace</b>
-                    <p>Retains task files when idle compute stops.</p>
-                  </div>
-                </div>
-              </div>
-              <figcaption>
-                A simplified component and ownership map. Slack, GitHub, and the
-                configured model provider are external services; this is not an
-                exhaustive network diagram.
-              </figcaption>
-            </figure>
-            <p>
-              Slack ingress queues requests for the Fargate orchestrator. The
-              control plane authorizes project access and manages task state;
-              EC2 workers execute the coding sessions in prepared project
-              workspaces. Encrypted EBS retains workspace files across idle
-              compute stops.
-            </p>
-            <p>
-              External integrations keep their own boundaries: model calls go to
-              the configured provider, repository operations use GitHub, and
-              team messages use Slack.
-            </p>
-          </section>
-          <section class="doc-content" id="connections">
-            <p class="eyebrow">07 / Connections</p>
-            <h2>Entry points and project context.</h2>
-            <p>
-              <strong>Slack and developer MCP</strong> are task entry points.
-              They let people start and follow remote work. Claude Code, Codex,
-              and Cursor use the MCP interface to manage tasks.
-            </p>
-            <p>
-              <strong>Linear, Jira, Asana, and remote MCP connectors</strong>
-              add project context and configured tools. They are separately
-              configured for a project and do not grant unrestricted access to
-              every service or workspace.
-            </p>
-            <p>
-              Connector access depends on provider authorization and project
-              configuration. Review the current source’s connector guide for
-              scopes, teams, and supported authentication before connecting a
-              real service.
-            </p>
-          </section>
-          <section class="doc-content" id="costs">
-            <p class="eyebrow">08 / Cost model</p>
-            <h2>An estimate, not a fixed price.</h2>
-            <p>
-              The installer shows a resource plan and a monthly estimate before
-              creating the environment. Your team pays AWS and model charges and
-              can configure a monthly budget alert.
-            </p>
-            <div class="doc-callout">
-              <b>About $211/month in one illustrative workload.</b>
+            <img
+              src="../assets/icons/arrow-right.svg"
+              class="icon"
+              width="24"
+              height="24"
+              alt="" /></a
+          ><a class="doc-route" href="configuration/index.html"
+            ><span>03</span>
+            <div>
+              <h2>Projects & checks</h2>
               <p>
-                <code>us-east-1</code>; September 2026 price inputs; default
-                Bedrock models; 1,000 turns, 100 worker sessions, 60 worker
-                instance-hours, and 10 retained workspaces. Derived from the
-                installer’s pricing formula, not a quote. NAT data processing
-                and some usage-dependent charges are excluded.
+                Repositories, readiness commands, models, and scoped
+                connections.
               </p>
             </div>
-            <p>
-              Two NAT gateways and the always-on Slack service create a baseline
-              cost. Worker hours, retained EBS storage, model use, and data
-              transfer change the total. OpenRouter model cost is not included
-              in the estimate because the estimator has no price on file.
-            </p>
-            <p>
-              A budget alert is a notification, not a spending cap. Stopping
-              idle workers reduces compute use; it does not stop
-              retained-storage or always-on-service charges.
-            </p>
-          </section>
-          <section class="doc-content" id="boundaries">
-            <p class="eyebrow">09 / Trust boundaries</p>
-            <h2>Review the account and credential scope.</h2>
-            <ul>
-              <li>
-                Each task has an isolated EC2 worker and encrypted EBS
-                workspace.
-              </li>
-              <li>
-                AWS accounts provide the documented security boundary.
-                Environments sharing an account are not security boundaries from
-                each other.
-              </li>
-              <li>
-                The coding worker reads and edits checked-out code and runs
-                shell commands. Treat its output as untrusted until review.
-              </li>
-              <li>
-                Installer secrets use hidden prompts, files, or environment
-                variables and are stored in AWS Secrets Manager, rather than
-                local AgentX settings.
-              </li>
-              <li>
-                GitHub permissions, identity, cloud guardrails, CI, and human
-                merge authority remain part of your operating model.
-              </li>
-            </ul>
-            <p>
-              These are implementation and ownership facts, not a security
-              certification, penetration test, or compliance attestation.
-            </p>
-          </section>
-          <section class="doc-content" id="evidence">
-            <p class="eyebrow">10 / Evaluation</p>
-            <h2>Published evidence needs a method.</h2>
-            <p>
-              Evaluation tooling and internal pilot material exist. No public
-              solve rate, model comparison, customer adoption, time-saved, or
-              quality-improvement claim is made here.
-            </p>
-            <p>
-              A credible public demo should show a reproducible task from
-              request through code, checks, and human review using a test
-              repository. Private Slack messages and run records need consent
-              and redaction before publication.
-            </p>
-            <p>
-              Passing repository tests mean those tests passed in their CI
-              environment. They do not establish a successful live AWS install,
-              a customer outcome, or the correctness of all code an agent
-              produces.
-            </p>
-          </section>
-          <section class="doc-content" id="readiness">
-            <p class="eyebrow">11 / Release and license</p>
-            <h2>What becomes available at launch.</h2>
-            <p>
-              Current status: no public product repository, published release,
-              or npm package. The current code license is FSL-1.1-ALv2,
-              source-available rather than OSI open source; each release
-              converts to Apache 2.0 two years after it ships.
-            </p>
-            <p>
-              The public self-hosted launch needs source and license
-              publication, versioned release artifacts, reproducible
-              installation, a supported first-task path, and operator, security,
-              and contribution guidance. Until those are available, the
-              deployment guide is preparation rather than a working public
-              install.
-            </p>
-            <p>
-              The published release must state its supported region, Node range,
-              worker images, model configuration, upgrade path, and removal
-              procedure. The source snapshot reviewed for these pages lists
-              <code>us-east-1</code> and Node <code>&gt;=22.19.0 &lt;23</code>.
-            </p>
-          </section>
-          <div class="source-note">
-            Source review: AgentX mainline <code>8acb7ac00c97</code> · 05
-            October 2026. This identifies inspected implementation, not a
-            completed live install or a customer outcome.
-            <a href="../data/claims.json">Claim references</a>.
-          </div>
-        </article>
+            <img
+              src="../assets/icons/arrow-right.svg"
+              class="icon"
+              width="24"
+              height="24"
+              alt="" /></a
+          ><a class="doc-route" href="evidence/index.html"
+            ><span>04</span>
+            <div>
+              <h2>Evidence reference</h2>
+              <p>
+                Before/after, regressions, missing checks, and review questions.
+              </p>
+            </div>
+            <img
+              src="../assets/icons/arrow-right.svg"
+              class="icon"
+              width="24"
+              height="24"
+              alt="" /></a
+          ><a class="doc-route" href="operations/index.html"
+            ><span>05</span>
+            <div>
+              <h2>Workspace operations</h2>
+              <p>Stop, resume, close, and understand continuing costs.</p>
+            </div>
+            <img
+              src="../assets/icons/arrow-right.svg"
+              class="icon"
+              width="24"
+              height="24"
+              alt=""
+          /></a>
+        </section>
+        <aside>
+          <h2>Installation</h2>
+          <p>
+            Public release in preparation. The self-hosted installation guide is
+            coming soon.
+          </p>
+          <a href="../deployment/index.html">Installation status</a>
+          <h2>Version &amp; identity</h2>
+          <p>
+            Display brand: Rovara.<br />Project and CLI: AgentX /
+            <code>agentx</code>.
+          </p>
+          <p>
+            Source reviewed at <code>8acb7ac00c97</code>, 5 October 2026.
+            Product runtime requires Node <strong>22.19.0</strong> or newer,
+            <strong>below 23</strong>.
+          </p>
+          <h2>License</h2>
+          <p>
+            Current code: FSL-1.1-ALv2. A release converts to Apache 2.0 two
+            years after it ships. This is source-available licensing.
+          </p>
+          <a href="../data/claims.json">Source claim references</a>
+        </aside>
+      </div>
+      <div class="shell legacy-doc-links">
+        <span id="operate"></span><span id="workflow"></span
+        ><span id="checks"></span><span id="architecture"></span
+        ><span id="connections"></span><span id="models"></span
+        ><span id="security"></span><span id="license"></span
+        ><span id="install"></span><span id="release"></span
+        ><span id="mcp"></span>
       </div>
     </main>
     <footer class="site-footer shell">
       <div>
         <a class="wordmark" href="../index.html">Rovara</a>
         <p>
-          Remote coding. Visible evidence.<br />Rovara is the public brand of
-          the AgentX project.
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
         </p>
       </div>
       <div>

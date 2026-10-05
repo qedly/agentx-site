@@ -4,32 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#faf9f6" />
+    <title>How it works — Rovara</title>
     <meta
       name="description"
-      content="Hand over a coding task. Follow the work in a persistent workspace. Inspect the change and its evidence before your team decides what gets merged."
+      content="Follow a coding task through its workspace, verification loop, lifecycle, and architecture."
     />
-    <title>The work. The evidence. Your call. — Rovara</title>
     <link rel="canonical" href="https://rovara-dev.github.io/how-it-works/" />
-    <meta
-      property="og:title"
-      content="The work. The evidence. Your call. — Rovara"
-    />
+    <meta property="og:title" content="How it works — Rovara" />
     <meta
       property="og:description"
-      content="Hand over a coding task. Follow the work in a persistent workspace. Inspect the change and its evidence before your team decides what gets merged."
+      content="Follow a coding task through its workspace, verification loop, lifecycle, and architecture."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Rovara" />
-    <meta
-      property="og:url"
-      content="https://rovara-dev.github.io/how-it-works/"
-    />
     <meta name="twitter:card" content="summary" />
-    <link
-      rel="icon"
-      href="../assets/icons/git-pull-request.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="../assets/icons/git-pull-request.svg" />
     <link
       rel="preload"
       href="../assets/fonts/anton-400.woff2"
@@ -40,6 +28,7 @@
     <link rel="stylesheet" href="../assets/site.css" />
     <script src="../assets/vendor/motion.js" defer></script>
     <script src="../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../assets/explanations.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -67,7 +56,7 @@
           >How it works</a
         ><a href="../docs/index.html">Docs</a
         ><a class="button primary" href="../deployment/index.html"
-          >Deployment guide
+          >Install
           <img
             class="icon white"
             src="../assets/icons/arrow-up-right.svg"
@@ -78,366 +67,449 @@
         /></a>
       </nav>
     </header>
-    <main id="main" class="shell">
-      <div class="page-hero">
-        <p class="eyebrow">How Rovara works</p>
-        <h1>The work. The evidence. Your call.</h1>
-        <p>
-          Hand over a coding task. Follow the work in a persistent workspace.
-          Inspect the change and its evidence before your team decides what gets
-          merged.
+    <main id="main">
+      <div class="compact-intro shell">
+        <p class="eyebrow">How it works</p>
+        <h1>One task. The whole picture.</h1>
+        <p class="intro-text">
+          From the first request to a follow-up in the same workspace. See where
+          the work happens, how checks run, and what your team reviews.
         </p>
-        <p class="release-note">Public release in preparation</p>
       </div>
-      <div class="reading-layout">
-        <nav class="doc-nav" aria-label="On this page">
-          <a href="#workflow">01 / The workflow</a
-          ><a href="#checks">02 / Evidence</a
-          ><a href="#continue">03 / Follow up</a
-          ><a href="#architecture">04 / Architecture</a
-          ><a href="#review">05 / Human authority</a>
-        </nav>
-        <article>
-          <section class="doc-content" id="workflow">
-            <p class="eyebrow">01 / The workflow</p>
-            <h2>A complete coding workflow.</h2>
-            <p>
-              Rovara runs a coding agent, carries the task through its
-              workspace, and returns work for you to inspect. The checks support
-              that workflow.
-            </p>
-            <div
-              class="technical-flow"
-              role="group"
-              aria-label="Task goes from Slack or MCP to a coding workspace, then evidence and review"
-            >
-              <div class="flow-node">
-                <img
-                  class="icon blue"
-                  src="../assets/icons/terminal-window.svg"
-                  alt=""
-                  width="24"
-                  height="24"
-                  aria-hidden="true"
-                /><small>REQUEST</small><b>Slack or MCP</b>
-                <p>A task in an allowed project.</p>
-              </div>
-              <img
-                class="icon flow-connector"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-              />
-              <div class="flow-node">
-                <img
-                  class="icon blue"
-                  src="../assets/icons/cloud.svg"
-                  alt=""
-                  width="24"
-                  height="24"
-                  aria-hidden="true"
-                /><small>WORK</small><b>Remote coding agent</b>
-                <p>EC2 workspace in your account.</p>
-              </div>
-              <img
-                class="icon flow-connector"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-              />
-              <div class="flow-node">
-                <img
-                  class="icon blue"
-                  src="../assets/icons/file-text.svg"
-                  alt=""
-                  width="24"
-                  height="24"
-                  aria-hidden="true"
-                /><small>INSPECT</small><b>Change + evidence</b>
-                <p>Check output and missing checks.</p>
-              </div>
-              <img
-                class="icon flow-connector"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-              />
-              <div class="flow-node">
-                <img
-                  class="icon blue"
-                  src="../assets/icons/git-pull-request.svg"
-                  alt=""
-                  width="24"
-                  height="24"
-                  aria-hidden="true"
-                /><small>REVIEW</small><b>Your team</b>
-                <p>You decide what gets merged.</p>
-              </div>
-            </div>
-            <ol class="number-list">
-              <li>
-                <div>
-                  <b>Give it a task.</b>
-                  <p>
-                    Start in Slack or use your coding tool’s MCP connection.
-                    Choose an allowed project and describe the change you want.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>The remote agent works.</b>
-                  <p>
-                    It reads and edits the project, runs shell commands, and
-                    works in a persistent workspace in your AWS account.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>Inspect the changes and evidence.</b>
-                  <p>
-                    Read the diff, the check output, and what could not be
-                    checked. Ask for a follow-up if the task needs more work.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <b>Review a pull request.</b>
-                  <p>
-                    Request a pull request when you are ready to review the
-                    change in GitHub. Your team decides whether to merge it.
-                  </p>
-                </div>
-              </li>
-            </ol>
-          </section>
-          <section class="doc-content" id="checks">
-            <p class="eyebrow">02 / Evidence</p>
-            <h2>Read the check, not just the claim.</h2>
-            <p>
-              When the coding session finishes, the runtime reruns configured
-              project checks when available. Otherwise, it can rerun recognized
-              test commands from the session. It compares before and after where
-              a baseline is available.
-            </p>
-            <p>
-              If a check that passed before now fails, the agent gets one extra
-              attempt. The final report still shows unresolved failures. A
-              stopped run, an error, or a task without usable checks can be
-              marked <strong>not verified</strong>.
-            </p>
-            <div class="outcome-list">
-              <div>
-                <h3>What passed</h3>
-                <p>
-                  The named command passed in that run. Review whether it covers
-                  the task you asked for.
-                </p>
-              </div>
-              <div>
-                <h3>What failed or regressed</h3>
-                <p>
-                  Inspect the failing command and its output. A failure is not
-                  hidden by the agent saying the task is done.
-                </p>
-              </div>
-              <div>
-                <h3>What could not be checked</h3>
-                <p>
-                  Missing or unrerun checks stay visible. They are not treated
-                  as a pass.
-                </p>
-              </div>
-            </div>
-            <div class="doc-callout">
-              <b>Evidence for your review.</b>
-              <p>
-                Checks provide evidence about the commands that ran. They do not
-                prove the code is correct or replace your repository’s CI and
-                review rules.
-              </p>
-            </div>
-          </section>
-          <section class="doc-content" id="continue">
-            <p class="eyebrow">03 / Follow up</p>
-            <h2>Keep the workspace. Continue the task.</h2>
-            <p>
-              Ask for another change without starting from a blank workspace.
-              Task files and conversation state persist when idle compute stops;
-              a follow-up can resume the task.
-            </p>
-            <p>
-              Retained storage still costs money. Closing a workspace is a
-              separate lifecycle action; inspect the operator guidance before
-              cleanup.
-            </p>
-            <a class="text-link" href="../docs/index.html#operate"
-              >Task and workspace operations
-              <img
-                class="icon"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-            /></a>
-          </section>
-          <section class="doc-content" id="architecture">
-            <p class="eyebrow">04 / Architecture</p>
-            <h2>Your account is the boundary.</h2>
-            <p>
-              Your team deploys and operates the AWS environment. Slack ingress
-              and a Fargate orchestrator route tasks to isolated EC2 workers
-              with encrypted EBS workspaces. Developer MCP calls enter through
-              the task API.
-            </p>
-            <figure class="boundary-diagram">
-              <div class="external-services">
-                <div>
-                  <img
-                    src="../assets/icons/slack-icon.svg"
-                    alt="Slack"
-                    width="26"
-                    height="26"
-                  /><span>Slack / coding tool</span>
-                </div>
-                <div>
-                  <img
-                    src="../assets/icons/github-icon.svg"
-                    alt="GitHub"
-                    width="26"
-                    height="26"
-                  /><span>Your repositories</span>
-                </div>
-                <div>
-                  <img
-                    class="icon blue"
-                    src="../assets/icons/terminal-window.svg"
-                    alt=""
-                    width="24"
-                    height="24"
-                    aria-hidden="true"
-                  /><span>Configured model provider</span>
-                </div>
-              </div>
-              <div class="account-zone">
-                <div class="account-label">
-                  YOUR AWS ACCOUNT · DEPLOYED AND OPERATED BY YOUR TEAM
-                </div>
-                <div class="account-services">
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/cloud.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>Control plane + orchestrator</b>
-                    <p>
-                      Routes requests, authorizes project access, and tracks
-                      task state.
-                    </p>
-                  </div>
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/cpu.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>EC2 coding worker</b>
-                    <p>
-                      Isolated task execution in the project’s prepared
-                      environment.
-                    </p>
-                  </div>
-                  <div class="account-service">
-                    <img
-                      class="icon blue"
-                      src="../assets/icons/database.svg"
-                      alt=""
-                      width="24"
-                      height="24"
-                      aria-hidden="true"
-                    /><b>Encrypted EBS workspace</b>
-                    <p>Retains task files when idle compute stops.</p>
-                  </div>
-                </div>
-              </div>
-              <figcaption>
-                A simplified component and ownership map. Slack, GitHub, and the
-                configured model provider are external services; this is not an
-                exhaustive network diagram.
-              </figcaption>
-            </figure>
-            <p>
-              The first install needs administrator access. Separate
-              environments inside one AWS account are not independent security
-              boundaries. Use separate accounts where you need a separate
-              boundary.
-            </p>
-            <p>
-              Model requests leave the account for the configured provider.
-              GitHub and Slack have their own permissions and data flows. “Your
-              AWS account” describes infrastructure ownership; it does not mean
-              every external connection stays inside AWS.
-            </p>
-          </section>
-          <section class="doc-content" id="review">
-            <p class="eyebrow">05 / Human authority</p>
-            <h2>You decide what gets merged.</h2>
-            <p>
-              The workflow ends with work your team can review. You choose
-              whether to request changes, continue the task, or merge a pull
-              request using your repository’s existing controls.
-            </p>
-            <p>
-              In the current reporting-enabled publication path, a draft pull
-              request can include failing checks so you can inspect the code and
-              the failures. Older compatible paths can refuse publication when
-              readiness checks fail. Configured CodeBuild checks report
-              evidence; they are not an automatic merge gate.
-            </p>
-            <p>
-              The runtime has no GitHub merge operation. That is how the
-              workflow keeps final merge authority with your team.
-            </p>
-            <a class="text-link" href="../deployment/index.html"
-              >Read the deployment guide
-              <img
-                class="icon"
-                src="../assets/icons/arrow-right.svg"
-                alt=""
-                width="24"
-                height="24"
-                aria-hidden="true"
-            /></a>
-          </section>
-          <div class="source-note">
-            Source review: AgentX mainline <code>8acb7ac00c97</code> · 05
-            October 2026. This identifies inspected implementation, not a
-            completed live install or a customer outcome.
-            <a href="../data/claims.json">Claim references</a>.
+      <div class="section-jumps shell">
+        <a href="#workflow">01 Task journey</a
+        ><a href="#checks">02 Verification</a
+        ><a href="#continue">03 Workspace lifecycle</a
+        ><a href="#architecture">04 Architecture</a>
+      </div>
+      <section class="system-section shell" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">01 / Task journey</p>
+          <h2>Give it work. Stay in the loop.</h2>
+          <p>
+            Slack and coding tools are entry points. Rovara runs the coding
+            agent remotely, then brings its result back to you.
+          </p>
+        </div>
+        <div class="journey-player" data-journey>
+          <div class="journey-toolbar">
+            <p class="eyebrow">Illustrative workflow / CSV export</p>
+            <button class="motion-control" type="button" data-play hidden>
+              Play walkthrough
+            </button>
           </div>
-        </article>
-      </div>
+          <div class="journey-track" aria-label="Choose a workflow stage">
+            <button
+              class="journey-stop"
+              type="button"
+              data-step="0"
+              aria-pressed="true"
+              disabled
+            >
+              <span>01</span
+              ><img
+                src="../assets/icons/slack-icon.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><b>Request</b></button
+            ><button
+              class="journey-stop"
+              type="button"
+              data-step="1"
+              aria-pressed="false"
+              disabled
+            >
+              <span>02</span
+              ><img
+                src="../assets/icons/aws.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><b>Work</b></button
+            ><button
+              class="journey-stop"
+              type="button"
+              data-step="2"
+              aria-pressed="false"
+              disabled
+            >
+              <span>03</span
+              ><img
+                src="../assets/icons/file-text.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><b>Evidence</b></button
+            ><button
+              class="journey-stop"
+              type="button"
+              data-step="3"
+              aria-pressed="false"
+              disabled
+            >
+              <span>04</span
+              ><img
+                src="../assets/icons/git-pull-request.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><b>Review</b></button
+            ><button
+              class="journey-stop"
+              type="button"
+              data-step="4"
+              aria-pressed="false"
+              disabled
+            >
+              <span>05</span
+              ><img
+                src="../assets/icons/clock.svg"
+                class="icon"
+                width="24"
+                height="24"
+                alt=""
+              /><b>Continue</b>
+            </button>
+          </div>
+          <div class="journey-progress" aria-hidden="true"><div></div></div>
+          <div class="journey-panels">
+            <article class="journey-panel" id="journey-panel-0" data-panel="0">
+              <p class="eyebrow">01 / Request</p>
+              <h3>Your request</h3>
+              <p class="journey-example">
+                “Fix CSV exports with empty records. Add a regression test. Keep
+                the column order.”
+              </p>
+              <p>
+                Start from a project channel or an authorized coding-tool
+                connection.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-1" data-panel="1">
+              <p class="eyebrow">02 / Work</p>
+              <h3>The agent works remotely</h3>
+              <p class="journey-example">
+                The remote coding agent reads the repository, makes the change,
+                and runs commands in its prepared workspace.
+              </p>
+              <p>
+                The work happens in your AWS account. Your laptop is the entry
+                point.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-2" data-panel="2">
+              <p class="eyebrow">03 / Evidence</p>
+              <h3>Inspect the patch and checks</h3>
+              <p class="journey-example">
+                Read the code diff alongside the checks that passed, failed, or
+                could not be verified.
+              </p>
+              <p>
+                The runtime reruns usable checks; an agent’s success message is
+                not the report.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-3" data-panel="3">
+              <p class="eyebrow">04 / Review</p>
+              <h3>Request a pull request</h3>
+              <p class="journey-example">
+                “Open a draft PR for review.” Inspect the patch and its check
+                evidence with your team.
+              </p>
+              <p>
+                PR creation is a separate request. You decide what gets merged.
+              </p>
+            </article>
+            <article class="journey-panel" id="journey-panel-4" data-panel="4">
+              <p class="eyebrow">05 / Continue</p>
+              <h3>Pick up where you left off</h3>
+              <p class="journey-example">
+                “Also handle a file that contains only empty records.” Continue
+                in the retained workspace.
+              </p>
+              <p>
+                Idle compute can stop while files and conversation state remain.
+              </p>
+            </article>
+          </div>
+          <p class="scenario-note">
+            An explanatory scenario, not a recorded product run.
+            <a href="../docs/evidence/index.html#example"
+              >Inspect the example packet</a
+            >.
+          </p>
+        </div>
+        <figure class="system-figure">
+          <div
+            class="diagram-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Journey diagram; scroll horizontally on a small screen"
+          >
+            <img
+              width="1215"
+              height="500"
+              src="../assets/diagrams/journey.svg"
+              alt="Request → remote coding workspace → changes and check evidence → requested PR → human review. Follow-ups reuse the workspace."
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Request → remote coding workspace → changes and check evidence →
+            requested PR → human review. Follow-ups reuse the workspace.
+            <a
+              href="../assets/diagrams/journey.svg"
+              target="_blank"
+              rel="noopener"
+              >Open full size</a
+            >
+          </figcaption>
+        </figure>
+      </section>
+      <section class="system-section shell" id="checks">
+        <div class="section-heading">
+          <p class="eyebrow">02 / Verification</p>
+          <h2>The check, not just the claim.</h2>
+          <p>
+            The agent writes the code. The runtime reruns usable checks and
+            reports what happened. When a previously passing check regresses, it
+            gives the agent one extra attempt.
+          </p>
+        </div>
+        <figure class="system-figure">
+          <div
+            class="diagram-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Verification diagram; scroll horizontally on a small screen"
+          >
+            <img
+              width="1215"
+              height="595"
+              src="../assets/diagrams/verification.svg"
+              alt="When a session finishes, select usable checks, rerun and compare where possible. A regression gets one extra try. Missing or unrun checks remain visible."
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            When a session finishes, select usable checks, rerun and compare
+            where possible. A regression gets one extra try. Missing or unrun
+            checks remain visible.
+            <a
+              href="../assets/diagrams/verification.svg"
+              target="_blank"
+              rel="noopener"
+              >Open full size</a
+            >
+          </figcaption>
+        </figure>
+        <div class="explanation-rows">
+          <div>
+            <h3>Passed</h3>
+            <p>
+              The named command passed in that run. Review whether it covers the
+              change you requested.
+            </p>
+          </div>
+          <div>
+            <h3>Failed or regressed</h3>
+            <p>
+              A failing check stays in the report. A draft PR can carry
+              unfinished work and its failures for review.
+            </p>
+          </div>
+          <div>
+            <h3>Not verified</h3>
+            <p>
+              No usable checks, a stopped task, or an unrun command is visible.
+              Missing evidence is not a pass.
+            </p>
+          </div>
+        </div>
+        <a class="text-link" href="../docs/evidence/index.html"
+          >Read the evidence reference</a
+        >
+      </section>
+      <section class="system-section shell" id="continue">
+        <div class="section-heading">
+          <p class="eyebrow">03 / Workspace lifecycle</p>
+          <h2>Come back with the context intact.</h2>
+          <p>
+            Idle compute can stop while files and conversation state remain.
+            Your next request can resume work in that workspace.
+          </p>
+        </div>
+        <figure class="system-figure">
+          <div
+            class="diagram-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Lifecycle diagram; scroll horizontally on a small screen"
+          >
+            <img
+              width="1215"
+              height="695"
+              src="../assets/diagrams/lifecycle.svg"
+              alt="Active work becomes idle with retained files and conversation state; a follow-up resumes. Cancellation, workspace closure, and environment removal are different actions."
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Active work becomes idle with retained files and conversation state;
+            a follow-up resumes. Cancellation, workspace closure, and
+            environment removal are different actions.
+            <a
+              href="../assets/diagrams/lifecycle.svg"
+              target="_blank"
+              rel="noopener"
+              >Open full size</a
+            >
+          </figcaption>
+        </figure>
+        <div class="doc-callout">
+          <b>Kept workspace, continuing cost.</b>
+          <p>
+            Retained storage still costs money. Closing a workspace checks for
+            unpublished work before releasing it. Removing the environment is a
+            separate operator task.
+          </p>
+        </div>
+        <a class="text-link" href="../docs/operations/index.html"
+          >Understand stop, close, and cleanup</a
+        >
+      </section>
+      <section class="system-section shell" id="architecture">
+        <div class="section-heading">
+          <p class="eyebrow">04 / Architecture</p>
+          <h2>Know what runs where.</h2>
+          <p>
+            Your AWS account contains the control services and coding
+            workspaces. Slack, GitHub, model routes, and configured connectors
+            have distinct interactions.
+          </p>
+        </div>
+        <figure class="system-figure">
+          <div
+            class="diagram-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Architecture diagram; scroll horizontally on a small screen"
+          >
+            <img
+              width="1270"
+              height="925"
+              src="../assets/diagrams/architecture.svg"
+              alt="Slack requests queue for a Fargate orchestrator; coding-tool MCP calls enter the authorized task API. The control plane dispatches the EC2 worker. DynamoDB holds state, S3 artifacts, and encrypted EBS workspace files."
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            Slack requests queue for a Fargate orchestrator; coding-tool MCP
+            calls enter the authorized task API. The control plane dispatches
+            the EC2 worker. DynamoDB holds state, S3 artifacts, and encrypted
+            EBS workspace files.
+            <a
+              href="../assets/diagrams/architecture.svg"
+              target="_blank"
+              rel="noopener"
+              >Open full size</a
+            >
+          </figcaption>
+        </figure>
+        <div class="architecture-notes">
+          <div>
+            <h3>Coordinate</h3>
+            <p>
+              The Slack orchestrator routes tasks and uses allowed tools. Its
+              action policy can allow, ask, or deny a tool call. A requested
+              confirmation offers Approve or Cancel.
+            </p>
+          </div>
+          <div>
+            <h3>Execute</h3>
+            <p>
+              The Pi coding agent reads, edits, and runs shell commands on the
+              EC2 worker. It uses the project devcontainer when configured. The
+              action gate is not approval for every worker edit or command.
+            </p>
+          </div>
+          <div>
+            <h3>Connect</h3>
+            <p>
+              GitHub handles repository access and PRs. Connector scopes are
+              configured on the server. Bedrock is AWS-hosted; external model
+              providers receive requests outside your account.
+            </p>
+          </div>
+        </div>
+        <details class="engineering-details">
+          <summary>
+            Engineering view: routing, state, and permission boundaries
+          </summary>
+          <div>
+            <dl>
+              <dt>Slack entry</dt>
+              <dd>
+                Signed ingress Lambda → SQS request queue → Fargate orchestrator
+                → control-plane API.
+              </dd>
+              <dt>Coding-tool entry</dt>
+              <dd>
+                Local <code>agentx mcp</code> → authorized developer task API.
+                Client tools are not the remote coding harness.
+              </dd>
+              <dt>Dispatch</dt>
+              <dd>
+                Control-plane operations use a dispatch outbox and queue before
+                the EC2 worker executes work.
+              </dd>
+              <dt>State &amp; artifacts</dt>
+              <dd>
+                DynamoDB stores task/operation state. S3 stores artifacts and
+                session data. EBS is attached workspace storage.
+              </dd>
+              <dt>Model access</dt>
+              <dd>
+                Worker and orchestration model configuration are separate.
+                External provider selection changes where model requests go.
+              </dd>
+            </dl>
+            <p>
+              The AWS account is the documented security boundary. Environments
+              in one account are not independent boundaries. This diagram is a
+              service overview, not a complete network or security assessment.
+            </p>
+          </div>
+        </details>
+      </section>
+      <section class="system-section shell" id="review">
+        <p class="eyebrow">The final decision</p>
+        <h2>You decide what gets merged.</h2>
+        <p>
+          Your team reviews the code, task evidence, and repository CI using its
+          existing merge controls.
+        </p>
+        <a class="button primary" href="../docs/tasks/index.html"
+          >Follow a first task
+          <img
+            src="../assets/icons/arrow-right.svg"
+            class="icon"
+            width="24"
+            height="24"
+            alt=""
+        /></a>
+      </section>
     </main>
     <footer class="site-footer shell">
       <div>
         <a class="wordmark" href="../index.html">Rovara</a>
         <p>
-          Remote coding. Visible evidence.<br />Rovara is the public brand of
-          the AgentX project.
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
         </p>
       </div>
       <div>

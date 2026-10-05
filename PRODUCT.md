@@ -23,13 +23,13 @@ Developers need a concrete task workflow: delegate, inspect, follow up in the sa
 3. Persistent workspace for follow-up.
 4. Bounded task examples and familiar connections.
 5. Ownership and operating model.
-6. Deployment preparation with current release status.
+6. Documentation and a clearly labelled installation placeholder.
 
 Verification strengthens the complete coding workflow. It is not presented as the whole product or as proof of correctness. Missing checks, stopped runs, unrerun commands and failing checks must remain visible in the detailed explanation.
 
 ## Current boundaries
 
-The current AgentX source is private, no public package/release exists, and the source uses FSL-1.1-ALv2. The current CTA is Deployment guide, not an install command. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
+The current AgentX source is private, no public package/release exists, and the source uses FSL-1.1-ALv2. Installation is explicitly deferred to a simple coming-soon page. The useful current destination is the task walkthrough and documentation, with installation status visible. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
 
 Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Source references are drift guards; public source references are not independently accessible until the product is published.
 

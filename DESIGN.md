@@ -14,18 +14,24 @@ Anton display headings, Inter body/navigation, system monospace for labels and c
 
 ## Responsive behavior
 
-Wide desktop: four workflow columns. Tablet: two. Mobile: one vertical task journey with step numbers. The hero becomes one column. Reading navigation moves above the article and wraps rather than forcing a sidebar. Code and tables can scroll inside their own container without widening the page.
+Homepage: four workflow columns on desktop, two on tablet, one vertical journey on mobile. How it works uses a five-stage selectable explanation and four scrollable diagrams. The hero becomes one column. Reading navigation moves above the article and wraps rather than forcing a sidebar. Code and tables can scroll inside their own container without widening the page.
 
 ## Motion and interactions
 
 Native evidence dialog, short opacity/position entrance, Escape/backdrop/close handling, focus restoration. Motion is omitted when reduced motion is requested. No simulated progress or fabricated live activity. The static diagram is labelled illustrative.
 
-Evidence links degrade to expandable explanations. Navigation, release status and deployment instructions work without JavaScript. Mobile menu has labelled state and keyboard operation. Copy controls appear only when the clipboard API is available.
+Evidence links degrade to expandable explanations. Navigation, release status and deployment instructions work without JavaScript. Mobile menu has labelled state and keyboard operation. Commands remain selectable in code blocks.
 
 ## Deliberate adaptations
 
-Public wordmark is Rovara; source/CLI remains AgentX. Vendor icons replace generated approximations. Evidence reports explain the actual format without inventing a passed live run. The continuation link replaces the reference's long looping arrow with a standard return icon and an actionable destination. The approved upper-page composition extends into a complete site and practical documentation.
+Public wordmark is Rovara; source/CLI remains AgentX. Vendor icons replace generated approximations. Evidence reports explain the actual format without inventing a passed live run. The task journey now has an editable return loop showing how follow-ups return to the same workspace. The approved upper-page composition extends into a complete site and practical documentation.
 
 ## Quality gate
 
 Read `design-qa.md` for reference-size screenshots, mobile captures, interaction checks and accepted differences. Owner approval of this design does not authorize live publication.
+
+## Connected explanations extension
+
+The owner approved four connected explanations and modern motion after the fresh review. Compact supporting-page headings preserve the expressive homepage. A five-stage selectable walkthrough exposes request, work, evidence, requested review, and continuation; it is labelled illustrative. Four editable Excalidraw exports show the actual relationships. Diagram containers scroll locally on phones and include full-size links and text equivalents. Five documentation guides replace the mixed overview. Installation remains a simple placeholder.
+
+Motion storyboard and guidance: docs/reference-prompt.md. Functional mobile labels are at least 11px; body text is 16px or larger. No random scroll reveal, decorative looping animation, or fabricated task progress.

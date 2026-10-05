@@ -1,0 +1,874 @@
+/* Connected explanations: approved typography and palette, one authored workflow. */
+.compact-intro {
+  padding-top: 42px;
+  padding-bottom: 42px;
+  max-width: 1600px;
+}
+.compact-intro h1 {
+  font-family: Anton, Impact, sans-serif;
+  font-weight: 400;
+  font-size: clamp(42px, 5.6vw, 82px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+  max-width: 1050px;
+}
+.intro-text {
+  max-width: 710px;
+  font-size: 19px;
+  color: var(--body);
+  margin: 0;
+}
+.compact-intro .eyebrow {
+  margin-bottom: 18px;
+}
+.section-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  border-block: 1px solid var(--line);
+  padding-block: 18px;
+  font-size: 14px;
+}
+.section-jumps a {
+  text-decoration: none;
+  color: var(--body);
+}
+.system-section {
+  padding-block: 64px;
+  border-bottom: 1px solid var(--line);
+}
+.section-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 55px;
+  align-items: start;
+  margin-bottom: 30px;
+}
+.section-heading .eyebrow {
+  grid-column: 1/-1;
+  margin-bottom: 6px;
+}
+.section-heading h2,
+.system-section > h2 {
+  font-size: clamp(29px, 3.6vw, 48px);
+  line-height: 1.16;
+  letter-spacing: -1.5px;
+  margin: 0;
+}
+.section-heading > p:last-child {
+  color: var(--body);
+  margin: 0;
+  max-width: 650px;
+}
+.system-figure {
+  margin: 30px 0;
+}
+.diagram-scroll {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 12px;
+  overflow: auto;
+}
+.diagram-scroll img {
+  width: 100%;
+  height: auto;
+  min-width: 760px;
+}
+.system-figure figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-top: 12px;
+}
+.system-figure figcaption a {
+  margin-left: 8px;
+  white-space: nowrap;
+}
+.journey-player {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 28px;
+}
+.journey-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.journey-toolbar .eyebrow {
+  margin: 0;
+  font-size: 12px;
+}
+.motion-control {
+  border: 1px solid var(--blue);
+  background: transparent;
+  color: var(--blue);
+  min-height: 44px;
+  padding: 10px 15px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.motion-control:hover {
+  background: var(--wash);
+}
+.journey-track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+.journey-stop {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--line);
+  padding: 20px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  min-height: 98px;
+  color: var(--body);
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.journey-stop span {
+  font-family: var(--mono);
+  font-size: 12px;
+  flex-basis: 100%;
+  color: var(--muted);
+}
+.journey-stop .icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.journey-stop b {
+  font-size: 15px;
+}
+.journey-stop[aria-pressed="true"] {
+  background: var(--wash);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.journey-progress {
+  height: 3px;
+  background: var(--line);
+  margin-block: 16px 26px;
+  overflow: hidden;
+}
+.journey-progress > div {
+  height: 100%;
+  width: 100%;
+  background: var(--blue);
+  transform: scaleX(0.2);
+  transform-origin: left;
+}
+.journey-panel {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+}
+.journey-panel h3 {
+  font-size: 27px;
+  letter-spacing: -0.7px;
+  margin-bottom: 14px;
+}
+.journey-panel > p {
+  color: var(--body);
+  max-width: 830px;
+}
+.journey-panel .journey-example {
+  font-size: 20px;
+  line-height: 1.65;
+  max-width: 830px;
+  margin-bottom: 14px;
+}
+.js .journey-panel {
+  border: 0;
+  padding: 0;
+}
+.js .journey-panel[hidden] {
+  display: none;
+}
+.scenario-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 20px 0 0;
+}
+.explanation-rows,
+.architecture-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-block: 32px;
+}
+.explanation-rows > div,
+.architecture-notes > div {
+  border-top: 2px solid var(--line);
+  padding-top: 18px;
+}
+.explanation-rows h3,
+.architecture-notes h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.explanation-rows p,
+.architecture-notes p {
+  font-size: 15px;
+  color: var(--body);
+  margin: 0;
+}
+.engineering-details {
+  border-block: 1px solid var(--line);
+  padding-block: 20px;
+  margin-top: 32px;
+}
+.engineering-details summary {
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.engineering-details > div {
+  padding-top: 20px;
+  max-width: 880px;
+}
+.engineering-details dt,
+.doc-article dt {
+  font-weight: 600;
+  margin-top: 20px;
+}
+.engineering-details dd,
+.doc-article dd {
+  margin: 8px 0 0;
+  color: var(--body);
+  line-height: 1.7;
+}
+.value-split {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 70px;
+  padding-block: 45px 65px;
+}
+.value-split h2 {
+  font-family: Anton;
+  font-weight: 400;
+  font-size: clamp(40px, 6.6vw, 95px);
+  line-height: 1.15;
+  margin: 0;
+}
+.value-split > div {
+  border-left: 1px solid var(--line);
+  padding-left: 45px;
+  align-self: center;
+  font-size: 20px;
+  color: var(--body);
+}
+.editorial-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 75px;
+}
+.editorial-section h2 {
+  font-family: Anton;
+  font-weight: 400;
+  font-size: clamp(38px, 5.3vw, 74px);
+  line-height: 1.16;
+}
+.benefit-rows > div,
+.connection-rows > div {
+  border-top: 1px solid var(--line);
+  padding-block: 22px;
+}
+.benefit-rows p,
+.connection-rows p {
+  color: var(--body);
+  margin-bottom: 0;
+}
+.logo-line {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.logo-line img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.ownership-strip {
+  background: var(--wash);
+  padding-block: 64px;
+}
+.ownership-strip .shell {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 25px 80px;
+  align-items: center;
+}
+.ownership-strip .eyebrow {
+  grid-column: 1/-1;
+}
+.ownership-strip h2 {
+  font-family: Anton;
+  font-weight: 400;
+  font-size: clamp(40px, 5.3vw, 76px);
+  line-height: 1.16;
+  margin: 0;
+}
+.ownership-strip p {
+  color: var(--body);
+}
+.next-action {
+  padding-block: 75px;
+}
+.next-action h2 {
+  font-size: clamp(32px, 4vw, 55px);
+  letter-spacing: -1.5px;
+}
+.next-action > p {
+  max-width: 720px;
+  color: var(--body);
+}
+.next-action .button {
+  margin-top: 15px;
+  margin-right: 12px;
+}
+.install-placeholder {
+  padding-bottom: 90px;
+  min-height: 210px;
+}
+.install-placeholder .button {
+  margin: 8px 12px 8px 0;
+}
+.docs-home {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+  gap: 80px;
+  padding-bottom: 60px;
+}
+.doc-route {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-block: 26px;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+.doc-route:hover h2 {
+  color: var(--blue);
+}
+.doc-route > span {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.doc-route > div {
+  flex: 1;
+}
+.doc-route h2 {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  margin-bottom: 7px;
+}
+.doc-route p {
+  font-size: 15px;
+  color: var(--body);
+  margin: 0;
+}
+.docs-home aside {
+  border-left: 1px solid var(--line);
+  padding-left: 32px;
+}
+.docs-home aside h2 {
+  font-size: 17px;
+  margin-top: 28px;
+}
+.docs-home aside h2:first-child {
+  margin-top: 0;
+}
+.docs-home aside p {
+  font-size: 14px;
+  color: var(--body);
+}
+.doc-article {
+  min-width: 0;
+}
+.doc-article > section {
+  padding-block: 0 38px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--line);
+}
+.doc-article h2 {
+  font-size: 30px;
+  letter-spacing: -0.8px;
+  line-height: 1.25;
+}
+.doc-article h3 {
+  font-size: 19px;
+  margin-top: 24px;
+}
+.doc-article p,
+.doc-article li {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.8;
+}
+.doc-article pre {
+  margin-block: 22px;
+  background: #111b2d;
+  color: #edf4ff;
+  padding: 24px;
+  border-radius: 3px;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.doc-article pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  white-space: pre;
+}
+.doc-article blockquote {
+  margin: 22px 0;
+  background: var(--wash);
+  border-left: 3px solid var(--blue);
+  padding: 20px 24px;
+  color: var(--body);
+  line-height: 1.8;
+}
+.example-message {
+  display: flex;
+  gap: 20px;
+  align-items: start;
+  border: 1px solid var(--line);
+  padding: 22px;
+  margin-block: 22px;
+}
+.example-message img {
+  flex-shrink: 0;
+}
+.example-message p {
+  margin: 10px 0 0;
+}
+.doc-article details {
+  padding-block: 18px;
+  border-top: 1px solid var(--line);
+}
+.doc-article details summary {
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.doc-article table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  margin-block: 24px;
+  text-align: left;
+}
+.doc-article th,
+.doc-article td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.65;
+}
+.doc-article th {
+  color: var(--body);
+  background: var(--wash);
+}
+.cost-reference {
+  border-left: 3px solid var(--blue);
+  padding-left: 24px;
+  margin-block: 25px;
+}
+.cost-reference strong {
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+.reading-layout {
+  padding-bottom: 65px;
+}
+.doc-nav a[aria-current="page"] {
+  color: var(--blue);
+  font-weight: 600;
+}
+.source-note {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.legacy-doc-links {
+  height: 0;
+}
+.system-section > p {
+  max-width: 730px;
+  color: var(--body);
+  font-size: 18px;
+}
+@media (min-width: 1500px) {
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+}
+@media (max-width: 950px) {
+  .shell {
+    width: calc(100% - 64px);
+  }
+  .journey-stop {
+    padding: 14px 6px;
+    gap: 8px;
+  }
+  .journey-stop b {
+    font-size: 13px;
+  }
+  .editorial-section,
+  .ownership-strip .shell,
+  .section-heading {
+    gap: 25px 35px;
+  }
+  .docs-home {
+    gap: 35px;
+  }
+  .value-split {
+    gap: 35px;
+  }
+  .value-split > div {
+    padding-left: 26px;
+  }
+}
+@media (max-width: 650px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+  .compact-intro {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .compact-intro h1 {
+    font-size: 46px;
+  }
+  .intro-text {
+    font-size: 17px;
+  }
+  .section-jumps {
+    gap: 14px 22px;
+    font-size: 12px;
+  }
+  .system-section {
+    padding-block: 40px;
+  }
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .journey-player {
+    padding: 18px;
+  }
+  .journey-toolbar {
+    align-items: start;
+    margin-bottom: 20px;
+  }
+  .journey-toolbar .eyebrow {
+    max-width: 140px;
+    font-size: 10px;
+  }
+  .motion-control {
+    font-size: 12px;
+    padding: 8px 10px;
+    min-width: 95px;
+  }
+  .journey-track {
+    gap: 3px;
+  }
+  .journey-stop {
+    padding: 12px 3px;
+    justify-content: center;
+    text-align: center;
+    gap: 9px;
+  }
+  .journey-stop span {
+    font-size: 10px;
+  }
+  .journey-stop .icon {
+    width: 25px;
+    height: 25px;
+  }
+  .journey-stop b {
+    flex-basis: 100%;
+    font-size: 10px;
+  }
+  .journey-panel h3 {
+    font-size: 24px;
+  }
+  .journey-panel .journey-example {
+    font-size: 17px;
+  }
+  .journey-panel > p {
+    font-size: 14px;
+  }
+  .diagram-scroll {
+    padding: 4px;
+  }
+  .system-figure figcaption {
+    font-size: 12px;
+  }
+  .explanation-rows,
+  .architecture-notes {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .editorial-section,
+  .ownership-strip .shell,
+  .value-split,
+  .docs-home {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .value-split {
+    padding-block: 30px 45px;
+  }
+  .value-split h2 {
+    font-size: 47px;
+  }
+  .value-split > div {
+    border: 0;
+    padding: 0;
+    font-size: 17px;
+  }
+  .editorial-section {
+    padding-block: 45px;
+  }
+  .editorial-section h2 {
+    font-size: 46px;
+    margin-bottom: 5px;
+  }
+  .ownership-strip {
+    padding-block: 45px;
+  }
+  .ownership-strip h2 {
+    font-size: 49px;
+  }
+  .ownership-strip .eyebrow {
+    font-size: 11px;
+  }
+  .next-action {
+    padding-block: 45px;
+  }
+  .next-action .button {
+    display: flex;
+    margin-right: 0;
+  }
+  .docs-home aside {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 30px 0 0;
+  }
+  .doc-route {
+    gap: 14px;
+  }
+  .doc-route h2 {
+    font-size: 20px;
+  }
+  .doc-route p {
+    font-size: 14px;
+  }
+  .doc-article h2 {
+    font-size: 27px;
+  }
+  .doc-article table {
+    font-size: 12px;
+    table-layout: fixed;
+  }
+  .doc-article th,
+  .doc-article td {
+    padding: 10px 6px;
+    overflow-wrap: anywhere;
+  }
+  .doc-article pre {
+    padding: 18px;
+    font-size: 12px;
+  }
+  .doc-article blockquote {
+    padding: 18px;
+  }
+  .example-message {
+    padding: 16px;
+    gap: 12px;
+  }
+  .example-message p {
+    font-size: 14px;
+  }
+  .install-placeholder .button {
+    display: flex;
+    margin-right: 0;
+  }
+  .journey-player .scenario-note {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-stop {
+    transition: none;
+  }
+  .journey-progress > div {
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+.report-detail pre {
+  font-size: 14px;
+  line-height: 1.8;
+  background: #111b2d;
+  color: #edf4ff;
+  padding: 20px;
+  overflow: auto;
+}
+.report-detail pre code {
+  background: none;
+  color: inherit;
+}
+.evidence-fallback > .button {
+  margin: 15px 0;
+}
+.evidence-fallback details {
+  margin-top: 20px;
+}
+button[hidden] {
+  display: none !important;
+}
+/* Keep functional labels readable on phones. */
+@media (max-width: 650px) {
+  .journey-toolbar .eyebrow {
+    font-size: 11px;
+  }
+  .journey-stop span,
+  .journey-stop b {
+    font-size: 11px;
+  }
+}
+::selection {
+  background: #c5deff;
+  color: var(--ink);
+}
+.doc-article table {
+  font-variant-numeric: tabular-nums;
+}
+.workflow-stage {
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  min-height: 44px;
+}
+.workflow-stage:hover,
+.workflow-stage[aria-pressed="true"] {
+  color: var(--blue);
+}
+.workflow-band .workflow-grid {
+  gap: 45px;
+}
+.workflow-band .workflow-step h3 {
+  margin-bottom: 8px;
+}
+.workflow-band .step-visual {
+  min-height: 145px;
+}
+.workflow-band .file-label {
+  font-size: 12px;
+}
+.workflow-band .diff-preview code {
+  font-size: 12px;
+}
+.workflow-band .evidence-button b {
+  font-size: 12px;
+}
+.workflow-band .evidence-button small {
+  font-size: 11px;
+}
+.workflow-band .journey-panels {
+  margin-top: 25px;
+}
+.workflow-band .journey-panel .journey-example {
+  max-width: 900px;
+}
+.continuation-path {
+  position: relative;
+  margin-top: 20px;
+}
+.continuation-path img {
+  width: 100%;
+  height: auto;
+  max-height: 130px;
+  object-fit: contain;
+}
+.continuation-path button {
+  display: block;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--blue);
+  font-size: 14px;
+}
+.workflow-band .journey-progress {
+  margin-top: 30px;
+}
+.workflow-band .illustration-note {
+  font-size: 12px;
+}
+@media (max-width: 950px) {
+  .workflow-band .workflow-grid {
+    gap: 32px;
+  }
+}
+@media (max-width: 650px) {
+  .workflow-band .workflow-grid {
+    gap: 30px;
+  }
+  .workflow-band .step-visual {
+    min-height: 110px;
+  }
+  .workflow-stage {
+    font-size: 20px;
+  }
+  .workflow-band .diff-preview code {
+    font-size: 13px;
+  }
+  .continuation-path img {
+    display: none;
+  }
+  .continuation-path button {
+    font-size: 14px;
+  }
+  .workflow-band .journey-toolbar .eyebrow {
+    max-width: 170px;
+  }
+  .workflow-band .evidence-button b {
+    font-size: 13px;
+  }
+  .workflow-band .evidence-button small {
+    font-size: 12px;
+  }
+}
+.workflow-band .diff-preview code {
+  font-size: 11px;
+}
+.workflow-band .diff-line {
+  white-space: nowrap;
+}
+[tabindex]:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.workflow-stage:disabled,
+.journey-stop:disabled {
+  cursor: default;
+}

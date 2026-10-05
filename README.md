@@ -16,8 +16,8 @@ Open `http://127.0.0.1:8766/`. Choose another port with `npm run dev -- --port 8
 
 - `site/index.html`: product story, illustrative task journey, evidence inspection, connections and ownership.
 - `site/how-it-works/index.html`: workflow, check outcomes, account boundary and human review.
-- `site/deployment/index.html`: release status, prerequisites, cost model, first-task preparation and operator responsibilities.
-- `site/docs/index.html`: administrator, developer, check evidence, lifecycle and reference guide.
+- `site/deployment/index.html`: a simple installation-coming-soon placeholder, as requested.
+- `site/docs/index.html`: documentation hub with separate task, coding-tool, configuration, evidence, and operations guides.
 
 All pages use relative links. Evidence controls open an accessible native dialog; without JavaScript they lead to expandable explanations. Mobile navigation remains available without JavaScript. Reduced motion is respected.
 
@@ -44,3 +44,9 @@ Live URL: `https://rovara-dev.github.io/`. `.github/workflows/pages.yml` deploys
 The current source license is FSL-1.1-ALv2. “Open source,” public install commands, customer results, benchmark scores, security certification and automatic merge-gate promises are not justified by this website build. Public display branding does not rename CLI commands, authorization or evidence identities.
 
 Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance: `ASSET-LICENSES.md`. Browser evidence: `design-qa.md`.
+
+## Connected explanations
+
+Editable task journey, architecture, verification, and lifecycle sources: `docs/diagrams/`. Their SVG exports ship without a diagram runtime. User-started Motion walkthrough has direct stage selection, pause/replay, keyboard controls, reduced-motion handling, and a static no-JavaScript fallback.
+
+The CSV packet is a constructed explanation, not real run evidence. A real Slack test reply was found, but raw output/diff/PR continuity has not yet been established for the featured example. Do not relabel it as a recorded demo. Brag research and the 20-second video brief live in `docs/video/`; no video has been rendered.

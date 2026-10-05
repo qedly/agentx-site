@@ -1,110 +1,180 @@
 (() => {
   document.documentElement.classList.add("js");
+  const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
   const menu = document.querySelector(".primary-nav");
-  const toggle = document.querySelector(".menu-toggle");
+  const menuToggle = document.querySelector(".menu-toggle");
   const setMenu = (open) => {
     menu?.classList.toggle("is-open", open);
-    toggle?.setAttribute("aria-expanded", String(open));
-    toggle?.setAttribute(
+    menuToggle?.setAttribute("aria-expanded", String(open));
+    menuToggle?.setAttribute(
       "aria-label",
       open ? "Close navigation" : "Open navigation",
     );
   };
-  toggle?.addEventListener("click", () =>
-    setMenu(toggle.getAttribute("aria-expanded") !== "true"),
+  menuToggle?.addEventListener("click", () =>
+    setMenu(menuToggle.getAttribute("aria-expanded") !== "true"),
   );
-  menu?.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setMenu(false);
+  menu?.addEventListener("click", (e) => {
+    if (e.target.closest("a")) setMenu(false);
   });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menu?.classList.contains("is-open")) {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menu?.classList.contains("is-open")) {
       setMenu(false);
-      toggle?.focus();
+      menuToggle?.focus();
     }
   });
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  document.querySelectorAll("[data-journey]").forEach((player) => {
+    const buttons = [...player.querySelectorAll("[data-step]")];
+    const panels = [...player.querySelectorAll("[data-panel]")];
+    const play = player.querySelector("[data-play]");
+    const progress = player.querySelector(".journey-progress > div");
+    let index = 0,
+      timer,
+      running = false,
+      finished = false,
+      animations = [];
+    function stop() {
+      clearTimeout(timer);
+      running = false;
+      play.textContent = finished ? "Replay walkthrough" : "Play walkthrough";
+      play.setAttribute("aria-pressed", "false");
+    }
+    function select(next, animate = true) {
+      animations.forEach((a) => a?.stop?.());
+      animations = [];
+      index = next;
+      buttons.forEach((b, i) =>
+        b.setAttribute("aria-pressed", String(i === index)),
+      );
+      panels.forEach((p, i) => {
+        p.hidden = i !== index;
+        p.style.opacity = "";
+        p.style.transform = "";
+      });
+      if (animate && !motionPreference.matches && window.Motion?.animate) {
+        animations.push(
+          Motion.animate(
+            panels[index],
+            { opacity: [0, 1], x: [10, 0] },
+            { duration: 0.24 },
+          ),
+        );
+        animations.push(
+          Motion.animate(
+            progress,
+            { scaleX: (index + 1) / buttons.length },
+            { duration: 0.35, ease: "easeOut" },
+          ),
+        );
+      } else
+        progress.style.transform = `scaleX(${(index + 1) / buttons.length})`;
+    }
+    function advance() {
+      if (!running) return;
+      if (index === buttons.length - 1) {
+        finished = true;
+        stop();
+        return;
+      }
+      select(index + 1);
+      timer = setTimeout(advance, 5000);
+    }
+    play.hidden = motionPreference.matches;
+    play.setAttribute("aria-pressed", "false");
+    play.addEventListener("click", () => {
+      if (running) {
+        stop();
+        return;
+      }
+      if (finished || index === buttons.length - 1) {
+        finished = false;
+        select(0);
+      }
+      running = true;
+      play.textContent = "Pause walkthrough";
+      play.setAttribute("aria-pressed", "true");
+      timer = setTimeout(advance, 5000);
+    });
+    buttons.forEach((b, i) => {
+      b.disabled = false;
+      b.addEventListener("click", () => {
+        finished = false;
+        stop();
+        select(i);
+      });
+      b.addEventListener("keydown", (e) => {
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+        e.preventDefault();
+        const next =
+          e.key === "Home"
+            ? 0
+            : e.key === "End"
+              ? buttons.length - 1
+              : (i + (e.key === "ArrowRight" ? 1 : -1) + buttons.length) %
+                buttons.length;
+        buttons[next].focus();
+        buttons[next].click();
+      });
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stop();
+    });
+    motionPreference.addEventListener("change", () => {
+      stop();
+      play.hidden = motionPreference.matches;
+      select(index, false);
+    });
+    if ("IntersectionObserver" in window)
+      new IntersectionObserver(
+        (entries) => {
+          if (!entries[0].isIntersecting) stop();
+        },
+        { threshold: 0.1 },
+      ).observe(player);
+    select(0, false);
+  });
   const dialog = document.querySelector(".evidence-dialog");
-  let evidenceTrigger;
-  document.querySelectorAll("[data-evidence]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (!dialog || typeof dialog.showModal !== "function") return;
+  let trigger;
+  document.querySelectorAll("[data-evidence]").forEach((link) =>
+    link.addEventListener("click", (e) => {
       const source = document.getElementById(link.dataset.evidence);
-      if (!source) return;
-      event.preventDefault();
-      evidenceTrigger = link;
+      if (!source || !dialog?.showModal) return;
+      e.preventDefault();
+      trigger = link;
       dialog.querySelector("#dialog-title").textContent =
         source.querySelector("summary").textContent;
-      const target = dialog.querySelector(".dialog-content");
-      target.replaceChildren(
-        source.querySelector(".report-detail").cloneNode(true),
-      );
+      dialog
+        .querySelector(".dialog-content")
+        .replaceChildren(
+          source.querySelector(".report-detail").cloneNode(true),
+        );
       dialog.showModal();
       document.body.classList.add("modal-open");
       dialog.querySelector(".dialog-close").focus();
-      if (!reducedMotion.matches && window.Motion?.animate) {
-        window.Motion.animate(
+      if (!motionPreference.matches && window.Motion?.animate)
+        Motion.animate(
           dialog,
           { opacity: [0, 1], y: [8, 0] },
           { duration: 0.2 },
         );
-      }
-    });
-  });
+    }),
+  );
   dialog
     ?.querySelector(".dialog-close")
     ?.addEventListener("click", () => dialog.close());
-  dialog?.addEventListener("click", (event) => {
-    if (event.target !== dialog) return;
-    const bounds = dialog.getBoundingClientRect();
+  dialog?.addEventListener("close", () => {
+    document.body.classList.remove("modal-open");
+    trigger?.focus();
+  });
+  dialog?.addEventListener("click", (e) => {
+    if (e.target !== dialog) return;
+    const r = dialog.getBoundingClientRect();
     if (
-      event.clientX < bounds.left ||
-      event.clientX > bounds.right ||
-      event.clientY < bounds.top ||
-      event.clientY > bounds.bottom
+      e.clientX < r.left ||
+      e.clientX > r.right ||
+      e.clientY < r.top ||
+      e.clientY > r.bottom
     )
       dialog.close();
   });
-  dialog?.addEventListener("close", () => {
-    document.body.classList.remove("modal-open");
-    evidenceTrigger?.focus();
-  });
-  document.querySelectorAll("[data-copy]").forEach((button) => {
-    button.hidden = !navigator.clipboard?.writeText;
-    button.addEventListener("click", async () => {
-      const command = button
-        .closest(".command")
-        .querySelector("code").textContent;
-      const status = button.closest(".command").nextElementSibling;
-      try {
-        await navigator.clipboard.writeText(command);
-        status.textContent = "Command copied.";
-      } catch {
-        status.textContent = "Select the command above to copy it.";
-      }
-    });
-  });
-  const readingLinks = [...document.querySelectorAll('.doc-nav a[href^="#"]')];
-  if ("IntersectionObserver" in window && readingLinks.length) {
-    const sections = readingLinks
-      .map((link) => document.querySelector(link.getAttribute("href")))
-      .filter(Boolean);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const active = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
-          )[0];
-        if (!active) return;
-        readingLinks.forEach((link) => {
-          const matches = link.getAttribute("href") === `#${active.target.id}`;
-          link.classList.toggle("active", matches);
-          if (matches) link.setAttribute("aria-current", "location");
-          else link.removeAttribute("aria-current");
-        });
-      },
-      { rootMargin: "-10% 0px -60% 0px", threshold: 0 },
-    );
-    sections.forEach((section) => observer.observe(section));
-  }
 })();

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>Keep work. Release what you finish. — Rovara</title>
+    <meta
+      name="description"
+      content="Understand status, idle compute, cancellation, closure, and ongoing costs."
+    />
+    <link
+      rel="canonical"
+      href="https://rovara-dev.github.io/docs/operations/"
+    />
+    <meta
+      property="og:title"
+      content="Keep work. Release what you finish. — Rovara"
+    />
+    <meta
+      property="og:description"
+      content="Understand status, idle compute, cancellation, closure, and ongoing costs."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../../assets/icons/git-pull-request.svg" />
+    <link
+      rel="preload"
+      href="../../assets/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <script src="../../assets/vendor/motion.js" defer></script>
+    <script src="../../assets/site.js" defer></script>
+    <link rel="stylesheet" href="../../assets/explanations.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="wordmark" href="../../index.html" aria-label="Rovara home"
+        >Rovara</a
+      ><button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        <img
+          class="icon"
+          src="../../assets/icons/list.svg"
+          alt=""
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../../index.html#product">Product</a
+        ><a href="../../how-it-works/index.html">How it works</a
+        ><a href="../../docs/index.html" aria-current="page">Docs</a
+        ><a class="button primary" href="../../deployment/index.html"
+          >Install
+          <img
+            class="icon white"
+            src="../../assets/icons/arrow-up-right.svg"
+            alt=""
+            width="24"
+            height="24"
+            aria-hidden="true"
+        /></a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="compact-intro shell">
+        <p class="eyebrow">Documentation</p>
+        <h1>Keep work. Release what you finish.</h1>
+        <p class="intro-text">
+          Understand status, idle compute, cancellation, closure, and ongoing
+          costs.
+        </p>
+      </div>
+      <div class="reading-layout shell">
+        <nav class="doc-nav" aria-label="Documentation">
+          <a href="../index.html">Documentation home</a
+          ><a href="../tasks/index.html">First task in Slack</a
+          ><a href="../coding-tools/index.html">Coding-tool handoff</a
+          ><a href="../configuration/index.html">Projects & checks</a
+          ><a href="../evidence/index.html">Evidence reference</a
+          ><a href="../operations/index.html" aria-current="page"
+            >Workspace operations</a
+          ><a href="../../deployment/index.html">Installation — coming soon</a>
+        </nav>
+        <article class="doc-article">
+          <section>
+            <h2>If a task takes longer than expected</h2>
+            <p>
+              Read its current status and latest progress before retrying. For
+              coding-tool tasks, <code>agentx_get_task</code> distinguishes
+              STARTING, RUNNING, SUCCEEDED, FAILED, CANCELLED, INTERRUPTED, and
+              CLOSED. A wait can time out while the task continues.
+            </p>
+            <p>
+              A successful task status is not proof that every check passed.
+              Read the check evidence separately.
+            </p>
+          </section>
+          <section>
+            <h2>Choose the right lifecycle action.</h2>
+            <figure class="system-figure">
+              <div
+                class="diagram-scroll"
+                tabindex="0"
+                role="region"
+                aria-label="Lifecycle diagram; scroll horizontally on a small screen"
+              >
+                <img
+                  width="1215"
+                  height="695"
+                  src="../../assets/diagrams/lifecycle.svg"
+                  alt="Idle retains the workspace. A follow-up resumes. Cancel stops work; close checks unpublished changes; environment removal is separate."
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Idle retains the workspace. A follow-up resumes. Cancel stops
+                work; close checks unpublished changes; environment removal is
+                separate.
+                <a
+                  href="../../assets/diagrams/lifecycle.svg"
+                  target="_blank"
+                  rel="noopener"
+                  >Open full size</a
+                >
+              </figcaption>
+            </figure>
+            <table>
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Effect</th>
+                  <th>Next step</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Idle</td>
+                  <td>
+                    Compute can stop; workspace files and conversation remain.
+                  </td>
+                  <td>Continue the same task when needed.</td>
+                </tr>
+                <tr>
+                  <td>Cancel task</td>
+                  <td>Stops current work.</td>
+                  <td>Inspect status and partial changes.</td>
+                </tr>
+                <tr>
+                  <td>Close workspace</td>
+                  <td>
+                    Checks for unpublished work before releasing session and
+                    workspace storage.
+                  </td>
+                  <td>Preserve unfinished changes if closure refuses.</td>
+                </tr>
+                <tr>
+                  <td>Remove environment</td>
+                  <td>
+                    Separate operator procedure; retained resources and external
+                    apps require attention.
+                  </td>
+                  <td>Use release-matched teardown guidance when published.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Costs you should expect</h2>
+            <p>
+              AWS services, retained storage, and model usage contribute to the
+              bill. Per-task usage telemetry and installer estimates help
+              explain costs; budget alerts do not cap spending.
+            </p>
+            <div class="cost-reference">
+              <strong>~$211 / month</strong>
+              <p>
+                Illustrative estimate, not a subscription price: us-east-1,
+                default Bedrock models, 1,000 turns, 100 worker sessions, 60
+                worker instance-hours, and 10 retained workspaces. Derived from
+                the source pricing assumptions; actual usage and prices vary.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h2>Operator health checks</h2>
+            <p>
+              With the installed CLI and your environment’s operator access:
+            </p>
+            <pre><code>agentx --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre>
+            <p>
+              Read the reported failures before making changes. The public
+              upgrade, recovery, and teardown procedures will be published with
+              the installation guide. Do not infer a crash-recovery guarantee
+              from workspace persistence.
+            </p>
+          </section>
+          <div class="source-note">
+            Source reviewed: AgentX mainline <code>8acb7ac00c97</code> · 5
+            October 2026. These guides describe inspected code; the public
+            installation path is still in preparation.
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer shell">
+      <div>
+        <a class="wordmark" href="../../index.html">Rovara</a>
+        <p>
+          Remote coding. Visible evidence.<br />Built on the AgentX project.
+        </p>
+      </div>
+      <div>
+        <p>
+          Public release in preparation<br />Current code license:
+          FSL-1.1-ALv2.<br />Source-available; not an open-source release.
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../../how-it-works/index.html">Workflow</a
+        ><a href="../../docs/index.html">Docs</a
+        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
+          >Website source</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

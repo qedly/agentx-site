@@ -1,66 +1,62 @@
-# Design QA — approved handoff website
+# Design QA — connected system explanations
 
-## Scope and source
+## Findings
 
-- Owner-approved source image: `docs/design/approved-reference.png` (original attachment `exec-5090dbc0-643e-4e0a-97aa-1ac5ce1f27f3.png`).
-- Implementation: `docs/design/desktop.png`.
-- Compared together in the same image review input on 05 October 2026.
-- Both PNGs are 1113 × 1413 pixels. Browser render: 1113 × 1413 CSS pixels, device scale factor 1, warm white theme, top-of-page view. No image resizing or density normalization was applied.
-- Capture method: browser CDP `Page.captureScreenshot`, explicit document clip. The ordinary in-app screenshot compositor retained its physical viewport scaling after emulation; those inconsistent captures were discarded and replaced with correctly dimensioned CDP captures.
+No actionable P0/P1/P2 visual or interaction finding remains in the inspected states. This is a local website review, not independent product acceptance or a cross-browser accessibility certification.
 
-## Comparison and iterations
+## Source and final comparison
 
-### Full view
+- Visual source: `docs/design/approved-reference.png`, the owner's approved white/black/cobalt exploration.
+- Final implementation: `docs/design/connected-reference-size.png`, captured from `http://127.0.0.1:8766/` on 5 October 2026.
+- Source and implementation: 1113 × 1413 pixels; CSS width 1113, capture height 1413, deviceScaleFactor 1. Top of page, warm-white theme, first workflow stage selected, playback stopped. No density normalization or image resizing.
+- Both images were opened together in the same comparison input. The hero and four-column workflow were inspected as focused regions within that readable full-size pair; no separate crop was needed.
+- The reference predates the approved connected-explanation scope. The extended workflow adds stage controls, a continuation stage, and readable explanatory detail. Its lower boundary intentionally moves down; it is not a pixel-matched reproduction of the shorter exploration. The two-column hero and pale-blue band remain the visual anchors.
 
-The built page retains the two-column hero, oversized condensed two-line headline, pale blue four-step band, blue actions, return-to-task headline and evidence statement from the reference. Hero/workflow boundaries align at approximately 544/983 pixels. Supporting content continues below the approved upper-page image.
+## Required fidelity surfaces
 
-### Focused comparison
+- **Typography:** self-hosted Anton retains the very condensed two-line headline; Inter remains the body/navigation face. The final desktop hero fits its column without collision. Mobile headline wraps in two deliberate lines. Small functional stage labels were raised to at least 11px. Reading-page headings use a compact scale so diagrams are reachable.
+- **Spacing and layout:** the desktop hero keeps the reference's left headline/right explanation arrangement. Familiar task, AWS, diff, and PR visuals remain in four columns with aligned headings and captions. Mobile stacks those steps. The additional detail is grouped within the workflow rather than scattered across unrelated cards. Documentation separates sidebar navigation from the reading column on desktop and reflows on mobile.
+- **Colors and tokens:** near-black, warm white, cobalt actions/selection, and pale blue retain the approved direction. Actual vendor logo colors are preserved. Passed/failed/unverified descriptions are text, not a decorative universal green-pass signal.
+- **Assets and image quality:** genuine Slack/AWS and licensed Phosphor icon assets remain sharp. The four diagrams use editable Excalidraw sources and official vector exports. The return path is cropped from that official export. No rasterized screenshot replaces semantic page text or controls. Diagrams reserve their image dimensions; full-size links and text equivalents are provided.
+- **Copy/content:** the complete coding workflow is explicit, with positive human authority: “You decide what gets merged.” The CSV example and patch are consistently constructed examples. Public release remains in preparation; installation is a simple deferred destination. Rovara is display branding; AgentX and agentx retain their technical identity.
 
-- Typography: self-hosted Anton approximates the reference's very condensed display face, with independently compressed headline lines. Inter is used for body and navigation. Selectable text remains semantic HTML.
-- Spacing: title and right-column explanation fit without collision; workflow labels, icons, arrows and evidence controls align in four columns. Corrected initial min-content sizing and CTA wrapping.
-- Color: near-black headings, warm white, cobalt actions and pale blue workflow. Vendor logos retain their actual colors.
-- Assets: real Slack/AWS paths and Phosphor icons replace generated approximations. No fabricated vendor or customer logos.
-- Copy: approved task/value/authority lines retained. Public brand is Rovara as chosen earlier; technical command remains `agentx`. Examples say illustrative and do not fabricate check passes.
-- Layout: removed an oversized evidence-column gap, corrected the headline overflow on mobile, and made reading pages reflow without a horizontal sidebar.
+## Comparison history and fixes
 
-### Deliberate adaptations, not unresolved defects
+1. An initial extension replaced too much of the approved homepage workflow with small tabs. Restored the large Slack/AWS/diff/PR visuals and integrated selection into those headings. Final post-fix evidence: `connected-reference-size.png` and `connected-mobile-home.png`.
+2. Diagram review found clipped/wrapped verification labels and a crowded retry path. Reflowed labels and moved the retry loop; exported again with Excalidraw. Post-fix evidence: `connected-verification.png`.
+3. Architecture review required a visible Slack result-return path and the connector gateway inside the AWS boundary. Updated the editable source and export. Post-fix evidence: `connected-architecture.png`.
+4. Mechanical design scan identified tiny mobile functional labels. Raised them; reviewed the 390px stage controls again. Post-fix evidence: `connected-mobile.png`.
+5. Final source/implementation comparison found no further P0/P1/P2 issue. No visual changes followed that final comparison.
 
-- Rovara public wordmark replaces the exploration image's AgentX wordmark.
-- A standard return icon and actionable continuation link replace the long looping arrow. No custom decorative SVG is required.
-- Real evidence controls describe the report format rather than invented artifact links or a claimed successful run.
-- Minor type metrics and button widths differ from the generated reference; the selected composition and hierarchy are preserved.
+## Browser checks — observed locally
 
-## Browser checks (observed)
+- Nine routes checked at 390px and 1113px widths; all nine also checked at 780px. Each had one H1, a main region, and no page-wide horizontal overflow. No broken loaded images were observed. Diagrams deliberately scroll within their own bounded container on small screens.
+- Additional 1280px captures: `connected-desktop.png`, `connected-verification.png`, `connected-architecture.png`, `connected-lifecycle.png`.
+- Mobile captures: `connected-mobile-home.png`, `connected-mobile.png`, `connected-mobile-docs.png`.
+- Manual stage selection, ArrowRight navigation, play/pause, and full five-stage playback worked. At the end, the control became “Replay walkthrough.” The progress strip describes the explanation, not a live task.
+- Playback stops when the document becomes hidden or the player is offscreen. Reduced-motion emulation hides playback and preserves direct stage selection without spatial animation.
+- The example-diff modal opens, Escape closes it, and focus returns to its trigger. The mobile menu opens with an accurate expanded state and closes with Escape.
+- With JavaScript disabled, every explanation stage remains visible and the static navigation/disclosure remains usable. Restored scripting afterward.
+- The actual runtime exposed Motion and its animate API. Reviewed browser console warnings/errors were empty.
 
-- Four routes: homepage, how-it-works, deployment, docs.
-- At 320, 390, 768, 960, 1113, and 1440px widths: all 24 page/width combinations had `scrollWidth === innerWidth`; no broken images observed.
-- `docs/design/mobile.png`: 390 × 844, readable hero and CTAs.
-- `docs/design/mobile-workflow.png`: 390px wide, complete stacked task journey with reachable evidence controls.
-- `docs/design/mobile-docs.png`: 390px wide, readable headings and wrapping reading navigation.
-- `docs/design/architecture.png`: account-boundary diagram, component labels, external-service distinction and caption.
-- Test output opened with Enter. Check report opened by click. Both produced the correct dialog title and illustration disclosure.
-- Opening focused Close evidence. Escape and Close restored focus to the original evidence link and restored background scrolling.
-- Mobile menu opened with an accurate expanded state; Escape closed it and returned focus to the menu button.
-- Deployment CTA and Docs navigation reached the corresponding routes. Docs check-evidence link changed the hash and scrolled to the section.
-- Command copy displayed “Command copied.”
-- Reduced-motion emulation: the dialog opened with no active animations. Restored normal preference after the check. Motion library API exists in the actual page context.
-- JavaScript disabled: primary navigation remained visible, the menu toggle was hidden, and native Test output disclosure opened successfully via accessibility activation. Restored JavaScript after the check.
-- No console warnings or errors returned from the reviewed routes.
+## Local checks and evidence boundaries
 
-## Fresh release observations
+`npm run check` validates nine routes, local links/anchors/assets, required copy, and the release/source pin. `npm run build` creates the static site. `AGENTX_SOURCE=/private/tmp/agentx-site-source npm run check:claims` verifies eleven source anchors against freshly fetched mainline 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86 and recalculates the illustrative cost. These checks do not prove semantic correctness of every procedure or a live AWS install.
 
-Before final handoff, GitHub API returned `private: true` for PrepLabsAI/AgentX; its release listing was empty. The public npm registry returned E404 for `@charterarc/agentx`. The current product origin/mainline was fetched again and the pinned source check still passed. These observations substantiate the present release statement; recheck before launch.
+Impeccable context and one detector pass were used. Tiny functional text was fixed. Uppercase short labels, the approved Anton display scale, and tracking are deliberate visual choices; unused legacy style rules can also appear in detector results. No claim of zero mechanical warnings is made. The older PRODUCT.md schema was not silently migrated.
 
-## Independent branch review
+The available Slack record did not include a complete request/diff/raw-check-output/candidate/PR packet. The constructed example remains labelled; a complete preferred run was requested from the owner. Brag was researched and a storyboard prepared, but no video was rendered. Installation is intentionally deferred. No AWS acceptance run, product release, main-branch merge, or live-site publication was performed.
 
-A fresh reviewer inspected main..71c8201, all seven screenshots, implementation and primary source references. No Critical or Important findings. The only Minor was CRLF line endings in the vendored Phosphor license, which made whole-branch whitespace checks fail. Normalized CRLF to LF and asserted byte-equivalence after restoring CRLF; the license text is unchanged. No deferred reviewer findings.
+## Implementation checklist
 
-The review separately qualified its browser observations as stated from this run, not independently rerun browser interactions. The author executed the browser checks recorded above.
-
-## Verification boundaries
-
-`npm run check` covers static links, anchors, assets, required copy and source pin; `check:claims` covers source-reference drift and recalculates the illustrative estimate. These are separate from browser evidence and do not prove a live AWS installation. No product test suite, AWS deployment, public installer release or live site publication was performed.
-
-No actionable P0/P1/P2 visual issue remains in the inspected states. Keyboard, reduced-motion and native no-script checks were bounded functional checks, not a complete accessibility certification or cross-browser audit.
+- [x] Preserve approved headline, palette, vendor visuals, and positive human authority.
+- [x] Add editable task, verification, lifecycle, and architecture diagrams.
+- [x] Provide purposeful playback, keyboard control, reduced motion, and static alternatives.
+- [x] Split documentation into tutorials and focused references.
+- [x] Keep the installation placeholder simple.
+- [x] Compare final browser rendering with the approved visual source.
+- [ ] Substitute a verified complete real-task packet when available.
+- [ ] Produce the Brag video from the prepared brief if commissioned.
+- [ ] Review and approve the draft before public deployment.
 
 final result: passed
