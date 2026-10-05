@@ -1,0 +1,8 @@
+Rovara — 20-second product overview
+
+0–4 seconds: Give it a task. Get the work back. Hand off from Slack or your coding tool. An illustrative task requests a fix to username validation.
+4–9 seconds: In your AWS account. A remote coding agent, task coordination and a persistent workspace hold the work and context.
+9–15 seconds: Code to review. Evidence to inspect. The recorded Django patch replaces ^[\w.@+-]+$ with \A[\w.@+-]+\Z in the ASCII and Unicode username validators. The preserved run records 22 tests passing. This is one selected benchmark task from 30 September 2026; artifacts inspected, not rerun.
+15–20 seconds: You decide what gets merged. Ask for a change and continue in the same workspace.
+
+The complete animated journey is illustrative. The patch and output come from historical benchmark artifacts, not a recorded Slack-to-PR demonstration. Public release in preparation. Audio is instrumental; there is no narration.

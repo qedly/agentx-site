@@ -1,0 +1,343 @@
+[
+  {
+    "batch_id": "9b552b5f-452a-5532-ac6e-b10ba184b698",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 10,
+    "finished_slots": 10,
+    "resolved": 7,
+    "graded": 10,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "5.454171",
+    "unpriced_rows": 0,
+    "csv_sha256": "88cec6b0c27373e2c6ae72e87e04cce1fca680ea28e20c7cc695e42681f4101e",
+    "cost_sources": {
+      "estimated": 10
+    }
+  },
+  {
+    "batch_id": "e2c01df3-a5b9-58d2-bc9b-f51d996be91c",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 50,
+    "finished_slots": 50,
+    "resolved": 40,
+    "graded": 50,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "5.025941",
+    "unpriced_rows": 0,
+    "csv_sha256": "8760ab825eb7aeadefa4d447cada5daacefcd583dcea656ddcc8fa4a3625f5fe",
+    "cost_sources": {
+      "estimated": 50
+    }
+  },
+  {
+    "batch_id": "9e6c2626-826f-56e1-9386-965a3d671096",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 2,
+    "finished_slots": 2,
+    "resolved": 2,
+    "graded": 2,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "0.803807",
+    "unpriced_rows": 0,
+    "csv_sha256": "a6e066f98428328b561d6dc39a2bbd7f171ec2bece27e769468c079ecf928f25",
+    "cost_sources": {
+      "estimated": 2
+    }
+  },
+  {
+    "batch_id": "744df9ec-365d-5d8e-ad92-0c50e6ad6dbb",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 30,
+    "finished_slots": 30,
+    "resolved": 28,
+    "graded": 30,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "2.794534",
+    "unpriced_rows": 0,
+    "csv_sha256": "261bb545a76203c68f8572d3d983d16dc9b26a78ebca0ab9b1a47409a7bf322e",
+    "cost_sources": {
+      "estimated": 30
+    }
+  },
+  {
+    "batch_id": "e8b8454e-69fd-5201-b6db-83680de008c9",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 1,
+    "finished_slots": 1,
+    "resolved": 1,
+    "graded": 1,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "0.04162",
+    "unpriced_rows": 0,
+    "csv_sha256": "59ea29ad9588f1774351d91996f452c76fe6f1dbda3346f0870bcdb7f7bff863",
+    "cost_sources": {
+      "estimated": 1
+    }
+  },
+  {
+    "batch_id": "70f4f99a-6f64-51db-9430-4a81442e5f75",
+    "dataset": "SWE-Bench Pro",
+    "status": "stopped",
+    "csv_rows": 13,
+    "finished_slots": 13,
+    "resolved": 9,
+    "graded": 11,
+    "failed": 0,
+    "cancelled": 2,
+    "retry_attempts": 0,
+    "charged_usd": "14.779201",
+    "unpriced_rows": 1,
+    "csv_sha256": "8351f3608e36aa0c2f262b448d86a3c7ef8da285b58713ad22a17da235d723da",
+    "cost_sources": {
+      "not_recorded": 11
+    }
+  },
+  {
+    "batch_id": "b975bc89-fe75-5bd9-897d-c67ac77244bd",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 5,
+    "finished_slots": 5,
+    "resolved": 4,
+    "graded": 5,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "3.187390",
+    "unpriced_rows": 0,
+    "csv_sha256": "7b90cbc2440c9fd3faedde0acdb846d1393808f4884c271acb9709ca1bfeff45",
+    "cost_sources": {
+      "not_recorded": 5
+    }
+  },
+  {
+    "batch_id": "1f8652a8-4d7e-5206-a77f-74b19e5b4db9",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 10,
+    "finished_slots": 10,
+    "resolved": 9,
+    "graded": 10,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "4.518763",
+    "unpriced_rows": 0,
+    "csv_sha256": "9ad7b984af8a8b0cbdd0e34344d9f47e093586729aa79ccd17ee10e0a2cf8d63",
+    "cost_sources": {
+      "not_recorded": 10
+    }
+  },
+  {
+    "batch_id": "66ff6366-8f98-5c11-b732-0f5383133175",
+    "dataset": "SWE-Bench Pro",
+    "status": "stopped",
+    "csv_rows": 3,
+    "finished_slots": 3,
+    "resolved": 0,
+    "graded": 0,
+    "failed": 0,
+    "cancelled": 3,
+    "retry_attempts": 0,
+    "charged_usd": "12",
+    "unpriced_rows": 3,
+    "csv_sha256": "8b6e529a9aabb90e272586e5f3ad7da12034ff8a172e228c44b9f76e5ad3c7e6",
+    "cost_sources": {}
+  },
+  {
+    "batch_id": "5fd713af-d5dc-5bf9-8499-65fef54b0cee",
+    "dataset": "SWE-Bench Pro",
+    "status": "completed",
+    "csv_rows": 30,
+    "finished_slots": 30,
+    "resolved": 30,
+    "graded": 30,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "18.209107",
+    "unpriced_rows": 0,
+    "csv_sha256": "4bc8903bd0eff4f925bd87c30ca8d8967cebd8f2d90c948bc2ce0dd145f867f1",
+    "cost_sources": {
+      "not_recorded": 30
+    }
+  },
+  {
+    "batch_id": "258c2b76-5017-5106-a220-06717c24a151",
+    "dataset": "SWE-bench Verified",
+    "status": "completed",
+    "csv_rows": 1,
+    "finished_slots": 1,
+    "resolved": 0,
+    "graded": 1,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "12.491695",
+    "unpriced_rows": 0,
+    "csv_sha256": "94128500f9a6579f11182f3fe9328de67301b41f20615788f32a26bd68f9fa94",
+    "cost_sources": {
+      "not_recorded": 1
+    }
+  },
+  {
+    "batch_id": "2af2b747-bca8-5c72-bd75-0fd41ad38fe0",
+    "dataset": "SWE-bench Verified",
+    "status": "completed",
+    "csv_rows": 1,
+    "finished_slots": 1,
+    "resolved": 1,
+    "graded": 1,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "0.057755",
+    "unpriced_rows": 0,
+    "csv_sha256": "0635b4081c9555159df7ccb4155b107b916cabd34267bbe36eb01ed02e51fc47",
+    "cost_sources": {
+      "not_recorded": 1
+    }
+  },
+  {
+    "batch_id": "f75662d3-16e4-506b-a423-14b52e081087",
+    "dataset": "SWE-bench Verified",
+    "status": "completed",
+    "csv_rows": 1,
+    "finished_slots": 1,
+    "resolved": 0,
+    "graded": 1,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "2.342323",
+    "unpriced_rows": 0,
+    "csv_sha256": "eef6ad2b7b5b9bb9cc38d2dcdace2b2d2cf25d046250686feeae26e1c1deafed",
+    "cost_sources": {
+      "not_recorded": 1
+    }
+  },
+  {
+    "batch_id": "d11b0ec1-c6d7-5584-b1da-99a97809c3a4",
+    "dataset": "SWE-Bench Pro HARD-51",
+    "status": "completed",
+    "csv_rows": 55,
+    "finished_slots": 30,
+    "resolved": 4,
+    "graded": 5,
+    "failed": 25,
+    "cancelled": 0,
+    "retry_attempts": 25,
+    "charged_usd": "5.811263",
+    "unpriced_rows": 0,
+    "csv_sha256": "09345443dbe0b73f97abef470820e495fe27dfed7c32fee28f67fecd74d3924b",
+    "cost_sources": {
+      "unknown": 50,
+      "not_recorded": 5
+    }
+  },
+  {
+    "batch_id": "9e0748d7-722b-5c0b-8acf-b5505ee0f4fb",
+    "dataset": "SWE-bench Verified",
+    "status": "completed",
+    "csv_rows": 31,
+    "finished_slots": 18,
+    "resolved": 1,
+    "graded": 5,
+    "failed": 13,
+    "cancelled": 0,
+    "retry_attempts": 13,
+    "charged_usd": "5.931581",
+    "unpriced_rows": 0,
+    "csv_sha256": "e6c90457742f8e3c95d75d7b0c77d60a408c5f98dbf5ff081c2521b33dfa9a14",
+    "cost_sources": {
+      "estimated": 6,
+      "unknown": 22,
+      "not_recorded": 3
+    }
+  },
+  {
+    "batch_id": "93eaa817-c3c8-5eba-ae3a-595933bdc68b",
+    "dataset": "SEC-bench patch task",
+    "status": "completed",
+    "csv_rows": 44,
+    "finished_slots": 36,
+    "resolved": 20,
+    "graded": 28,
+    "failed": 8,
+    "cancelled": 0,
+    "retry_attempts": 8,
+    "charged_usd": "23.718506",
+    "unpriced_rows": 0,
+    "csv_sha256": "2ad64e5aa24fe9a5dc0e2cffd8d18ff1d9e6131c856c994867b58bb01f256e90",
+    "cost_sources": {
+      "estimated": 26,
+      "not_recorded": 6,
+      "unknown": 12
+    }
+  },
+  {
+    "batch_id": "db224aba-0169-5236-901e-7d20eb88d46d",
+    "dataset": "SWE-bench Verified",
+    "status": "stopped",
+    "csv_rows": 0,
+    "finished_slots": 0,
+    "resolved": 0,
+    "graded": 0,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "0",
+    "unpriced_rows": 0,
+    "csv_sha256": "7da588735be8070aad658077c89b152aae4e1cedae80365a22886f029d917c83",
+    "cost_sources": {}
+  },
+  {
+    "batch_id": "a5f4737f-c037-5781-b6c5-5a39798b1427",
+    "dataset": "SWE-Bench Pro HARD-51",
+    "status": "stopped",
+    "csv_rows": 0,
+    "finished_slots": 0,
+    "resolved": 0,
+    "graded": 0,
+    "failed": 0,
+    "cancelled": 0,
+    "retry_attempts": 0,
+    "charged_usd": "0",
+    "unpriced_rows": 0,
+    "csv_sha256": "7da588735be8070aad658077c89b152aae4e1cedae80365a22886f029d917c83",
+    "cost_sources": {}
+  },
+  {
+    "batch_id": "a4c5a901-9ade-5736-8225-aad45afd3b1c",
+    "dataset": "SEC-bench patch task",
+    "status": "stopped",
+    "csv_rows": 5,
+    "finished_slots": 4,
+    "resolved": 0,
+    "graded": 0,
+    "failed": 1,
+    "cancelled": 3,
+    "retry_attempts": 1,
+    "charged_usd": "40",
+    "unpriced_rows": 2,
+    "csv_sha256": "e725dad60cf0222a2fff871d6281027f7b5adc8108461a5a1004ae43834740c3",
+    "cost_sources": {
+      "unknown": 2
+    }
+  }
+]

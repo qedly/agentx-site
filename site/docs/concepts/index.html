@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Core concepts — Rovara</title>
+<meta name="description" content="Five ideas help you understand where work happens and what comes back.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/concepts/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="index.html" aria-current="page">Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Start here</div>
+<header class="docs-title">
+<p class="docs-kind">Concepts</p>
+<h1>Core concepts</h1>
+<p>Five ideas help you understand where work happens and what comes back.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#project">Project</a>
+<a href="#task">Task and workflow</a>
+<a href="#plan">Plan and owner decision</a>
+<a href="#workspace">Workspace</a>
+<a href="#candidate">Candidate</a>
+<a href="#evidence">Checks and AI review</a>
+<a href="#pull-request">Pull request and feedback</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="project">
+<h2>Project<a class="doc-heading-link" href="#project" aria-label="Link to section Project">#</a>
+</h2>
+<p>A registered definition of repositories, setup, checks, model/tool guidance and access policy. Use the exact project name returned by your environment.</p>
+</section>
+<section id="task">
+<h2>Task and workflow<a class="doc-heading-link" href="#task" aria-label="Link to section Task and workflow">#</a>
+</h2>
+<p>The unit connecting a request, plan versions, operations, decisions, evidence and PR links. Native Quick/Full workflows add explicit planning and review stages. Existing direct tasks are a separate entry path.</p>
+</section>
+<section id="plan">
+<h2>Plan and owner decision<a class="doc-heading-link" href="#plan" aria-label="Link to section Plan and owner decision">#</a>
+</h2>
+<p>A saved document describes approved scope and approach. Its version and digest identify what the owner decided. A revised document requires a current decision.</p>
+</section>
+<section id="workspace">
+<h2>Workspace<a class="doc-heading-link" href="#workspace" aria-label="Link to section Workspace">#</a>
+</h2>
+<p>The remote project files and task context in your AWS account. Follow-ups can reuse it; workspace closure and task-record retention are different.</p>
+</section>
+<section id="candidate">
+<h2>Candidate<a class="doc-heading-link" href="#candidate" aria-label="Link to section Candidate">#</a>
+</h2>
+<p>The identified code version being checked or reviewed. Results for one candidate do not qualify a changed candidate.</p>
+</section>
+<section id="evidence">
+<h2>Checks and AI review<a class="doc-heading-link" href="#evidence" aria-label="Link to section Checks and AI review">#</a>
+</h2>
+<p>Named command results are evidence of those checks in their recorded environment. Separate code/security AI review reports are attributed findings, not a guarantee of correctness.</p>
+</section>
+<section id="pull-request">
+<h2>Pull request and feedback<a class="doc-heading-link" href="#pull-request" aria-label="Link to section Pull request and feedback">#</a>
+</h2>
+<p>GitHub hosts the proposed change, repository CI, comments and merge decision. AgentX connects registered PRs to the task and proposes feedback fixes for owner approval.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../index.html">
+<span>Previous</span>Rovara documentation</a>
+<a href="../tasks/index.html">
+<span>Next</span>Your first Quick task →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#project">Project</a>
+<a href="#task">Task and workflow</a>
+<a href="#plan">Plan and owner decision</a>
+<a href="#workspace">Workspace</a>
+<a href="#candidate">Candidate</a>
+<a href="#evidence">Checks and AI review</a>
+<a href="#pull-request">Pull request and feedback</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc"><title id="title">Workspace lifetime and task history are different</title><desc id="desc">Follow-ups keep context · closeout preserves the record before Canvas cleanup</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#2455d6" stroke-width="1.5"/></marker></defs><rect width="1100" height="560" fill="#f8f5ef"/><text x="30" y="37" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="600">Workspace lifetime and task history are different</text>
+<text x="30" y="61" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Follow-ups keep context · closeout preserves the record before Canvas cleanup</text>
+<rect x="30" y="107" width="230" height="128" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="47" y="132" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">START</text>
+<text x="47" y="160" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Request + plan</text>
+<text x="47" y="186" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">A task record is created</text>
+<text x="47" y="205" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Planning stays read-only</text>
+<rect x="300" y="107" width="230" height="128" rx="5" fill="#eef1f8" stroke="#91a9dd"/>
+<text x="317" y="132" fill="#2455d6" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">WAIT FOR OWNER</text>
+<text x="317" y="160" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Current decision</text>
+<text x="317" y="186" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Approve or request changes</text>
+<text x="317" y="205" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">No silent implementation</text>
+<rect x="570" y="107" width="230" height="128" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="587" y="132" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">WORK + INSPECT</text>
+<text x="587" y="160" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Code, checks, reviews</text>
+<text x="587" y="186" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Prepared project workspace</text>
+<text x="587" y="205" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Current candidate evidence</text>
+<rect x="840" y="107" width="230" height="128" rx="5" fill="#eef1f8" stroke="#91a9dd"/>
+<text x="857" y="132" fill="#2455d6" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">WAIT FOR TEAM</text>
+<text x="857" y="160" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">PRs + feedback</text>
+<text x="857" y="186" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Approved follow-up fixes</text>
+<text x="857" y="205" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">All required PR states visible</text>
+<polyline points="260,172 298,172" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="530,172 568,172" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="800,172 838,172" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="950,235 950,274 685,274 685,237" fill="none" stroke="#2455d6" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<text x="704" y="263" fill="#2455d6" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="400">Approved feedback returns to work</text>
+<rect x="30" y="320" width="500" height="166" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="50" y="350" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Workspace resources</text>
+<text x="50" y="380" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Idle compute can stop while files and context remain.</text>
+<text x="50" y="403" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Retained storage still costs money.</text>
+<text x="50" y="426" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Cancel work ≠ close workspace ≠ remove deployment.</text>
+<text x="50" y="449" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Preserve unpublished changes before workspace closure.</text>
+<rect x="570" y="320" width="500" height="166" rx="5" fill="#eef1f8" stroke="#91a9dd"/>
+<text x="590" y="350" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Terminal closeout</text>
+<text x="590" y="380" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Verify canonical artifacts + decisions → record references</text>
+<text x="590" y="403" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Then delete task Canvas copies; retry visible failures.</text>
+<text x="590" y="426" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Slack replies and GitHub comments remain in their services.</text>
+<text x="590" y="449" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Task record retention follows configuration.</text>
+<polyline points="950,235 1085,235 1085,302 820,302 820,318" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="32" y="524" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Waiting is a workflow state. It is not evidence of failure, completion, or an indefinitely retained workspace.</text></svg>

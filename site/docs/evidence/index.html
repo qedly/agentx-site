@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Inspect changes, checks and reviews — Rovara</title>
+<meta name="description" content="Read the evidence for the current code, identify gaps, and decide what your team needs before merging.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/evidence/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="index.html" aria-current="page">Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Work with Rovara</div>
+<header class="docs-title">
+<p class="docs-kind">Guide</p>
+<h1>Inspect changes, checks and reviews</h1>
+<p>Read the evidence for the current code, identify gaps, and decide what your team needs before merging.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#review">Start with the change</a>
+<a href="#candidate">Check which code was inspected</a>
+<a href="#reviews">Read the separate AI reviews</a>
+<a href="#results">Read the result</a>
+<a href="#layers">Know which checks you are looking at</a>
+<a href="#pull-requests">Review a draft PR</a>
+<a href="#recorded-run">Inspect a real example</a>
+<a href="#example">Review checklist</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="review">
+<h2>Start with the change<a class="doc-heading-link" href="#review" aria-label="Link to section Start with the change">#</a>
+</h2>
+<p>Read the diff against the task you requested. Then inspect the named checks, their output and anything that was not verified. The agent’s summary is useful context; the diff and output are what you inspect.</p>
+</section>
+<section id="candidate">
+<h2>Check which code was inspected<a class="doc-heading-link" href="#candidate" aria-label="Link to section Check which code was inspected">#</a>
+</h2>
+<p>In the native workflow, required checks and review reports bind to the candidate. Compare their candidate reference with the PR head you are reviewing. Changing the code invalidates dependent earlier evidence.</p>
+<figure class="doc-system-figure">
+<img src="../../assets/diagrams/verification.svg" width="1100" height="560" alt="Code version A has checks and reviews; a change to B needs fresh evidence.">
+<figcaption>
+<a href="../../assets/diagrams/verification.svg">Open the evidence diagram</a>
+</figcaption>
+</figure>
+</section>
+<section id="reviews">
+<h2>Read the separate AI reviews<a class="doc-heading-link" href="#reviews" aria-label="Link to section Read the separate AI reviews">#</a>
+</h2>
+<p>Initial candidate reviews require an explicit request after checks pass, while the task is <code>REVIEW / WAITING</code>. <a href="../tasks/index.html#review">Request the reviews →</a>
+</p>
+<p>Code and security reviewers use separate read-only sessions. Inspect their findings, rationale, scope and reviewer/model attribution. A passing review is an AI assessment; it does not replace tests or your team’s judgment.</p>
+</section>
+<section id="results">
+<h2>Read the result<a class="doc-heading-link" href="#results" aria-label="Link to section Read the result">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Meaning</th>
+<th>Your next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passed</td>
+<td>The named command passed in that run.</td>
+<td>Check that it covers your change.</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>A check passed before and fails now.</td>
+<td>Inspect the failure and ask for a fix.</td>
+</tr>
+<tr>
+<td>Already failing</td>
+<td>The check failed before the change too.</td>
+<td>Decide whether this task should address it.</td>
+</tr>
+<tr>
+<td>No baseline</td>
+<td>There is no earlier result for comparison.</td>
+<td>Read the current output without assuming an earlier pass.</td>
+</tr>
+<tr>
+<td>Not verified / not run</td>
+<td>The required observation is missing.</td>
+<td>Read the reason and request the missing check if needed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When a previously passing check regresses, the runtime gives the agent at most one extra attempt. Any remaining failure stays visible.</p>
+</section>
+<section id="layers">
+<h2>Know which checks you are looking at<a class="doc-heading-link" href="#layers" aria-label="Link to section Know which checks you are looking at">#</a>
+</h2>
+<dl>
+<dt>Native workflow readiness</dt>
+<dd>Required checks and separate code/security review reports must apply to the current candidate before PR readiness.</dd>
+<dt>Existing direct-task verification</dt>
+<dd>The runtime reruns usable checks and compares before/after where possible. Failed or missing evidence can be described on a draft PR.</dd>
+<dt>Repository CI</dt>
+<dd>Your normal GitHub checks and branch rules govern the repository.</dd>
+<dt>Benchmark grader</dt>
+<dd>A historical grader determines a selected benchmark task’s outcome, not readiness of a current workflow task.</dd>
+</dl>
+<p>Inspect the actual command, environment and candidate attached to each result. These layers have different purposes.</p>
+</section>
+<section id="pull-requests">
+<h2>Review a draft PR<a class="doc-heading-link" href="#pull-requests" aria-label="Link to section Review a draft PR">#</a>
+</h2>
+<p>The native workflow checks readiness before PR creation; your team then reviews the draft PR and repository CI. <strong>You decide what gets merged.</strong>
+</p>
+<details>
+<summary>Using the existing direct-task path?</summary>
+<p>That path can produce draft PRs describing failed or unverified checks. Older publication behavior may refuse a new PR on readiness failure; append/sync of an existing PR also refuses failed readiness. Configured CodeBuild output adds evidence rather than automatically enforcing every merge rule.</p>
+</details>
+</section>
+<section id="recorded-run">
+<h2>Inspect a real example<a class="doc-heading-link" href="#recorded-run" aria-label="Link to section Inspect a real example">#</a>
+</h2>
+<p>A saved Django task shows the actual patch and test output behind one benchmark result.</p>
+<a class="doc-inline-cta" href="../benchmarks/index.html">Read the recorded task →</a>
+</section>
+<section id="example">
+<h2>Review checklist<a class="doc-heading-link" href="#example" aria-label="Link to section Review checklist">#</a>
+</h2>
+<ul>
+<li>Does the change meet the request and preserve its constraints?</li>
+<li>Which checks actually ran, on which code, in which environment?</li>
+<li>What failed, regressed or could not be verified?</li>
+<li>Do task evidence and repository CI cover the PR you are reviewing?</li>
+<li>What additional check or human review do you need?</li>
+</ul>
+<p>If an important integration could not be tested, keep that gap visible and request the check before merging.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../coding-tools/index.html">
+<span>Previous</span>Connect your coding tool</a>
+<a href="../feedback/index.html">
+<span>Next</span>Respond to PR feedback →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#review">Start with the change</a>
+<a href="#candidate">Check which code was inspected</a>
+<a href="#reviews">Read the separate AI reviews</a>
+<a href="#results">Read the result</a>
+<a href="#layers">Know which checks you are looking at</a>
+<a href="#pull-requests">Review a draft PR</a>
+<a href="#recorded-run">Inspect a real example</a>
+<a href="#example">Review checklist</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

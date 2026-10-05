@@ -1,0 +1,41 @@
+{
+  "recordType": "saved-benchmark-artifacts",
+  "instanceId": "django__django-11099",
+  "dataset": "verified",
+  "runId": "d13ed785-404c-56fc-8787-e95f88170d65",
+  "sessionStartedAt": "2026-09-30T23:22:02.740Z",
+  "model": {
+    "provider": "amazon-bedrock",
+    "modelId": "us.anthropic.claude-sonnet-4-6"
+  },
+  "outcome": "GRADED",
+  "resolved": true,
+  "failToPass": {
+    "passed": 3,
+    "total": 3
+  },
+  "passToPass": {
+    "passed": 19,
+    "total": 19
+  },
+  "imageDigest": "swebench/sweb.eval.x86_64.django_1776_django-11099@sha256:cca302934edd881cc4f1e4647a389a25cdaa3c02bfa33667a4204934a09c4fb1",
+  "patchSha256": "e754832b486e044c733c1398de02f9bc0d2d872d5308f2956d16390e061ffd3b",
+  "artifacts": {
+    "patch.diff": {
+      "sha256": "e754832b486e044c733c1398de02f9bc0d2d872d5308f2956d16390e061ffd3b",
+      "bytes": 901
+    },
+    "test-output.txt": {
+      "sha256": "54f159af5eb16e28ec6f1f2c6f0ec438b0b044243a0c1f592971ef58e1f7e267",
+      "bytes": 1703931
+    },
+    "harness-report.json": {
+      "sha256": "783e252651c6cc7cc963c7673895cd27c265b2720927d04893f3de55773a4dd7",
+      "bytes": 3004
+    }
+  },
+  "inspectedAt": "2026-10-05",
+  "qualification": "Recorded artifacts inspected; not rerun in this website review. One selected benchmark task, not an aggregate solve rate, customer outcome, Slack-to-PR run, or evidence for the current runtime verification loop.",
+  "privacy": "Launch configuration, capability, private endpoint, storage location, and full transcript are not exported.",
+  "upstreamContext": "https://github.com/django/django/pull/11099"
+}

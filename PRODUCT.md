@@ -1,23 +1,47 @@
-# AgentX website — product truth
+# Product story
+
+## Owner-approved direction
+
+Standalone website; public self-hosted install is the eventual primary destination. Rovara is the chosen public display brand; AgentX remains the source project and CLI identity. Do not rename configuration, evidence IDs or commands as part of website branding.
+
+Hero: **Give it a task. Get the work back.**
+
+Explanation: Hand off a coding task from Slack or your coding tool. Rovara works in your AWS account and brings back code changes and evidence from tests and checks for you to inspect.
+
+Authority: **You decide what gets merged.**
+
+Supporting value: **Code to review. Evidence to inspect.**
 
 ## Audience
-- CTOs and VPs of Engineering accountable for where coding work runs, operational ownership, cost, adoption, and review authority.
-- Developers who want to delegate work from Slack or an existing coding tool and continue it without keeping a laptop session open.
 
-## Job
-Explain AgentX's remote per-task coding workspace, show how task continuity works, make the AWS and model setup legible, and direct visitors to the honest current source/release path.
+Developers need a concrete task workflow: delegate, inspect, follow up in the same workspace, request a PR. CTOs and VPs need quick understanding of infrastructure ownership, cost, visible evidence and human review authority. Both see the same product, with operational depth on supporting pages.
 
-## Truth boundary
-- AgentX is an executor/runtime and workflow surface; not the accountable intent-to-outcome product.
-- Each Slack-thread or MCP task uses an isolated EC2 worker and encrypted EBS workspace; idle compute may stop while workspace and conversation persist.
-- Entry points include Slack and MCP tools for Claude Code, Codex, and Cursor. Project connectors include Linear, Jira, Asana, and remote MCP.
-- The human owns the merge decision. Existing identity, source control, CI/CD, cloud, and release authority remain authoritative.
-- FSL-1.1-ALv2 is source-available, not OSI open source. Current mainline documents no public release/npm package and a source-checkout path that needs user-pushed images.
-- Existing SWE-bench pilot is diagnostic only; no public performance claim.
-- Cost is an estimate tied to documented assumptions, never a quote.
+## Story order
 
-## Emotional target
-Engineering leaders should feel they can understand and bound the system before deployment. Developers should feel the task can move while their context remains accessible.
+1. Task outcome and human authority.
+2. Slack/coding-tool → AWS workspace → change and evidence → human review.
+3. Persistent workspace for follow-up.
+4. Bounded task examples and familiar connections.
+5. Ownership and operating model.
+6. Documentation and a clearly labelled installation placeholder.
 
-## Brand direction
-Systems Atlas: strong editorial typography, dimensional task routing diagram, exact technical labels, warm mineral background, deep ink, marine blue, and a signal-orange execution path. No inherited Qedly site visual system. No fake metrics, customer logos, testimonials, or live-run claims.
+Verification strengthens the complete coding workflow. It is not presented as the whole product or as proof of correctness. Missing checks, stopped runs, unrerun commands and failing checks must remain visible in the detailed explanation.
+
+## Current boundaries
+
+The current AgentX source is private, no public package/release exists, and the source uses FSL-1.1-ALv2. Installation is explicitly deferred to a simple coming-soon page. The useful current destination is the task walkthrough and documentation, with installation status visible. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
+
+Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Source references are drift guards; public source references are not independently accessible until the product is published.
+
+## Launch transition
+
+When public release artifacts exist, update the primary CTA, exact installation instructions, source link, license wording and operator guide together. Verify a fresh self-hosted installation through a first task, follow-up, PR and cleanup before claiming that path works. A website build does not establish that product acceptance.
+
+
+## Approved native workflow story (5 October 2026)
+
+Category: A coding agent with a workflow you control. Keep “Give it a task. Get the work back.” and “You decide what gets merged.”
+
+Request → approve plan → coding → candidate-bound check evidence and separate AI reviews → draft PR → proposed feedback fixes → owner decision → refreshed evidence. Quick has one implementation-plan approval; Full has requirements, design and coding-plan approvals. Dependencies, blockers and all required PRs stay visible. The website uses the owner-approved completed-scope baseline as a preview, not a claim of recorded live acceptance.
+
+AI findings, command output, repository CI and benchmark grades have different meanings. Preserve their provenance. No automatic issue intake, model-claimed correctness, parallel-agent execution claim, automatic human approval or production delivery.

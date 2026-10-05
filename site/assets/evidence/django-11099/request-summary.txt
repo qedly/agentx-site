@@ -1,0 +1,3 @@
+Django username validators accept a trailing newline. Update both ASCIIUsernameValidator and UnicodeUsernameValidator so the complete username must match the permitted characters.
+
+Request summary derived from the recorded task prompt, not a verbatim transcript. The task prompt instructed the agent to change non-test source files only; benchmark tests were supplied by the evaluation harness.

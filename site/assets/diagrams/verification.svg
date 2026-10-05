@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc"><title id="title">Which code did the evidence inspect?</title><desc id="desc">Native workflow readiness · checks and AI findings have distinct evidence roles</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#2455d6" stroke-width="1.5"/></marker></defs><rect width="1100" height="560" fill="#f8f5ef"/><text x="30" y="37" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="600">Which code did the evidence inspect?</text>
+<text x="30" y="61" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Native workflow readiness · checks and AI findings have distinct evidence roles</text>
+<rect x="30" y="112" width="210" height="140" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="47" y="137" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">CANDIDATE A</text>
+<text x="47" y="165" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Current code</text>
+<text x="47" y="191" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Identified commit / tree</text>
+<text x="47" y="210" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Task + project context</text>
+<rect x="315" y="112" width="310" height="140" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="332" y="137" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">EVIDENCE FOR A</text>
+<text x="332" y="165" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Checks + separate AI reviews</text>
+<text x="332" y="191" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Command, environment, output</text>
+<text x="332" y="210" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Code / security findings + attribution</text>
+<text x="332" y="229" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">All required reports match A</text>
+<rect x="700" y="112" width="350" height="140" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="717" y="137" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">NATIVE WORKFLOW</text>
+<text x="717" y="165" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">PR-ready decision</text>
+<text x="717" y="191" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Required check and review policy</text>
+<text x="717" y="210" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Repository CI and merge rules remain</text>
+<text x="717" y="229" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">your team’s separate review controls</text>
+<polyline points="240,182 313,182" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="625,182 698,182" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="135,252 135,317" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="30" y="320" width="210" height="132" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="47" y="345" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">A CHANGE</text>
+<text x="47" y="373" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Candidate B</text>
+<text x="47" y="399" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">New code identity</text>
+<text x="47" y="418" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Previous dependent results stale</text>
+<rect x="315" y="320" width="310" height="132" rx="5" fill="#fffdf9" stroke="#d4d9e0"/>
+<text x="332" y="345" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="500">FRESH EVIDENCE FOR B</text>
+<text x="332" y="373" fill="#19212f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">Rerun and inspect</text>
+<text x="332" y="399" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">New checks + separate reviews</text>
+<text x="332" y="418" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">Failed, missing or stale → blocked</text>
+<polyline points="240,385 313,385" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="625,386 672,386 672,222 698,222" fill="none" stroke="#2455d6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="701" y="386" fill="#2455d6" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="400">Only current results</text>
+<text x="32" y="506" fill="#4c596b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="400">AI reviews are attributed assessments. Named checks establish their own results, not universal correctness.</text></svg>

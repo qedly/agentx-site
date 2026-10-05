@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#faf9f6" />
+    <title>How it works — Rovara</title>
+    <meta
+      name="description"
+      content="Follow a coding task through its workspace, verification loop, lifecycle, and architecture."
+    />
+    <link rel="canonical" href="https://rovara-dev.github.io/how-it-works/" />
+    <meta property="og:title" content="How it works — Rovara" />
+    <meta
+      property="og:description"
+      content="Follow a coding task through its workspace, verification loop, lifecycle, and architecture."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../assets/icons/git-pull-request.svg" />
+    <link
+      rel="preload"
+      href="../assets/fonts/inter-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../assets/site.css" />
+    <script src="../assets/vendor/motion.js" defer>
+</script>
+    <script src="../assets/site.js" defer>
+</script>
+    <link rel="stylesheet" href="../assets/explanations.css" />
+    <link rel="stylesheet" href="../assets/refined.css" />
+<link rel="stylesheet" href="../assets/native-workflow.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="wordmark" href="../index.html" aria-label="Rovara home"
+        >Rovara</a
+      >
+<button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation"
+      >
+        <img
+          class="icon"
+          src="../assets/icons/list.svg"
+          alt=""
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="../index.html#product">Product</a
+        >
+<a href="../how-it-works/index.html" aria-current="page"
+          >How it works</a
+        >
+<a href="../docs/index.html">Docs</a
+        >
+<a class="button primary" href="../deployment/index.html"
+          >Installation status
+          <img
+            class="icon white"
+            src="../assets/icons/arrow-up-right.svg"
+            alt=""
+            width="24"
+            height="24"
+            aria-hidden="true"
+        />
+</a>
+      </nav>
+    </header>
+<main id="main">
+<div class="compact-intro shell">
+<p class="eyebrow">How it works</p>
+<h1>One task. The whole picture.</h1>
+<p class="intro-text">Agree on the plan. Inspect the code and evidence. Decide how to respond to review. Follow the whole task without losing its context.</p>
+</div>
+<div class="section-jumps shell">
+<a href="#workflow">01 Task journey</a>
+<a href="#checks">02 Evidence</a>
+<a href="#continue">03 Lifecycle</a>
+<a href="#architecture">04 Architecture</a>
+</div>
+<section class="system-section shell" id="workflow">
+<div class="section-heading">
+<p class="eyebrow">01 / Task journey</p>
+<h2>An agreed plan. Reviewable work.</h2>
+<p>The native workflow starts with your explicit request and keeps plan approval, evidence and PR feedback connected to that task.</p>
+</div>
+<figure class="system-figure">
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Journey diagram; scroll on a narrow screen">
+<img width="1100" height="620" src="../assets/diagrams/journey.svg" alt="Request → approve a plan → coding → checks and separate AI reviews → draft PR → review feedback → approve selected fixes → fresh checks → your team’s merge decision." loading="lazy">
+</div>
+<figcaption>Quick asks for one plan approval. Full adds requirements and design approvals. Review feedback returns through an owner decision, then fresh evidence. <a href="../assets/diagrams/journey.svg" target="_blank" rel="noopener">Open full size</a>
+</figcaption>
+</figure>
+<div class="explanation-rows">
+<div>
+<h3>Before coding</h3>
+<p>Read the plan in Slack Canvas or your coding tool. Approve that version or request changes. Required project checks stay on.</p>
+</div>
+<div>
+<h3>Before PR creation</h3>
+<p>After checks pass, request the initial code and security reviews. Native workflow readiness requires matching results; missing or stale evidence stays visible.</p>
+</div>
+<div>
+<h3>During team review</h3>
+<p>Comments become proposed fixes. The owner decides which changes to authorize. Original comments and merge state stay in GitHub.</p>
+</div>
+</div>
+<a class="text-link" href="../docs/tasks/index.html">Follow a Quick task →</a>
+</section>
+<section class="system-section shell" id="checks">
+<div class="section-heading">
+<p class="eyebrow">02 / Code and evidence</p>
+<h2>The results belong to the code.</h2>
+<p>Inspect named check output and separately attributed AI reviews. If the candidate changes, results for the earlier code do not establish readiness for the new code.</p>
+</div>
+<figure class="system-figure">
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Verification diagram; scroll on a narrow screen">
+<img width="1100" height="560" src="../assets/diagrams/verification.svg" alt="Candidate A has checks and separate code/security AI reviews. A code change creates candidate B and makes dependent evidence stale. Candidate B needs fresh checks and reviews; failures and missing evidence block native workflow readiness." loading="lazy">
+</div>
+<figcaption>The native workflow binds required check and review results to the candidate. AI review findings support inspection; they do not prove correctness. <a href="../assets/diagrams/verification.svg" target="_blank" rel="noopener">Open full size</a>
+</figcaption>
+</figure>
+<div class="explanation-rows">
+<div>
+<h3>Tests and checks</h3>
+<p>Inspect the command, environment, output and candidate reference. Missing output is a gap, not a passing result.</p>
+</div>
+<div>
+<h3>Separate AI reviews</h3>
+<p>Code and security reviewers operate in read-only sessions. Their findings are attributed to the reviewer and model.</p>
+</div>
+<div>
+<h3>Your repository’s CI</h3>
+<p>GitHub CI and branch rules remain authoritative for your repository. Native workflow readiness and repository merge rules are distinct.</p>
+</div>
+</div>
+<details class="engineering-details">
+<summary>Existing direct tasks and historical benchmarks</summary>
+<div>
+<p>The existing direct-task path can return draft PRs with failed or unverified checks described. Its publication behavior differs from native workflow readiness. Historical benchmark graders are another evidence layer; they do not qualify a current workflow candidate.</p>
+<a href="../docs/evidence/index.html#layers">Understand the evidence layers →</a>
+</div>
+</details>
+</section>
+<section class="system-section shell" id="continue">
+<div class="section-heading">
+<p class="eyebrow">03 / Workspace and task lifecycle</p>
+<h2>Come back with the context intact.</h2>
+<p>Waiting for a decision is not a failed task. Continuing work is not starting over. Workspace lifetime and the retained task record are separate concerns.</p>
+</div>
+<figure class="system-figure">
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Lifecycle diagram; scroll on a narrow screen">
+<img width="1100" height="560" src="../assets/diagrams/lifecycle.svg" alt="Start and plan → wait for owner → coding and checks → PR and feedback loop → wait for all required PRs → preserve the record → clean up Canvas copies. The workspace can retain context during follow-ups; storage costs remain." loading="lazy">
+</div>
+<figcaption>Task artifacts and decisions live in AgentX under configured retention. At closeout, verify their preservation before deleting task Canvas copies. Slack replies and GitHub comments remain in their services. <a href="../assets/diagrams/lifecycle.svg" target="_blank" rel="noopener">Open full size</a>
+</figcaption>
+</figure>
+<div class="explanation-rows">
+<div>
+<h3>Wait and continue</h3>
+<p>Inspect the next responsible action. Idle compute can stop while files remain; retained storage still costs money.</p>
+</div>
+<div>
+<h3>Preserve the record</h3>
+<p>The task record retains artifact references, decisions and evidence according to configuration. It is not an indefinite-retention promise.</p>
+</div>
+<div>
+<h3>Close deliberately</h3>
+<p>Cancel work, close a workspace and remove a deployment are different actions. Preserve unpublished changes before closure.</p>
+</div>
+</div>
+<a class="text-link" href="../docs/operations/index.html">Workspace actions and costs →</a>
+</section>
+<section class="system-section shell" id="architecture">
+<div class="section-heading">
+<p class="eyebrow">04 / Architecture</p>
+<h2>Know what runs where.</h2>
+<p>Slack and coding tools are entry points. AgentX coordinates the task in your AWS account. GitHub owns PR state; configured providers and connectors have their own data boundaries.</p>
+</div>
+<figure class="system-figure">
+<div class="diagram-scroll" tabindex="0" role="region" aria-label="Architecture diagram; scroll on a narrow screen">
+<img width="1100" height="770" src="../assets/diagrams/architecture.svg" alt="Outside AWS: Slack, coding-tool MCP, authenticated browser client, GitHub and model/connector services. Inside your AWS account: authenticated control plane, workflow record and decisions, EC2 workspace with coding, check execution and separate read-only review sessions, DynamoDB state, S3 artifacts and encrypted EBS files." loading="lazy">
+</div>
+<figcaption>Role-level architecture. Separate review sessions do not imply separate machines. Authenticated browser requests and signed GitHub events pass through the control plane. <a href="../assets/diagrams/architecture.svg" target="_blank" rel="noopener">Open full size</a>
+</figcaption>
+</figure>
+<div class="architecture-notes">
+<div>
+<h3>Coordinate</h3>
+<p>The authorized control plane records tasks, decisions and artifact references. GitHub events are checked against the task’s registered PRs.</p>
+</div>
+<div>
+<h3>Work and inspect</h3>
+<p>The coding worker uses the configured project environment. Checks execute separately from the coding agent’s success claims; reviewers use separate read-only sessions.</p>
+</div>
+<div>
+<h3>Keep ownership clear</h3>
+<p>The account is the documented security boundary. External model providers and vendor MCP servers receive their configured requests outside that boundary.</p>
+</div>
+</div>
+<details class="engineering-details">
+<summary>Engineering view: routing, state and authority</summary>
+<div>
+<dl>
+<dt>Slack</dt>
+<dd>Signed ingress → request queue → Fargate orchestrator → control-plane API. Plans use Canvas; concise updates and decisions stay in the task thread.</dd>
+<dt>Coding tools</dt>
+<dd>Local <code>agentx mcp</code> → authorized developer task API. The coding client is an entry surface; the remote harness implements the task.</dd>
+<dt>Worker operations</dt>
+<dd>Control-plane dispatch → operation queue → EC2 worker. Coding and read-only review operations have different tool permissions.</dd>
+<dt>State and files</dt>
+<dd>DynamoDB stores task/workflow/operation state; S3 holds artifacts and session data; encrypted EBS holds workspace files.</dd>
+<dt>PR feedback page</dt>
+<dd>An authenticated browser view reads task-scoped review details and submits owner decisions through the API. A link alone does not grant access.</dd>
+<dt>GitHub</dt>
+<dd>Signed events are deduplicated and scoped to linked PRs. GitHub API state remains authoritative; human merge decisions remain in the repository.</dd>
+</dl>
+<p>Environments in one AWS account are not independent security boundaries. This role diagram is not a complete network or security assessment.</p>
+</div>
+</details>
+<a class="text-link" href="../docs/architecture/index.html">Architecture reference →</a>
+</section>
+<section class="system-section shell" id="review">
+<p class="eyebrow">The final decision</p>
+<h2>You decide what gets merged.</h2>
+<p>Your team reviews the candidate, task evidence and repository CI with its existing merge controls.</p>
+<a class="button primary" href="../docs/tasks/index.html">Follow a first task →</a>
+</section>
+</main>    <footer class="site-footer shell simplified-footer">
+      <div>
+        <a class="wordmark" href="../index.html">Rovara</a>
+        <p>Coding agents in your AWS account.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../docs/index.html">Documentation</a
+        >
+<a href="../deployment/index.html">Installation coming soon</a
+        >
+<a href="../docs/release/index.html#license">Licence</a
+        >
+<a href="https://github.com/rovara-dev/rovara-dev.github.io"
+          >Website source</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

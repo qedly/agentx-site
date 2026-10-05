@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Release and licence — Rovara</title>
+<meta name="description" content="Where the project stands and where to find the technical details.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/release/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="index.html" aria-current="page">Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Help</div>
+<header class="docs-title">
+<p class="docs-kind">Status</p>
+<h1>Release and licence</h1>
+<p>Where the project stands and where to find the technical details.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#availability">Public installation is coming soon</a>
+<a href="#names">Rovara and AgentX</a>
+<a href="#license">Current licence</a>
+<a href="#requirements">Runtime requirements</a>
+<a href="#documentation">How these docs are maintained</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="availability">
+<h2>Public installation is coming soon<a class="doc-heading-link" href="#availability" aria-label="Link to section Public installation is coming soon">#</a>
+</h2>
+<p>The public self-hosted installation guide is not available yet. These docs explain the currently inspected code and show how to work with an environment your team has already deployed.</p>
+<p>
+<a href="../../deployment/index.html">Installation status →</a>
+</p>
+</section>
+<section id="names">
+<h2>Rovara and AgentX<a class="doc-heading-link" href="#names" aria-label="Link to section Rovara and AgentX">#</a>
+</h2>
+<p>
+<strong>Rovara</strong> is the public-facing name used on this website. The current source project, CLI and integration tool names still use <strong>AgentX</strong>, <code>agentx</code> and <code>agentx_…</code>. Use those names in commands and existing app mentions.</p>
+</section>
+<section id="license">
+<h2>Current licence<a class="doc-heading-link" href="#license" aria-label="Link to section Current licence">#</a>
+</h2>
+<p>The inspected product code uses <strong>FSL-1.1-ALv2</strong>. That is not an Apache-licensed open-source release at launch. The source licence grants a future Apache 2.0 licence effective on the second anniversary of the date the software is made available.</p>
+<p>Read the complete <a href="../../assets/legal/AgentX-LICENSE.txt">current product licence</a> for its terms. Website source and product source are separate repositories.</p>
+</section>
+<section id="requirements">
+<h2>Runtime requirements<a class="doc-heading-link" href="#requirements" aria-label="Link to section Runtime requirements">#</a>
+</h2>
+<p>The current AgentX package declares Node <strong>22.19.0</strong> or newer, <strong>below 23</strong>. Setup also depends on AWS, GitHub, Slack or a coding-tool connection, and configured model access. Installation instructions will specify the release-matched prerequisites.</p>
+</section>
+<section id="documentation">
+<h2>How these docs are maintained<a class="doc-heading-link" href="#documentation" aria-label="Link to section How these docs are maintained">#</a>
+</h2>
+<p>The existing direct-task, CLI and project references were inspected at mainline <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow tools, candidate reviews and linked-PR feedback collection were inspected in committed local implementation at <code>3455a367005972659875667b82d7b5d28a2da727</code>. The product pull request is still a draft; this is not a released version.</p>
+<p>The expanded workflow guides are preview documentation for the selected product direction. The feedback browser surface, dependency guide and closeout explanation include the owner-approved workflow design; their availability must be matched to the installed release before public installation instructions are published.</p>
+<p>The <a href="../../data/workflow-preview.json">workflow preview record</a> identifies these sources. Historical benchmark records retain their own dates, candidates and evidence. A website build does not prove a live installation.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../troubleshooting/index.html">
+<span>Previous</span>Troubleshooting</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#availability">Public installation is coming soon</a>
+<a href="#names">Rovara and AgentX</a>
+<a href="#license">Current licence</a>
+<a href="#requirements">Runtime requirements</a>
+<a href="#documentation">How these docs are maintained</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

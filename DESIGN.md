@@ -1,54 +1,24 @@
-# Design System: AgentX Systems Atlas
+# Approved design language — 5 October 2026
 
-## Overview
+## Owner decision
+Design 1 from the latest three-image exploration is selected. Preserve its headline and visible task/evidence/review loop. Use the cream palette and engineering-leaders/developers split from Design 2. The earlier oversized condensed design is superseded.
 
-**Creative North Star: “A working system, drawn in section.”**
+## Feeling and product story
+Clear delegation, tangible work and retained control. Give it a task. Get the work back. The page shows a coding agent, a customer-owned AWS workspace, an inspectable patch and output, then human review. You decide what gets merged.
 
-Follow the selected Systems Atlas concept: a quiet, technical editorial site organized around a large isometric architecture cutaway. The left index makes the site feel like a guide to a real system. The headline establishes the job; the diagram teaches the path. Below it, separate leader and builder panels translate the same runtime into operating value and developer value.
+## Composition and type
+Cream #f8f5ef; ink #19212f; body #4c596b; cobalt #2455d6; fine structural rules. Self-hosted Inter is the shared type family, with system monospace only for code. Normal-width 38–57px homepage heading; supporting page heading capped at 48px; 15–18px reading text. No horizontal text compression or Anton in the active type system.
 
-Key characteristics:
-- Near-white, cool blue ground; deep navy type; cobalt system linework; red only for sparse proof marks and current release limits.
-- High-contrast serif display typography paired with compact monospaced labels.
-- One dominant isometric cutaway, drawn from AgentX terminology and current architecture.
-- Fixed vertical section rail on wide viewports; concise, accessible section navigation on mobile.
-- Distinct editorial panels divided by rules and whitespace, not a generic SaaS card grid.
-- Small motion traces the task route and stops under reduced-motion preferences.
+Split desktop hero: pitch on the left, labelled illustrative workflow on the right. Recorded evidence immediately follows, with leaders/developers, a user-controlled video, connections and honest installation status below. Mobile is a readable vertical handoff with working navigation.
 
-## Colors
+## Exact evidence, not sample green states
+The generated visual contained a malformed regex, invented counts and unsupported all-checks/data-boundary claims. None is product evidence. The implementation displays the preserved Django patch verbatim and an excerpt from its raw output, with full artifact links. The 22-test result is qualified as one saved benchmark run. The Slack request is illustrative. No live Slack-to-PR claim is made.
 
-- **Porcelain** (#F4F8FD): page field.
-- **Navy** (#0D2451): primary editorial text.
-- **Cobalt** (#1B58B2): architecture, links, and navigation.
-- **Blueprint** (#B7C9E0): construction lines and boundaries.
-- **Proof red** (#D65249): rare status marks and annotations; never implies a successful check.
+## Assets and diagrams
+Use actual locally served vendor marks and unmodified Phosphor icons. Diagram data, code excerpts and artifact links remain semantic and selectable rather than rasterizing generated text. This necessary adaptation implements the owner's explicit requirement to correct and inspect evidence. No new decorative illustration is approximated with CSS art. The four editable Excalidraw explanations remain code-derived and have a matching palette; no architecture relationship is changed by the visual reset.
 
-## Typography
+## Motion and video
+One brief staggered entrance for the hero's explanatory objects; no fictional activity or success animation. Reduced motion produces the static view. Existing selectable walkthrough, evidence dialog, Escape handling and focus restoration remain. The 20-second Brag/Hyperframes video shares the palette, has controls, captions and a transcript, and does not autoplay.
 
-Use Iowan Old Style/Palatino/Georgia for high-contrast editorial titles and system sans for prose. Use monospace for section indexes, labels, coordinates, costs, and evidence notes. Font stacks are local system faces; no remote font request is required.
-
-## Layout
-
-A 180px fixed left rail anchors wide screens. The hero is asymmetrical: compact editorial copy on the left, a large blueprint cutaway on the right. Two equal lower panels speak to leaders and builders. Below, deployment, extension, and status sections use ruled ledgers and left-to-right flows. At mobile widths, the rail becomes a compact header and the content stacks without horizontal overflow.
-
-## Elevation & Depth
-
-Use a restrained sheet shadow only on diagram artifacts. Most depth comes from isometric projection, overlapping planes, line weight, and pale-blue field changes.
-
-## Shapes
-
-Use angular geometry for workspace boundaries and documents. Circles are reserved for nodes and evidence ticks. Controls are square and quiet.
-
-## Components
-
-- The hero cutaway distinguishes ingress, orchestration, the per-task execution boundary, retained EBS, and human review. It is an explanatory diagram, not a screenshot or live deployment.
-- The leaders/builders split translates the product for buyer and user without repeating the same pitch.
-- The deployment ledger states region, workload assumptions, cost caveats, and account boundary.
-- The source/release block states the actual FSL license and no-public-release status before offering a CTA.
-
-## Do's and Don'ts
-
-- Keep the selected reference's spatial composition, cool palette, serif hierarchy, left rail, cutaway diagram, and leader/builder split.
-- Tie product claims to `site/data/claims.json`; run `scripts/check-product-claims.mjs` against current fetched AgentX mainline before publication.
-- Do not call FSL-1.1-ALv2 open source.
-- Do not add customer proof, solve rates, savings, install-time claims, or security certifications without current evidence.
-- Avoid stock AI art, simulated code output, generic dashboard mockups, nested cards, gradients, and ornamental animation.
+## Authority
+Rovara is display branding. AgentX commands and evidence identities remain unchanged. Installation is a placeholder. The product release and FSL license status stay visible. Review branches do not publish Pages. Live merge/publication requires owner approval.

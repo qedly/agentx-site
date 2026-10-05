@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Workspaces and costs — Rovara</title>
+<meta name="description" content="Keep the context you need, stop the work you do not, and understand what remains on the bill.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/operations/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
+<a href="index.html" aria-current="page">Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Work with Rovara</div>
+<header class="docs-title">
+<p class="docs-kind">Guide</p>
+<h1>Workspaces and costs</h1>
+<p>Keep the context you need, stop the work you do not, and understand what remains on the bill.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#continue">Come back to the same workspace</a>
+<a href="#actions">Cancel, close or remove</a>
+<a href="#status">Understand task status</a>
+<a href="#workflow-status">Understand the next action</a>
+<a href="#costs">What you pay for</a>
+<a href="#health">Check environment health</a>
+<a href="#closeout">Task history and Canvas cleanup</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="continue">
+<h2>Come back to the same workspace<a class="doc-heading-link" href="#continue" aria-label="Link to section Come back to the same workspace">#</a>
+</h2>
+<p>Follow-ups reuse the files and conversation state. Idle compute can stop while the workspace remains. Continue the same task or Slack thread when you want to pick up where it left off.</p>
+<p>Retained storage still costs money while compute is idle.</p>
+</section>
+<section id="actions">
+<h2>Cancel, close or remove<a class="doc-heading-link" href="#actions" aria-label="Link to section Cancel, close or remove">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>What it does</th>
+<th>What to remember</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cancel a task</td>
+<td>Stops the current work.</td>
+<td>Inspect status and any partial changes. This is not workspace closure.</td>
+</tr>
+<tr>
+<td>Close a workspace</td>
+<td>Checks for unpublished work before releasing workspace storage.</td>
+<td>Preserve unfinished changes if closure refuses.</td>
+</tr>
+<tr>
+<td>Remove the environment</td>
+<td>A separate operator teardown procedure.</td>
+<td>Use the release-matched instructions when published.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<a href="../../how-it-works/index.html#continue">See the workspace lifecycle →</a>
+</p>
+</section>
+<section id="status">
+<h2>Understand task status<a class="doc-heading-link" href="#status" aria-label="Link to section Understand task status">#</a>
+</h2>
+<p>Coding-tool tasks can be <code>STARTING</code>, <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELLED</code>, <code>INTERRUPTED</code> or <code>CLOSED</code>.</p>
+<p>
+<code>SUCCEEDED</code> describes task execution, not a guarantee that every check passed. A timed-out wait can leave the task running. Read its current status and evidence before retrying.</p>
+</section>
+<section id="workflow-status">
+<h2>Understand the next action<a class="doc-heading-link" href="#workflow-status" aria-label="Link to section Understand the next action">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waiting for a plan decision</td>
+<td>Inspect the current document, then approve or request changes.</td>
+</tr>
+<tr>
+<td>Missing, failed or stale evidence</td>
+<td>Read the reason; obtain a current check or review.</td>
+</tr>
+<tr>
+<td>PR feedback proposal</td>
+<td>Open the detailed review and choose the response.</td>
+</tr>
+<tr>
+<td>Waiting for required PRs</td>
+<td>Use GitHub review and merge controls for the remaining PRs.</td>
+</tr>
+<tr>
+<td>Closeout retry needed</td>
+<td>Check preserved artifacts and retry the failed cleanup operation.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Task execution status is distinct from workflow stage and PR merge state.</p>
+</section>
+<section id="costs">
+<h2>What you pay for<a class="doc-heading-link" href="#costs" aria-label="Link to section What you pay for">#</a>
+</h2>
+<p>You pay for AWS services, retained storage and model usage. Task usage telemetry, installer estimates and budget alerts help explain usage. Budget alerts are notifications, not spending caps.</p>
+<div class="doc-callout">
+<strong>Illustrative estimate: about $211 per month</strong>
+<p>Assumes us-east-1, default Bedrock models, 1,000 turns, 100 worker sessions, 60 instance-hours and 10 retained workspaces. The source pricing calculation returns $211.13. This is an example, not a subscription price; actual usage and prices vary.</p>
+</div>
+</section>
+<section id="health">
+<h2>Check environment health<a class="doc-heading-link" href="#health" aria-label="Link to section Check environment health">#</a>
+</h2>
+<p>With an installed CLI and operator access, use:</p>
+<pre>
+<code>agentx --env &lt;env&gt; doctor --region &lt;region&gt;</code>
+</pre>
+<p>Read the reported failures before making changes. Public upgrade, recovery and teardown instructions will arrive with the installation guide.</p>
+<p>
+<a href="../troubleshooting/index.html">Troubleshoot a problem →</a>
+</p>
+</section>
+<section id="closeout">
+<h2>Task history and Canvas cleanup<a class="doc-heading-link" href="#closeout" aria-label="Link to section Task history and Canvas cleanup">#</a>
+</h2>
+<p>At terminal closeout, AgentX verifies its canonical artifacts and decisions and saves their references before deleting task Canvas copies, including earlier plan versions. A preservation or cleanup failure remains visible and retryable.</p>
+<p>Canvas cleanup does not delete Slack thread messages or original GitHub comments. Artifact retention follows your configured policy; do not assume indefinite storage. Workspace storage and deployment teardown are separate operations.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../coordination/index.html">
+<span>Previous</span>Dependencies and linked PRs</a>
+<a href="../configuration/index.html">
+<span>Next</span>Projects and checks →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#continue">Come back to the same workspace</a>
+<a href="#actions">Cancel, close or remove</a>
+<a href="#status">Understand task status</a>
+<a href="#workflow-status">Understand the next action</a>
+<a href="#costs">What you pay for</a>
+<a href="#health">Check environment health</a>
+<a href="#closeout">Task history and Canvas cleanup</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

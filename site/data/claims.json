@@ -2,17 +2,168 @@
   "source": {
     "repository": "PrepLabsAI/AgentX",
     "ref": "origin/mainline",
-    "commit": "b9f008bfd60540d05d5eaa757ca086e5ab55f69b",
+    "commit": "8acb7ac00c97e3e5ff547cb13af07e5ff160bc86",
     "checkedAt": "2026-10-05",
-    "note": "The AgentX source repository is private. Site facts were checked against the authorized local mainline clone; public visitors cannot independently inspect these source references yet."
+    "note": "Product source is private. These are reviewed implementation references at the pinned mainline; substring checks guard drift and do not establish runtime acceptance."
   },
   "claims": [
-    {"id":"isolated-workspace","claim":"Each Slack thread and MCP task gets an isolated EC2 worker and persistent encrypted EBS workspace.","evidence":[{"file":"README.md","contains":"Every Slack thread, and every task a developer hands over from an AI tool, gets its own isolated, persistent workspace."},{"file":"docs/architecture-production.md","contains":"encrypted EBS"}]},
-    {"id":"idle-persistence","claim":"Idle compute stops while workspace files and conversation state remain available for resume.","evidence":[{"file":"README.md","contains":"idle reaper stops compute while preserving workspace files and conversation state."}]},
-    {"id":"entry-points","claim":"Slack and MCP task tools for Claude Code, Codex, and Cursor can start or continue tasks.","evidence":[{"file":"README.md","contains":"Claude Code, Codex or Cursor"},{"file":"README.md","contains":"agentx mcp install"}]},
-    {"id":"release","claim":"There is no published AgentX release or npm package; source-checkout installation requires locally built release assets and user-pushed images.","evidence":[{"file":"README.md","contains":"No AgentX release is published yet"},{"file":"README.md","contains":"container images you have pushed yourself"}]},
-    {"id":"license","claim":"FSL-1.1-ALv2 is source-available, not OSI open source, and each release converts to Apache 2.0 two years after it ships.","evidence":[{"file":"README.md","contains":"Source-available under [FSL-1.1-ALv2](LICENSE)"},{"file":"README.md","contains":"each release becomes Apache 2.0 two years after it ships"}]},
-    {"id":"benchmark-status","claim":"A draft evaluation plan exists; the current pilot evidence does not support a public solve-rate or model comparison claim.","evidence":[{"file":"specs/046-model-cost-comparison/spec.md","contains":"Status**: Draft"},{"file":"specs/046-model-cost-comparison/spec.md","contains":"which this experiment does not make by itself"}]},
-    {"id":"cost-example","claim":"Approximately $211 per month using default Bedrock models at documented sample workload in us-east-1.","expectedRoundedUsd":211,"evidence":[{"file":"packages/cli/src/init/cost.ts","contains":"STATED_USAGE"},{"file":"packages/model-runtime/src/config.ts","contains":"DEFAULT_BEDROCK_MODELS"},{"file":"docs/install.md","contains":"1,000 turns, 100 worker sessions, 60 worker instance-hours and 10 kept workspaces"}]}
+    {
+      "id": "isolated-workspace",
+      "claim": "Each Slack thread and MCP task gets an isolated EC2 worker and persistent encrypted EBS workspace.",
+      "evidence": [
+        {
+          "file": "README.md",
+          "contains": "Every Slack thread, and every task a developer hands over from an AI tool, gets its own isolated, persistent workspace."
+        },
+        {
+          "file": "docs/architecture-production.md",
+          "contains": "encrypted EBS"
+        }
+      ]
+    },
+    {
+      "id": "idle-persistence",
+      "claim": "Idle compute stops while workspace files and conversation state remain available for resume.",
+      "evidence": [
+        {
+          "file": "README.md",
+          "contains": "idle reaper stops compute while preserving workspace files and conversation state."
+        }
+      ]
+    },
+    {
+      "id": "entry-points",
+      "claim": "Slack and MCP task tools for Claude Code, Codex, and Cursor can start or continue tasks.",
+      "evidence": [
+        {
+          "file": "README.md",
+          "contains": "Claude Code, Codex or Cursor"
+        },
+        {
+          "file": "README.md",
+          "contains": "agentx mcp install"
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "claim": "There is no published AgentX release or npm package; source-checkout installation requires locally built release assets and user-pushed images.",
+      "evidence": [
+        {
+          "file": "README.md",
+          "contains": "No AgentX release is published yet"
+        },
+        {
+          "file": "README.md",
+          "contains": "container images you have pushed yourself"
+        }
+      ]
+    },
+    {
+      "id": "license",
+      "claim": "FSL-1.1-ALv2 is source-available, not OSI open source, and each release converts to Apache 2.0 two years after it ships.",
+      "evidence": [
+        {
+          "file": "README.md",
+          "contains": "Source-available under [FSL-1.1-ALv2](LICENSE)"
+        },
+        {
+          "file": "README.md",
+          "contains": "release becomes Apache 2.0 two years after it ships"
+        }
+      ]
+    },
+    {
+      "id": "benchmark-status",
+      "claim": "Historical selected Pro batch: 40 of 50 tasks resolved according to saved graders, with all 50 outcomes inspectable. This is not an official full-benchmark score or a model comparison.",
+      "evidence": [],
+      "websiteEvidence": [
+        "assets/evidence/evaluation-batches/pro-50-receipts.json",
+        "docs/benchmarks/index.html"
+      ]
+    },
+    {
+      "id": "cost-example",
+      "claim": "Approximately $211 per month using default Bedrock models at documented sample workload in us-east-1.",
+      "expectedRoundedUsd": 211,
+      "evidence": [
+        {
+          "file": "packages/cli/src/init/cost.ts",
+          "contains": "STATED_USAGE"
+        },
+        {
+          "file": "packages/model-runtime/src/config.ts",
+          "contains": "DEFAULT_BEDROCK_MODELS"
+        },
+        {
+          "file": "docs/install.md",
+          "contains": "1,000 turns, 100 worker sessions, 60 worker instance-hours and 10 kept workspaces"
+        }
+      ]
+    },
+    {
+      "id": "verification-hook",
+      "claim": "New and resumed coding sessions install the runtime verification extension. It reports missing checks and gives one additional attempt on regression.",
+      "evidence": [
+        {
+          "file": "packages/worker/src/run-task.ts",
+          "contains": "const verification = verificationExtension({"
+        },
+        {
+          "file": "packages/worker/src/verification/extension.ts",
+          "contains": "if (plan.source === \"none\") return report(unverified(\"no_checks\", claim));"
+        },
+        {
+          "file": "packages/worker/src/verification/extension.ts",
+          "contains": "if (status === \"regression\" && extraTry === \"not_needed\")"
+        }
+      ]
+    },
+    {
+      "id": "check-artifact",
+      "claim": "Worker task results store checks.json and can carry a compact check report.",
+      "evidence": [
+        {
+          "file": "packages/worker/src/run-task.ts",
+          "contains": "name: \"checks.json\""
+        },
+        {
+          "file": "packages/worker/src/verification/extension.ts",
+          "contains": "export function compactCheckReport(report: CheckReport): CheckReport"
+        }
+      ]
+    },
+    {
+      "id": "publication-checks",
+      "claim": "Publication reruns readiness checks, reports checks when requested, and preserves the older refusal path. CodeBuild evidence runs before the PR sink; it does not block publication on failing gate results.",
+      "evidence": [
+        {
+          "file": "packages/worker/src/publish.ts",
+          "contains": "const reportChecks = invocation.payload.reportChecks === true;"
+        },
+        {
+          "file": "packages/worker/src/publish.ts",
+          "contains": "if (!reportChecks && checks.some((check) => check.outcome !== \"passed\"))"
+        },
+        {
+          "file": "packages/worker/src/publish.ts",
+          "contains": "const codeBuildChecks = await runCodeBuildGates({"
+        },
+        {
+          "file": "packages/broker/src/aws/broker.ts",
+          "contains": "draft: checksMakeDraft(publishChecks, latestChecks, standingFailures) ? true : draft,"
+        }
+      ]
+    },
+    {
+      "id": "node-range",
+      "claim": "Product source engines require Node >=22.19.0 <23. The static website preview has its own separate Node engine.",
+      "evidence": [
+        {
+          "file": "package.json",
+          "contains": "\"node\": \">=22.19.0 <23\""
+        }
+      ]
+    }
   ]
 }
