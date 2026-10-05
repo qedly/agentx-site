@@ -36,3 +36,12 @@ Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e
 ## Launch transition
 
 When public release artifacts exist, update the primary CTA, exact installation instructions, source link, license wording and operator guide together. Verify a fresh self-hosted installation through a first task, follow-up, PR and cleanup before claiming that path works. A website build does not establish that product acceptance.
+
+
+## Approved native workflow story (5 October 2026)
+
+Category: A coding agent with a workflow you control. Keep “Give it a task. Get the work back.” and “You decide what gets merged.”
+
+Request → approve plan → coding → candidate-bound check evidence and separate AI reviews → draft PR → proposed feedback fixes → owner decision → refreshed evidence. Quick has one implementation-plan approval; Full has requirements, design and coding-plan approvals. Dependencies, blockers and all required PRs stay visible. The website uses the owner-approved completed-scope baseline as a preview, not a claim of recorded live acceptance.
+
+AI findings, command output, repository CI and benchmark grades have different meanings. Preserve their provenance. No automatic issue intake, model-claimed correctness, parallel-agent execution claim, automatic human approval or production delivery.

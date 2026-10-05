@@ -163,6 +163,38 @@ if (/all checks passed|pytest|\+12|−4/.test(home.toLowerCase()))
 const totalTests = record.failToPass.passed + record.passToPass.passed;
 if (!home.includes(`${totalTests} tests passed`))
   failures.push("Homepage count differs from the recorded report");
+// Qualify the selected batch from grader artifacts, never the agent's claim.
+const batchRoot = "assets/evidence/evaluation-batches";
+const receipts = JSON.parse(get(`${batchRoot}/pro-50-receipts.json`));
+const history = JSON.parse(get(`${batchRoot}/batch-history.json`));
+const batch = history.find(b => b.batch_id === receipts.batch_id);
+if (receipts.runs.length !== 50 || new Set(receipts.runs.map(r => r.run_id)).size !== 50)
+  failures.push("Selected batch must contain 50 unique grader receipts");
+let resolved = 0;
+for (const run of receipts.runs) {
+  for (const [suffix, key] of [["test-sh.log", "test_summary_sha256"], ["output.json", "grader_output_sha256"]]) {
+    const bytes = readFileSync(resolve(root, batchRoot, "pro-50-harness", `${run.run_id}-${suffix}`));
+    if (createHash("sha256").update(bytes).digest("hex") !== run[key])
+      failures.push(`Selected batch artifact changed: ${run.run_id}-${suffix}`);
+  }
+  const grader = JSON.parse(get(`${batchRoot}/pro-50-harness/${run.run_id}-output.json`));
+  const summary = get(`${batchRoot}/pro-50-harness/${run.run_id}-test-sh.log`);
+  const verdict = summary.match(/RESULT:\s*(PASSED|FAILED)/)?.[1];
+  const required = Number(summary.match(/Required tests:\s*(\d+)/)?.[1]);
+  const passed = Number(summary.match(/Required tests that passed:\s*(\d+)/)?.[1]);
+  if (!Array.isArray(grader.tests) || verdict !== run.grader_verdict
+      || (verdict === "PASSED") !== run.resolved || required !== run.required_tests
+      || passed !== run.required_tests_passed
+      || required !== run.fail_to_pass.total + run.pass_to_pass.total
+      || passed !== run.fail_to_pass.passed + run.pass_to_pass.passed)
+    failures.push(`Selected batch grader outcome mismatch: ${run.run_id}`);
+  if (run.resolved) resolved++;
+}
+if (resolved !== 40 || batch?.resolved !== resolved || batch?.finished_slots !== 50)
+  failures.push("Selected batch summary differs from saved grader outcomes");
+const benchmarks = get("docs/benchmarks/index.html");
+if (!benchmarks.includes("40") || !benchmarks.includes("50") || !benchmarks.includes("selected"))
+  failures.push("Benchmark documentation is missing selected-batch context");
 if (failures.length) {
   failures.forEach((x) => console.error(`FAIL: ${x}`));
   process.exit(1);
@@ -173,6 +205,7 @@ console.log(
 console.log(
   "PASS: recorded benchmark artifact hashes and reported test counts reconcile.",
 );
+console.log("PASS: selected Pro batch reconciles to 40/50; all 100 grader downloads retain their recorded hashes.");
 console.log(
   "Browser interaction, visual, accessibility and live-install checks require separate evidence.",
 );

@@ -126,3 +126,9 @@ contradictions: []
 objective_change_attempted: false
 objective_digest_match: true
 ```
+
+## Follow-up: evaluation artifact retrieval
+
+Later on 5 October, the owner authorized refresh of the existing AgentX AWS profile. All 19 Slack-traced batch CSVs and summaries were retrieved, plus 284 saved run results and all 50 grader JSON/test-summary pairs for the selected Pro batch. The earlier sign-in block described above is resolved. Eight other historical result-object locations remain missing; their batch rows are preserved.
+
+A local benchmark report now shows 40/50 selected Pro tasks resolved, the ten unresolved tasks and the full 19-batch history. It distinguishes benchmark grading from in-task checks (48/50 not verified), identifies model costs as estimated and retains sample-selection limitations. This follow-up is local, unpushed and not publicly deployed. The detailed retrieval and offline reconciliation are recorded at `/Users/abhishekgarg/Documents/ChatGPT/ManagedSDLC/research/agentx-eval-trace-2026-10-05/review.md`.

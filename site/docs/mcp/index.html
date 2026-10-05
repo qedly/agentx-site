@@ -49,9 +49,12 @@
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara</p>
-<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
-<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="../operations/index.html" >Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
@@ -60,8 +63,9 @@
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
 <a href="index.html" aria-current="page">MCP tool reference</a>
-<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
@@ -85,6 +89,8 @@
 <nav aria-label="Page sections">
 <a href="#connect">Connect a client</a>
 <a href="#tools">Developer tools</a>
+<a href="#workflow-tools">Native workflow tools</a>
+<a href="#decisions">Decision inputs</a>
 <a href="#retry">Waits and retries</a>
 <a href="#permissions">Access and sharing</a>
 </nav>
@@ -199,6 +205,88 @@
 </table>
 </div>
 </section>
+<section id="workflow-tools">
+<h2>Native workflow tools<a class="doc-heading-link" href="#workflow-tools" aria-label="Link to section Native workflow tools">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>agentx_start_workflow</code>
+</td>
+<td>Start Quick or Full with project and complete instructions. workflow_path defaults to quick. Returns the task and workflow state.</td>
+</tr>
+<tr>
+<td>
+<code>agentx_decide_workflow</code>
+</td>
+<td>Decide on the current document using task_id, expected_revision, artifact_digest, decision, reason and a retry-safe request_id.</td>
+</tr>
+<tr>
+<td>
+<code>agentx_review_workflow_candidate</code>
+</td>
+<td>Start the initial candidate review only in REVIEW / WAITING, with all required verification checks passing for the current candidate. Supply task_id and instructions; this is not a general re-review or feedback tool.</td>
+</tr>
+<tr>
+<td>
+<code>agentx_retry_workflow</code>
+</td>
+<td>Restart read-only planning only in PLAN / BLOCKED with an actionable workspace. Supply task_id and instructions; this does not retry arbitrary check, review, webhook or closeout operations.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use the tools your deployed server advertises. This reference covers the inspected native-workflow tool additions; an older server may only expose the direct-task tools.</p>
+</section>
+<section id="decisions">
+<h2>Decision inputs<a class="doc-heading-link" href="#decisions" aria-label="Link to section Decision inputs">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>task_id</td>
+<td>The existing workflow task.</td>
+</tr>
+<tr>
+<td>expected_revision</td>
+<td>The current positive workflow revision from the task.</td>
+</tr>
+<tr>
+<td>artifact_digest</td>
+<td>The SHA-256 of the current approval document.</td>
+</tr>
+<tr>
+<td>decision</td>
+<td>APPROVE, REQUEST_CHANGES, REJECT or SKIP. Not every decision is valid at every stage.</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>A non-empty reason for the decision (maximum 500 characters).</td>
+</tr>
+<tr>
+<td>request_id</td>
+<td>A UUID for safe retry. Repeat the same request unchanged after a timeout.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The server validates identity, state and freshness. Never reuse an older document digest to approve a revised plan. Feedback subset controls belong to the authenticated review surface; this table does not invent a feedback MCP API.</p>
+</section>
 <section id="retry">
 <h2>Waits and retries<a class="doc-heading-link" href="#retry" aria-label="Link to section Waits and retries">#</a>
 </h2>
@@ -217,10 +305,10 @@
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
 <nav class="docs-pager" aria-label="Next and previous pages">
-<a href="../configuration/index.html">
-<span>Previous</span>Projects and checks</a>
+<a href="../architecture/index.html">
+<span>Previous</span>System architecture</a>
 <a href="../benchmarks/index.html">
-<span>Next</span>Recorded benchmark example →</a>
+<span>Next</span>Benchmarks and recorded runs →</a>
 </nav>
 <footer class="docs-footer">
 <span>Rovara · Coding agents in your AWS account.</span>
@@ -232,6 +320,8 @@
 <p>On this page</p>
 <a href="#connect">Connect a client</a>
 <a href="#tools">Developer tools</a>
+<a href="#workflow-tools">Native workflow tools</a>
+<a href="#decisions">Decision inputs</a>
 <a href="#retry">Waits and retries</a>
 <a href="#permissions">Access and sharing</a>
 </nav>
@@ -243,7 +333,7 @@
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">

@@ -36,6 +36,7 @@
     function stop() {
       clearTimeout(timer);
       running = false;
+      if (!play) return;
       play.textContent = finished ? "Replay walkthrough" : "Play walkthrough";
       play.setAttribute("aria-pressed", "false");
     }
@@ -131,6 +132,7 @@
         },
         { threshold: 0.1 },
       ).observe(player);
+    player.classList.add("player-ready");
     select(0, false);
   });
   // One brief entrance reveals the illustrative handoff; no fake task status.

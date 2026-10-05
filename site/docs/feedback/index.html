@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Respond to PR feedback — Rovara</title>
+<meta name="description" content="Inspect AgentX’s recommendations and approve the changes you want before coding resumes.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/feedback/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara documentation</a>
+<a href="../concepts/index.html" >Core concepts</a>
+<a href="../../deployment/index.html">Installation <span>Coming soon</span>
+</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara</p>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="index.html" aria-current="page">Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Work with Rovara</div>
+<header class="docs-title">
+<p class="docs-kind">Tutorial</p>
+<h1>Respond to PR feedback</h1>
+<p>Inspect AgentX’s recommendations and approve the changes you want before coding resumes.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#before-you-start">Before you start</a>
+<a href="#collect">1. Open the feedback review</a>
+<a href="#inspect">2. Inspect each recommendation</a>
+<a href="#decide">3. Choose the response</a>
+<a href="#stale">If the code or comments change</a>
+<a href="#recheck">4. Inspect the updated candidate</a>
+<a href="#finish">5. Make the final review decision</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="before-you-start">
+<h2>Before you start<a class="doc-heading-link" href="#before-you-start" aria-label="Link to section Before you start">#</a>
+</h2>
+<p>You need a native workflow with registered, open task PRs and access as its authorized owner. Reviewers leave their original comments in GitHub. The installed environment must include the authenticated feedback review surface.</p>
+</section>
+<section id="collect">
+<h2>1. Open the feedback review<a class="doc-heading-link" href="#collect" aria-label="Link to section 1. Open the feedback review">#</a>
+</h2>
+<p>Follow the review link from the Slack task notice. Sign in if prompted; then return to the same review. A link is a route to the task, not permission to view or decide it.</p>
+<p>AgentX gathers current comments across the task’s open PRs, groups related feedback and prioritizes the proposed responses.</p>
+</section>
+<section id="inspect">
+<h2>2. Inspect each recommendation<a class="doc-heading-link" href="#inspect" aria-label="Link to section 2. Inspect each recommendation">#</a>
+</h2>
+<p>Read the original comment, the code it refers to, the recommendation, rationale and suggested checks. A separate read-only reviewer may recommend a fix, identify an already-addressed comment, or explain why the comment appears stale or out of scope.</p>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Inspect</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PR and code version</td>
+<td>The recommendation must apply to the current code.</td>
+</tr>
+<tr>
+<td>Original comment</td>
+<td>Understand what the reviewer actually requested.</td>
+</tr>
+<tr>
+<td>Proposed change and checks</td>
+<td>Know what approving the fix will authorize.</td>
+</tr>
+<tr>
+<td>Gaps or disagreement</td>
+<td>The owner decides; a model recommendation is not a human decision.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="decide">
+<h2>3. Choose the response<a class="doc-heading-link" href="#decide" aria-label="Link to section 3. Choose the response">#</a>
+</h2>
+<p>Approve all recommended fixes or a selected subset. Request changes when the proposal needs a different approach. Dismiss with a reason when appropriate. Your feedback and disposition become attributed task decisions.</p>
+<div class="doc-callout">
+<strong>Approval authorizes specific changes</strong>
+<p>Reading comments or receiving a review notice does not start another coding run. No automatic GitHub reply is implied by approving a proposal.</p>
+</div>
+</section>
+<section id="stale">
+<h2>If the code or comments change<a class="doc-heading-link" href="#stale" aria-label="Link to section If the code or comments change">#</a>
+</h2>
+<p>A decision is tied to the PR heads, comment set and proposal. If those inputs change, the old approval cannot dispatch the old proposal. Reopen the refreshed review and decide on the current version.</p>
+</section>
+<section id="recheck">
+<h2>4. Inspect the updated candidate<a class="doc-heading-link" href="#recheck" aria-label="Link to section 4. Inspect the updated candidate">#</a>
+</h2>
+<p>Only the approved fixes go to the coding operation. After implementation, inspect the new diff and fresh required checks and separate reviews. Your repository’s CI and human review remain part of the final decision.</p>
+<a href="../evidence/index.html">Evidence and freshness →</a>
+</section>
+<section id="finish">
+<h2>5. Make the final review decision<a class="doc-heading-link" href="#finish" aria-label="Link to section 5. Make the final review decision">#</a>
+</h2>
+<p>Use GitHub’s existing review and merge controls. AgentX observes linked PR state; it does not take over the team’s merge decision.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Reviewed 5 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../evidence/index.html">
+<span>Previous</span>Inspect changes, checks and reviews</a>
+<a href="../coordination/index.html">
+<span>Next</span>Dependencies and linked PRs →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara · Coding agents in your AWS account.</span>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#before-you-start">Before you start</a>
+<a href="#collect">1. Open the feedback review</a>
+<a href="#inspect">2. Inspect each recommendation</a>
+<a href="#decide">3. Choose the response</a>
+<a href="#stale">If the code or comments change</a>
+<a href="#recheck">4. Inspect the updated candidate</a>
+<a href="#finish">5. Make the final review decision</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

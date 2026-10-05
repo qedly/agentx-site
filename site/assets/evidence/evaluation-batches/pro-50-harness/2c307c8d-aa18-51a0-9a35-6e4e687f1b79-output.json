@@ -1,0 +1,84 @@
+{
+  "tests": [
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should accept events with daily recurring rules valid for invitations",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should refuse events with invalid daily recurring rules",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should accept events with yearly recurring rules valid for invitations",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should refuse events with invalid yearly recurring rules",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should not import alarms for invites and keep recurrence id",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should refuse invitations with inconsistent custom yearly recurrence rules",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should refuse invitations with non-yearly recurrence rules that contain a byyearday",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should generate a hash UID for invitations with no method and drop alarms and recurrence id",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should generate a DTSTAMP from the message if no DTSTAMP was present",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should not throw without version, untrimmed calscale and duration",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should throw for unknown calscales",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should not throw when receiving a VTIMEZONE without TZID",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | should reformat break lines properly",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is both x-wr-timezone and single vtimezone (use x-wr-timezone)",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is a single vtimezone and no x-wr-timezone",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is a single vtimezone and x-wr-timezone is not supported",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is no vtimezone nor x-wr-timezone (reject unsupported event)",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is no x-wr-timezone and more than one vtimezone (reject unsupported event)",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is no vtimezone nor x-wr-timezone (use primary time zone)",
+      "status": "PASSED"
+    },
+    {
+      "name": "src/app/helpers/calendar/invite.test.ts | when there is no x-wr-timezone and more than one vtimezone (use primary time zone)",
+      "status": "PASSED"
+    }
+  ]
+}

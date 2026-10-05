@@ -75,16 +75,11 @@
     },
     {
       "id": "benchmark-status",
-      "claim": "A draft evaluation plan exists; the current pilot evidence does not support a public solve-rate or model comparison claim.",
-      "evidence": [
-        {
-          "file": "specs/046-model-cost-comparison/spec.md",
-          "contains": "Status**: Draft"
-        },
-        {
-          "file": "specs/046-model-cost-comparison/spec.md",
-          "contains": "which this experiment does not make by itself"
-        }
+      "claim": "Historical selected Pro batch: 40 of 50 tasks resolved according to saved graders, with all 50 outcomes inspectable. This is not an official full-benchmark score or a model comparison.",
+      "evidence": [],
+      "websiteEvidence": [
+        "assets/evidence/evaluation-batches/pro-50-receipts.json",
+        "docs/benchmarks/index.html"
       ]
     },
     {

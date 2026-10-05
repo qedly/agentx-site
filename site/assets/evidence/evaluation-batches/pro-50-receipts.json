@@ -1,0 +1,1756 @@
+{
+  "batch_id": "e2c01df3-a5b9-58d2-bc9b-f51d996be91c",
+  "qualification": "Historical internal selected batch; no independent rerun; not an official full-benchmark score",
+  "runs": [
+    {
+      "run_id": "955a80fe-b424-51ce-b0b1-560cd48d4947",
+      "instance_id": "instance_future-architect__vuls-1832b4ee3a20177ad313d806983127cb6e53f5cf",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 18,
+      "required_tests_passed": 18,
+      "fail_to_pass": {
+        "passed": 18,
+        "total": 18
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:b8b27bf1ed07ee87e50b78af86821b9c0d1b044d966d74b254877e47d93c4189",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.1086539,
+      "cost_source": "estimated",
+      "result_sha256": "21aa834d33bf58b11746bc69cdab12f4cf3638c1976e16ba593706a632739ddc",
+      "test_summary_sha256": "c77cb600a3db0e974221b33561b75e1678b3240e413e1b37a4e3a3086901e5d2",
+      "grader_output_sha256": "209f3b1ef33eb74eb5b8aa241b84afdab531355a417bcd87045b195f55a74933"
+    },
+    {
+      "run_id": "b0784329-3a26-5291-9d38-7ef4df710fc5",
+      "instance_id": "instance_protonmail__webclients-08bb09914d0d37b0cd6376d4cab5b77728a43e7b",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 12,
+      "required_tests_passed": 12,
+      "fail_to_pass": {
+        "passed": 12,
+        "total": 12
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:3bfddf53621093a8fd5e7742f8d4d080b1aeabbfb415c22d625f0c6a87464ba9",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0547314,
+      "cost_source": "estimated",
+      "result_sha256": "326ee5f0c26d248b1b3c5fe9902c025fe229aa445a73923b185256f9ec9f8825",
+      "test_summary_sha256": "ef2eb7bacb7cc31f9a97e685e7b8783bbceed3e24777534bb398bbb5fd1b1f4b",
+      "grader_output_sha256": "e855764962be613b27d9dfbcdaa43385e62aa1905ce1418c809429325f1553ed"
+    },
+    {
+      "run_id": "c0084432-d983-56c8-99a3-614d320d7549",
+      "instance_id": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 114,
+      "required_tests_passed": 114,
+      "fail_to_pass": {
+        "passed": 22,
+        "total": 22
+      },
+      "pass_to_pass": {
+        "passed": 92,
+        "total": 92
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:2c6d53c235a04be7c6f188bf7004a9bc3b94a1f7ad058ae43b786259dbe0123f",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0404568,
+      "cost_source": "estimated",
+      "result_sha256": "d2e5d13c605e3cb593b8ce8136ecce15def281f2e70cb064050bcd436e815ce3",
+      "test_summary_sha256": "10688189b7a5dee2280c5ae2c1f9a1171f8c172c65378382dac206bef1aaf26f",
+      "grader_output_sha256": "0907f90d01902a97e26741f484d02a4e7245daf91194052e434686c4341a8b1f"
+    },
+    {
+      "run_id": "5468323f-81b5-53d3-8fe8-8b6e8d127e1e",
+      "instance_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 14,
+      "required_tests_passed": 14,
+      "fail_to_pass": {
+        "passed": 14,
+        "total": 14
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:79cc62083ee6186c30fe3cd455b993344b92da3bbda87c792abee5bf130f57c4",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.2030279,
+      "cost_source": "estimated",
+      "result_sha256": "a1072079371e3ccaf5ba67b9af0e7a31225a2c1ecf19317cc57a0d17c2419d03",
+      "test_summary_sha256": "29030f26f40b271b4237cb398070c4c060b8630928a5099f4daf3ade49d593f9",
+      "grader_output_sha256": "9c01355f70cd8bb7f5ff82a21f469ded92a7e46c9a7de71d88892c4bdd128235"
+    },
+    {
+      "run_id": "5eca42bd-34d3-5350-bc1c-1ff7ccb77242",
+      "instance_id": "instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 8,
+      "required_tests_passed": 5,
+      "fail_to_pass": {
+        "passed": 5,
+        "total": 8
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:9ca80535c15f9f626284eb1ff07fc5297cf9bd5f557861691d60f38fa52bcbdf",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.049739700000000005,
+      "cost_source": "estimated",
+      "result_sha256": "b93036f676e3adc666b1db70cf00aea994d39d4c510247589b33dee17419e57c",
+      "test_summary_sha256": "d3eab73f583682482497ebdf223834917a337cb3c3f456a6ca0467580e77547b",
+      "grader_output_sha256": "1d702aa9a49f8df761575447d2c271491fc0bfca1e71526f3abdeb8bee9f8379"
+    },
+    {
+      "run_id": "c2ed6834-d3e9-56ad-a67d-368e55164114",
+      "instance_id": "instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 452,
+      "required_tests_passed": 444,
+      "fail_to_pass": {
+        "passed": 22,
+        "total": 30
+      },
+      "pass_to_pass": {
+        "passed": 422,
+        "total": 422
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:ebfc9e1f7dc545f23e26152b4ac650bda5cd90b5a6bfac19aeae23c7e8f196c6",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0708203,
+      "cost_source": "estimated",
+      "result_sha256": "ec2c0ed78c92d1c41d865691349df0c994da0028ecda0c1d041d123d6609789d",
+      "test_summary_sha256": "95c88d8769402134ce68003affa3e2043fe37503d36f691a625093aae941dfa3",
+      "grader_output_sha256": "03b27cd691bf029635cda94474521a439d472fbc0e39f6883b335169f1cceffe"
+    },
+    {
+      "run_id": "36fdd2df-2139-521a-a7c3-d3c403c5cb6d",
+      "instance_id": "instance_flipt-io__flipt-406f9396ad65696d58865b3a6283109cd4eaf40e",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 5,
+      "required_tests_passed": 5,
+      "fail_to_pass": {
+        "passed": 5,
+        "total": 5
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:51ffaca4b2a69ec0314c863cf4cce060c289bcb84bca1528573ff710195c1567",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.08195169999999999,
+      "cost_source": "estimated",
+      "result_sha256": "f29273fd012309b03974e653a5908912ee1e9990a8a4a29316139da1f2e7e61a",
+      "test_summary_sha256": "a8fee1483d5be58d320a6d305200558bdc0b52a294b621c4e4d0716e44ff980f",
+      "grader_output_sha256": "8dd4d304555447caa182622765bdfb7c679c0c4636250aad7e7a698b8680e18a"
+    },
+    {
+      "run_id": "efab65ca-be4c-5eb8-a995-e350589439a3",
+      "instance_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 311,
+      "required_tests_passed": 310,
+      "fail_to_pass": {
+        "passed": 3,
+        "total": 4
+      },
+      "pass_to_pass": {
+        "passed": 307,
+        "total": 307
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:267632c93bae96eb120292b36e68227a41f2b6edd8e8ff5d7a3bdd7ef4af3b6b",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0689266,
+      "cost_source": "estimated",
+      "result_sha256": "553728a56230dd091301505f3738b8c207778b71dd4763da721093830efa9261",
+      "test_summary_sha256": "2441e75b4c0143076b5fc4ec5833ddc7f3367d9ab2849d6caa792b7597b3a823",
+      "grader_output_sha256": "bd4b71f546b0f40be08f23655a61a955701e24e58671136165da73d7cd864da1"
+    },
+    {
+      "run_id": "01554795-aff9-5f2a-a369-f3cdd7de62da",
+      "instance_id": "instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 61,
+      "required_tests_passed": 61,
+      "fail_to_pass": {
+        "passed": 9,
+        "total": 9
+      },
+      "pass_to_pass": {
+        "passed": 52,
+        "total": 52
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:7f953d05e1c799e9d4443db13402d5c408ecc59579e33404a7f3960ac5abefb1",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.1380817,
+      "cost_source": "estimated",
+      "result_sha256": "004727894d22f61c4cbccbbd1a74f61d39ccd3009f2ab19361abad39b1e0f858",
+      "test_summary_sha256": "b65e71c2b71b2a606854465938dcdd21ea2d145dc6970c3e59eea7c2fa32fa78",
+      "grader_output_sha256": "a2b50520135b9fcab024849570b7a58423703e9107b71ba886886f989f22fd67"
+    },
+    {
+      "run_id": "9c9d9513-8a16-5b7b-b233-a8031a4e701d",
+      "instance_id": "instance_element-hq__element-web-33e8edb3d508d6eefb354819ca693b7accc695e7",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 6,
+      "required_tests_passed": 6,
+      "fail_to_pass": {
+        "passed": 6,
+        "total": 6
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:bcfcc2b3b44e336323a11c94a4d22d2930bd1c2b5f3a865ce981db99471c8fc2",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.027021200000000002,
+      "cost_source": "estimated",
+      "result_sha256": "6d096815aff4c5c3ed6fa159d95b079658793b0e96e00d12905313343ec562e5",
+      "test_summary_sha256": "f022234bbbe4d339483d3997f4666fc52a6c0a88be3d253975f3328aa5dd8e79",
+      "grader_output_sha256": "3358e6aa256d1cf3d60f8a19693f670b15fe8d19eb09930fa3d3692ccc530181"
+    },
+    {
+      "run_id": "d11790bc-5637-5638-b940-6756927f1683",
+      "instance_id": "instance_protonmail__webclients-0d0267c4438cf378bda90bc85eed3a3615871ac4",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 7,
+      "required_tests_passed": 7,
+      "fail_to_pass": {
+        "passed": 4,
+        "total": 4
+      },
+      "pass_to_pass": {
+        "passed": 3,
+        "total": 3
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "none",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:95127a1634b5b5092e3235ee92b6c7a95a3a3617c70444cb5d94003a66954186",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.042684700000000006,
+      "cost_source": "estimated",
+      "result_sha256": "740879b292b42fe0602a68796f1287720350f6815efa7db57d59008c7c3b5d55",
+      "test_summary_sha256": "aac51d3edd0ad15f820f31a074cf8e6a9e4b885a192f6f976bbbbfe5394ae3f5",
+      "grader_output_sha256": "0516e492358fc3e41cce457cb99a5570aa945c0765fcb20ed2c97f3106ea5ab6"
+    },
+    {
+      "run_id": "5b37721e-b322-53c7-858b-b9a1b4674343",
+      "instance_id": "instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 26,
+      "required_tests_passed": 26,
+      "fail_to_pass": {
+        "passed": 9,
+        "total": 9
+      },
+      "pass_to_pass": {
+        "passed": 17,
+        "total": 17
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "none",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:b05662eed301c0c6fa444dd54e7038b1f75c439ea57e620519661c5f778aa86c",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.06304219999999999,
+      "cost_source": "estimated",
+      "result_sha256": "51fc32f79528f8af60df241bd7e913dc4543ede24ec79f4e5a205476fa58a9af",
+      "test_summary_sha256": "411d3f28b9766e5ccd5a38ee1f65d314b888626af65aa59c22acd923d6a80e66",
+      "grader_output_sha256": "ee6ffc304590c5681ae3400817f8ede572bc75bc2a3fb283d3435b8aeda67017"
+    },
+    {
+      "run_id": "638773b6-2a54-52e2-891f-7947911578b0",
+      "instance_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 107,
+      "required_tests_passed": 105,
+      "fail_to_pass": {
+        "passed": 24,
+        "total": 26
+      },
+      "pass_to_pass": {
+        "passed": 81,
+        "total": 81
+      },
+      "in_task_check_status": "verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:4cf51f69dad7c8cb966fa2af791058ba72e3b4124461d7418239bda01b5a6a9f",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.08702790000000002,
+      "cost_source": "estimated",
+      "result_sha256": "ec48d9f18af378ec770761d250c3a4956479cfc4a87c1b5a70357653e7bc4521",
+      "test_summary_sha256": "b63ab0743a1cce01e360b1dc3932502e5055800f4e509a81354f9ee4dc5db075",
+      "grader_output_sha256": "363d2f5123c0140f438c84722592cb92cbb2834441db91fba4b00d12a5110335"
+    },
+    {
+      "run_id": "d1a9af87-1909-5eb0-aabe-51e6071698e0",
+      "instance_id": "instance_qutebrowser__qutebrowser-de4a1c1a2839b5b49c3d4ce21d39de48d24e2091-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 123,
+      "required_tests_passed": 123,
+      "fail_to_pass": {
+        "passed": 75,
+        "total": 75
+      },
+      "pass_to_pass": {
+        "passed": 48,
+        "total": 48
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:eb820c301c42982a0a5d1b7abbd7747e1921ba61c9f85d946069527e3e271e33",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.067591,
+      "cost_source": "estimated",
+      "result_sha256": "58163ff0b9436ced220b8df173e918fb187da3edccbec92dd2e9d8a7718fe6f9",
+      "test_summary_sha256": "9ddffdcacde49301d01b1885f916ca9c0a17979dceb8d99adff61b0a2d37b0d7",
+      "grader_output_sha256": "f72ac44149377935bb5a321d9afbb7efddc838d73f25f2fa24001659a068adcc"
+    },
+    {
+      "run_id": "0d0145ba-a3c7-530e-b558-de8cdb32b1aa",
+      "instance_id": "instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 2,
+      "required_tests_passed": 2,
+      "fail_to_pass": {
+        "passed": 2,
+        "total": 2
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:635b51862982f689649d792ee5ac3d6b7b546830e21b68d8693a6029ddb96b41",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.1408198,
+      "cost_source": "estimated",
+      "result_sha256": "a27b992612c4c9f6ec6b3ecfee61e6a229ace818971c10f733165e06f1905227",
+      "test_summary_sha256": "190d6a199f92ca50ebe63c609cfc7f9449d6c8f925807e90694927de63d40810",
+      "grader_output_sha256": "0254815f5aac2abe7fa8630cddb09fb5a385227a9a9234b15747346f9e099f61"
+    },
+    {
+      "run_id": "cbf07af1-1a12-5719-bedb-2db11777b107",
+      "instance_id": "instance_protonmail__webclients-e65cc5f33719e02e1c378146fb981d27bc24bdf4",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 3,
+      "required_tests_passed": 2,
+      "fail_to_pass": {
+        "passed": 2,
+        "total": 3
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:61c22479df649f471ab2ed603deffaf7c290c96ff0b1fe725a62f588d7f4dc9d",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.19582270000000004,
+      "cost_source": "estimated",
+      "result_sha256": "9ea43df61fb28a8e3d89775dcbd51f2a81f487e5508ac653457bd0e969d84679",
+      "test_summary_sha256": "e44ed42486e716c8c251964c483166660a47929b27198fa9e7887ae9113e4356",
+      "grader_output_sha256": "11f441924eb16232fe3d21f6ce3edf97de90239a2f7de84aa366ffe2fc90b847"
+    },
+    {
+      "run_id": "7683a90d-dacb-567e-921a-69d7b1dbea35",
+      "instance_id": "instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 2,
+      "required_tests_passed": 0,
+      "fail_to_pass": {
+        "passed": 0,
+        "total": 2
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:000203ab948b2b1ec3f09e0fa2abb1f07b574d5e4196e7563dd2bc586d918032",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.05752860000000001,
+      "cost_source": "estimated",
+      "result_sha256": "441a62866d252aa42d1fde0887d5a084ff41310169c2217262caa49db13ff0ec",
+      "test_summary_sha256": "14b325a1464e13380a675a1df6992364a145abb4da4db747560257ddb9dee3f3",
+      "grader_output_sha256": "58e3a5c3daba970fc031b9e24d27bc107c18ca7c30e77371752d833e6b79d141"
+    },
+    {
+      "run_id": "b71375b2-0c19-5d9d-9804-2c446ec149e3",
+      "instance_id": "instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 5,
+      "required_tests_passed": 5,
+      "fail_to_pass": {
+        "passed": 5,
+        "total": 5
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:422becdc2bbc8f7b6d5ff1cc7b83fcebeb66591c2f3dd92e68ba12fde979fc73",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.22317160000000005,
+      "cost_source": "estimated",
+      "result_sha256": "1aae98211559de15bd3a9a09bc9edba97148903d51ab144c44e315c46b98b42e",
+      "test_summary_sha256": "397b6815e9a017e0aef47bd3f25daaad870019138afd7cb5ddb216e9322d92db",
+      "grader_output_sha256": "ac0e8dc3ba27b8e77ad433fc8050a0c8121e1ede4104d33fc44d9a56793f6b03"
+    },
+    {
+      "run_id": "879b1792-7aa1-5170-b16d-ba50ce42cfae",
+      "instance_id": "instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 3,
+      "required_tests_passed": 2,
+      "fail_to_pass": {
+        "passed": 2,
+        "total": 3
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:ca4e551334e84cd67d942aa9d74e801c0f1f2be387e9a77c7a73a68e17056526",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.12170020000000001,
+      "cost_source": "estimated",
+      "result_sha256": "c701d9d0a618ddd997e647831acb744b56021bdc42844e0246628a95b1bf3ae0",
+      "test_summary_sha256": "b9713a86238d1701c07a57b1ca4f6abbebae5444463308821e2ce3bf0dfcd5a2",
+      "grader_output_sha256": "7e6f59cba0106685274f99c2e79358e114a53ee4fd11c50eb13bf3123298a860"
+    },
+    {
+      "run_id": "7866b2a7-958f-55a2-ae62-9839cafd0a7b",
+      "instance_id": "instance_navidrome__navidrome-55730514ea59d5f1d0b8e3f8745569c29bdbf7b4",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 1,
+      "required_tests_passed": 1,
+      "fail_to_pass": {
+        "passed": 1,
+        "total": 1
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:0fde27c0fde4c5a733ba1de0af910a1e0ca9e912cbf6bcae9239d5bf78fcde7e",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.06520480000000001,
+      "cost_source": "estimated",
+      "result_sha256": "edf692a1823d17cd639361f531f81d9e44d3392a86b2adadf2d73183e52957d0",
+      "test_summary_sha256": "414583d0f2449dc11744f6a84fe28d3c83fa6caf2175d72166b4a3600c21bbaa",
+      "grader_output_sha256": "c5c2c8e4bc249916a8f4092721d9698ba8e1d0d9be73f25df12d68d177a60b30"
+    },
+    {
+      "run_id": "02b473a1-4c3a-503e-918c-6ab565189a5a",
+      "instance_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 48,
+      "required_tests_passed": 48,
+      "fail_to_pass": {
+        "passed": 48,
+        "total": 48
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:e0647aadaaeede17b1740922affcbe3dc4932f346a7aa4337b3ab248c2fe777a",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.21481560000000002,
+      "cost_source": "estimated",
+      "result_sha256": "0a3d06b224fa6568f4a9ec5d03c157b61d2e32ea60f7d02a228d3c2dbff4d206",
+      "test_summary_sha256": "fb05ff905a767027adafa4e31b3b8aeaf45f50c45c60f52061672edab0341229",
+      "grader_output_sha256": "bd5815e0e63064a27eed878071d3332925b4c8c446a14c5c71384ed86fc8c32c"
+    },
+    {
+      "run_id": "2b177f30-a949-558b-a8c0-2d09cb036dfb",
+      "instance_id": "instance_flipt-io__flipt-e2bd19dafa7166c96b082fb2a59eb54b4be0d778",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 10,
+      "required_tests_passed": 10,
+      "fail_to_pass": {
+        "passed": 10,
+        "total": 10
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:e18408872298cca3ee9ede448a281aa11d9c6092ace7010a23107355dcc2ae23",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0871794,
+      "cost_source": "estimated",
+      "result_sha256": "d5fbb7e411ea1a8adb8c47810f2d8d66d83e20dffe14bb1742746d61454eec21",
+      "test_summary_sha256": "4d7cba0a91660e6ef971f0c839f4b110737d06fb9fbef31672b95e057f616d08",
+      "grader_output_sha256": "54c2f3aa60df601ea64fb7ca02e399fd44999d2ea0681c241d57463ccf890450"
+    },
+    {
+      "run_id": "3c0a121d-c033-5a54-9acc-4c76bea55346",
+      "instance_id": "instance_internetarchive__openlibrary-6e889f4a733c9f8ce9a9bd2ec6a934413adcedb9-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 17,
+      "required_tests_passed": 16,
+      "fail_to_pass": {
+        "passed": 6,
+        "total": 7
+      },
+      "pass_to_pass": {
+        "passed": 10,
+        "total": 10
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:208c9774dee362861c7b62519f14a87e5a8a97ab2c95a6711fc9d3a439283edb",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0437487,
+      "cost_source": "estimated",
+      "result_sha256": "dab88feb19b2e61af996419de28e7897e7cc38b3433cd10eda0bac2861a0162e",
+      "test_summary_sha256": "95a6a903aa0412ab315f3a8e7cff7218211ff1085c3029902a0d3857f0402be1",
+      "grader_output_sha256": "73bb7c0270fce0c5ddb6f999e52dab18d58faa25fec39909c5f9a592187f2e70"
+    },
+    {
+      "run_id": "efaa208c-a41a-5255-9e9b-cec9f30bec93",
+      "instance_id": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 1869,
+      "required_tests_passed": 1869,
+      "fail_to_pass": {
+        "passed": 1869,
+        "total": 1869
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:b35c588560c0041a3d0989696ade4a1ae1e5123e3e07b27240fb918d16237747",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.11455990000000002,
+      "cost_source": "estimated",
+      "result_sha256": "6e76485ae4dc875a6afc632a797c6ada5803ce9cc7da74ad08604ce93615d500",
+      "test_summary_sha256": "205a1bed06652b1945ec7a2ccfb3c091cefc780bf3c3f812426e3be201fba6fb",
+      "grader_output_sha256": "14f0d220fb961e81c988baf34230ce5d4fd62430efd4cbaf984c7bd480fb22ca"
+    },
+    {
+      "run_id": "5636a42d-c5d5-56ce-afd0-5a704e24e755",
+      "instance_id": "instance_ansible__ansible-eea46a0d1b99a6dadedbb6a3502d599235fa7ec3-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 10,
+      "required_tests_passed": 10,
+      "fail_to_pass": {
+        "passed": 10,
+        "total": 10
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:78903169e7aa72072916e735180adc3665ea80161faa01948c63913f8ea2d475",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.063348,
+      "cost_source": "estimated",
+      "result_sha256": "e60cc8aac2d41a75edba7bbc61b21df4b728933f7c0c4825ec8dee9cea92c52e",
+      "test_summary_sha256": "4ba0c46944186689c0f8e37cc77b641c6140a00658150243fd31dde99d45a704",
+      "grader_output_sha256": "875f851fa5812c3fafc173bca9c7d5c9b68754c23724b5e304a8994521b65266"
+    },
+    {
+      "run_id": "bc30b111-bdac-5e35-8a0a-a9f3ce725bc7",
+      "instance_id": "instance_internetarchive__openlibrary-b67138b316b1e9c11df8a4a8391fe5cc8e75ff9f-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 64,
+      "required_tests_passed": 64,
+      "fail_to_pass": {
+        "passed": 11,
+        "total": 11
+      },
+      "pass_to_pass": {
+        "passed": 53,
+        "total": 53
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:d1869bd5a264044c7b58a948422e2d6b457385e34077bafaa68191bc5be46440",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.38634700000000005,
+      "cost_source": "estimated",
+      "result_sha256": "b584b79528917cb6aea0c9b52189afacfe912a1f285d7a2986e8323dcd04d3f3",
+      "test_summary_sha256": "d1119ada2f192fae480fb7d51ae4e1f612c4d3e45a217b27b04ac004d6fcfc39",
+      "grader_output_sha256": "70ccedb120f9b7b69e31a3940b3ff6fbbb2938a81c6a625255fed7c78e1c7026"
+    },
+    {
+      "run_id": "455adac4-af23-57a6-aa87-0f19a44e0f29",
+      "instance_id": "instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 9,
+      "required_tests_passed": 9,
+      "fail_to_pass": {
+        "passed": 9,
+        "total": 9
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:a5da56787aa6f4ad32a3dbcff7091f5f584c932dfbb402287f9de85793e7c2b1",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.102097,
+      "cost_source": "estimated",
+      "result_sha256": "983cab3ce2e533c76c15877e981c5ffc2a581c15275226b4b3fc0833ac57fca2",
+      "test_summary_sha256": "c0e2a8b1d1a287979bd7a288b87cc0dfb521de3459c095bb49e62b1eef923f88",
+      "grader_output_sha256": "f2d094f6d5ef6d182f03197e39acefa2c714325914885f8da1633348ef28d814"
+    },
+    {
+      "run_id": "eb243b2d-76a9-5f9c-98c9-808d0848c95b",
+      "instance_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 1,
+      "required_tests_passed": 0,
+      "fail_to_pass": {
+        "passed": 0,
+        "total": 1
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:83645a1c5565267675a19af0916ba1eed14131c315d92cedb05abea398a03527",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0762849,
+      "cost_source": "estimated",
+      "result_sha256": "8e865a0df2acaaad6e7f7b49fac778567e5bf7b9eb344824f8d9d80748b3c2c5",
+      "test_summary_sha256": "a09344950639d440ef296af65457bb81ee0f505c3ffa0cfe2b0dcfcd20413a50",
+      "grader_output_sha256": "58e3a5c3daba970fc031b9e24d27bc107c18ca7c30e77371752d833e6b79d141"
+    },
+    {
+      "run_id": "a531684e-ba79-5994-b915-2e3fddfdeeeb",
+      "instance_id": "instance_gravitational__teleport-eda668c30d9d3b56d9c69197b120b01013611186",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 28,
+      "required_tests_passed": 28,
+      "fail_to_pass": {
+        "passed": 28,
+        "total": 28
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:80f5acc1379b45b272a75d70dd78e80e5fbe2edcee0496ccf7913eaeabdda839",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0828489,
+      "cost_source": "estimated",
+      "result_sha256": "9df59c044edd8cbfc689e6b5e389c123bbf40acc417da573701b7c62a8d32fd8",
+      "test_summary_sha256": "c54b50c31ab17589c239ac494104eb601c84eff95d866e5dfc0161448723533f",
+      "grader_output_sha256": "20ebf28c228717e3e06b8aa4587085543dda1d443ba91fcb72096fd611a34645"
+    },
+    {
+      "run_id": "d83033e1-90b7-5504-a1a0-2e43a073e9c1",
+      "instance_id": "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 105,
+      "required_tests_passed": 105,
+      "fail_to_pass": {
+        "passed": 5,
+        "total": 5
+      },
+      "pass_to_pass": {
+        "passed": 100,
+        "total": 100
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:a67d0f526e5ea0fd7feadab688cb31865a3029c62c89fbf7439f26d14f488127",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0420048,
+      "cost_source": "estimated",
+      "result_sha256": "7b6c3700875a20fbd87dc4b1061d78cd23494d4729915db2b3896059ac725987",
+      "test_summary_sha256": "7454a81be4f32f606c74953c0ed325a2233d05edc1bf98fd555720b2ba637129",
+      "grader_output_sha256": "040a241e5dd87839bd80937b35800b7bf3632007920d28f6b0227b3fe7f5ad70"
+    },
+    {
+      "run_id": "da6498cd-77ee-5245-897c-b4dd278f9eaa",
+      "instance_id": "instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 4,
+      "required_tests_passed": 4,
+      "fail_to_pass": {
+        "passed": 4,
+        "total": 4
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:ea3f234bcfb4985a702b0af849310737f92a525a37e17d33be84c937141e9988",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.1107378,
+      "cost_source": "estimated",
+      "result_sha256": "e63cb5d2afadbed362e9ba1c385c485d2ce468eb2aca41222e62f8c5a3c07f4e",
+      "test_summary_sha256": "492bec5dd673798f715165408ad22c0953ab310f52ae2e63c7a84a650af0988f",
+      "grader_output_sha256": "55d0ca7e45acc73a0f0f2d4ce7b0e0522cc7c2996cd5095f54baaabab1ac4404"
+    },
+    {
+      "run_id": "b670dc18-8e54-5c44-8bba-f44ed9964f39",
+      "instance_id": "instance_navidrome__navidrome-874b17b8f614056df0ef021b5d4f977341084185",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 1,
+      "required_tests_passed": 1,
+      "fail_to_pass": {
+        "passed": 1,
+        "total": 1
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:1ab46edcfd597014f7eaed7b2b56e3bcc0ea43de33df1a48d0cb38528bc65f6b",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.09359540000000001,
+      "cost_source": "estimated",
+      "result_sha256": "d89871745d87b5b39e8aca55a7a2734ddc261a3ff1231bb80ceb3a13f1f2d6d9",
+      "test_summary_sha256": "8640e2fb93c0aee7eacb71e9987403c5d54f081fbb02f73512e9928e808b05a1",
+      "grader_output_sha256": "8a1cfd96bf952bb8dad071bb9ea25fe08e4a943a424448bd746b449e3adacdea"
+    },
+    {
+      "run_id": "525e4590-1332-5c49-bd78-95f02c4726ee",
+      "instance_id": "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 10,
+      "required_tests_passed": 10,
+      "fail_to_pass": {
+        "passed": 8,
+        "total": 8
+      },
+      "pass_to_pass": {
+        "passed": 2,
+        "total": 2
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:e7b8d6619890971c47d9b9eac31a8ac3c0d3218f3eba3590b5b1be33d00bbbe3",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.1854,
+      "cost_source": "estimated",
+      "result_sha256": "96707d00564c15f161d28093b40e6c73df3a7fda4ae7424f6d8eb0d7b08d8d97",
+      "test_summary_sha256": "62a4fc4783a3e4b50004e456131449e5ec94dda08820cce0c06c9997a7e7d119",
+      "grader_output_sha256": "5013760abd92fedbe4406ff56ce5930d3dfc737531bf8ef7ed5d536dab9dfc45"
+    },
+    {
+      "run_id": "c0006be6-d3cd-5f71-880c-676603d3a3cb",
+      "instance_id": "instance_future-architect__vuls-ef2be3d6ea4c0a13674aaab08b182eca4e2b9a17-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 6,
+      "required_tests_passed": 6,
+      "fail_to_pass": {
+        "passed": 6,
+        "total": 6
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:1aee15022a4e086e0d7929ed1046bddb922b4382f9f0a39645fd01d821ae2287",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.12915900000000002,
+      "cost_source": "estimated",
+      "result_sha256": "6e819abdc1b3fa61165df0242a12acbc6b452ba4b3a0b991d3bda1c44e3acd51",
+      "test_summary_sha256": "5179bbad2542a094aafb1286d7aaad25d580b33071127dddc268e8715a842941",
+      "grader_output_sha256": "3550b37021c2f6d6606a63f80f510dd5b6da5be1ef06766a1fb1e7c37e7204d4"
+    },
+    {
+      "run_id": "a0aa20b1-9053-5c16-a9d7-0b901d053cfa",
+      "instance_id": "instance_gravitational__teleport-288c5519ce0dec9622361a5e5d6cd36aa2d9e348",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 24,
+      "required_tests_passed": 24,
+      "fail_to_pass": {
+        "passed": 24,
+        "total": 24
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "none",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:d517e42d70d3fa28b6b3cfc3ff6dc307ec3cb9d69a22ba08c37b174322d386e5",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.05352090000000001,
+      "cost_source": "estimated",
+      "result_sha256": "270a59c5b60a7e2295597ce3c91706bb8bbbe40a0844ef66f427996f4fd52d06",
+      "test_summary_sha256": "76e2c0b54cb585855de67aee011d2b87db692624709c82db7e6ec179d58f2d23",
+      "grader_output_sha256": "3c67efd80889e9c72677d29ab0088f640c7ff307b635664b06b9265d8e94843a"
+    },
+    {
+      "run_id": "1a694b8c-e17f-5df8-b038-d87ce4f49b0e",
+      "instance_id": "instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 2,
+      "required_tests_passed": 2,
+      "fail_to_pass": {
+        "passed": 2,
+        "total": 2
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:bd13073aed238605312e0025d1fd760a3158f00ea453436aae44cc7111e2d472",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.26633029999999996,
+      "cost_source": "estimated",
+      "result_sha256": "32add9fe4a0346b4dac147f176975fd2dc6fe3d5cd9ecec1e99e66afe711432e",
+      "test_summary_sha256": "8d14203c6d62041c65f2629aaab549205d5245bdc0d43cdcd980f95290b74271",
+      "grader_output_sha256": "89cb7312d54eb652c43a47e5fecac65bb320955d86f07837b30e39c4a8314637"
+    },
+    {
+      "run_id": "09237a94-786e-595f-a42c-ee961b74fcf8",
+      "instance_id": "instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 19,
+      "required_tests_passed": 19,
+      "fail_to_pass": {
+        "passed": 19,
+        "total": 19
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:dde528448f2884cae405605388c10afe5ea9cc14fef2cac3a4ac285a2e891024",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.11800220000000002,
+      "cost_source": "estimated",
+      "result_sha256": "07c04e5835a7747dc3ca0b6bb1e5c0ac314b819223c5934d392f828ebd8158d1",
+      "test_summary_sha256": "3ce031b9e2f7bfd99b2bfd6f1fbf26bdaa95f13d6a908de0061235f200ebe097",
+      "grader_output_sha256": "7bd9ed12f63fd9aee6f853702dc34350c6f3f9daadef18ccf58159509828f6a6"
+    },
+    {
+      "run_id": "4ec37ac8-f603-5e3f-85ba-716d7afb1fce",
+      "instance_id": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 6,
+      "required_tests_passed": 6,
+      "fail_to_pass": {
+        "passed": 6,
+        "total": 6
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:b6a9cbf8ec8a1a250524433f3fcaa3afa8634bb1299880aac54b808948ef5bfa",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.1385194,
+      "cost_source": "estimated",
+      "result_sha256": "42d07b4a02f7cc73a7facb636bae64b93922e10eb4f425dc278199e31949c33d",
+      "test_summary_sha256": "e8f6b12183b19528fa819bde59b3f890977e9054700394a1820dcbe06493ee99",
+      "grader_output_sha256": "122cd4015524d3aad3f6845287737423234436cbc7ddd25d687c4a4a5d37d1dc"
+    },
+    {
+      "run_id": "6ce58bd1-5a66-5200-8da5-0c694531607c",
+      "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 20,
+      "required_tests_passed": 20,
+      "fail_to_pass": {
+        "passed": 3,
+        "total": 3
+      },
+      "pass_to_pass": {
+        "passed": 17,
+        "total": 17
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:7a9a8fd8d8a648dfa7e4e9b91fc7c6a86160df259aae7f1a7a0231344d227487",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0311827,
+      "cost_source": "estimated",
+      "result_sha256": "8f7fe07278c10e731efa322322a0a4dbaed2598322aa304753d74270afd83c22",
+      "test_summary_sha256": "67b029406bca0adb3e364342d34fb598beb6596d41fae2308cc0922ba8c295c1",
+      "grader_output_sha256": "d7b87a6e051477fc81b9d02298881a8c1fdf03b799371a06f51bd44817c059af"
+    },
+    {
+      "run_id": "2a2103c0-3dfe-59fd-9f70-8e14641f118d",
+      "instance_id": "instance_internetarchive__openlibrary-30bc73a1395fba2300087c7f307e54bb5372b60a-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 3,
+      "required_tests_passed": 3,
+      "fail_to_pass": {
+        "passed": 3,
+        "total": 3
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "none",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:332c1ee899bbc4a550564ae248734dbeafbc6e5331c34f2d05fa43d3679f7510",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0319344,
+      "cost_source": "estimated",
+      "result_sha256": "dcf758ccad6d919d8d6e39b4791495a8a6e774ba9a918926ba1b3684699fc0b4",
+      "test_summary_sha256": "7efb2bcd6f5ee8d6360d815459c217e5adf9c88dacab42af302c60cbc0b34d38",
+      "grader_output_sha256": "3f02e3afdeb75731c772ef3dce3507f46746fcef23f40a362087579668c808af"
+    },
+    {
+      "run_id": "b39bfb6a-ced8-500b-bd52-8aa757909a46",
+      "instance_id": "instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 28,
+      "required_tests_passed": 28,
+      "fail_to_pass": {
+        "passed": 8,
+        "total": 8
+      },
+      "pass_to_pass": {
+        "passed": 20,
+        "total": 20
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:92f0dd38d06484c811b6ce83db04e012e0e2a6456c48dc8b67099d740d3244c7",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0711084,
+      "cost_source": "estimated",
+      "result_sha256": "b0c0fd05d6c27ed68e7f129add45239efc2902ae38cc145a17d2ae7d2a088762",
+      "test_summary_sha256": "eda8875031ebf91212b1bc15936646c92ac85f6f2d6475c6b1d1e862734e6641",
+      "grader_output_sha256": "fe079bcc8ca8004d88970d79711512ddcbc0c3a2abd709356c4f42ca1b25f3d5"
+    },
+    {
+      "run_id": "1416ad67-d4f4-522a-b091-5678cae3820f",
+      "instance_id": "instance_navidrome__navidrome-69e0a266f48bae24a11312e9efbe495a337e4c84",
+      "resolved": false,
+      "grader_verdict": "FAILED",
+      "required_tests": 1,
+      "required_tests_passed": 0,
+      "fail_to_pass": {
+        "passed": 0,
+        "total": 1
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:dbc99fae60462c154dad4d1bfa8d27bfc08e50ddd8a6a6fe156d089498c3ead5",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0713554,
+      "cost_source": "estimated",
+      "result_sha256": "4a666f16a3b118897771d14389fff48787325878b411f0da0c853bc95e0fde9f",
+      "test_summary_sha256": "67d59fc815f713d08b2d57bc21ddba69e720ff66de4ca96bbc8b606ac970981f",
+      "grader_output_sha256": "520a9c54e5a664ca20edde8407e24068396c22fd7a4c9fcbd23e9bd8cab78dc5"
+    },
+    {
+      "run_id": "a23606e8-8bb8-532c-944f-60846794bba3",
+      "instance_id": "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 61,
+      "required_tests_passed": 61,
+      "fail_to_pass": {
+        "passed": 6,
+        "total": 6
+      },
+      "pass_to_pass": {
+        "passed": 55,
+        "total": 55
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:8780cafe8ec369b6138b9fef049d5cfff1a3729364692ad5c5b1c0666cd0411d",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0837913,
+      "cost_source": "estimated",
+      "result_sha256": "5d839ec703dd52add759469fb1c0fa67a32325cd2f7deeac97ddb4bbc556747b",
+      "test_summary_sha256": "eebf9631231bb7134ef1aa4c1de9b127e02f5064a535d0c7a1e7fccf1edf7b6a",
+      "grader_output_sha256": "95d72b10ce486c9a46a12edc4da31180c5639f3923a59302f1b1f280982f9081"
+    },
+    {
+      "run_id": "4166830d-cdb5-5f7b-af40-36b35ab622fc",
+      "instance_id": "instance_future-architect__vuls-ad2edbb8448e2c41a097f1c0b52696c0f6c5924d",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 7,
+      "required_tests_passed": 7,
+      "fail_to_pass": {
+        "passed": 7,
+        "total": 7
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:9b73e29bf0ffa47846e37c7159ef223a57fbb66ba1109afbcac27614c339643d",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.10685720000000001,
+      "cost_source": "estimated",
+      "result_sha256": "9e9203949754043258ecc277c739c0267ffbed307d2a512ffa3afc8760d5ad3f",
+      "test_summary_sha256": "a82efde9747e154cf77b309e3fd3cb52fa0aafa6abd7dca486f223e16930db7b",
+      "grader_output_sha256": "ea24b36bc0645f16f5d458534981d6291165eb868466adc8e28d58e9d8fa7870"
+    },
+    {
+      "run_id": "d10e802a-80d5-535c-9179-b0d8f7d92e36",
+      "instance_id": "instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 58,
+      "required_tests_passed": 58,
+      "fail_to_pass": {
+        "passed": 17,
+        "total": 17
+      },
+      "pass_to_pass": {
+        "passed": 41,
+        "total": 41
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "none",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:31ebe11c8cb1c5e3f74b15e0345fce7f9adc7eb406209131828f8b49bf4b7f61",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0974787,
+      "cost_source": "estimated",
+      "result_sha256": "e3386127595a7d75f5a7dde97944832faa93e2d603a1699b62ebdd5e2071dc69",
+      "test_summary_sha256": "46c925d9ef4d4570e431239b8c05c95f9939af2a82a71385f367a113ad98b378",
+      "grader_output_sha256": "45752f1d5f31fd1c4ccd572cfc7406e13f376f5d12afcfe0960f12ad8e10b3c3"
+    },
+    {
+      "run_id": "be55aceb-80f9-5d44-af0d-c7d81441783c",
+      "instance_id": "instance_qutebrowser__qutebrowser-394bfaed6544c952c6b3463751abab3176ad4997-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 70,
+      "required_tests_passed": 70,
+      "fail_to_pass": {
+        "passed": 16,
+        "total": 16
+      },
+      "pass_to_pass": {
+        "passed": 54,
+        "total": 54
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "none",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:e03ee4c08c4c64f7b69ce3af88cae715c6a332a7d046a6cbedd667cb6357f0cd",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.08309609999999999,
+      "cost_source": "estimated",
+      "result_sha256": "b23710dc055a1c32d2e101bcdb890cef4d01bd86a8a68fadb2640295cb7ede38",
+      "test_summary_sha256": "48fdbcabdb49e7d1e4ea88863eb468b3fee8984cc697d8cc3ed8e1aaff240a6b",
+      "grader_output_sha256": "dd3554bd9c72036b4b28183f5ade48b9e359a48b578721c1a054659c9589721c"
+    },
+    {
+      "run_id": "66c18944-4a8d-57ec-8ab9-5369c7bd0e6e",
+      "instance_id": "instance_gravitational__teleport-59d39dee5a8a66e5b8a18a9085a199d369b1fba8-v626ec2a48416b10a88641359a169d99e935ff037",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 11,
+      "required_tests_passed": 11,
+      "fail_to_pass": {
+        "passed": 11,
+        "total": 11
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:3dd7d06a5bf820d93245a474591578fe88158795a518b020270594b29bf85855",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.09019990000000001,
+      "cost_source": "estimated",
+      "result_sha256": "58b51df92057cf7d3f3b4131866737deb1ff861c5ed9e41c149139c10b869972",
+      "test_summary_sha256": "ceb62eb2470b00a50fc5fa3a418f4ea52726bddc83c37cfab6c681d180923ba6",
+      "grader_output_sha256": "d364b55eabcdcad0bfc4775c5f339423f78530866bea886ec28213597fcfe3b3"
+    },
+    {
+      "run_id": "4bf7b4e3-bb48-5ba8-a045-012422c74e5b",
+      "instance_id": "instance_internetarchive__openlibrary-53e02a22972e9253aeded0e1981e6845e1e521fe-vfa6ff903cb27f336e17654595dd900fa943dcd91",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 26,
+      "required_tests_passed": 26,
+      "fail_to_pass": {
+        "passed": 1,
+        "total": 1
+      },
+      "pass_to_pass": {
+        "passed": 25,
+        "total": 25
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:768d18b3e568f680e8f2f6a7436e36a61dc0f63193dd04a964015e43316fc4ae",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.024121200000000002,
+      "cost_source": "estimated",
+      "result_sha256": "ec8076b9c948bdf4399cab50641773b1da88fb17db04fdbb259b6e9a6872b61b",
+      "test_summary_sha256": "2f11f4d55c80f604d245970fb9787dd43cef7d8a48abc5ef5baf5ea75effcd63",
+      "grader_output_sha256": "af8c4752ba4fcdf4a8767e9bb7954c1e9d0f8d4a4a3a868dbb0f249163f9c007"
+    },
+    {
+      "run_id": "f7b4e537-735b-510d-9757-122b2c8f13c5",
+      "instance_id": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 11,
+      "required_tests_passed": 11,
+      "fail_to_pass": {
+        "passed": 11,
+        "total": 11
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "failure",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:1284c97ff64da05a04a1019c4813215d28e83e8ed3b7bf4523bb174fe151512c",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.053987400000000005,
+      "cost_source": "estimated",
+      "result_sha256": "04c3667fbfbfc3dabe3d6a27d359f00847721ee9b93db92a602193d55e82ad00",
+      "test_summary_sha256": "f8ca1e685eaee6bf0064764f934e9519b00baf459931590b70874bdd9c93c5a5",
+      "grader_output_sha256": "567ef621b11cfcc6b26cf943b66d4d99485faa6766254616c724575eea9736d4"
+    },
+    {
+      "run_id": "2c307c8d-aa18-51a0-9a35-6e4e687f1b79",
+      "instance_id": "instance_protonmail__webclients-caf10ba9ab2677761c88522d1ba8ad025779c492",
+      "resolved": true,
+      "grader_verdict": "PASSED",
+      "required_tests": 6,
+      "required_tests_passed": 6,
+      "fail_to_pass": {
+        "passed": 6,
+        "total": 6
+      },
+      "pass_to_pass": {
+        "passed": 0,
+        "total": 0
+      },
+      "in_task_check_status": "not_verified",
+      "agent_claim": "success",
+      "task_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "task_image_digest": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:326504a3842ba57689c0924ec4679822e8616ab6f7cc0523886d5b9500bbdaf4",
+      "limits": {
+        "timeLimitSeconds": 3000,
+        "toolCallLimit": 400
+      },
+      "model_id_as_recorded": "anthropic/claude-sonnet-5.5",
+      "provider": "openrouter",
+      "routing": "anthropic",
+      "thinking_level": "medium",
+      "repeat": 1,
+      "attempt": 1,
+      "cost_usd": 0.0643244,
+      "cost_source": "estimated",
+      "result_sha256": "06ba38811145c7f6aeaf1df5ce9c40473f5d8bc24e7991d2567c64f239397726",
+      "test_summary_sha256": "d4f6939b22f018111b5df7723a2e3a0ae15395ee663f3b2a3955b3b056ac6460",
+      "grader_output_sha256": "9b57e5226c9f008ad166a45a6dcee7c1ccaf9ac63593467d5760efd02518bf06"
+    }
+  ]
+}

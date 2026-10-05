@@ -49,9 +49,12 @@
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara</p>
-<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
-<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="../operations/index.html" >Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
@@ -60,8 +63,9 @@
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
 <a href="../mcp/index.html" >MCP tool reference</a>
-<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
@@ -85,6 +89,7 @@
 <nav aria-label="Page sections">
 <a href="#project-file">Define a project</a>
 <a href="#checks">Choose the checks</a>
+<a href="#workflow-checks">Required and optional workflow checks</a>
 <a href="#access">Models, connections and access</a>
 </nav>
 </details>
@@ -145,6 +150,12 @@ orchestratorInstructions: &gt;-
               revision does not move an existing workspace into it.
             </p>
           </section>
+<section id="workflow-checks">
+<h2>Required and optional workflow checks<a class="doc-heading-link" href="#workflow-checks" aria-label="Link to section Required and optional workflow checks">#</a>
+</h2>
+<p>Project-required checks remain on in Quick and Full. The owner can select only optional checks registered for that project at plan approval. Those choices are stored with the decision.</p>
+<p>Configure check working directories, executables, arguments and timeouts. A check name should describe its useful coverage. Do not treat optional selection as permission to bypass required checks or change repository merge controls.</p>
+</section>
 <section id="access">
 <h2>Models, connections and access<a class="doc-heading-link" href="#access" aria-label="Link to section Models, connections and access">#</a>
 </h2>
@@ -187,8 +198,8 @@ orchestratorInstructions: &gt;-
 <nav class="docs-pager" aria-label="Next and previous pages">
 <a href="../operations/index.html">
 <span>Previous</span>Workspaces and costs</a>
-<a href="../mcp/index.html">
-<span>Next</span>MCP tool reference →</a>
+<a href="../architecture/index.html">
+<span>Next</span>System architecture →</a>
 </nav>
 <footer class="docs-footer">
 <span>Rovara · Coding agents in your AWS account.</span>
@@ -200,6 +211,7 @@ orchestratorInstructions: &gt;-
 <p>On this page</p>
 <a href="#project-file">Define a project</a>
 <a href="#checks">Choose the checks</a>
+<a href="#workflow-checks">Required and optional workflow checks</a>
 <a href="#access">Models, connections and access</a>
 </nav>
 </aside>
@@ -210,7 +222,7 @@ orchestratorInstructions: &gt;-
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">

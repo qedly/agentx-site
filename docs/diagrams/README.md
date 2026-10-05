@@ -1,15 +1,23 @@
-# Editable system explanations
+# Connected workflow explanations
 
-The four .excalidraw files are the editable sources. SVG exports are in site/assets/diagrams. They were rendered with the official @excalidraw/excalidraw 0.18.0 exportToSvg/restoreElements API, then visually inspected in the website. No third-party runtime is loaded by the published diagrams.
+The owner-approved native-workflow story uses four diagrams: task journey, code/evidence version, architecture and task/workspace lifecycle.
 
-Palette: palette.md. Roughness 0; system diagram uses crisp service relationships, not decorative sketching. Keep SVG exports and editable sources together when changing a diagram. Use a full-size SVG link plus a text equivalent on small screens.
+Regenerate SVG exports and editable Excalidraw role layouts together:
 
-## Source trace, AgentX mainline 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86
-- Journey: packages/mcp/src/tools.ts (start, status, continue, requested PR, close); docs/architecture-production.md (Slack return thread).
-- Verification: packages/worker/src/run-task.ts:150 and :263 (extension and checks.json); packages/worker/src/verification/extension.ts; checks.ts; packages/worker/src/publish.ts; packages/broker/src/aws/broker.ts (draft/reporting behavior).
-- Architecture: docs/architecture-production.md; infra/lib; packages/orchestrator/src/action-gate.ts; packages/gateway; packages/model-runtime/src/config.ts. Service relationships are simplified; exact dispatch infrastructure is disclosed in the engineering view. External provider routes are configuration dependent. The gateway itself is inside the account; vendor connectors are outside.
-- Lifecycle: packages/mcp/src/tools.ts (cancel vs wait vs close, unpublished refusal); README idle-reaper behavior; docs/day-two.md and docs/teardown.md. No generic crash-recovery guarantee.
+```sh
+node scripts/generate-workflow-diagrams.mjs
+```
 
-These are implementation-derived explanations, not recorded runtime outcomes. The CSV journey is a constructed scenario. Unpublished native-workflow planning/reviewer/multi-PR work is excluded from mainline claims.
+The generator is the authored layout source. It creates `site/assets/diagrams/{journey,verification,lifecycle,architecture}.svg` and the matching `docs/diagrams/*.excalidraw` geometry/text. `layout-manifest.json` records their titles and dimensions. SVG exports embed the existing licensed service icons; the editable Excalidraw files contain role text and geometry. They are not official Excalidraw-rendered exports. Earlier Excalidraw export screenshots in docs/design are historical.
 
-The homepage return-path.svg is a cropped view of the officially exported journey SVG, using viewBox 0 282 1215 125 and the cream page background. Its arrows and label come from that same editable source, not a separately drawn approximation. Its internal text is omitted at the small homepage scale; a semantic HTML caption supplies the label. Stroke width is increased for the thumbnail. Regenerate the crop after changing the journey layout.
+Use full-size SVG links and a written equivalent on small screens. The published page needs no diagram library. Cream, ink and cobalt remain the approved palette; blue marks owner decisions and directional flow, not a claim of passing evidence.
+
+## Provenance
+
+- Existing infrastructure/direct tasks: AgentX mainline `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`.
+- Native workflow tools and candidate/PR coordination: worktree source `af7836d9e0fe809c716bed526437372482c2a967`, packages/mcp/src/tools.ts, packages/contracts/src/task-workflow.ts, broker/worker workflow operations and GitHub coordination.
+- Feedback browser, dependency sequencing and Canvas closeout: owner-approved specs 059/060 and the explicitly approved completed-scope website planning baseline. Availability in a live product release still needs release-matched evidence.
+
+The diagrams are workflow explanations, not recorded runtime outcomes. AI reviews are attributed recommendations. Separate read-only review operations do not imply separate machines or independent host isolation. GitHub owns merge state; humans retain merge decisions. No issue-triggered start, automatic parallel agents, production deployment or indefinite retention is implied.
+
+The older return-path.svg crop is retained for historical assets and is not used by the revised homepage.

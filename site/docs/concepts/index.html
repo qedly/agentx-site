@@ -49,9 +49,12 @@
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara</p>
-<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
-<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="../operations/index.html" >Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
@@ -60,8 +63,9 @@
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
 <a href="../mcp/index.html" >MCP tool reference</a>
-<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
@@ -84,44 +88,49 @@
 <summary>On this page</summary>
 <nav aria-label="Page sections">
 <a href="#project">Project</a>
-<a href="#task">Task</a>
+<a href="#task">Task and workflow</a>
+<a href="#plan">Plan and owner decision</a>
 <a href="#workspace">Workspace</a>
-<a href="#evidence">Check evidence</a>
-<a href="#pull-request">Pull request</a>
+<a href="#candidate">Candidate</a>
+<a href="#evidence">Checks and AI review</a>
+<a href="#pull-request">Pull request and feedback</a>
 </nav>
 </details>
 <article class="docs-article">
 <section id="project">
 <h2>Project<a class="doc-heading-link" href="#project" aria-label="Link to section Project">#</a>
 </h2>
-<p>A project defines the repositories the agent can work on, how to prepare them and which checks to run. Your team’s administrator configures it. A Slack channel can be connected to that project.</p>
-<p>For example, an <code>export-service</code> project can contain its repository, dependency-install command and test command.</p>
+<p>A registered definition of repositories, setup, checks, model/tool guidance and access policy. Use the exact project name returned by your environment.</p>
 </section>
 <section id="task">
-<h2>Task<a class="doc-heading-link" href="#task" aria-label="Link to section Task">#</a>
+<h2>Task and workflow<a class="doc-heading-link" href="#task" aria-label="Link to section Task and workflow">#</a>
 </h2>
-<p>A task is a coding request and its follow-ups. It has an ID, progress, changed files and any available result artifacts. Be specific about the behavior you want and the constraints to preserve.</p>
+<p>The unit connecting a request, plan versions, operations, decisions, evidence and PR links. Native Quick/Full workflows add explicit planning and review stages. Existing direct tasks are a separate entry path.</p>
+</section>
+<section id="plan">
+<h2>Plan and owner decision<a class="doc-heading-link" href="#plan" aria-label="Link to section Plan and owner decision">#</a>
+</h2>
+<p>A saved document describes approved scope and approach. Its version and digest identify what the owner decided. A revised document requires a current decision.</p>
 </section>
 <section id="workspace">
 <h2>Workspace<a class="doc-heading-link" href="#workspace" aria-label="Link to section Workspace">#</a>
 </h2>
-<p>The agent works on a remote EC2 worker in your AWS account. Its workspace keeps the repository files and conversation state for follow-ups. Compute can stop when idle while storage remains.</p>
-<p>A coding-tool task stays private unless shared or project policy requires sharing. A Slack request is visible in its channel thread.</p>
+<p>The remote project files and task context in your AWS account. Follow-ups can reuse it; workspace closure and task-record retention are different.</p>
+</section>
+<section id="candidate">
+<h2>Candidate<a class="doc-heading-link" href="#candidate" aria-label="Link to section Candidate">#</a>
+</h2>
+<p>The identified code version being checked or reviewed. Results for one candidate do not qualify a changed candidate.</p>
 </section>
 <section id="evidence">
-<h2>Check evidence<a class="doc-heading-link" href="#evidence" aria-label="Link to section Check evidence">#</a>
+<h2>Checks and AI review<a class="doc-heading-link" href="#evidence" aria-label="Link to section Checks and AI review">#</a>
 </h2>
-<p>The code diff shows what changed. Test and check output shows what was exercised. A result may pass, fail or be unavailable. Read the report instead of relying only on the agent’s summary.</p>
-<p>Task checks, pull-request preparation checks and repository CI are separate observations. <a href="../evidence/index.html">Learn how to review them.</a>
-</p>
+<p>Named command results are evidence of those checks in their recorded environment. Separate code/security AI review reports are attributed findings, not a guarantee of correctness.</p>
 </section>
 <section id="pull-request">
-<h2>Pull request<a class="doc-heading-link" href="#pull-request" aria-label="Link to section Pull request">#</a>
+<h2>Pull request and feedback<a class="doc-heading-link" href="#pull-request" aria-label="Link to section Pull request and feedback">#</a>
 </h2>
-<p>You request a PR when there is work to review. Coding-tool PRs open as drafts by default. Your team reviews the diff and CI through its existing GitHub process and decides what gets merged.</p>
-<p>
-<a href="../tasks/index.html">Walk through a first task →</a>
-</p>
+<p>GitHub hosts the proposed change, repository CI, comments and merge decision. AgentX connects registered PRs to the task and proposes feedback fixes for owner approval.</p>
 </section>
 </article>
 <div class="docs-maintenance">
@@ -133,7 +142,7 @@
 <a href="../index.html">
 <span>Previous</span>Rovara documentation</a>
 <a href="../tasks/index.html">
-<span>Next</span>Your first task in Slack →</a>
+<span>Next</span>Your first Quick task →</a>
 </nav>
 <footer class="docs-footer">
 <span>Rovara · Coding agents in your AWS account.</span>
@@ -144,10 +153,12 @@
 <nav aria-label="On this page">
 <p>On this page</p>
 <a href="#project">Project</a>
-<a href="#task">Task</a>
+<a href="#task">Task and workflow</a>
+<a href="#plan">Plan and owner decision</a>
 <a href="#workspace">Workspace</a>
-<a href="#evidence">Check evidence</a>
-<a href="#pull-request">Pull request</a>
+<a href="#candidate">Candidate</a>
+<a href="#evidence">Checks and AI review</a>
+<a href="#pull-request">Pull request and feedback</a>
 </nav>
 </aside>
 </div>
@@ -157,7 +168,7 @@
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">

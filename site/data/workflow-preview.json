@@ -1,0 +1,29 @@
+{
+  "status": "owner-approved preview; not a recorded live run",
+  "reviewedAt": "2026-10-05",
+  "baseMainline": "8acb7ac00c97e3e5ff547cb13af07e5ff160bc86",
+  "nativeWorkflowSource": "3455a367005972659875667b82d7b5d28a2da727",
+  "nativeSourceFiles": [
+    "packages/mcp/src/tools.ts",
+    "packages/contracts/src/task-workflow.ts",
+    "packages/broker/src/aws/broker.ts",
+    "packages/broker/src/aws/github-webhooks.ts",
+    "packages/worker/src/verification/review.ts",
+    "packages/broker/src/github-app.ts"
+  ],
+  "designSources": [
+    "specs/056-native-task-workflow/spec.md",
+    "specs/057-candidate-review/spec.md",
+    "specs/058-github-coordination/spec.md",
+    "specs/059-task-dependencies/spec.md",
+    "specs/060-pr-feedback-review/spec.md"
+  ],
+  "designOnlyInInspectedSnapshot": [
+    "authenticated feedback detail page",
+    "dependency execution guide",
+    "Canvas preservation and closeout"
+  ],
+  "releaseRequirement": "Match commands and availability to the published product release before removing preview qualification.",
+  "recordedNativeDemo": false,
+  "nativeSourceQualification": "Inspected committed local implementation; the public website is a preview and the product PR remains a draft."
+}

@@ -14,10 +14,12 @@ Open `http://127.0.0.1:8766/`. Choose another port with `npm run dev -- --port 8
 
 ## Pages
 
-- `site/index.html`: compact product story, illustrative task handoff, exact recorded Django diff/output, leaders/developers value and a 20-second video.
-- `site/how-it-works/index.html`: workflow, check outcomes, account boundary and human review.
+- `site/index.html`: complete product story, six-stage illustrative native workflow, Quick/Full planning, PR feedback decisions, linked PRs, historical Django evidence and an earlier 20-second workspace video.
+- `site/how-it-works/index.html`: four connected native-workflow diagrams: journey, candidate evidence, workspace/task lifecycle and architecture.
 - `site/deployment/index.html`: a simple installation-coming-soon placeholder, as requested.
-- `site/docs/index.html`: documentation hub with eleven pages, persistent navigation, local full-text search, copyable examples and page contents.
+- `site/docs/index.html`: documentation hub with fifteen pages, persistent navigation, local full-text search, copyable examples and page contents.
+
+The revised walkthrough shows request → plan approval → coding → check/review evidence → draft PR → feedback decision → refreshed evidence. The installation path remains a placeholder. The native workflow is distinct from existing direct tasks; the expanded guides are release-qualified preview documentation.
 
 All pages use relative links. Evidence controls open an accessible native dialog; without JavaScript they lead to expandable explanations. Mobile navigation remains available without JavaScript. Reduced motion is respected.
 
@@ -25,11 +27,11 @@ All pages use relative links. Evidence controls open an accessible native dialog
 
 ```sh
 npm run check
-AGENTX_SOURCE=/path/to/current/AgentX npm run check:claims
+AGENTX_SOURCE=/path/to/current/AgentX AGENTX_WORKFLOW_SOURCE=/path/to/native-workflow npm run check:claims
 npm run build
 ```
 
-`check` first checks that generated documentation and its search index match their authoring source, then inspects local routes, anchors, assets and required copy. It also checks artifact hashes/test counts and that both homepage regex excerpts match the preserved patch. `check:claims` checks pinned source references against the authorized AgentX clone, verifies that its fetched mainline has not advanced, reconciles all eleven developer MCP tool names, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. Fresh code review and runtime evidence still qualify product claims.
+`check` first checks that generated documentation and its search index match their authoring source, then inspects local routes, anchors, assets and required copy. It also checks artifact hashes/test counts and that both homepage regex excerpts match the preserved patch. `check:claims` checks pinned mainline source references against the authorized AgentX clone, verifies that its fetched mainline has not advanced, reconciles the combined mainline and native-workflow MCP names against both pinned sources, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. The native workflow MCP tools have a separate inspected branch pin in site/data/workflow-preview.json. Fresh code review and runtime evidence still qualify product claims.
 
 `build` copies the static artifact to `dist/`. GitHub Pages currently uploads `site/` directly; no framework or runtime backend is needed.
 
@@ -49,14 +51,24 @@ Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance
 
 Editable task journey, architecture, verification, and lifecycle sources: `docs/diagrams/`. Their SVG exports ship without a diagram runtime. User-started Motion walkthrough has direct stage selection, pause/replay, keyboard controls, reduced-motion handling, and a static no-JavaScript fallback.
 
-The CSV workflow is a constructed explanation, not real run evidence. A separate historical Django benchmark now has an inspectable patch, raw harness output, grader report, and allowlisted metadata in `site/assets/evidence/django-11099/`. Hashes and test counts are checked by `npm run check`. This selected task is not a full Slack-to-PR demo, aggregate solve rate, or proof of the current verification loop. The locally rendered 20-second video is embedded with controls, captions and a transcript. Production notes live in `docs/video/`; share media lives in `site/assets/video/`. No public deployment has been performed for this redesign.
+The Copy-button walkthrough is a constructed explanation, not real run evidence. A separate historical Django benchmark now has an inspectable patch, raw harness output, grader report, and allowlisted metadata in `site/assets/evidence/django-11099/`. Hashes and test counts are checked by `npm run check`. This selected task is not a full Slack-to-PR demo, aggregate solve rate, or proof of the current verification loop. The locally rendered 20-second video is embedded with controls, captions and a transcript. Production notes live in `docs/video/`; share media lives in `site/assets/video/`. No public deployment has been performed for this redesign.
 
 ## Documentation authoring
 
 Edit `docs/content/pages.json` and run `npm run docs:generate`. The generator writes all documentation pages, the search index and `site/agent-guide.md` from the same content. Do not edit those generated files directly. `npm run check` refuses stale generated output.
 
-The reading order is overview → concepts → first Slack task → coding-tool connection → review → workspaces → configuration → MCP reference → recorded benchmark → troubleshooting → release and licence. Tutorials state their prerequisites, user action, expected result and next step. The public installation path remains the owner's requested placeholder.
+The reading order is overview → concepts → first Quick task → Full planning → coding-tool connection → evidence → PR feedback → dependencies/linked PRs → workspaces → configuration → architecture → MCP reference → recorded benchmarks → troubleshooting → release and licence. Tutorials state their prerequisites, user action, expected result and next step. The public installation path remains the owner's requested placeholder.
 
 `site/assets/docs.css` and `site/assets/docs.js` provide the docs shell, responsive navigation, native search dialog, keyboard controls and copy buttons. Docs retain native links and disclosures without JavaScript. Search is hidden without JavaScript.
 
 Fresh reference review and browser checks: `docs/research/docs-review-2026-10-05.md`. This records website checks, not live AgentX deployment acceptance. The current recorded Django example remains historical evidence, not a campaign-wide score.
+
+## Native workflow preview
+
+Approved direction: docs/superpowers/plans/2026-10-05-native-workflow-site.md. Diagram source: scripts/generate-workflow-diagrams.mjs; matching SVG and editable role layouts regenerate together. Four native MCP additions are documented from source, without inventing a feedback-tool API. Feedback/browser, dependency and closeout content includes the owner-approved design; match it to the installed release before public installation.
+
+This pass preserves the existing benchmark artifacts and their failures. It adds no tests and does not execute an AgentX live task or publish the website. The generated docs and static build are local artifacts. New real-run video capture remains bounded by its environment, repository and live-run authorization; storyboard: docs/video/native-workflow-storyboard.md.
+
+## Review and deployment checks
+
+Pull requests and review branches run the static website checks and build in GitHub Actions. The Pages deployment repeats those checks before uploading the site. Source-code claim reconciliation runs locally against the authorized private product clones; public CI does not need product credentials. The selected 50-task benchmark is checked against all saved grader receipts, outcomes and downloadable artifact hashes.

@@ -1,0 +1,34 @@
+{
+  "generator": "scripts/generate-workflow-diagrams.mjs",
+  "qualification": "Owner-approved workflow preview; icons are present in SVG exports, editable Excalidraw has role text and geometry.",
+  "diagrams": [
+    {
+      "name": "journey",
+      "title": "From request through review",
+      "subtitle": "Illustrative native workflow · blue surfaces mark owner decisions",
+      "height": 620,
+      "elements": 48
+    },
+    {
+      "name": "verification",
+      "title": "Which code did the evidence inspect?",
+      "subtitle": "Native workflow readiness · checks and AI findings have distinct evidence roles",
+      "height": 560,
+      "elements": 36
+    },
+    {
+      "name": "lifecycle",
+      "title": "Workspace lifetime and task history are different",
+      "subtitle": "Follow-ups keep context · closeout preserves the record before Canvas cleanup",
+      "height": 560,
+      "elements": 41
+    },
+    {
+      "name": "architecture",
+      "title": "Your cloud. Connected to the tools your team uses.",
+      "subtitle": "Role-level architecture · separate reviewers do not imply separate machines",
+      "height": 770,
+      "elements": 62
+    }
+  ]
+}

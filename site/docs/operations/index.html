@@ -49,9 +49,12 @@
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara</p>
-<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
-<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="index.html" aria-current="page">Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
@@ -60,8 +63,9 @@
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
 <a href="../mcp/index.html" >MCP tool reference</a>
-<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
@@ -86,8 +90,10 @@
 <a href="#continue">Come back to the same workspace</a>
 <a href="#actions">Cancel, close or remove</a>
 <a href="#status">Understand task status</a>
+<a href="#workflow-status">Understand the next action</a>
 <a href="#costs">What you pay for</a>
 <a href="#health">Check environment health</a>
+<a href="#closeout">Task history and Canvas cleanup</a>
 </nav>
 </details>
 <article class="docs-article">
@@ -139,6 +145,43 @@
 <p>
 <code>SUCCEEDED</code> describes task execution, not a guarantee that every check passed. A timed-out wait can leave the task running. Read its current status and evidence before retrying.</p>
 </section>
+<section id="workflow-status">
+<h2>Understand the next action<a class="doc-heading-link" href="#workflow-status" aria-label="Link to section Understand the next action">#</a>
+</h2>
+<div class="doc-table-wrap">
+<table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waiting for a plan decision</td>
+<td>Inspect the current document, then approve or request changes.</td>
+</tr>
+<tr>
+<td>Missing, failed or stale evidence</td>
+<td>Read the reason; obtain a current check or review.</td>
+</tr>
+<tr>
+<td>PR feedback proposal</td>
+<td>Open the detailed review and choose the response.</td>
+</tr>
+<tr>
+<td>Waiting for required PRs</td>
+<td>Use GitHub review and merge controls for the remaining PRs.</td>
+</tr>
+<tr>
+<td>Closeout retry needed</td>
+<td>Check preserved artifacts and retry the failed cleanup operation.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Task execution status is distinct from workflow stage and PR merge state.</p>
+</section>
 <section id="costs">
 <h2>What you pay for<a class="doc-heading-link" href="#costs" aria-label="Link to section What you pay for">#</a>
 </h2>
@@ -160,6 +203,12 @@
 <a href="../troubleshooting/index.html">Troubleshoot a problem →</a>
 </p>
 </section>
+<section id="closeout">
+<h2>Task history and Canvas cleanup<a class="doc-heading-link" href="#closeout" aria-label="Link to section Task history and Canvas cleanup">#</a>
+</h2>
+<p>At terminal closeout, AgentX verifies its canonical artifacts and decisions and saves their references before deleting task Canvas copies, including earlier plan versions. A preservation or cleanup failure remains visible and retryable.</p>
+<p>Canvas cleanup does not delete Slack thread messages or original GitHub comments. Artifact retention follows your configured policy; do not assume indefinite storage. Workspace storage and deployment teardown are separate operations.</p>
+</section>
 </article>
 <div class="docs-maintenance">
 <span>Reviewed 5 October 2026</span>
@@ -167,8 +216,8 @@
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
 <nav class="docs-pager" aria-label="Next and previous pages">
-<a href="../evidence/index.html">
-<span>Previous</span>Review changes and checks</a>
+<a href="../coordination/index.html">
+<span>Previous</span>Dependencies and linked PRs</a>
 <a href="../configuration/index.html">
 <span>Next</span>Projects and checks →</a>
 </nav>
@@ -183,8 +232,10 @@
 <a href="#continue">Come back to the same workspace</a>
 <a href="#actions">Cancel, close or remove</a>
 <a href="#status">Understand task status</a>
+<a href="#workflow-status">Understand the next action</a>
 <a href="#costs">What you pay for</a>
 <a href="#health">Check environment health</a>
+<a href="#closeout">Task history and Canvas cleanup</a>
 </nav>
 </aside>
 </div>
@@ -194,7 +245,7 @@
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">

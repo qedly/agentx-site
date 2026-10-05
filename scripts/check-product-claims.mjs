@@ -39,6 +39,10 @@ if (sourceRef !== commit)
 const readSource = (path) =>
   git("show", `${commit}:${path}`).replace(/\s+/g, " ");
 for (const claim of ledger.claims) {
+  for (const path of claim.websiteEvidence ?? []) {
+    try { readFileSync(resolve("site", path)); }
+    catch { failures.push(`${claim.id}: website evidence is missing: ${path}`); }
+  }
   for (const item of claim.evidence ?? []) {
     try {
       if (!readSource(item.file).includes(item.contains))
@@ -55,9 +59,20 @@ const toolSource = readSource("packages/mcp/src/tools.ts");
 const sourceTools = [...toolSource.matchAll(/name:\s*"(agentx_[a-z_]+)"/g)].map(x => x[1]).sort();
 const toolDoc = readFileSync(resolve("site/docs/mcp/index.html"), "utf8");
 const documentedTools = [...toolDoc.matchAll(/<td>\s*<code>(agentx_[a-z_]+)<\/code>\s*<\/td>/g)].map(x => x[1]).sort();
-if (JSON.stringify(sourceTools) !== JSON.stringify(documentedTools))
-  failures.push("MCP tool reference differs from pinned implementation");
-else console.log(`MCP reference reconciles: ${sourceTools.length} developer tools`);
+const preview = JSON.parse(readFileSync(resolve("site/data/workflow-preview.json"), "utf8"));
+let nativeTools = [];
+if (process.env.AGENTX_WORKFLOW_SOURCE) {
+  try {
+    const nativeSource = execFileSync("git", ["-C", resolve(process.env.AGENTX_WORKFLOW_SOURCE), "show", `${preview.nativeWorkflowSource}:packages/mcp/src/tools.ts`], {encoding: "utf8"});
+    nativeTools = [...nativeSource.matchAll(/name:\s*"(agentx_[a-z_]+)"/g)].map(x => x[1]).sort();
+    if (!docsHtml.includes(preview.nativeWorkflowSource)) failures.push("native workflow source pin missing in release documentation");
+  } catch { failures.push("cannot read the pinned native workflow source in AGENTX_WORKFLOW_SOURCE"); }
+} else {
+  failures.push("Set AGENTX_WORKFLOW_SOURCE to the authorized native-workflow clone to qualify the expanded MCP reference");
+}
+const expectedTools = [...new Set([...sourceTools, ...nativeTools])].sort();
+if (JSON.stringify(expectedTools) !== JSON.stringify(documentedTools)) failures.push("MCP tool reference differs from the combined pinned mainline and native workflow sources");
+else console.log(`MCP reference reconciles: ${sourceTools.length} direct-task tools; ${nativeTools.length - sourceTools.length} native workflow additions`);
 
 // Derive the advertised figure from the actual source formula and sample load.
 const cost = readSource("packages/cli/src/init/cost.ts");

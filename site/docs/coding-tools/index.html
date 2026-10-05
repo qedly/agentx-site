@@ -49,9 +49,12 @@
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara</p>
-<a href="../tasks/index.html" >Your first task in Slack</a>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="index.html" aria-current="page">Connect your coding tool</a>
-<a href="../evidence/index.html" >Review changes and checks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="../operations/index.html" >Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
@@ -60,8 +63,9 @@
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
 <a href="../mcp/index.html" >MCP tool reference</a>
-<a href="../benchmarks/index.html" >Recorded benchmark example</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
@@ -85,10 +89,11 @@
 <nav aria-label="Page sections">
 <a href="#before-you-start">Before you start</a>
 <a href="#connect">1. Add the MCP connection</a>
-<a href="#delegate">2. Give complete instructions</a>
-<a href="#inspect">3. Follow the result</a>
-<a href="#continue">4. Continue or open a PR</a>
+<a href="#delegate">2. Start a workflow</a>
+<a href="#inspect">3. Read and decide on the plan</a>
+<a href="#continue">4. Request reviews, then draft PRs</a>
 <a href="#share">Sharing into Slack</a>
+<a href="#direct-tasks">Existing direct tasks</a>
 </nav>
 </details>
 <article class="docs-article">
@@ -117,36 +122,34 @@
 <p>Reopen your client if the server does not appear. Complete sign-in when prompted.</p>
 </section>
 <section id="delegate">
-<h2>2. Give complete instructions<a class="doc-heading-link" href="#delegate" aria-label="Link to section 2. Give complete instructions">#</a>
+<h2>2. Start a workflow<a class="doc-heading-link" href="#delegate" aria-label="Link to section 2. Start a workflow">#</a>
 </h2>
-<p>Ask your coding tool to find your projects and delegate the task:</p>
+<p>Ask your client to find your projects and call the native workflow tool for the chosen project. Quick is the default.</p>
 <pre>
-<code>List my available AgentX projects.
-In export-service, fix CSV exports that include empty records.
-Keep the column order, add a regression test,
-and report the changed files and check evidence.</code>
+<code>List my AgentX projects.
+Start a Quick workflow in &lt;project-name&gt; to improve the docs Copy button.
+Reset its label after copying, announce success accessibly,
+and preserve manual copy on clipboard failure.
+Show me the plan before implementing.</code>
 </pre>
-<p>The remote worker receives the task instructions, not your entire local conversation. Include the details it needs.</p>
+<p>The client uses <code>agentx_start_workflow</code>. Include the remote task’s needed context; it does not receive your entire local conversation.</p>
 </section>
 <section id="inspect">
-<h2>3. Follow the result<a class="doc-heading-link" href="#inspect" aria-label="Link to section 3. Follow the result">#</a>
+<h2>3. Read and decide on the plan<a class="doc-heading-link" href="#inspect" aria-label="Link to section 3. Read and decide on the plan">#</a>
 </h2>
-<p>You receive a task ID. Ask your client to check it or wait for it. After the task ends, inspect the summary, changed files, available artifacts and any PR links.</p>
+<p>Inspect the task’s current approval document, workflow revision and next action. Ask the client to show the whole document before you decide.</p>
+<p>Your explicit decision calls <code>agentx_decide_workflow</code> with the current revision and artifact digest. An assistant should not approve a plan on your behalf without your instruction.</p>
 <pre>
-<code>Check the status of task &lt;task-id&gt; and show its latest progress.</code>
+<code>Show the current plan for task &lt;task-id&gt;, including checks and scope.</code>
 </pre>
-<p>A wait can time out while the task continues. Check the same task rather than creating a duplicate. <a href="../mcp/index.html">MCP tool reference →</a>
-</p>
 </section>
 <section id="continue">
-<h2>4. Continue or open a PR<a class="doc-heading-link" href="#continue" aria-label="Link to section 4. Continue or open a PR">#</a>
+<h2>4. Request reviews, then draft PRs<a class="doc-heading-link" href="#continue" aria-label="Link to section 4. Request reviews, then draft PRs">#</a>
 </h2>
-<p>Ask for follow-up work after the current task has ended. The same workspace and branch are reused.</p>
-<pre>
-<code>Continue task &lt;task-id&gt;. Also cover a file with only empty records.
-Keep the existing changes and rerun the relevant checks.</code>
-</pre>
-<p>When ready for review, ask to open a draft PR. Check the task again to find its URL; PR creation can finish after the tool call returns.</p>
+<p>Follow the same task ID and inspect the diff and check output. A wait can time out while work continues; get current task state before retrying.</p>
+<p>When the native task is <code>REVIEW / WAITING</code> with passing checks for the current candidate, ask your client to call <code>agentx_review_workflow_candidate</code> with that task ID and review instructions. This explicitly starts the initial read-only code and security reviews.</p>
+<p>Inspect the reports. When the workflow is ready, explicitly request draft PR creation. Use the owner feedback-review controls for subsequent PR comments so the selected changes and fresh evidence stay connected.</p>
+<a href="../feedback/index.html">PR feedback guide →</a>
 </section>
 <section id="share">
 <h2>Sharing into Slack<a class="doc-heading-link" href="#share" aria-label="Link to section Sharing into Slack">#</a>
@@ -155,6 +158,12 @@ Keep the existing changes and rerun the relevant checks.</code>
 <p>When finished, close the task to release its workspace. <a href="../operations/index.html">Workspace actions →</a>
 </p>
 </section>
+<section id="direct-tasks">
+<h2>Existing direct tasks<a class="doc-heading-link" href="#direct-tasks" aria-label="Link to section Existing direct tasks">#</a>
+</h2>
+<p>
+<code>agentx_start_task</code> still starts the existing direct-task path. It does not automatically gain Quick/Full approvals. Use <code>agentx_start_workflow</code> when you want the native planning, review and PR coordination flow.</p>
+</section>
 </article>
 <div class="docs-maintenance">
 <span>Reviewed 5 October 2026</span>
@@ -162,10 +171,10 @@ Keep the existing changes and rerun the relevant checks.</code>
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
 <nav class="docs-pager" aria-label="Next and previous pages">
-<a href="../tasks/index.html">
-<span>Previous</span>Your first task in Slack</a>
+<a href="../planning/index.html">
+<span>Previous</span>Plan a larger feature</a>
 <a href="../evidence/index.html">
-<span>Next</span>Review changes and checks →</a>
+<span>Next</span>Inspect changes, checks and reviews →</a>
 </nav>
 <footer class="docs-footer">
 <span>Rovara · Coding agents in your AWS account.</span>
@@ -177,10 +186,11 @@ Keep the existing changes and rerun the relevant checks.</code>
 <p>On this page</p>
 <a href="#before-you-start">Before you start</a>
 <a href="#connect">1. Add the MCP connection</a>
-<a href="#delegate">2. Give complete instructions</a>
-<a href="#inspect">3. Follow the result</a>
-<a href="#continue">4. Continue or open a PR</a>
+<a href="#delegate">2. Start a workflow</a>
+<a href="#inspect">3. Read and decide on the plan</a>
+<a href="#continue">4. Request reviews, then draft PRs</a>
 <a href="#share">Sharing into Slack</a>
+<a href="#direct-tasks">Existing direct tasks</a>
 </nav>
 </aside>
 </div>
@@ -190,7 +200,7 @@ Keep the existing changes and rerun the relevant checks.</code>
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try workspace, checks or Codex…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">
