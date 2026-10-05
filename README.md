@@ -1,6 +1,6 @@
 # AgentX website
 
-A standalone GitHub Pages site for AgentX, separate from `qedly.github.io` and the AgentX product repository.
+A standalone GitHub Pages site for AgentX, published from the Rovara GitHub organization.
 
 ## Preview locally
 
@@ -14,7 +14,7 @@ Then open `http://localhost:8000`.
 
 ## Publish with GitHub Pages
 
-Create the public repository `qedly/agentx-site`, push this project to its default branch, and enable GitHub Pages with GitHub Actions as the source. `.github/workflows/pages.yml` deploys the static files in `site/` on pushes to `main`.
+The public repository is `rovara-dev/rovara-dev.github.io`. GitHub Pages publishes the `site/` directory with GitHub Actions; `.github/workflows/pages.yml` deploys it on pushes to `main`. The site is available at `https://rovara-dev.github.io/`.
 
 ## Product claim maintenance
 
