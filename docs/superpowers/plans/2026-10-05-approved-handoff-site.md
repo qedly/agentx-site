@@ -61,7 +61,7 @@
 - [x] Capture matching desktop reference and implementation, plus mobile and interaction states.
 - [x] Fix P0/P1/P2 differences until design QA passes; record lower-priority limitations.
 - [x] Obtain a fresh whole-branch review; resolve substantive findings.
-- [ ] Commit locally and present the working preview with screenshot evidence. Draft PR preparation is permitted; live publication/merge awaits owner approval.
+- [x] Commit locally and present the working preview with screenshot evidence. Draft PR preparation is permitted; live publication/merge awaits owner approval.
 
 ## Execution notes
 
