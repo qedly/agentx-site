@@ -60,7 +60,7 @@
 - [x] Run requested static/source/link verification and inspect every result.
 - [x] Capture matching desktop reference and implementation, plus mobile and interaction states.
 - [x] Fix P0/P1/P2 differences until design QA passes; record lower-priority limitations.
-- [ ] Obtain a fresh whole-branch review; resolve substantive findings.
+- [x] Obtain a fresh whole-branch review; resolve substantive findings.
 - [ ] Commit locally and present the working preview with screenshot evidence. Draft PR preparation is permitted; live publication/merge awaits owner approval.
 
 ## Execution notes
@@ -71,4 +71,23 @@ Preflight: isolated clone `/private/tmp/rovara-site-build`; website main `ec8be7
 
 Task 1: complete — homepage, local fonts/icons, interactions and responsive browser checks.
 Task 2: complete — workflow, deployment and docs; claim pin refreshed; source cost reconciles to $211.13.
-Task 3: browser/static/source verification complete; fresh whole-branch review pending.
+Task 3: complete — browser/static/source verification and fresh whole-branch review; no Critical/Important findings. Final: fixed vendor-license line endings; legal text byte-equivalence checked and whole-branch whitespace check rerun.
+
+## Postflight
+
+```yaml
+executed_against: MSDLC-OBJ-001@0.4
+alignment: pass
+result_status: verified
+evidence_added: [design-qa.md, docs/design, site/data/claims.json, independent branch review]
+decision_proposals: []
+assumption_changes: []
+scope_delta: none
+contradictions: []
+objective_change_attempted: false
+objective_digest_match: true
+```
+
+Verification is bounded to the website and inspected source claims. Product installation, live AWS acceptance, package release and live website publication remain separate.
+
+Declined-to-judge review boundaries retained: live AWS/customer outcomes, public package release, live publication/settings/merge authority, product defects beyond claim qualification, and legal clearance of branding/trademarks. These are outside the approved website build; no evidence or authority is promoted by excluding them.

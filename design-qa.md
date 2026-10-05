@@ -47,6 +47,16 @@ The built page retains the two-column hero, oversized condensed two-line headlin
 - JavaScript disabled: primary navigation remained visible, the menu toggle was hidden, and native Test output disclosure opened successfully via accessibility activation. Restored JavaScript after the check.
 - No console warnings or errors returned from the reviewed routes.
 
+## Fresh release observations
+
+Before final handoff, GitHub API returned `private: true` for PrepLabsAI/AgentX; its release listing was empty. The public npm registry returned E404 for `@charterarc/agentx`. The current product origin/mainline was fetched again and the pinned source check still passed. These observations substantiate the present release statement; recheck before launch.
+
+## Independent branch review
+
+A fresh reviewer inspected main..71c8201, all seven screenshots, implementation and primary source references. No Critical or Important findings. The only Minor was CRLF line endings in the vendored Phosphor license, which made whole-branch whitespace checks fail. Normalized CRLF to LF and asserted byte-equivalence after restoring CRLF; the license text is unchanged. No deferred reviewer findings.
+
+The review separately qualified its browser observations as stated from this run, not independently rerun browser interactions. The author executed the browser checks recorded above.
+
 ## Verification boundaries
 
 `npm run check` covers static links, anchors, assets, required copy and source pin; `check:claims` covers source-reference drift and recalculates the illustrative estimate. These are separate from browser evidence and do not prove a live AWS installation. No product test suite, AWS deployment, public installer release or live site publication was performed.
