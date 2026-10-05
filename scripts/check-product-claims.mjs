@@ -6,10 +6,12 @@ import { resolve } from 'node:path';
 const root = resolve(process.env.AGENTX_SOURCE ?? '/Users/abhishekgarg/web/AgentX-mainline');
 const ledger = JSON.parse(readFileSync(resolve('site/data/claims.json'), 'utf8'));
 const failures = [];
+const docsHtml = readFileSync(resolve('site/docs/index.html'), 'utf8').toLowerCase();
 const git = (...args) => execFileSync('git', ['-C', root, ...args], { encoding: 'utf8' }).trim();
 const commit = ledger.source.commit;
 try { git('cat-file', '-e', `${commit}^{commit}`); }
 catch { console.error(`Claim check cannot find source commit ${commit} in ${root}`); process.exit(1); }
+if (!docsHtml.includes(commit.slice(0, 12).toLowerCase())) failures.push('field guide source snapshot does not match the claim ledger commit');
 const sourceRef = git('rev-parse', `${ledger.source.ref}^{commit}`);
 if (sourceRef !== commit) failures.push(`mainline advanced to ${sourceRef}; review and update the pinned source commit before publishing`);
 const readSource = (path) => git('show', `${commit}:${path}`).replace(/\s+/g, ' ');
