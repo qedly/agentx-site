@@ -1,54 +1,31 @@
-# Design System: AgentX Systems Atlas
+# Approved design language
 
-## Overview
+Reference: owner-approved combined direction, `exec-5090dbc0-643e-4e0a-97aa-1ac5ce1f27f3.png`, approved 05 October 2026.
 
-**Creative North Star: “A working system, drawn in section.”**
+## Feeling
 
-Follow the selected Systems Atlas concept: a quiet, technical editorial site organized around a large isometric architecture cutaway. The left index makes the site feel like a guide to a real system. The headline establishes the job; the diagram teaches the path. Below it, separate leader and builder panels translate the same runtime into operating value and developer value.
+Clear delegation, tangible work, and retained control. The headline creates momentum; the workflow makes the promise concrete; the authority line makes the review decision yours.
 
-Key characteristics:
-- Near-white, cool blue ground; deep navy type; cobalt system linework; red only for sparse proof marks and current release limits.
-- High-contrast serif display typography paired with compact monospaced labels.
-- One dominant isometric cutaway, drawn from AgentX terminology and current architecture.
-- Fixed vertical section rail on wide viewports; concise, accessible section navigation on mobile.
-- Distinct editorial panels divided by rules and whitespace, not a generic SaaS card grid.
-- Small motion traces the task route and stops under reduced-motion preferences.
+## Composition
 
-## Colors
+Warm white paper, near-black oversized condensed headings, cobalt actions, pale blue workflow band. A strong two-column desktop hero with a concise explanation on the right. Four readable workflow steps with familiar Slack/AWS icons, a code diff and actionable evidence links. Editorial ruled sections, generous whitespace, readable documentation. No reused Qedly graph-paper system.
 
-- **Porcelain** (#F4F8FD): page field.
-- **Navy** (#0D2451): primary editorial text.
-- **Cobalt** (#1B58B2): architecture, links, and navigation.
-- **Blueprint** (#B7C9E0): construction lines and boundaries.
-- **Proof red** (#D65249): rare status marks and annotations; never implies a successful check.
+Anton display headings, Inter body/navigation, system monospace for labels and code. Self-host all fonts. Headline lines have independent horizontal compression to reproduce the approved visual's proportions; text remains selectable and semantic. UI icons use Phosphor; brand assets use the original logo paths distributed by Iconify. See `ASSET-LICENSES.md`.
 
-## Typography
+## Responsive behavior
 
-Use Iowan Old Style/Palatino/Georgia for high-contrast editorial titles and system sans for prose. Use monospace for section indexes, labels, coordinates, costs, and evidence notes. Font stacks are local system faces; no remote font request is required.
+Wide desktop: four workflow columns. Tablet: two. Mobile: one vertical task journey with step numbers. The hero becomes one column. Reading navigation moves above the article and wraps rather than forcing a sidebar. Code and tables can scroll inside their own container without widening the page.
 
-## Layout
+## Motion and interactions
 
-A 180px fixed left rail anchors wide screens. The hero is asymmetrical: compact editorial copy on the left, a large blueprint cutaway on the right. Two equal lower panels speak to leaders and builders. Below, deployment, extension, and status sections use ruled ledgers and left-to-right flows. At mobile widths, the rail becomes a compact header and the content stacks without horizontal overflow.
+Native evidence dialog, short opacity/position entrance, Escape/backdrop/close handling, focus restoration. Motion is omitted when reduced motion is requested. No simulated progress or fabricated live activity. The static diagram is labelled illustrative.
 
-## Elevation & Depth
+Evidence links degrade to expandable explanations. Navigation, release status and deployment instructions work without JavaScript. Mobile menu has labelled state and keyboard operation. Copy controls appear only when the clipboard API is available.
 
-Use a restrained sheet shadow only on diagram artifacts. Most depth comes from isometric projection, overlapping planes, line weight, and pale-blue field changes.
+## Deliberate adaptations
 
-## Shapes
+Public wordmark is Rovara; source/CLI remains AgentX. Vendor icons replace generated approximations. Evidence reports explain the actual format without inventing a passed live run. The continuation link replaces the reference's long looping arrow with a standard return icon and an actionable destination. The approved upper-page composition extends into a complete site and practical documentation.
 
-Use angular geometry for workspace boundaries and documents. Circles are reserved for nodes and evidence ticks. Controls are square and quiet.
+## Quality gate
 
-## Components
-
-- The hero cutaway distinguishes ingress, orchestration, the per-task execution boundary, retained EBS, and human review. It is an explanatory diagram, not a screenshot or live deployment.
-- The leaders/builders split translates the product for buyer and user without repeating the same pitch.
-- The deployment ledger states region, workload assumptions, cost caveats, and account boundary.
-- The source/release block states the actual FSL license and no-public-release status before offering a CTA.
-
-## Do's and Don'ts
-
-- Keep the selected reference's spatial composition, cool palette, serif hierarchy, left rail, cutaway diagram, and leader/builder split.
-- Tie product claims to `site/data/claims.json`; run `scripts/check-product-claims.mjs` against current fetched AgentX mainline before publication.
-- Do not call FSL-1.1-ALv2 open source.
-- Do not add customer proof, solve rates, savings, install-time claims, or security certifications without current evidence.
-- Avoid stock AI art, simulated code output, generic dashboard mockups, nested cards, gradients, and ornamental animation.
+Read `design-qa.md` for reference-size screenshots, mobile captures, interaction checks and accepted differences. Owner approval of this design does not authorize live publication.

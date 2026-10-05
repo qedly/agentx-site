@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+dist/
+.superpowers/
+qa-captures/

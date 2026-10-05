@@ -1,23 +1,46 @@
-# AgentX website
+# Rovara website
 
-A standalone GitHub Pages site for AgentX, published from the Rovara GitHub organization.
+Standalone public website for Rovara, the display brand of the AgentX coding workflow. Static HTML, CSS, JavaScript, self-hosted fonts and licensed icon assets. Hosted by GitHub Pages from `rovara-dev/rovara-dev.github.io`.
 
-## Preview locally
+## Local preview
 
-From this directory:
+Use Node 20 or newer for the website tooling (the AgentX product requires Node `>=22.19.0 <23`). No package installation is required.
 
 ```sh
-python3 -m http.server 8000 --directory site
+npm run dev
 ```
 
-Then open `http://localhost:8000`.
+Open `http://127.0.0.1:8766/`. Choose another port with `npm run dev -- --port 8767`. The server binds to the loopback interface by default.
 
-## Publish with GitHub Pages
+## Pages
 
-The public repository is `rovara-dev/rovara-dev.github.io`. GitHub Pages publishes the `site/` directory with GitHub Actions; `.github/workflows/pages.yml` deploys it on pushes to `main`. The site is available at `https://rovara-dev.github.io/`.
+- `site/index.html`: product story, illustrative task journey, evidence inspection, connections and ownership.
+- `site/how-it-works/index.html`: workflow, check outcomes, account boundary and human review.
+- `site/deployment/index.html`: release status, prerequisites, cost model, first-task preparation and operator responsibilities.
+- `site/docs/index.html`: administrator, developer, check evidence, lifecycle and reference guide.
+
+All pages use relative links. Evidence controls open an accessible native dialog; without JavaScript they lead to expandable explanations. Mobile navigation remains available without JavaScript. Reduced motion is respected.
+
+## Check and build
+
+```sh
+npm run check
+AGENTX_SOURCE=/path/to/current/AgentX npm run check:claims
+npm run build
+```
+
+`check` inspects local routes, anchors, assets and required copy. `check:claims` checks pinned source references against the authorized AgentX clone, verifies that its fetched mainline has not advanced, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. Fresh code review and runtime evidence still qualify product claims.
+
+`build` copies the static artifact to `dist/`. GitHub Pages currently uploads `site/` directly; no framework or runtime backend is needed.
+
+## Publication
+
+Live URL: `https://rovara-dev.github.io/`. `.github/workflows/pages.yml` deploys only from `main` or a manually requested workflow run. Review branches do not publish this site. The approved redesign requires owner approval before live merge/publication.
 
 ## Product claim maintenance
 
-`site/data/claims.json` is the factual claim ledger for the site. It records the source repository, pinned mainline commit, claim, and inspected evidence. When AgentX changes, review each claim against the new mainline before changing the published site. Run `AGENTX_SOURCE=/path/to/AgentX-mainline node scripts/check-product-claims.mjs` before deployment; it verifies the pinned source wording and recomputes the illustrative monthly cost. It intentionally fails when mainline advances so a human must refresh the evidence. The AgentX repository is currently not public, so its source claim evidence is not independently available to website visitors.
+`site/data/claims.json` records the reviewed source commit and primary references. Fetch current product mainline, read the affected implementation, then update the pin and copy together. Do not advertise a public installer until the product source, license and release artifacts are actually available.
 
-The site intentionally does not claim that AgentX is open source, released, one-click installable, benchmark-leading, customer-validated, or security-certified.
+The current source license is FSL-1.1-ALv2. “Open source,” public install commands, customer results, benchmark scores, security certification and automatic merge-gate promises are not justified by this website build. Public display branding does not rename CLI commands, authorization or evidence identities.
+
+Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance: `ASSET-LICENSES.md`. Browser evidence: `design-qa.md`.

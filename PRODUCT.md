@@ -1,33 +1,38 @@
-# AgentX website — product truth
+# Product story
+
+## Owner-approved direction
+
+Standalone website; public self-hosted install is the eventual primary destination. Rovara is the chosen public display brand; AgentX remains the source project and CLI identity. Do not rename configuration, evidence IDs or commands as part of website branding.
+
+Hero: **Give it a task. Get the work back.**
+
+Explanation: Hand off a coding task from Slack or your coding tool. Rovara works in your AWS account and brings back code changes and evidence from tests and checks for you to inspect.
+
+Authority: **You decide what gets merged.**
+
+Supporting value: **Code to review. Evidence to inspect.**
 
 ## Audience
-- CTOs and VPs of Engineering who need a clear view of where coding work runs, what it costs, who controls the account, and who reviews changes.
-- Developers who want to hand off a coding task from Slack or an existing coding tool and inspect the result later.
 
-## Job
-Explain AgentX as a complete remote coding-agent workflow: task handoff, coding in a persistent AWS workspace, check outcomes, and a reviewable pull request. Make setup, ownership, cost, and the current release boundary easy to understand.
+Developers need a concrete task workflow: delegate, inspect, follow up in the same workspace, request a PR. CTOs and VPs need quick understanding of infrastructure ownership, cost, visible evidence and human review authority. Both see the same product, with operational depth on supporting pages.
 
-## Positioning
-**Delegate a coding task. Inspect what comes back.**
+## Story order
 
-AgentX runs a coding agent in a persistent, isolated EC2 workspace in the customer’s AWS account. A task can start in Slack or arrive through MCP from Claude Code, Codex, or Cursor. When the run reaches its finish check, AgentX reports which available checks passed, failed, or could not be verified. It can open a pull request. A person reviews and merges it; AgentX has no merge path.
+1. Task outcome and human authority.
+2. Slack/coding-tool → AWS workspace → change and evidence → human review.
+3. Persistent workspace for follow-up.
+4. Bounded task examples and familiar connections.
+5. Ownership and operating model.
+6. Deployment preparation with current release status.
 
-## Truth boundary
-- AgentX is both the coding-agent runtime and task workflow, not a standalone test checker. The coding agent performs the implementation work; AgentX manages the task and check/report path around it.
-- Each Slack-thread or MCP task uses an EC2 worker and encrypted EBS workspace; idle compute may stop while workspace and conversation state persist.
-- Entry points include Slack and MCP tools for Claude Code, Codex, and Cursor. Project context connectors include Linear, Jira, Asana, and remote MCP.
-- Check commands come from project readiness configuration when available, or recognized test commands from the session. Runs can be stopped or have no usable checks. A passing command is not proof of correctness and does not mean every relevant check ran or that all checks ran on the exact PR commit.
-- Current reporting-enabled broker paths can open a draft PR with failing results. Older paths without check reporting stop before opening a PR when readiness checks fail. AgentX never merges.
-- FSL-1.1-ALv2 is source-available, not OSI-approved open source. AgentX has no public source repository, published release, or npm package today.
-- Repository CI is automated engineering evidence, not independent review, a live AWS acceptance run, customer proof, or a correctness guarantee.
-- SWE-bench pilot evidence is diagnostic; the controlled comparison is not complete. Make no public performance claim.
-- Cost is an estimate tied to stated assumptions, never a quote.
+Verification strengthens the complete coding workflow. It is not presented as the whole product or as proof of correctness. Missing checks, stopped runs, unrerun commands and failing checks must remain visible in the detailed explanation.
 
-## Emotional target
-Leaders should feel they can understand the operating boundary, cost, and review authority quickly. Developers should feel that a task can keep moving and that they can inspect the actual change and check outcomes. The shared feeling is confidence through visibility, not confidence through an unqualified “verified” badge.
+## Current boundaries
 
-## Website promise and conversion
-Use the architecture atlas to explain the real system, a check report to show what AgentX returns, and the field guide to answer cost, security-boundary, setup, and release questions. The primary action is to inspect the check report; the second is to review setup requirements. Until a public release and clean install path exist, do not use a broken install CTA or imply a hosted trial.
+The current AgentX source is private, no public package/release exists, and the source uses FSL-1.1-ALv2. The current CTA is Deployment guide, not an install command. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
 
-## Brand direction
-Systems Atlas: editorial typography, dimensional task-routing diagram, precise labels, warm mineral background, deep ink and marine blue, with the existing red proof mark used sparingly. No inherited Qedly site visual system. No fake metrics, customer logos, testimonials, simulated live output, or unverified claims.
+Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Source references are drift guards; public source references are not independently accessible until the product is published.
+
+## Launch transition
+
+When public release artifacts exist, update the primary CTA, exact installation instructions, source link, license wording and operator guide together. Verify a fresh self-hosted installation through a first task, follow-up, PR and cleanup before claiming that path works. A website build does not establish that product acceptance.
