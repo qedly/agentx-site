@@ -1,15 +1,11 @@
-# Brag evaluation
+# Brag production — rendered local review cut
 
-Status: researched; creative brief prepared. No video rendered or published.
+Owner requested video production and selected Design 1 with the cream palette on 5 October 2026. Brag full workflow and Hyperframes core, animation, creative, keyframes and CLI guidance were used. Node 22.19.0, Hyperframes 0.8.134, GSAP 3.14.2 and local FFmpeg produced a 20-second 1920×1080/30fps MP4. Rendering stayed local; no cloud publish or narration service was used.
 
-Primary source: https://github.com/latent-spaces/brag. Read SKILL.md and inspect/plan/compose/deliver/audio references. Brag supports Codex. Its full workflow derives story and visual identity from project files and uses Hyperframes to compose/check/render a local MP4, with poster and share caption. Default duration is 15–25 seconds; voiceover is opt-in. Node 22+, FFmpeg, and Hyperframes are prerequisites. Local website tooling currently runs Node 20; do not silently run the video CLI under that version.
+Story: request from Slack or a coding tool → agent and persistent AWS workspace → recorded code/test evidence → your review and continuation. The workflow is illustrative. The Django patch and 22-test report are preserved historical artifacts, not a new benchmark or live Slack-to-PR recording.
 
-Recommendation: use Brag for a **20-second animated overview** based on the approved site and its task diagram. It can introduce the remote coding workflow and review authority. It cannot supply evidence that a real task passed or a customer installed the product. Reserve the longer product walkthrough for actual request/diff/raw output/PR footage.
+The video uses restrained normal-width Inter, cream/ink/cobalt, seek-safe line animation and a soft original ambient score with CC0 accents. The evidence frame is selected as the poster and baked into frame zero. On the website it has controls, optional captions and a transcript; it does not autoplay.
 
-Use the full Brag workflow with Hyperframes domain skills, not the Opus-specific brag-slim path. Keep rendering local. No hosted letsbrag.app upload or voice generation is needed. On the website, use a user-played video with poster, captions/transcript, and controls; do not autoplay with sound or make comprehension depend on it.
+Final pre-render check: zero runtime, layout or contrast errors; seven lint warnings for repeated brand assets and nested short scenes. Motion assertions were not enabled. The local media probe confirms duration, dimensions, frame rate, frame count and audio stream. Browser review separately verifies playback. These checks qualify the video, not the AgentX product.
 
-Requirements before rendering: load current Hyperframes core/animation/creative/keyframes/CLI skills; check Node/FFmpeg; compose from docs/video/brag-plan.md and composition-brief.md; pass Hyperframes check; inspect settled keyframes; render; choose and bake a strong poster as frame zero. Verify every factual frame against site/data/claims.json. Rendering is a subsequent production step, not established by this brief.
-
-Asset licensing: Brag code is MIT. Its SFX references identify CC0 sources. The music README identifies its source and explicitly requires verifying and documenting the exact music license before publishing or redistributing. Those terms are not established by this research. Choose licensed audio and preserve any required attribution before rendering for publication; the code license does not establish music rights. No audio assets copied into this site in this pass.
-
-Source claims: Brag's requirements and outputs are repository documentation; suitability for this product is our design recommendation. Website runtime behavior is separately inspected. Any animated task example must retain its illustrative label.
+Source: https://github.com/latent-spaces/brag. Renderer: https://github.com/heygen-com/hyperframes. Editable production files, licenses and check logs are retained in the local research bundle; delivered assets are `site/assets/video/`.

@@ -2,36 +2,48 @@
 
 ## Implemented
 
-- Approved homepage identity retained: black Anton headline, white/cobalt/pale blue, large Slack/AWS icons, code/evidence handoff, and positive merge authority.
-- Source-derived task journey, verification, architecture, and lifecycle diagrams; editable Excalidraw plus static SVG exports.
-- User-started stage playback and selection, pause/replay, keyboard stage navigation, hidden/offscreen stop, reduced-motion handling, static no-JavaScript fallback.
-- Compact How it works page, architecture engineering disclosure, five focused documentation guides.
-- Separate recorded Django benchmark packet with patch, raw output, grader report, hashes, and qualified provenance.
-- Installation explicitly deferred to one simple coming-soon page.
-- Brag repository and workflow researched; 20-second storyboard/composition brief prepared. No rendered video.
+- Owner-selected Design 1: task/workspace/code/evidence/review on homepage, cream from Design 2, normal-width Inter and restrained headings.
+- Engineering-leader/developer messaging, positive merge authority, honest release status, installation placeholder.
+- Source-derived journey, verification, architecture and lifecycle diagrams: editable Excalidraw/vector exports, selected palette.
+- Accessible stage selection/playback, keyboard controls, reduced motion and static alternatives. Focused tutorials/reference separate from marketing copy.
+- Saved Django packet: exact patch, raw output, grader report and provenance. Homepage excerpts checked against patch/test count.
+- Local Brag/Hyperframes 20-second video, poster, optional captions, transcript and editable composition. Native playback reaches end without media errors.
+- PR validation workflow checks routes/assets/evidence and builds static site; it cannot deploy Pages.
 
 ## Evidence boundaries
 
-Source pin: freshly fetched AgentX origin/mainline 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86. Website checks are local/browser evidence, not live AWS acceptance.
+Freshly fetched AgentX mainline remains `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Eleven references and illustrative pricing calculation pass local drift checker; these do not establish live AWS acceptance or validate every procedure.
 
-The CSV task is constructed and labelled. Slack search found a Python-test reply without a complete evidence packet; that reply is not promoted to independent evidence. The owner asked us to choose the real task. A subsequent local artifact search found a saved 30 September SWE-bench Verified run for django\_\_django-11099, with its source-only patch, raw harness output, grader report, and model/run metadata. The report records 3/3 bug checks and 19/19 regression checks passed. Those three original artifacts are exported unchanged with SHA-256 hashes; the task request is a derived summary. Private launch configuration and capability are excluded. No new evaluation was run. This is a small selected historical task whose prompt suggests the regex fix, not a complete live Slack-to-PR run, aggregate result, customer proof, or acceptance of the current verification loop. Installation remains intentionally deferred.
+Homepage request illustrative. Saved 30 September 2026 SWE-bench Verified task `django__django-11099` records 3 bug checks and 19 regression checks. Patch/output/report unchanged and hashed. Its prompt suggests the regex fix. One selected historical task, not aggregate score, customer result, complete Slack-to-PR recording or proof of current verification loop. No fresh evaluation.
 
-Source claim checks inspect pinned implementation anchors and recalculate the cost, not semantic correctness of every procedure. New documentation uses current source tools/configuration fields and explicitly applies after deployment; no public install command is invented.
+Generated mock had inaccurate code and fabricated counts. Retained only as design reference; those samples do not ship. Real expressions use Python's `\A` and `\Z`, not literal Z.
 
 ## Guidance application
 
-Excalidraw skill: relationship-first diagrams, concrete source terms, editable assets, official render/view/fix. Impeccable: clarify/animate/polish references, context and one mechanical detector pass. Detector identified tiny functional labels; raised them. Uppercase short labels, Anton display scale, and tracking preserve the approved visual world; legacy unused style selectors can produce detector findings that are not rendered. Its current schema migration for PRODUCT.md was not applied because that is a separate init workflow.
-UI UX Pro Max: verified animation/reduced-motion guidance queried and applied; no replacement palette generated. Drive guide: saved visual/motion reference, actual preview, explanatory animation, mobile review. Brag: full inspect/plan/compose/deliver/audio read; recommendation and production brief only.
+Product Design: alternate images, owner selection, implementation, matched-size comparison. Excalidraw: relationship-first source-derived diagrams, editable assets and official exports. Prior Impeccable/UI UX Pro Max/Drive clarity, motion and diagram guidance retained; rejected Anton scale superseded. Brag/Hyperframes full workflow used to render locally with licensed audio and original source/logs.
 
 ## Postflight
 
+```yaml
 executed_against: MSDLC-OBJ-001@0.4
+objective_digest: sha256:707543b940253c8e068da55af87b81b4c57dd8d0e82f83436be13f5391cdf0c2
 alignment: pass
-result_status: implemented; local website verification recorded in design-qa.md
-evidence_added: diagrams, source trace, browser captures, recorded benchmark packet and hashes, local build/link/claim checks, video research
+result_status: verified
+evidence_added:
+  [
+    design comparison,
+    captures,
+    patch regression check,
+    rendered video,
+    logs,
+    source checks,
+  ]
+decision_proposals: []
+assumption_changes: []
 scope_delta: installation deferred by owner; public self-hosted launch retained
-contradictions: none; live Slack-to-PR proof remains unqualified; no rendered video or public installer
+contradictions: [complete live Slack-to-PR proof remains unavailable]
 objective_change_attempted: false
 objective_digest_match: true
+```
 
-No AWS deployment, public merge, product release, or video publication was performed.
+Verification is local website/media verification. Publication, product release and AWS acceptance are separate.

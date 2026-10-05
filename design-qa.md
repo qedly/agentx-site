@@ -1,63 +1,45 @@
-# Design QA — connected system explanations
+# Design QA — selected Design 1
 
-## Findings
-
-No actionable P0/P1/P2 visual or interaction finding remains in the inspected states. This is a local website review, not independent product acceptance or a cross-browser accessibility certification.
+Reviewed locally on 5 October 2026. Replaces the earlier Anton/pale-blue review. The owner selected Design 1, the cream palette and audience split from Design 2, and correction of generated sample evidence.
 
 ## Source and final comparison
 
-- Visual source: `docs/design/approved-reference.png`, the owner's approved white/black/cobalt exploration.
-- Final implementation: `docs/design/connected-reference-size.png`, captured from `http://127.0.0.1:8766/` on 5 October 2026.
-- Source and implementation: 1113 × 1413 pixels; CSS width 1113, capture height 1413, deviceScaleFactor 1. Top of page, warm-white theme, first workflow stage selected, playback stopped. No density normalization or image resizing.
-- Both images were opened together in the same comparison input. The hero and four-column workflow were inspected as focused regions within that readable full-size pair; no separate crop was needed.
-- The reference predates the approved connected-explanation scope. The extended workflow adds stage controls, a continuation stage, and readable explanatory detail. Its lower boundary intentionally moves down; it is not a pixel-matched reproduction of the shorter exploration. The two-column hero and pale-blue band remain the visual anchors.
+- Source: `docs/design/design-1-selected.png`, 1156 × 1360. Generated concept: a composition reference, not product proof.
+- Final: `docs/design/design-1-implemented.png`, 1156 × 1360, CSS viewport 1156 × 1360, device scale 1, reduced motion. CDP capture clips document coordinates x=0/y=0. No resizing or density normalization. Browser scroll restoration does not change this document-coordinate capture.
+- Both full-size images opened in the same comparison input. Headline/workflow and code/test panels inspected at original resolution.
+- Intentional changes: cream; normal-width Inter; illustrative request without fake Slack identity/time; actual saved Django patch/output instead of generated counts; human review and continuation; audience split below the evidence.
 
-## Required fidelity surfaces
+## Fidelity surfaces
 
-- **Typography:** self-hosted Anton retains the very condensed two-line headline; Inter remains the body/navigation face. The final desktop hero fits its column without collision. Mobile headline wraps in two deliberate lines. Small functional stage labels were raised to at least 11px. Reading-page headings use a compact scale so diagrams are reachable.
-- **Spacing and layout:** the desktop hero keeps the reference's left headline/right explanation arrangement. Familiar task, AWS, diff, and PR visuals remain in four columns with aligned headings and captions. Mobile stacks those steps. The additional detail is grouped within the workflow rather than scattered across unrelated cards. Documentation separates sidebar navigation from the reading column on desktop and reflows on mobile.
-- **Colors and tokens:** near-black, warm white, cobalt actions/selection, and pale blue retain the approved direction. Actual vendor logo colors are preserved. Passed/failed/unverified descriptions are text, not a decorative universal green-pass signal.
-- **Assets and image quality:** genuine Slack/AWS and licensed Phosphor icon assets remain sharp. The four diagrams use editable Excalidraw sources and official vector exports. The return path is cropped from that official export. No rasterized screenshot replaces semantic page text or controls. Diagrams reserve their image dimensions; full-size links and text equivalents are provided.
-- **Copy/content:** the complete coding workflow is explicit, with positive human authority: “You decide what gets merged.” The CSV workflow remains clearly illustrative. The separate Django patch and benchmark output are recorded artifacts with explicit provenance and limits. Public release remains in preparation; installation is a simple deferred destination. Rovara is display branding; AgentX and agentx retain their technical identity.
+1. **Typography:** normal-width Inter replaces condensed Anton. Homepage headline capped at 57px; supporting headings use a compact scale. Clear two-line headline and reading hierarchy. Functional labels and artifact links remain legible on mobile.
+2. **Spacing/layout:** headline and task/workspace/review diagram form the opening. Evidence panels immediately follow. Mobile stacks workflow/artifacts; 390px and 320px inspections found no document-wide overflow. Mobile evidence links have 44px minimum touch targets.
+3. **Color/tokens:** cream, ink and cobalt follow the owner's selected blend. Genuine vendor colors remain. Green is confined to actual added code and the saved successful result, not universal correctness.
+4. **Assets:** real Slack/AWS/coding-tool marks and licensed Phosphor icons; semantic HTML task/evidence text. Four editable Excalidraw sources and vector exports retain their relationships with the new palette. Text equivalents/full-size links remain. Return path cropped from the official journey export, with duplicated tiny labels removed and a readable HTML caption.
+5. **Copy/content:** complete coding workflow, AWS ownership, inspectable code/evidence, final human decision and leader/developer value. Exact two-validator patch and saved 22-test count are source-linked. Slack request illustrative; historical benchmark not a captured Slack-to-PR run. Installation placeholder retained.
 
 ## Comparison history and fixes
 
-1. An initial extension replaced too much of the approved homepage workflow with small tabs. Restored the large Slack/AWS/diff/PR visuals and integrated selection into those headings. Final post-fix evidence: `connected-reference-size.png` and `connected-mobile-home.png`.
-2. Diagram review found clipped/wrapped verification labels and a crowded retry path. Reflowed labels and moved the retry loop; exported again with Excalidraw. Post-fix evidence: `connected-verification.png`.
-3. Architecture review required a visible Slack result-return path and the connector gateway inside the AWS boundary. Updated the editable source and export. Post-fix evidence: `connected-architecture.png`.
-4. Mechanical design scan identified tiny mobile functional labels. Raised them; reviewed the 390px stage controls again. Post-fix evidence: `connected-mobile.png`.
-5. Final source/implementation comparison found no further P0/P1/P2 issue. The recorded-evidence section was added below the approved opening; a fresh final comparison retained the same hero and workflow design.
+- P1: generated sample had a malformed regex and unsupported counts/pass claims. Replaced with unchanged saved patch/output/grader artifacts. Added expressions contain `\A` and `\Z`; both removed/added excerpts checked against the preserved patch. Deliberately broken Z excerpt failed the checker; restored version passed. Separate Python check confirmed valid names accepted, trailing newline rejected, literal terminal Z not required. No new benchmark run.
+- P2: initial spacing pushed evidence too far down. Tightened opening; final matched-size comparison includes both evidence panels within reference height.
+- P2: return crop had pale-blue fill, tiny duplicate labels and weak line. Matched cream, removed redundant SVG text, increased stroke and aligned route toward workspace. Final desktop capture includes fixes.
+- P2: mobile artifact actions too small. Added 44px touch targets and rechecked 390px layout.
 
-## Browser checks — observed locally
+No actionable P0/P1/P2 finding remains in inspected states. Local design review, not independent product acceptance or cross-browser accessibility certification.
 
-- Nine routes checked at 390px and 1113px widths; all nine also checked at 780px. Each had one H1, a main region, and no page-wide horizontal overflow. No broken loaded images were observed. Diagrams deliberately scroll within their own bounded container on small screens.
-- Additional 1280px captures: `connected-desktop.png`, `connected-verification.png`, `connected-architecture.png`, `connected-lifecycle.png`.
-- Mobile captures: `connected-mobile-home.png`, `connected-mobile.png`, `connected-mobile-docs.png`.
-- Manual stage selection, ArrowRight navigation, play/pause, and full five-stage playback worked. At the end, the control became “Replay walkthrough.” The progress strip describes the explanation, not a live task.
-- Playback stops when the document becomes hidden or the player is offscreen. Reduced-motion emulation hides playback and preserves direct stage selection without spatial animation.
-- The recorded-patch modal opens, Escape closes it, and focus returns to “Inspect the patch.” The 390px dialog was inspected and captured as `recorded-patch-mobile.png`. The mobile menu opens with an accurate expanded state and closes with Escape.
-- The recorded benchmark reference was inspected at 390px and 1280px with no page overflow. Its inline raw-output disclosure shows 22 tests, OK, and exit code 0; its method disclosure identifies the prompt hint, historical date, and limits. Captures: `recorded-evidence-mobile.png` and `recorded-evidence-desktop.png`. Artifact hashes and reported counts reconcile in the local checker.
-- With JavaScript disabled, every explanation stage remains visible and the static navigation/disclosure remains usable. Restored scripting afterward.
-- The actual runtime exposed Motion and its animate API. Reviewed browser console warnings/errors were empty.
+## Observed browser checks
 
-## Local checks and evidence boundaries
+- Homepage desktop and 390/320px mobile layout; menu open/close, patch dialog open/Escape/focus return, artifact links and diagram navigation.
+- Reduced-motion ArrowRight navigation changes Request to Work, selected state and explanation. Earlier branch playback/no-JavaScript checks are historical evidence, not rerun claims for this pass.
+- Architecture inspected at settled anchor; source relationships unchanged. Captures retained under `docs/design/`.
+- Final cream video played to 20 seconds in native website player: ended=true, readyState=4, 1920×1080, no media error. Controls, optional English caption track and transcript. Caption source inspected; native CC selection not exercised.
+- Reviewed console warnings/errors empty. Nine-route link/anchor/asset checks and static build passed locally. Product anchors matched freshly fetched mainline `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`.
 
-`npm run check` validates nine routes, local links/anchors/assets, required copy, and the release/source pin. `npm run build` creates the static site. `AGENTX_SOURCE=/private/tmp/agentx-site-source npm run check:claims` verifies eleven source anchors against freshly fetched mainline 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86 and recalculates the illustrative cost. These checks do not prove semantic correctness of every procedure or a live AWS install.
+## Video qualification
 
-Impeccable context and one detector pass were used. Tiny functional text was fixed. Uppercase short labels, the approved Anton display scale, and tracking are deliberate visual choices; unused legacy style rules can also appear in detector results. No claim of zero mechanical warnings is made. The older PRODUCT.md schema was not silently migrated.
+20-second local Brag/Hyperframes render, 1920×1080 at 30fps. Final pre-render check: zero runtime/layout/contrast errors, 68/68 contrast checks passed. Seven lint warnings concern repeated marks and short nested scenes. Motion assertions not enabled. Original local ambient score plus licensed CC0 accents; no narration/cloud render. Editable composition/logs retained locally. Explanation with one recorded benchmark, not live execution proof.
 
-The available Slack record did not include a complete packet. After the owner delegated the selection, a saved Django benchmark run was found locally. It is presented separately from the illustrative CSV workflow, with its patch, raw harness output, grader report, hashes, and methodological limits. No launch configuration, capability, private endpoint, or full transcript is exported. This is historical benchmark evidence, not a live Slack-to-PR run or acceptance of the current runtime verification loop. Brag was researched and a storyboard prepared, but no video was rendered. Installation is intentionally deferred. No AWS acceptance run, product release, main-branch merge, or live-site publication was performed.
+## Delivery boundary
 
-## Implementation checklist
-
-- [x] Preserve approved headline, palette, vendor visuals, and positive human authority.
-- [x] Add editable task, verification, lifecycle, and architecture diagrams.
-- [x] Provide purposeful playback, keyboard control, reduced motion, and static alternatives.
-- [x] Split documentation into tutorials and focused references.
-- [x] Keep the installation placeholder simple.
-- [x] Compare final browser rendering with the approved visual source.
-- [x] Add an inspectable saved benchmark packet with qualified provenance, separate from the illustrative workflow.
-- [ ] Produce the Brag video from the prepared brief if commissioned.
-- [ ] Review and approve the draft before public deployment.
+Local website/media implementation and scoped verification. No AWS acceptance, new AgentX product tests, public release, main merge or live deployment. Owner retains publication control.
 
 final result: passed

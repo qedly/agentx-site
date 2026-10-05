@@ -12,4 +12,4 @@ Palette: palette.md. Roughness 0; system diagram uses crisp service relationship
 
 These are implementation-derived explanations, not recorded runtime outcomes. The CSV journey is a constructed scenario. Unpublished native-workflow planning/reviewer/multi-PR work is excluded from mainline claims.
 
-The homepage return-path.svg is a cropped view of the officially exported journey SVG, using viewBox 0 282 1215 125 and the pale-blue section background. Its arrows and label come from that same editable source, not a separately drawn approximation. Regenerate the crop after changing the journey layout.
+The homepage return-path.svg is a cropped view of the officially exported journey SVG, using viewBox 0 282 1215 125 and the cream page background. Its arrows and label come from that same editable source, not a separately drawn approximation. Its internal text is omitted at the small homepage scale; a semantic HTML caption supplies the label. Stroke width is increased for the thumbnail. Regenerate the crop after changing the journey layout.

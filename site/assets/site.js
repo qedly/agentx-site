@@ -133,6 +133,20 @@
       ).observe(player);
     select(0, false);
   });
+  // One brief entrance reveals the illustrative handoff; no fake task status.
+  const handoff = document.querySelector(".handoff-figure");
+  if (handoff && !motionPreference.matches && window.Motion?.animate) {
+    const objects = [...handoff.querySelectorAll("[data-handoff-object]")];
+    Motion.animate(
+      objects,
+      { opacity: [0, 1], y: [8, 0] },
+      {
+        duration: 0.45,
+        delay: (i) => 0.12 + i * 0.09,
+        ease: "easeOut",
+      },
+    );
+  }
   const dialog = document.querySelector(".evidence-dialog");
   let trigger;
   document.querySelectorAll("[data-evidence]").forEach((link) =>

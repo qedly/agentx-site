@@ -1,37 +1,24 @@
-# Approved design language
+# Approved design language — 5 October 2026
 
-Reference: owner-approved combined direction, `exec-5090dbc0-643e-4e0a-97aa-1ac5ce1f27f3.png`, approved 05 October 2026.
+## Owner decision
+Design 1 from the latest three-image exploration is selected. Preserve its headline and visible task/evidence/review loop. Use the cream palette and engineering-leaders/developers split from Design 2. The earlier oversized condensed design is superseded.
 
-## Feeling
+## Feeling and product story
+Clear delegation, tangible work and retained control. Give it a task. Get the work back. The page shows a coding agent, a customer-owned AWS workspace, an inspectable patch and output, then human review. You decide what gets merged.
 
-Clear delegation, tangible work, and retained control. The headline creates momentum; the workflow makes the promise concrete; the authority line makes the review decision yours.
+## Composition and type
+Cream #f8f5ef; ink #19212f; body #4c596b; cobalt #2455d6; fine structural rules. Self-hosted Inter is the shared type family, with system monospace only for code. Normal-width 38–57px homepage heading; supporting page heading capped at 48px; 15–18px reading text. No horizontal text compression or Anton in the active type system.
 
-## Composition
+Split desktop hero: pitch on the left, labelled illustrative workflow on the right. Recorded evidence immediately follows, with leaders/developers, a user-controlled video, connections and honest installation status below. Mobile is a readable vertical handoff with working navigation.
 
-Warm white paper, near-black oversized condensed headings, cobalt actions, pale blue workflow band. A strong two-column desktop hero with a concise explanation on the right. Four readable workflow steps with familiar Slack/AWS icons, a code diff and actionable evidence links. Editorial ruled sections, generous whitespace, readable documentation. No reused Qedly graph-paper system.
+## Exact evidence, not sample green states
+The generated visual contained a malformed regex, invented counts and unsupported all-checks/data-boundary claims. None is product evidence. The implementation displays the preserved Django patch verbatim and an excerpt from its raw output, with full artifact links. The 22-test result is qualified as one saved benchmark run. The Slack request is illustrative. No live Slack-to-PR claim is made.
 
-Anton display headings, Inter body/navigation, system monospace for labels and code. Self-host all fonts. Headline lines have independent horizontal compression to reproduce the approved visual's proportions; text remains selectable and semantic. UI icons use Phosphor; brand assets use the original logo paths distributed by Iconify. See `ASSET-LICENSES.md`.
+## Assets and diagrams
+Use actual locally served vendor marks and unmodified Phosphor icons. Diagram data, code excerpts and artifact links remain semantic and selectable rather than rasterizing generated text. This necessary adaptation implements the owner's explicit requirement to correct and inspect evidence. No new decorative illustration is approximated with CSS art. The four editable Excalidraw explanations remain code-derived and have a matching palette; no architecture relationship is changed by the visual reset.
 
-## Responsive behavior
+## Motion and video
+One brief staggered entrance for the hero's explanatory objects; no fictional activity or success animation. Reduced motion produces the static view. Existing selectable walkthrough, evidence dialog, Escape handling and focus restoration remain. The 20-second Brag/Hyperframes video shares the palette, has controls, captions and a transcript, and does not autoplay.
 
-Homepage: four workflow columns on desktop, two on tablet, one vertical journey on mobile. How it works uses a five-stage selectable explanation and four scrollable diagrams. The hero becomes one column. Reading navigation moves above the article and wraps rather than forcing a sidebar. Code and tables can scroll inside their own container without widening the page.
-
-## Motion and interactions
-
-Native evidence dialog, short opacity/position entrance, Escape/backdrop/close handling, focus restoration. Motion is omitted when reduced motion is requested. No simulated progress or fabricated live activity. The static diagram is labelled illustrative.
-
-Evidence links degrade to expandable explanations. Navigation, release status and deployment instructions work without JavaScript. Mobile menu has labelled state and keyboard operation. Commands remain selectable in code blocks.
-
-## Deliberate adaptations
-
-Public wordmark is Rovara; source/CLI remains AgentX. Vendor icons replace generated approximations. Evidence reports explain the actual format without inventing a passed live run. The task journey now has an editable return loop showing how follow-ups return to the same workspace. The approved upper-page composition extends into a complete site and practical documentation.
-
-## Quality gate
-
-Read `design-qa.md` for reference-size screenshots, mobile captures, interaction checks and accepted differences. Owner approval of this design does not authorize live publication.
-
-## Connected explanations extension
-
-The owner approved four connected explanations and modern motion after the fresh review. Compact supporting-page headings preserve the expressive homepage. A five-stage selectable walkthrough exposes request, work, evidence, requested review, and continuation; it is labelled illustrative. Four editable Excalidraw exports show the actual relationships. Diagram containers scroll locally on phones and include full-size links and text equivalents. Five documentation guides replace the mixed overview. Installation remains a simple placeholder.
-
-Motion storyboard and guidance: docs/reference-prompt.md. Functional mobile labels are at least 11px; body text is 16px or larger. No random scroll reveal, decorative looping animation, or fabricated task progress.
+## Authority
+Rovara is display branding. AgentX commands and evidence identities remain unchanged. Installation is a placeholder. The product release and FSL license status stay visible. Review branches do not publish Pages. Live merge/publication requires owner approval.

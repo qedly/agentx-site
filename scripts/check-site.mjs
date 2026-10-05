@@ -123,6 +123,44 @@ if (
   )
 )
   failures.push("Recorded benchmark raw output count mismatch");
+// The homepage excerpt must preserve the actual patch, not generated sample code.
+const escapeHtml = (s) =>
+  s
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#x27;");
+const patchText = get(`${recordRoot}/patch.diff`);
+for (const [sign, className] of [
+  ["-", "removed"],
+  ["+", "added"],
+]) {
+  const lines = patchText
+    .split("\n")
+    .filter((line) => line.startsWith(`${sign}    regex`));
+  for (const line of new Set(lines)) {
+    const text = `${sign === "+" ? "+" : "−"} ${escapeHtml(line.slice(1).trim())}`;
+    const excerpts = [
+      ...home.matchAll(
+        new RegExp(
+          `<span\\s+class="${className}"[^>]*>([\\s\\S]*?)<\\/span\\s*>`,
+          "g",
+        ),
+      ),
+    ].map((match) => match[1].trim());
+    const count = excerpts.filter((excerpt) => excerpt === text).length;
+    if (count !== lines.length)
+      failures.push(
+        `Homepage ${className} regex excerpt does not match both recorded validators`,
+      );
+  }
+}
+if (/all checks passed|pytest|\+12|−4/.test(home.toLowerCase()))
+  failures.push("Homepage contains unsupported generated evidence");
+const totalTests = record.failToPass.passed + record.passToPass.passed;
+if (!home.includes(`${totalTests} tests passed`))
+  failures.push("Homepage count differs from the recorded report");
 if (failures.length) {
   failures.forEach((x) => console.error(`FAIL: ${x}`));
   process.exit(1);
