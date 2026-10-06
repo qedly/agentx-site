@@ -36,7 +36,7 @@ function drawing(name,title,subtitle,height=560){
  return {text,rect,box,arrow,logo,save(){
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="${height}" viewBox="0 0 1100 ${height}" role="img" aria-labelledby="title desc"><title id="title">${esc(title)}</title><desc id="desc">${esc(subtitle)}</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="${palette.blue}" stroke-width="1.5"/></marker></defs><rect width="1100" height="${height}" fill="${palette.paper}"/>${parts.join('\n')}</svg>\n`;
   writeFileSync(`site/assets/diagrams/${name}.svg`,svg);
-  writeFileSync(`docs/diagrams/${name}.excalidraw`,JSON.stringify({type:'excalidraw',version:2,source:'Rovara authored role layout; generate-workflow-diagrams.mjs',elements,appState:{viewBackgroundColor:palette.paper,gridSize:null},files:{}},null,2)+'\n');
+  writeFileSync(`docs/diagrams/${name}.excalidraw`,JSON.stringify({type:'excalidraw',version:2,source:'Rovara Code authored role layout; generate-workflow-diagrams.mjs',elements,appState:{viewBackgroundColor:palette.paper,gridSize:null},files:{}},null,2)+'\n');
   specs.push({name,title,subtitle,height,elements:elements.length});
  }};
 }
@@ -45,7 +45,7 @@ mkdirSync('site/assets/diagrams',{recursive:true});mkdirSync('docs/diagrams',{re
  const d=drawing('journey','From request through review','Illustrative native workflow · blue surfaces mark owner decisions',620);
  d.box(30,100,230,130,'01 / EXPLICIT REQUEST','Give it a task',['Slack or your coding tool','Project context + constraints']);
  d.box(300,100,230,130,'02 / OWNER DECISION','Approve the plan',['Quick: one plan approval','Full: requirements → design → plan'],true);
- d.box(570,100,230,130,'03 / YOUR AWS ACCOUNT','AgentX writes the code',['Prepared project workspace','Files and context for follow-ups']);
+ d.box(570,100,230,130,'03 / YOUR AWS ACCOUNT','Rovara Code at work',['Prepared project workspace','Files and context for follow-ups']);
  d.arrow([[260,165],[298,165]]);d.arrow([[530,165],[568,165]]);
  d.box(570,300,230,130,'04 / CURRENT CANDIDATE','Checks + AI reviews',['Named output + code reference','Request reviews after checks pass']);
  d.arrow([[685,230],[685,298]]);

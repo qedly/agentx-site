@@ -47,7 +47,7 @@
     },
     {
       "id": "release",
-      "claim": "There is no published AgentX release or npm package; source-checkout installation requires locally built release assets and user-pushed images.",
+      "claim": "There is no published Rovara Code release or npm package; source-checkout installation requires locally built release assets and user-pushed images.",
       "evidence": [
         {
           "file": "README.md",
