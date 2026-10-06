@@ -1,4 +1,4 @@
-Rovara — 20-second product overview
+Rovara Code — 20-second product overview
 
 0–4 seconds: Give it a task. Get the work back. Hand off from Slack or your coding tool. An illustrative task requests a fix to username validation.
 4–9 seconds: In your AWS account. A remote coding agent, task coordination and a persistent workspace hold the work and context.

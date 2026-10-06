@@ -1,7 +1,7 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "Rovara authored role layout; generate-workflow-diagrams.mjs",
+  "source": "Rovara Code authored role layout; generate-workflow-diagrams.mjs",
   "elements": [
     {
       "id": "journey-1",
@@ -491,7 +491,7 @@
       "type": "text",
       "x": 587,
       "y": 137,
-      "width": 193.60000000000002,
+      "width": 167.20000000000002,
       "height": 20.8,
       "angle": 0,
       "strokeColor": "#19212f",
@@ -512,13 +512,13 @@
       "updated": 0,
       "link": null,
       "locked": false,
-      "text": "AgentX writes the code",
+      "text": "Rovara Code at work",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "AgentX writes the code",
+      "originalText": "Rovara Code at work",
       "autoResize": true,
       "lineHeight": 1.3
     },

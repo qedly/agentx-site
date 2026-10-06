@@ -1,14 +1,14 @@
-# Rovara agent guide
+# Rovara Code agent guide
 
-Public installation is coming soon. These preview guides cover a compatible deployed AgentX environment. Native workflow availability must match the installed release. Commands retain the agentx name. Existing references: mainline 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86. Native workflow source: 3455a367005972659875667b82d7b5d28a2da727. Feedback, dependency and closeout guides include the owner-approved design; see docs/release for qualification.
+Public installation is coming soon. These preview guides cover a compatible deployed Rovara Code environment. Native workflow availability must match the installed release. Commands retain the agentx name. Existing references: mainline 8acb7ac00c97e3e5ff547cb13af07e5ff160bc86. Native workflow source: 3455a367005972659875667b82d7b5d28a2da727. Feedback, dependency and closeout guides include the owner-approved design; see docs/release for qualification.
 
-# Rovara documentation
+# Rovara Code documentation
 
 Give a task, agree on the plan, inspect the evidence, and keep the final decision with your team.
 
 ## A coding agent with a workflow you control
 
-Rovara presents the AgentX coding workflow: remote implementation in your AWS account, plan approvals, named checks, separate code and security AI reviews, and help responding to PR feedback. Your team owns the final merge. Request Approve plan Code + evidence PR + feedback Your review
+Rovara Code provides a coding workflow: remote implementation in your AWS account, plan approvals, named checks, separate code and security AI reviews, and help responding to PR feedback. Your team owns the final merge. Request Approve plan Code + evidence PR + feedback Your review
 
 ## Start with one useful task
 
@@ -56,23 +56,23 @@ Named command results are evidence of those checks in their recorded environment
 
 ## Pull request and feedback
 
-GitHub hosts the proposed change, repository CI, comments and merge decision. AgentX connects registered PRs to the task and proposes feedback fixes for owner approval.
+GitHub hosts the proposed change, repository CI, comments and merge decision. Rovara Code connects registered PRs to the task and proposes feedback fixes for owner approval.
 
 # Your first Quick task
 
-Approve one plan, let AgentX implement the change, and inspect the evidence before requesting a PR.
+Approve one plan, let Rovara Code implement the change, and inspect the evidence before requesting a PR.
 
 ## Before you start
 
-You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon. Use the installed AgentX app mention and agentx commands. Rovara is the website’s display name. Quick is the simplest planning path Use it for a well-defined fix. For ambiguous or larger work, choose Full . Ordinary direct tasks remain a separate path.
+You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon. Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use agentx . Quick is the simplest planning path Use it for a well-defined fix. For ambiguous or larger work, choose Full . Ordinary direct tasks remain a separate path.
 
 ## 1. Request a bounded change
 
-In the project-bound channel, select the installed AgentX mention and send: @AgentX workflow: Make the docs Copy button reset its label after copying. Announce success accessibly, preserve manual copy if the clipboard fails, and add checks for success, reset and failure. This is an example request; replace it with work for your project. Expect a task thread and then a plan ready for your decision. Do not start another task because planning takes time.
+In the project-bound channel, select the app installed in your channel and send: @your-installed-app workflow: Make the docs Copy button reset its label after copying. Announce success accessibly, preserve manual copy if the clipboard fails, and add checks for success, reset and failure. This is an example request; replace it with work for your project. Expect a task thread and then a plan ready for your decision. Do not start another task because planning takes time.
 
 ## 2. Read the plan
 
-Open the linked Canvas. Check the intended behavior, files or areas involved, scope exclusions and proposed checks. AgentX has inspected the request with read-only tools at this stage. Does it describe the change you actually want? Are the acceptance checks useful? Are assumptions or dependencies missing? If the plan needs correction, use Request changes and explain the adjustment. Review the revised version.
+Open the linked Canvas. Check the intended behavior, files or areas involved, scope exclusions and proposed checks. Rovara Code has inspected the request with read-only tools at this stage. Does it describe the change you actually want? Are the acceptance checks useful? Are assumptions or dependencies missing? If the plan needs correction, use Request changes and explain the adjustment. Review the revised version.
 
 ## 3. Approve the current version
 
@@ -80,19 +80,19 @@ Use Approve on the current decision prompt. Required project checks are locked o
 
 ## 4. Inspect checks and request reviews
 
-AgentX implements in the project’s remote workspace and runs the configured checks. Inspect the diff, raw output and candidate reference. Failed or missing required checks remain a visible blocker. When the task reaches REVIEW / WAITING with passing checks for that candidate, explicitly request the separate code and security reviews. In your connected coding tool, ask: Use agentx_review_workflow_candidate for <task-id>. Review the current candidate against the approved plan. Do not edit code. Use the existing task ID. The tool starts the initial read-only reviews; it is not a generic retry. Inspect their reports before requesting draft PRs. If working only in Slack, use the review action supported by your installed version or ask the operator how to request it. Review guide →
+Rovara Code implements in the project’s remote workspace and runs the configured checks. Inspect the diff, raw output and candidate reference. Failed or missing required checks remain a visible blocker. When the task reaches REVIEW / WAITING with passing checks for that candidate, explicitly request the separate code and security reviews. In your connected coding tool, ask: Use agentx_review_workflow_candidate for <task-id>. Review the current candidate against the approved plan. Do not edit code. Use the existing task ID. The tool starts the initial read-only reviews; it is not a generic retry. Inspect their reports before requesting draft PRs. If working only in Slack, use the review action supported by your installed version or ask the operator how to request it. Review guide →
 
 ## 5. Request draft PRs
 
-When the workflow is ready, ask AgentX to open draft PRs for review. Inspect the task to find their GitHub links. PR creation is a separate request; readiness does not merge the code. Review repository CI and the diff in GitHub. You decide what gets merged.
+When the workflow is ready, ask Rovara Code to open draft PRs for review. Inspect the task to find their GitHub links. PR creation is a separate request; readiness does not merge the code. Review repository CI and the diff in GitHub. You decide what gets merged.
 
 ## 6. Handle reviewer feedback
 
-AgentX gathers feedback on the task’s linked PRs and proposes responses. Open the detailed review, choose the fixes you want, and approve them or request changes. Approved fixes produce a new candidate and fresh evidence. Follow the feedback tutorial →
+Rovara Code gathers feedback on the task’s linked PRs and proposes responses. Open the detailed review, choose the fixes you want, and approve them or request changes. Approved fixes produce a new candidate and fresh evidence. Follow the feedback tutorial →
 
 ## 7. Finish and preserve the work
 
-A task with several required PRs waits until all are observed merged. Inspect the task’s next action and closeout state. Canonical artifacts and decisions remain in AgentX under configured retention; Canvas copies are cleaned up after preservation is verified. Workspace closure is a separate action and can refuse if unpublished changes remain. Workspace and closeout guide →
+A task with several required PRs waits until all are observed merged. Inspect the task’s next action and closeout state. Canonical artifacts and decisions remain in Rovara Code under configured retention; Canvas copies are cleaned up after preservation is verified. Workspace closure is a separate action and can refuse if unpublished changes remain. Workspace and closeout guide →
 
 # Plan a larger feature
 
@@ -100,11 +100,11 @@ Use Full to agree on requirements, design and the coding plan before implementat
 
 ## Before you start
 
-You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon. Use the installed AgentX app mention and agentx commands. Rovara is the website’s display name. Choose Full when behavior, interfaces or implementation choices need discussion. Full changes planning depth; it does not relax project-required checks or review requirements.
+You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon. Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use agentx . Choose Full when behavior, interfaces or implementation choices need discussion. Full changes planning depth; it does not relax project-required checks or review requirements.
 
 ## 1. Choose Full at task start
 
-Select the Full workflow through your installed workflow surface. In a coding tool, explicitly ask it to call agentx_start_workflow with workflow_path: "full" for your project. Start a Full AgentX workflow in <project-name>. Add password reset to the account page. Show me requirements, design and the coding plan for approval before implementation. Keep existing sign-in behavior. Use your project’s actual name. If your Slack app does not expose Full selection, use the workflow MCP path or ask the operator which installed version supports it.
+Select the Full workflow through your installed workflow surface. In a coding tool, explicitly ask it to call agentx_start_workflow with workflow_path: "full" for your project. Start a Full Rovara Code workflow in <project-name>. Add password reset to the account page. Show me requirements, design and the coding plan for approval before implementation. Keep existing sign-in behavior. Use your project’s actual name. If your Slack app does not expose Full selection, use the workflow MCP path or ask the operator which installed version supports it.
 
 ## 2. Agree on requirements
 
@@ -132,7 +132,7 @@ Delegate from Claude Code, Codex or Cursor through an MCP connection.
 
 ## Before you start
 
-You need a deployed environment, project access and the installed agentx CLI. Public installation instructions are coming soon. These commands connect an existing environment; they do not deploy it. Rovara is the public name. Existing command and tool names still use AgentX and agentx .
+You need a deployed environment, project access and the installed agentx CLI. Public installation instructions are coming soon. These commands connect an existing environment; they do not deploy it. The product is called Rovara Code. Existing CLI commands use agentx , and MCP tool names use the agentx_ prefix.
 
 ## 1. Add the MCP connection
 
@@ -140,7 +140,7 @@ Run the command for the client you use. Claude Code agentx mcp install --client 
 
 ## 2. Start a workflow
 
-Ask your client to find your projects and call the native workflow tool for the chosen project. Quick is the default. List my AgentX projects. Start a Quick workflow in <project-name> to improve the docs Copy button. Reset its label after copying, announce success accessibly, and preserve manual copy on clipboard failure. Show me the plan before implementing. The client uses agentx_start_workflow . Include the remote task’s needed context; it does not receive your entire local conversation.
+Ask your client to find your projects and call the native workflow tool for the chosen project. Quick is the default. List my Rovara Code projects. Start a Quick workflow in <project-name> to improve the docs Copy button. Reset its label after copying, announce success accessibly, and preserve manual copy on clipboard failure. Show me the plan before implementing. The client uses agentx_start_workflow . Include the remote task’s needed context; it does not receive your entire local conversation.
 
 ## 3. Read and decide on the plan
 
@@ -196,7 +196,7 @@ Does the change meet the request and preserve its constraints? Which checks actu
 
 # Respond to PR feedback
 
-Inspect AgentX’s recommendations and approve the changes you want before coding resumes.
+Inspect Rovara Code’s recommendations and approve the changes you want before coding resumes.
 
 ## Before you start
 
@@ -204,7 +204,7 @@ You need a native workflow with registered, open task PRs and access as its auth
 
 ## 1. Open the feedback review
 
-Follow the review link from the Slack task notice. Sign in if prompted; then return to the same review. A link is a route to the task, not permission to view or decide it. AgentX gathers current comments across the task’s open PRs, groups related feedback and prioritizes the proposed responses.
+Follow the review link from the Slack task notice. Sign in if prompted; then return to the same review. A link is a route to the task, not permission to view or decide it. Rovara Code gathers current comments across the task’s open PRs, groups related feedback and prioritizes the proposed responses.
 
 ## 2. Inspect each recommendation
 
@@ -224,7 +224,7 @@ Only the approved fixes go to the coding operation. After implementation, inspec
 
 ## 5. Make the final review decision
 
-Use GitHub’s existing review and merge controls. AgentX observes linked PR state; it does not take over the team’s merge decision.
+Use GitHub’s existing review and merge controls. Rovara Code observes linked PR state; it does not take over the team’s merge decision.
 
 # Dependencies and linked PRs
 
@@ -240,7 +240,7 @@ Inspect the stage, reason and responsible next action. A failed prerequisite pre
 
 ## Track the complete PR set
 
-AgentX registers PRs against the task and candidate repositories. Unrelated PR events do not advance this task. If the candidate requires several PRs, a successful PR creation in one repository does not mean the rest were created.
+Rovara Code registers PRs against the task and candidate repositories. Unrelated PR events do not advance this task. If the candidate requires several PRs, a successful PR creation in one repository does not mean the rest were created.
 
 ## Understand partial merges
 
@@ -252,7 +252,7 @@ Read current task state and authoritative PR links first. Event delivery can be 
 
 ## Work starts with an explicit request
 
-Ask AgentX in Slack or through your coding tool. Creating or updating a GitHub issue does not initiate a task. PR comments propose follow-up work; the owner approves changes before implementation.
+Ask Rovara Code in Slack or through your coding tool. Creating or updating a GitHub issue does not initiate a task. PR comments propose follow-up work; the owner approves changes before implementation.
 
 # Workspaces and costs
 
@@ -284,7 +284,7 @@ With an installed CLI and operator access, use: agentx --env <env> doctor --regi
 
 ## Task history and Canvas cleanup
 
-At terminal closeout, AgentX verifies its canonical artifacts and decisions and saves their references before deleting task Canvas copies, including earlier plan versions. A preservation or cleanup failure remains visible and retryable. Canvas cleanup does not delete Slack thread messages or original GitHub comments. Artifact retention follows your configured policy; do not assume indefinite storage. Workspace storage and deployment teardown are separate operations.
+At terminal closeout, Rovara Code verifies its canonical artifacts and decisions and saves their references before deleting task Canvas copies, including earlier plan versions. A preservation or cleanup failure remains visible and retryable. Canvas cleanup does not delete Slack thread messages or original GitHub comments. Artifact retention follows your configured policy; do not assume indefinite storage. Workspace storage and deployment teardown are separate operations.
 
 # Projects and checks
 
@@ -292,7 +292,7 @@ Set the repositories, setup commands and checks the coding agent should use.
 
 ## Define a project
 
-A project file names repositories, setup commands, readiness checks, and orchestration guidance. It contains credential references, not secret values. Deployment and sign-in settings belong to a separate deployment file. Example project configuration name: export-service revision: 1 repositories: - name: export-service url: https://github.com/example/export-service.git path: repo/export-service defaultBranch: main credentialRef: github-agentx-sdlc setup: - cwd: repo/export-service executable: npm args: [ci] timeoutSeconds: 600 readiness: - cwd: repo/export-service executable: npm args: [test] timeoutSeconds: 600 orchestratorInstructions: >- Delegate repository reads, edits, builds, and tests to the remote AgentX worker. Replace the example repository and credential reference with your configured project values. Use agentx admin project register --help to see the registration options for your installed version. Increase the immutable revision before changing a registered definition.
+A project file names repositories, setup commands, readiness checks, and orchestration guidance. It contains credential references, not secret values. Deployment and sign-in settings belong to a separate deployment file. Example project configuration name: export-service revision: 1 repositories: - name: export-service url: https://github.com/example/export-service.git path: repo/export-service defaultBranch: main credentialRef: github-agentx-sdlc setup: - cwd: repo/export-service executable: npm args: [ci] timeoutSeconds: 600 readiness: - cwd: repo/export-service executable: npm args: [test] timeoutSeconds: 600 orchestratorInstructions: >- Delegate repository reads, edits, builds, and tests to the remote Rovara Code worker. Replace the example repository and credential reference with your configured project values. Use agentx admin project register --help to see the registration options for your installed version. Increase the immutable revision before changing a registered definition.
 
 ## Choose the checks
 
@@ -312,7 +312,7 @@ Where the task, workspace, decisions and evidence live—and which systems remai
 
 ## A task record connects the surfaces
 
-Slack, the coding-tool MCP client and the authenticated feedback page are entry and review surfaces. The AgentX task/workflow record connects plans, operations, decisions, candidate evidence and linked PRs. Open the architecture diagram full size
+Slack, the coding-tool MCP client and the authenticated feedback page are entry and review surfaces. The Rovara Code task/workflow record connects plans, operations, decisions, candidate evidence and linked PRs. Open the architecture diagram full size
 
 ## Entry and authorization
 
@@ -332,11 +332,11 @@ Your AWS account is the documented security boundary. Environments in the same a
 
 ## Retention and closeout
 
-AgentX preserves canonical task artifacts and decisions under configured retention. Canvas cleanup follows a verified preservation record. Original Slack replies and GitHub comments remain subject to their services’ retention. Closeout details →
+Rovara Code preserves canonical task artifacts and decisions under configured retention. Canvas cleanup follows a verified preservation record. Original Slack replies and GitHub comments remain subject to their services’ retention. Closeout details →
 
 # MCP tool reference
 
-The developer tools exposed to Claude Code, Codex and Cursor by the AgentX MCP server.
+The developer tools exposed to Claude Code, Codex and Cursor by the Rovara Code MCP server.
 
 ## Connect a client
 

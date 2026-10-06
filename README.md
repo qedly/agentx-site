@@ -1,10 +1,10 @@
-# Rovara website
+# Rovara Code website
 
-Standalone public website for Rovara, the display brand of the AgentX coding workflow. Static HTML, CSS, JavaScript, self-hosted fonts and licensed icon assets. Hosted by GitHub Pages from `rovara-dev/rovara-dev.github.io`.
+Standalone public website for Rovara Code, the coding workflow product. Static HTML, CSS, JavaScript, self-hosted fonts and licensed icon assets. Hosted by GitHub Pages from `rovara-dev/rovara-dev.github.io`.
 
 ## Local preview
 
-Use Node 20 or newer for the website tooling (the AgentX product requires Node `>=22.19.0 <23`). No package installation is required.
+Use Node 20 or newer for the website tooling (the product source build requires Node `>=22.19.0 <23`). No package installation is required.
 
 ```sh
 npm run dev

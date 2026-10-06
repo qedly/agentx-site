@@ -636,6 +636,11 @@
     gap: 24px;
   }
 }
+@media (max-width: 400px) {
+  .docs-brand > span {
+    display: none;
+  }
+}
 @media (max-width: 760px) {
   .docs-header {
     height: 64px;

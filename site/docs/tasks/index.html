@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f8f5ef">
-<title>Your first Quick task — Rovara</title>
-<meta name="description" content="Approve one plan, let AgentX implement the change, and inspect the evidence before requesting a PR.">
+<title>Your first Quick task — Rovara Code</title>
+<meta name="description" content="Approve one plan, let Rovara Code implement the change, and inspect the evidence before requesting a PR.">
 <link rel="canonical" href="https://rovara-dev.github.io/docs/tasks/">
 <link rel="icon" href="../../assets/icons/git-pull-request.svg">
 <link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,7 +22,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="docs-header">
 <div class="docs-brand">
-<a href="../../index.html" aria-label="Rovara home">Rovara</a>
+<a href="../../index.html" aria-label="Rovara Code home">Rovara Code</a>
 <span>Docs</span>
 </div>
 <button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
@@ -42,13 +42,13 @@
 <nav aria-label="Documentation">
 <div class="docs-nav-group">
 <p>Start here</p>
-<a href="../index.html" >Rovara documentation</a>
+<a href="../index.html" >Rovara Code documentation</a>
 <a href="../concepts/index.html" >Core concepts</a>
 <a href="../../deployment/index.html">Installation <span>Coming soon</span>
 </a>
 </div>
 <div class="docs-nav-group">
-<p>Work with Rovara</p>
+<p>Work with Rovara Code</p>
 <a href="index.html" aria-current="page">Your first Quick task</a>
 <a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
@@ -78,11 +78,11 @@
 <main id="main" class="docs-content">
 <div class="docs-breadcrumb">
 <a href="../index.html">Documentation</a>
-<span>/</span>Work with Rovara</div>
+<span>/</span>Work with Rovara Code</div>
 <header class="docs-title">
 <p class="docs-kind">Tutorial</p>
 <h1>Your first Quick task</h1>
-<p>Approve one plan, let AgentX implement the change, and inspect the evidence before requesting a PR.</p>
+<p>Approve one plan, let Rovara Code implement the change, and inspect the evidence before requesting a PR.</p>
 </header>
 <details class="docs-mobile-toc">
 <summary>On this page</summary>
@@ -102,7 +102,7 @@
 <h2>Before you start<a class="doc-heading-link" href="#before-you-start" aria-label="Link to section Before you start">#</a>
 </h2>
 <p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon.</p>
-<p>Use the installed <strong>AgentX</strong> app mention and <code>agentx</code> commands. Rovara is the website’s display name.</p>
+<p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p>
 <div class="doc-callout">
 <strong>Quick is the simplest planning path</strong>
 <p>Use it for a well-defined fix. For ambiguous or larger work, <a href="../planning/index.html">choose Full</a>. Ordinary direct tasks remain a separate path.</p>
@@ -111,9 +111,9 @@
 <section id="request">
 <h2>1. Request a bounded change<a class="doc-heading-link" href="#request" aria-label="Link to section 1. Request a bounded change">#</a>
 </h2>
-<p>In the project-bound channel, select the installed AgentX mention and send:</p>
+<p>In the project-bound channel, select the app installed in your channel and send:</p>
 <pre>
-<code>@AgentX workflow: Make the docs Copy button reset its label after copying.
+<code>@your-installed-app workflow: Make the docs Copy button reset its label after copying.
 Announce success accessibly, preserve manual copy if the clipboard fails,
 and add checks for success, reset and failure.</code>
 </pre>
@@ -122,7 +122,7 @@ and add checks for success, reset and failure.</code>
 <section id="plan">
 <h2>2. Read the plan<a class="doc-heading-link" href="#plan" aria-label="Link to section 2. Read the plan">#</a>
 </h2>
-<p>Open the linked Canvas. Check the intended behavior, files or areas involved, scope exclusions and proposed checks. AgentX has inspected the request with read-only tools at this stage.</p>
+<p>Open the linked Canvas. Check the intended behavior, files or areas involved, scope exclusions and proposed checks. Rovara Code has inspected the request with read-only tools at this stage.</p>
 <ul>
 <li>Does it describe the change you actually want?</li>
 <li>Are the acceptance checks useful?</li>
@@ -139,7 +139,7 @@ and add checks for success, reset and failure.</code>
 <section id="review">
 <h2>4. Inspect checks and request reviews<a class="doc-heading-link" href="#review" aria-label="Link to section 4. Inspect checks and request reviews">#</a>
 </h2>
-<p>AgentX implements in the project’s remote workspace and runs the configured checks. Inspect the diff, raw output and candidate reference. Failed or missing required checks remain a visible blocker.</p>
+<p>Rovara Code implements in the project’s remote workspace and runs the configured checks. Inspect the diff, raw output and candidate reference. Failed or missing required checks remain a visible blocker.</p>
 <p>When the task reaches <code>REVIEW / WAITING</code> with passing checks for that candidate, explicitly request the separate code and security reviews. In your connected coding tool, ask:</p>
 <pre>
 <code>Use agentx_review_workflow_candidate for &lt;task-id&gt;.
@@ -152,20 +152,20 @@ Do not edit code.</code>
 <section id="pull-request">
 <h2>5. Request draft PRs<a class="doc-heading-link" href="#pull-request" aria-label="Link to section 5. Request draft PRs">#</a>
 </h2>
-<p>When the workflow is ready, ask AgentX to open draft PRs for review. Inspect the task to find their GitHub links. PR creation is a separate request; readiness does not merge the code.</p>
+<p>When the workflow is ready, ask Rovara Code to open draft PRs for review. Inspect the task to find their GitHub links. PR creation is a separate request; readiness does not merge the code.</p>
 <p>Review repository CI and the diff in GitHub. <strong>You decide what gets merged.</strong>
 </p>
 </section>
 <section id="continue">
 <h2>6. Handle reviewer feedback<a class="doc-heading-link" href="#continue" aria-label="Link to section 6. Handle reviewer feedback">#</a>
 </h2>
-<p>AgentX gathers feedback on the task’s linked PRs and proposes responses. Open the detailed review, choose the fixes you want, and approve them or request changes. Approved fixes produce a new candidate and fresh evidence.</p>
+<p>Rovara Code gathers feedback on the task’s linked PRs and proposes responses. Open the detailed review, choose the fixes you want, and approve them or request changes. Approved fixes produce a new candidate and fresh evidence.</p>
 <a href="../feedback/index.html">Follow the feedback tutorial →</a>
 </section>
 <section id="finish">
 <h2>7. Finish and preserve the work<a class="doc-heading-link" href="#finish" aria-label="Link to section 7. Finish and preserve the work">#</a>
 </h2>
-<p>A task with several required PRs waits until all are observed merged. Inspect the task’s next action and closeout state. Canonical artifacts and decisions remain in AgentX under configured retention; Canvas copies are cleaned up after preservation is verified.</p>
+<p>A task with several required PRs waits until all are observed merged. Inspect the task’s next action and closeout state. Canonical artifacts and decisions remain in Rovara Code under configured retention; Canvas copies are cleaned up after preservation is verified.</p>
 <p>Workspace closure is a separate action and can refuse if unpublished changes remain. <a href="../operations/index.html">Workspace and closeout guide →</a>
 </p>
 </section>
@@ -182,7 +182,7 @@ Do not edit code.</code>
 <span>Next</span>Plan a larger feature →</a>
 </nav>
 <footer class="docs-footer">
-<span>Rovara · Coding agents in your AWS account.</span>
+<span>Rovara Code · Coding agents in your AWS account.</span>
 <a href="../release/index.html#license">Licence</a>
 </footer>
 </main>
