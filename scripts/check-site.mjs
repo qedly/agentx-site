@@ -31,8 +31,9 @@ for (const page of pages) {
   if (!html.includes("Rovara"))
     failures.push(`${page}: inconsistent display brand`);
   if (
-    !html.includes("Public release in preparation") &&
-    !html.includes("Installation coming soon") &&
+    !html.includes("Public source") &&
+    !html.includes("Self-hosted") &&
+    !html.includes("Published installer") &&
     !html.includes("docs-status")
   )
     failures.push(`${page}: release status missing`);
@@ -72,7 +73,7 @@ for (const phrase of [
   "You decide what gets merged.",
   "Code to review.",
   "Evidence to inspect.",
-  "Illustrative workflow",
+  "Illustrative native workflow preview",
 ]) {
   if (!home.includes(phrase))
     failures.push(`Approved homepage phrase missing: ${phrase}`);
@@ -90,9 +91,20 @@ if (!get("docs/release/index.html").includes(ledger.source.commit.slice(0, 12)))
   failures.push("Source pin mismatch in docs");
 if (
   !get("docs/release/index.html").includes("22.19.0") ||
-  !get("docs/release/index.html").includes("below 23")
+  !get("docs/release/index.html").includes("Node 22 LTS")
 )
   failures.push("Supported Node range missing");
+const install = JSON.parse(get("data/installation.json"));
+for (const route of ["deployment/index.html", "docs/install/index.html"]) {
+  const html = get(route);
+  if (!html.includes(install.npmPackage)) failures.push(`${route}: npm scope mismatch`);
+  if (!html.includes(install.awsLaunchUrl.replaceAll("&", "&amp;"))) failures.push(`${route}: AWS launch URL mismatch`);
+}
+for (const file of walk(root).filter((p) => p.endsWith(".html") || p.endsWith(".md"))) {
+  const content = readFileSync(file, "utf8");
+  if (/github\.com\/PrepLabsAI\/AgentX|@preplabs\/rovara-code|@charterarc\/agentx/.test(content)) failures.push(`${file}: obsolete product repository or package`);
+  if (/Installation coming soon|Public release in preparation|public self-hosted installation guide is not available/.test(content)) failures.push(`${file}: obsolete installation status`);
+}
 const recordRoot = "assets/evidence/django-11099";
 const record = JSON.parse(get(`${recordRoot}/record.json`));
 for (const [name, artifact] of Object.entries(record.artifacts)) {

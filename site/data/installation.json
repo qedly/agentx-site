@@ -1,0 +1,24 @@
+{
+  "repository": "PrepLabsAI/Rovara",
+  "sourceCommit": "a03326359542ff3934838566d464cd188624c15e",
+  "checkedAt": "2026-10-06",
+  "npmPackage": "@preplabsai/rovara-code",
+  "npmVersion": "0.2.0",
+  "releaseTag": "v0.2.0",
+  "releaseCommit": "c1d4edf6d2713e4fabb71f8c9c1de1960ad4e5ac",
+  "nodeMinimum": "22.19.0",
+  "recommendedNode": "Node 22 LTS",
+  "region": "us-east-1",
+  "awsLaunchUrl": "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https%3A%2F%2Frovara-installer-us-east-1.s3.us-east-1.amazonaws.com%2Flatest%2Finstaller.template.json&stackName=agentx-installer",
+  "readme": "https://github.com/PrepLabsAI/Rovara#quickstart",
+  "installationGuide": "https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md",
+  "sourceFiles": {
+    "README.md": "816466af1df146511a33dd8ee58d919c64a78db7dcca0619334b55fe5410556e",
+    "docs/install.md": "11ee8755f65b1e1b0b211722f8ec6334aec89178001d0d62ae4be3fdcf9c4fa4",
+    "docs/mcp-install.md": "20da93272230a80201b0ea145578d19b84d360faf11a4bc50894b804d1e94cc6",
+    "docs/day-two.md": "2a38002cebea0a01da09a94e604d382c1c72c8d62e9fd1fcbe4c41943fafc8c0",
+    "docs/teardown.md": "2f29f19e4397e51b84c5c44754666e630c637c217bdb87ac88b6309e1d802397",
+    "LICENSE": "b4de080de1ab826c6f341c2c0d2674a07807a5db47467bb7ce74e465ef87fb22"
+  },
+  "qualification": "Published package, GitHub release manifest and public installer template observed. No fresh AWS installation performed by this website update."
+}

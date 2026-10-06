@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Install Rovara — Rovara Code</title>
+<meta name="description" content="Deploy in your AWS account with Launch in AWS, or start the guided installer from a terminal.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/install/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara Code home">Rovara Code</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Published installer and native workflow preview">Release &amp; preview status</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara Code documentation</a>
+<a href="index.html" aria-current="page">Install Rovara</a>
+<a href="../concepts/index.html" >Core concepts</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara Code</p>
+<a href="../tasks/index.html" >Your first Quick task</a>
+<a href="../planning/index.html" >Plan a larger feature</a>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../feedback/index.html" >Respond to PR feedback</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Start here</div>
+<header class="docs-title">
+<p class="docs-kind">Quickstart</p>
+<h1>Install Rovara</h1>
+<p>Deploy in your AWS account with Launch in AWS, or start the guided installer from a terminal.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#choose">Choose your installation path</a>
+<a href="#prerequisites">Before you start</a>
+<a href="#aws">1. Launch in AWS</a>
+<a href="#terminal">2. Install from a terminal</a>
+<a href="#first-task">3. Give it a first task</a>
+<a href="#resume">Resume or diagnose setup</a>
+<a href="#day-two">Upgrade or remove an environment</a>
+<a href="#names">Rovara name, compatible commands</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="choose">
+<h2>Choose your installation path<a class="doc-heading-link" href="#choose" aria-label="Link to section Choose your installation path">#</a>
+</h2>
+<p>
+<strong>Launch in AWS</strong> is the recommended path in the <a href="https://github.com/PrepLabsAI/Rovara#quickstart">Rovara README</a>. It opens a setup page and needs nothing installed on your computer. The <a href="#terminal">terminal path</a> uses the published npm CLI.</p>
+<p>Both paths set up GitHub, Slack and your first project. AWS and model usage are billed to you.</p>
+<div class="doc-callout">
+<strong>Region: us-east-1</strong>
+<p>The current installation guide supports US East (N. Virginia). The buttons and explicit-region examples here use that region.</p>
+</div>
+</section>
+<section id="prerequisites">
+<h2>Before you start<a class="doc-heading-link" href="#prerequisites" aria-label="Link to section Before you start">#</a>
+</h2>
+<ul>
+<li>An AWS account, ideally dedicated to Rovara, and permission to create IAM roles for installation.</li>
+<li>A GitHub organization or personal account to own the GitHub App.</li>
+<li>A Slack workspace where you can create and install apps. Your workspace may require admin approval.</li>
+<li>Model access: Amazon Bedrock, or an OpenRouter, Anthropic or OpenAI API key.</li>
+<li>An email address for setup and alerts.</li>
+<li>Terminal path only: Node.js 22.19 or newer; Node 22 LTS is recommended, with an authenticated AWS admin profile.</li>
+</ul>
+<p>The installer checks regional capacity, including EC2 vCPUs and two free Elastic IPs. <a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#before-you-start">Full prerequisite and quota details →</a>
+</p>
+</section>
+<section id="aws">
+<h2>1. Launch in AWS<a class="doc-heading-link" href="#aws" aria-label="Link to section 1. Launch in AWS">#</a>
+</h2>
+<p>
+<a class="button primary" href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https%3A%2F%2Frovara-installer-us-east-1.s3.us-east-1.amazonaws.com%2Flatest%2Finstaller.template.json&amp;stackName=agentx-installer">Launch in AWS ↗</a>
+</p>
+<ol>
+<li>On the AWS Create stack page, enter your email, GitHub owner and install name. Review the IAM acknowledgement and create the installer stack.</li>
+<li>Look for the temporary-password email (the README estimates about five minutes). The installer stack’s <code>SetupPageUrl</code> output has the same setup-page address.</li>
+<li>Sign in, choose a new password and follow the build progress. The installation guide estimates about 20 minutes for the AWS build.</li>
+<li>Connect the GitHub App and Slack app on the page, then choose your first repository and Slack channel.</li>
+<li>Confirm alerts and mention the bot. The setup ends at its first Slack reply.</li>
+</ol>
+<p>After Rovara answers in Slack, you can delete only the <code>agentx-installer</code> stack to remove the installer; Rovara’s environment keeps running. Removing the environment itself is a separate action.</p>
+<p>
+<a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#install-with-the-launch-in-aws-button-recommended">Detailed AWS setup instructions →</a>
+</p>
+</section>
+<section id="terminal">
+<h2>2. Install from a terminal<a class="doc-heading-link" href="#terminal" aria-label="Link to section 2. Install from a terminal">#</a>
+</h2>
+<p>Check <code>node --version</code>, then use an AWS admin profile authenticated for the target account. Replace both placeholders:</p>
+<pre>
+<code>export AWS_PROFILE=&lt;an admin profile for the target account&gt;
+npx @preplabsai/rovara-code init --env &lt;name&gt;</code>
+</pre>
+<p>This is the command from the README. For an explicit region:</p>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; init --region us-east-1</code>
+</pre>
+<p>Use a lower-case install name with letters, digits and hyphens, such as <code>prod</code> or <code>staging</code>. Keep the terminal open and your computer awake until setup finishes.</p>
+<p>On your own computer, the installer opens a browser page served only from <code>127.0.0.1</code>. It shows your choices, the resource plan and estimated cost before creating the environment, then guides GitHub, Slack and project setup.</p>
+<p>To stay in the terminal:</p>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; init --region us-east-1 --no-ui</code>
+</pre>
+<p>CloudShell and SSH normally use the terminal. CloudShell needs Node 22 first; use the checksum-verified setup instructions in <a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#node-22-in-aws-cloudshell">Node 22 in AWS CloudShell</a>. <a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install-advanced.md">Other installation paths →</a>
+</p>
+</section>
+<section id="first-task">
+<h2>3. Give it a first task<a class="doc-heading-link" href="#first-task" aria-label="Link to section 3. Give it a first task">#</a>
+</h2>
+<p>In the channel bound during setup, select the installed bot through Slack’s mention picker. Its default name still uses <code>AgentX</code>.</p>
+<pre>
+<code>@AgentX inspect the project and implement the navigation fix. Run the relevant tests.
+@AgentX create a pull request for the personal-website repository titled &quot;Improve navigation&quot;.</code>
+</pre>
+<p>These are the README examples; replace the task and repository with your project. Inspect the changes and evidence before asking for a PR. Your team decides what gets merged.</p>
+<p>Prefer an IDE? <a href="../coding-tools/index.html">Connect Claude Code, Codex or Cursor →</a>
+</p>
+<p>Quick/Full planning and feedback walkthroughs elsewhere in these docs describe the native workflow preview. They require a compatible deployment and are not promised by this installation guide.</p>
+</section>
+<section id="resume">
+<h2>Resume or diagnose setup<a class="doc-heading-link" href="#resume" aria-label="Link to section Resume or diagnose setup">#</a>
+</h2>
+<p>If setup stops, run the same <code>init</code> command again. The installer resumes at the first unfinished step. If Slack needs an admin to approve the app, wait for approval and rerun it.</p>
+<p>After installation, use operator access to check the environment:</p>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; doctor --region us-east-1</code>
+</pre>
+<p>Read the failures and next actions before changing anything. <a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#the-install-page">Browser, SSH and recovery details →</a>
+</p>
+</section>
+<section id="day-two">
+<h2>Upgrade or remove an environment<a class="doc-heading-link" href="#day-two" aria-label="Link to section Upgrade or remove an environment">#</a>
+</h2>
+<p>Use the target release’s CLI version for an upgrade; review the changes before accepting:</p>
+<pre>
+<code>npx @preplabsai/rovara-code@&lt;version&gt; --env &lt;name&gt; upgrade --region us-east-1</code>
+</pre>
+<p>
+<a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/day-two.md">Operations, projects, connectors and upgrades →</a>
+</p>
+<p>Removal deletes the environment’s workspaces, stacks and stored data. It needs admin credentials and explicit environment confirmation. Save anything you need first and read <a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/teardown.md">the full teardown guide</a>:</p>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; destroy --region us-east-1</code>
+</pre>
+</section>
+<section id="names">
+<h2>Rovara name, compatible commands<a class="doc-heading-link" href="#names" aria-label="Link to section Rovara name, compatible commands">#</a>
+</h2>
+<p>The product repository is <a href="https://github.com/PrepLabsAI/Rovara">PrepLabsAI/Rovara</a>. The published package is <code>@preplabsai/rovara-code</code>. You can install the CLI once:</p>
+<pre>
+<code>npm install -g @preplabsai/rovara-code
+rovara --help</code>
+</pre>
+<p>The package also provides <code>agentx</code> as a compatibility command. AWS resources, <code>~/.agentx</code>, MCP server/tool IDs and the default Slack app retain their existing names. Use the examples as written.</p>
+<p>Instructions checked against the README and linked guides on 6 October 2026. <a href="../release/index.html">Release, licence and documentation status →</a>
+</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Installation updated 6 October 2026</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../index.html">
+<span>Previous</span>Rovara Code documentation</a>
+<a href="../concepts/index.html">
+<span>Next</span>Core concepts →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara Code · Coding agents in your AWS account.</span>
+<a href="https://github.com/PrepLabsAI/Rovara">Product source</a>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#choose">Choose your installation path</a>
+<a href="#prerequisites">Before you start</a>
+<a href="#aws">1. Launch in AWS</a>
+<a href="#terminal">2. Install from a terminal</a>
+<a href="#first-task">3. Give it a first task</a>
+<a href="#resume">Resume or diagnose setup</a>
+<a href="#day-two">Upgrade or remove an environment</a>
+<a href="#names">Rovara name, compatible commands</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

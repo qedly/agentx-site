@@ -7,13 +7,13 @@
     <title>Installation — Rovara Code</title>
     <meta
       name="description"
-      content="The public self-hosted installation guide is coming soon."
+      content="Install Rovara in your AWS account. Launch in AWS or use the published npm CLI, then connect GitHub and Slack."
     />
     <link rel="canonical" href="https://rovara-dev.github.io/deployment/" />
     <meta property="og:title" content="Installation — Rovara Code" />
     <meta
       property="og:description"
-      content="The public self-hosted installation guide is coming soon."
+      content="Install Rovara in your AWS account. Launch in AWS or use the published npm CLI, then connect GitHub and Slack."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
@@ -30,6 +30,7 @@
     <script src="../assets/site.js" defer></script>
     <link rel="stylesheet" href="../assets/explanations.css" />
     <link rel="stylesheet" href="../assets/refined.css" />
+<link rel="stylesheet" href="../assets/installation.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -59,7 +60,7 @@
           class="button primary"
           href="../deployment/index.html"
           aria-current="page"
-          >Installation status
+          >Install Rovara
           <img
             class="icon white"
             src="../assets/icons/arrow-up-right.svg"
@@ -71,25 +72,14 @@
       </nav>
     </header>
     <main id="main">
-      <div class="compact-intro shell">
-        <p class="eyebrow">Public release in preparation</p>
-        <h1>Your AWS.<br />Installation coming soon.</h1>
-        <p class="intro-text">
-          The public self-hosted installation guide will live here. It is not
-          available yet.
-        </p>
-      </div>
-      <section class="shell install-placeholder">
-        <p>
-          Explore the task workflow and documentation while the public release
-          is prepared.
-        </p>
-        <a class="button primary" href="../how-it-works/index.html"
-          >See how it works</a
-        ><a class="button" href="../docs/index.html">Read the docs</a>
-        <p class="release-note">No public install command is provided yet.</p>
-      </section>
-    </main>
+<div class="compact-intro shell"><p class="eyebrow">Self-hosted. In your AWS account.</p><h1>Install Rovara.</h1><p class="intro-text">Launch in AWS or start from a terminal. The guided setup connects GitHub, Slack and your first project.</p></div>
+<section class="shell installation-options" aria-label="Installation options">
+<article><p class="eyebrow">Recommended · No local setup</p><h2>Launch in AWS</h2><p>Enter your email, GitHub owner and install name. Follow the setup page through the build and your first Slack reply.</p><a class="button primary" href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https%3A%2F%2Frovara-installer-us-east-1.s3.us-east-1.amazonaws.com%2Flatest%2Finstaller.template.json&amp;stackName=agentx-installer">Launch in AWS ↗</a><p>US East (N. Virginia) · AWS admin access required.</p><a href="../docs/install/index.html#aws">Read the AWS setup steps →</a></article>
+<article><p class="eyebrow">For your terminal</p><h2>Use the npm CLI</h2><p>Node.js 22.19 or newer (Node 22 LTS recommended), with an authenticated AWS admin profile.</p><pre><code>export AWS_PROFILE=&lt;an admin profile for the target account&gt;
+npx @preplabsai/rovara-code init --env &lt;name&gt;</code></pre><a class="button" href="../docs/install/index.html#terminal">Follow terminal setup →</a></article>
+</section>
+<section class="shell installation-details"><h2>Before you begin</h2><p>Have your AWS account, GitHub owner, Slack workspace and model access ready. AWS and model usage are billed to you. The current supported install region is <code>us-east-1</code>.</p><div class="pitch-actions"><a class="button primary" href="../docs/install/index.html">Read the complete installation guide →</a><a class="button" href="https://github.com/PrepLabsAI/Rovara#quickstart">README quickstart ↗</a></div><p class="release-note">Package: <code>@preplabsai/rovara-code</code> · v0.2.0 checked 6 October 2026.</p><p>Already have an environment? <a href="../docs/coding-tools/index.html">Connect Claude Code, Codex or Cursor →</a></p></section>
+</main>
     <footer class="site-footer shell simplified-footer">
       <div>
         <a class="wordmark" href="../index.html">Rovara Code</a>
@@ -97,9 +87,10 @@
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="../docs/index.html">Documentation</a
-        ><a href="../deployment/index.html">Installation coming soon</a
+        ><a href="../deployment/index.html">Install Rovara</a
         ><a href="../docs/release/index.html#license">Licence</a
-        ><a href="https://github.com/rovara-dev/rovara-dev.github.io"
+        ><a href="https://github.com/PrepLabsAI/Rovara">Product source</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io"
           >Website source</a
         >
       </nav>

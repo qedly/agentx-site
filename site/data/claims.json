@@ -1,10 +1,10 @@
 {
   "source": {
-    "repository": "PrepLabsAI/AgentX",
+    "repository": "PrepLabsAI/Rovara",
     "ref": "origin/mainline",
     "commit": "8acb7ac00c97e3e5ff547cb13af07e5ff160bc86",
     "checkedAt": "2026-10-05",
-    "note": "Product source is private. These are reviewed implementation references at the pinned mainline; substring checks guard drift and do not establish runtime acceptance."
+    "note": "Historical implementation snapshot. Public source has moved to PrepLabsAI/Rovara. Installation and publication status are separately refreshed in installation.json; these code references do not prove current runtime acceptance."
   },
   "claims": [
     {
@@ -42,20 +42,6 @@
         {
           "file": "README.md",
           "contains": "agentx mcp install"
-        }
-      ]
-    },
-    {
-      "id": "release",
-      "claim": "There is no published Rovara Code release or npm package; source-checkout installation requires locally built release assets and user-pushed images.",
-      "evidence": [
-        {
-          "file": "README.md",
-          "contains": "No AgentX release is published yet"
-        },
-        {
-          "file": "README.md",
-          "contains": "container images you have pushed yourself"
         }
       ]
     },
