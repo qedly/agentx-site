@@ -32,7 +32,7 @@
 </button>
 <nav aria-label="Main navigation">
 <a href="../../index.html">Product</a>
-<a href="../release/index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+<a href="../release/index.html" class="docs-status" title="Published installer and native workflow preview">Release &amp; preview status</a>
 </nav>
 </header>
 <div class="docs-layout">
@@ -43,9 +43,8 @@
 <div class="docs-nav-group">
 <p>Start here</p>
 <a href="../index.html" >Rovara Code documentation</a>
+<a href="../install/index.html" >Install Rovara</a>
 <a href="../concepts/index.html" >Core concepts</a>
-<a href="../../deployment/index.html">Installation <span>Coming soon</span>
-</a>
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara Code</p>
@@ -88,42 +87,67 @@
 <summary>On this page</summary>
 <nav aria-label="Page sections">
 <a href="#before-you-start">Before you start</a>
-<a href="#connect">1. Add the MCP connection</a>
-<a href="#delegate">2. Start a workflow</a>
-<a href="#inspect">3. Read and decide on the plan</a>
-<a href="#continue">4. Request reviews, then draft PRs</a>
+<a href="#sign-in">1. Sign in</a>
+<a href="#connect">2. Add the MCP connection</a>
+<a href="#direct-tasks">3. Start a task</a>
+<a href="#delegate">Native workflow preview: start with a plan</a>
+<a href="#inspect">Preview: read and decide on the plan</a>
+<a href="#continue">Preview: request reviews, then draft PRs</a>
 <a href="#share">Sharing into Slack</a>
-<a href="#direct-tasks">Existing direct tasks</a>
 </nav>
 </details>
 <article class="docs-article">
 <section id="before-you-start">
 <h2>Before you start<a class="doc-heading-link" href="#before-you-start" aria-label="Link to section Before you start">#</a>
 </h2>
-<p>You need a deployed environment, project access and the installed <code>agentx</code> CLI. Public installation instructions are coming soon. These commands connect an existing environment; they do not deploy it.</p>
-<p>The product is called Rovara Code. Existing CLI commands use <code>agentx</code>, and MCP tool names use the <code>agentx_</code> prefix.</p>
+<p>You need Node 22.19 or newer (Node 22 LTS recommended), access to a deployed Rovara project, and your installation’s control-plane URL from your admin. Developers do not need AWS credentials. <a href="../install/index.html">Install an environment first →</a>
+</p>
+<p>The package is <code>@preplabsai/rovara-code</code>. The MCP server remains <code>agentx</code>, and tools retain the <code>agentx_</code> prefix.</p>
+</section>
+<section id="sign-in">
+<h2>1. Sign in<a class="doc-heading-link" href="#sign-in" aria-label="Link to section 1. Sign in">#</a>
+</h2>
+<pre>
+<code>npx @preplabsai/rovara-code login &lt;your-control-plane-url&gt;</code>
+</pre>
+<p>Sign in through the browser with Slack or your company’s configured sign-in. The CLI shows your identity and available projects. Use the URL your administrator gives you; it is your team’s deployment, not a Rovara-hosted service.</p>
 </section>
 <section id="connect">
-<h2>1. Add the MCP connection<a class="doc-heading-link" href="#connect" aria-label="Link to section 1. Add the MCP connection">#</a>
+<h2>2. Add the MCP connection<a class="doc-heading-link" href="#connect" aria-label="Link to section 2. Add the MCP connection">#</a>
 </h2>
-<p>Run the command for the client you use.</p>
+<p>Run the command for your client, as yourself (without <code>sudo</code>):</p>
 <h3>Claude Code</h3>
 <pre>
-<code>agentx mcp install --client claude-code</code>
+<code>claude mcp add --scope user agentx -- npx -y @preplabsai/rovara-code mcp</code>
 </pre>
+<p>Or use <code>npx @preplabsai/rovara-code mcp install --client claude-code</code>.</p>
 <h3>Codex</h3>
 <pre>
-<code>agentx mcp install --client codex</code>
+<code>npx @preplabsai/rovara-code mcp install --client codex</code>
 </pre>
 <h3>Cursor</h3>
 <pre>
-<code>agentx mcp install --client cursor</code>
+<code>npx @preplabsai/rovara-code mcp install --client cursor</code>
 </pre>
-<p>Reopen your client if the server does not appear. Complete sign-in when prompted.</p>
+<p>Reopen your client if needed. <code>mcp install</code> pins the CLI version in the client entry; rerun it to update. Add <code>--env &lt;name&gt;</code> before <code>mcp install</code> if your administrator supplied an environment name.</p>
+<p>
+<a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/mcp-install.md">Manual configuration and removal instructions →</a>
+</p>
+</section>
+<section id="direct-tasks">
+<h2>3. Start a task<a class="doc-heading-link" href="#direct-tasks" aria-label="Link to section 3. Start a task">#</a>
+</h2>
+<p>After connecting, ask your client to list your Rovara projects and start a task in the chosen project, for example “Hand Rovara the navigation fix in &lt;project-name&gt; and run the relevant tests.” The released direct-task path uses <code>agentx_start_task</code>; it does not automatically gain Quick/Full approvals.</p>
+<p>The workflow tutorial above needs native workflow tools in your deployment. <a href="https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/mcp-install.md">Published coding-tool guide →</a>
+</p>
 </section>
 <section id="delegate">
-<h2>2. Start a workflow<a class="doc-heading-link" href="#delegate" aria-label="Link to section 2. Start a workflow">#</a>
+<h2>Native workflow preview: start with a plan<a class="doc-heading-link" href="#delegate" aria-label="Link to section Native workflow preview: start with a plan">#</a>
 </h2>
+<div class="doc-callout">
+<strong>Requires native workflow tools</strong>
+<p>v0.2.0 exposes the 11 direct-task tools. The workflow steps below describe a separate preview and require a compatible deployment.</p>
+</div>
 <p>Ask your client to find your projects and call the native workflow tool for the chosen project. Quick is the default.</p>
 <pre>
 <code>List my Rovara Code projects.
@@ -135,7 +159,7 @@ Show me the plan before implementing.</code>
 <p>The client uses <code>agentx_start_workflow</code>. Include the remote task’s needed context; it does not receive your entire local conversation.</p>
 </section>
 <section id="inspect">
-<h2>3. Read and decide on the plan<a class="doc-heading-link" href="#inspect" aria-label="Link to section 3. Read and decide on the plan">#</a>
+<h2>Preview: read and decide on the plan<a class="doc-heading-link" href="#inspect" aria-label="Link to section Preview: read and decide on the plan">#</a>
 </h2>
 <p>Inspect the task’s current approval document, workflow revision and next action. Ask the client to show the whole document before you decide.</p>
 <p>Your explicit decision calls <code>agentx_decide_workflow</code> with the current revision and artifact digest. An assistant should not approve a plan on your behalf without your instruction.</p>
@@ -144,7 +168,7 @@ Show me the plan before implementing.</code>
 </pre>
 </section>
 <section id="continue">
-<h2>4. Request reviews, then draft PRs<a class="doc-heading-link" href="#continue" aria-label="Link to section 4. Request reviews, then draft PRs">#</a>
+<h2>Preview: request reviews, then draft PRs<a class="doc-heading-link" href="#continue" aria-label="Link to section Preview: request reviews, then draft PRs">#</a>
 </h2>
 <p>Follow the same task ID and inspect the diff and check output. A wait can time out while work continues; get current task state before retrying.</p>
 <p>When the native task is <code>REVIEW / WAITING</code> with passing checks for the current candidate, ask your client to call <code>agentx_review_workflow_candidate</code> with that task ID and review instructions. This explicitly starts the initial read-only code and security reviews.</p>
@@ -158,15 +182,9 @@ Show me the plan before implementing.</code>
 <p>When finished, close the task to release its workspace. <a href="../operations/index.html">Workspace actions →</a>
 </p>
 </section>
-<section id="direct-tasks">
-<h2>Existing direct tasks<a class="doc-heading-link" href="#direct-tasks" aria-label="Link to section Existing direct tasks">#</a>
-</h2>
-<p>
-<code>agentx_start_task</code> still starts the existing direct-task path. It does not automatically gain Quick/Full approvals. Use <code>agentx_start_workflow</code> when you want the native planning, review and PR coordination flow.</p>
-</section>
 </article>
 <div class="docs-maintenance">
-<span>Reviewed 5 October 2026</span>
+<span>Installation updated 6 October 2026</span>
 <a href="../release/index.html#documentation">How these docs are maintained</a>
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
@@ -178,6 +196,7 @@ Show me the plan before implementing.</code>
 </nav>
 <footer class="docs-footer">
 <span>Rovara Code · Coding agents in your AWS account.</span>
+<a href="https://github.com/PrepLabsAI/Rovara">Product source</a>
 <a href="../release/index.html#license">Licence</a>
 </footer>
 </main>
@@ -185,12 +204,13 @@ Show me the plan before implementing.</code>
 <nav aria-label="On this page">
 <p>On this page</p>
 <a href="#before-you-start">Before you start</a>
-<a href="#connect">1. Add the MCP connection</a>
-<a href="#delegate">2. Start a workflow</a>
-<a href="#inspect">3. Read and decide on the plan</a>
-<a href="#continue">4. Request reviews, then draft PRs</a>
+<a href="#sign-in">1. Sign in</a>
+<a href="#connect">2. Add the MCP connection</a>
+<a href="#direct-tasks">3. Start a task</a>
+<a href="#delegate">Native workflow preview: start with a plan</a>
+<a href="#inspect">Preview: read and decide on the plan</a>
+<a href="#continue">Preview: request reviews, then draft PRs</a>
 <a href="#share">Sharing into Slack</a>
-<a href="#direct-tasks">Existing direct tasks</a>
 </nav>
 </aside>
 </div>

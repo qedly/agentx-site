@@ -2,7 +2,7 @@
 
 ## Owner-approved direction
 
-Standalone website; public self-hosted install is the eventual primary destination. Rovara is the chosen public display brand; AgentX remains the source project and CLI identity. Do not rename configuration, evidence IDs or commands as part of website branding.
+Standalone website; public self-hosted install is the primary destination. Rovara is the chosen public display brand; The product repository is PrepLabsAI/Rovara; existing internal identifiers and the agentx compatibility CLI remain. Do not rename configuration, evidence IDs or commands as part of website branding.
 
 Hero: **Give it a task. Get the work back.**
 
@@ -23,15 +23,15 @@ Developers need a concrete task workflow: delegate, inspect, follow up in the sa
 3. Persistent workspace for follow-up.
 4. Bounded task examples and familiar connections.
 5. Ownership and operating model.
-6. Documentation and a clearly labelled installation placeholder.
+6. Installation through Launch in AWS or the published npm CLI, with documentation for the first task and operations.
 
 Verification strengthens the complete coding workflow. It is not presented as the whole product or as proof of correctness. Missing checks, stopped runs, unrerun commands and failing checks must remain visible in the detailed explanation.
 
 ## Current boundaries
 
-The current AgentX source is private, no public package/release exists, and the source uses FSL-1.1-ALv2. Installation is explicitly deferred to a simple coming-soon page. The useful current destination is the task walkthrough and documentation, with installation status visible. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
+The Rovara repository is public, @preplabsai/rovara-code is published, and GitHub releases v0.1.0 and v0.2.0 exist. Installation is documented from the current README. The source still uses FSL-1.1-ALv2; retain its source-available qualification. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
 
-Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Source references are drift guards; public source references are not independently accessible until the product is published.
+Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Source references are drift guards; the repository is now publicly accessible. Refreshed installation references live separately in site/data/installation.json.
 
 ## Launch transition
 

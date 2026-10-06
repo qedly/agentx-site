@@ -14,7 +14,7 @@
       {
         "id": "start",
         "title": "Start with one useful task",
-        "html": "<div class=\"doc-start-grid\"><a class=\"doc-start\" href=\"tasks/index.html\"><img src=\"../assets/icons/slack-icon.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Your first Quick task</strong><span>One plan approval. A concrete change. Evidence and a draft PR.</span><span class=\"doc-start-action\">Follow the tutorial →</span></a><a class=\"doc-start\" href=\"coding-tools/index.html\"><img src=\"../assets/icons/terminal.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Use your coding tool</strong><span>Delegate from Claude Code, Codex or Cursor through MCP.</span><span class=\"doc-start-action\">Connect your tool →</span></a></div><div class=\"doc-callout\"><strong>Installation coming soon</strong><p>These preview guides assume your team has a compatible deployed environment. <a href=\"../deployment/index.html\">Installation status →</a></p></div>"
+        "html": "<div class=\"doc-start-grid\"><a class=\"doc-start\" href=\"tasks/index.html\"><img src=\"../assets/icons/slack-icon.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Your first Quick task</strong><span>One plan approval. A concrete change. Evidence and a draft PR.</span><span class=\"doc-start-action\">Follow the tutorial →</span></a><a class=\"doc-start\" href=\"coding-tools/index.html\"><img src=\"../assets/icons/terminal.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Use your coding tool</strong><span>Delegate from Claude Code, Codex or Cursor through MCP.</span><span class=\"doc-start-action\">Connect your tool →</span></a></div><div class=\"doc-callout\"><strong>New to Rovara?</strong><p>Deploy in your AWS account, connect GitHub and Slack, then give it a task. <a href=\"install/index.html\">Install Rovara →</a></p></div>"
       },
       {
         "id": "learn",
@@ -30,6 +30,55 @@
         "id": "examples",
         "title": "Inspect recorded evidence",
         "html": "<p>The historical benchmark report includes the saved Django patch and grader output, plus all 50 outcomes in a selected Pro batch. These records are separate from the illustrative new workflow.</p><a href=\"benchmarks/index.html\">Read the benchmark evidence →</a>"
+      }
+    ]
+  },
+  {
+    "slug": "install",
+    "title": "Install Rovara",
+    "group": "Start here",
+    "kind": "Quickstart",
+    "lead": "Deploy in your AWS account with Launch in AWS, or start the guided installer from a terminal.",
+    "sections": [
+      {
+        "id": "choose",
+        "title": "Choose your installation path",
+        "html": "<p><strong>Launch in AWS</strong> is the recommended path in the <a href=\"https://github.com/PrepLabsAI/Rovara#quickstart\">Rovara README</a>. It opens a setup page and needs nothing installed on your computer. The <a href=\"#terminal\">terminal path</a> uses the published npm CLI.</p><p>Both paths set up GitHub, Slack and your first project. AWS and model usage are billed to you.</p><div class=\"doc-callout\"><strong>Region: us-east-1</strong><p>The current installation guide supports US East (N. Virginia). The buttons and explicit-region examples here use that region.</p></div>"
+      },
+      {
+        "id": "prerequisites",
+        "title": "Before you start",
+        "html": "<ul><li>An AWS account, ideally dedicated to Rovara, and permission to create IAM roles for installation.</li><li>A GitHub organization or personal account to own the GitHub App.</li><li>A Slack workspace where you can create and install apps. Your workspace may require admin approval.</li><li>Model access: Amazon Bedrock, or an OpenRouter, Anthropic or OpenAI API key.</li><li>An email address for setup and alerts.</li><li>Terminal path only: Node.js 22.19 or newer; Node 22 LTS is recommended, with an authenticated AWS admin profile.</li></ul><p>The installer checks regional capacity, including EC2 vCPUs and two free Elastic IPs. <a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#before-you-start\">Full prerequisite and quota details →</a></p>"
+      },
+      {
+        "id": "aws",
+        "title": "1. Launch in AWS",
+        "html": "<p><a class=\"button primary\" href=\"https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https%3A%2F%2Frovara-installer-us-east-1.s3.us-east-1.amazonaws.com%2Flatest%2Finstaller.template.json&amp;stackName=agentx-installer\">Launch in AWS ↗</a></p><ol><li>On the AWS Create stack page, enter your email, GitHub owner and install name. Review the IAM acknowledgement and create the installer stack.</li><li>Look for the temporary-password email (the README estimates about five minutes). The installer stack’s <code>SetupPageUrl</code> output has the same setup-page address.</li><li>Sign in, choose a new password and follow the build progress. The installation guide estimates about 20 minutes for the AWS build.</li><li>Connect the GitHub App and Slack app on the page, then choose your first repository and Slack channel.</li><li>Confirm alerts and mention the bot. The setup ends at its first Slack reply.</li></ol><p>After Rovara answers in Slack, you can delete only the <code>agentx-installer</code> stack to remove the installer; Rovara’s environment keeps running. Removing the environment itself is a separate action.</p><p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#install-with-the-launch-in-aws-button-recommended\">Detailed AWS setup instructions →</a></p>"
+      },
+      {
+        "id": "terminal",
+        "title": "2. Install from a terminal",
+        "html": "<p>Check <code>node --version</code>, then use an AWS admin profile authenticated for the target account. Replace both placeholders:</p><pre><code>export AWS_PROFILE=&lt;an admin profile for the target account&gt;\nnpx @preplabsai/rovara-code init --env &lt;name&gt;</code></pre><p>This is the command from the README. For an explicit region:</p><pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; init --region us-east-1</code></pre><p>Use a lower-case install name with letters, digits and hyphens, such as <code>prod</code> or <code>staging</code>. Keep the terminal open and your computer awake until setup finishes.</p><p>On your own computer, the installer opens a browser page served only from <code>127.0.0.1</code>. It shows your choices, the resource plan and estimated cost before creating the environment, then guides GitHub, Slack and project setup.</p><p>To stay in the terminal:</p><pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; init --region us-east-1 --no-ui</code></pre><p>CloudShell and SSH normally use the terminal. CloudShell needs Node 22 first; use the checksum-verified setup instructions in <a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#node-22-in-aws-cloudshell\">Node 22 in AWS CloudShell</a>. <a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install-advanced.md\">Other installation paths →</a></p>"
+      },
+      {
+        "id": "first-task",
+        "title": "3. Give it a first task",
+        "html": "<p>In the channel bound during setup, select the installed bot through Slack’s mention picker. Its default name still uses <code>AgentX</code>.</p><pre><code>@AgentX inspect the project and implement the navigation fix. Run the relevant tests.\n@AgentX create a pull request for the personal-website repository titled &quot;Improve navigation&quot;.</code></pre><p>These are the README examples; replace the task and repository with your project. Inspect the changes and evidence before asking for a PR. Your team decides what gets merged.</p><p>Prefer an IDE? <a href=\"../coding-tools/index.html\">Connect Claude Code, Codex or Cursor →</a></p><p>Quick/Full planning and feedback walkthroughs elsewhere in these docs describe the native workflow preview. They require a compatible deployment and are not promised by this installation guide.</p>"
+      },
+      {
+        "id": "resume",
+        "title": "Resume or diagnose setup",
+        "html": "<p>If setup stops, run the same <code>init</code> command again. The installer resumes at the first unfinished step. If Slack needs an admin to approve the app, wait for approval and rerun it.</p><p>After installation, use operator access to check the environment:</p><pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; doctor --region us-east-1</code></pre><p>Read the failures and next actions before changing anything. <a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/install.md#the-install-page\">Browser, SSH and recovery details →</a></p>"
+      },
+      {
+        "id": "day-two",
+        "title": "Upgrade or remove an environment",
+        "html": "<p>Use the target release’s CLI version for an upgrade; review the changes before accepting:</p><pre><code>npx @preplabsai/rovara-code@&lt;version&gt; --env &lt;name&gt; upgrade --region us-east-1</code></pre><p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/day-two.md\">Operations, projects, connectors and upgrades →</a></p><p>Removal deletes the environment’s workspaces, stacks and stored data. It needs admin credentials and explicit environment confirmation. Save anything you need first and read <a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/teardown.md\">the full teardown guide</a>:</p><pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; destroy --region us-east-1</code></pre>"
+      },
+      {
+        "id": "names",
+        "title": "Rovara name, compatible commands",
+        "html": "<p>The product repository is <a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a>. The published package is <code>@preplabsai/rovara-code</code>. You can install the CLI once:</p><pre><code>npm install -g @preplabsai/rovara-code\nrovara --help</code></pre><p>The package also provides <code>agentx</code> as a compatibility command. AWS resources, <code>~/.agentx</code>, MCP server/tool IDs and the default Slack app retain their existing names. Use the examples as written.</p><p>Instructions checked against the README and linked guides on 6 October 2026. <a href=\"../release/index.html\">Release, licence and documentation status →</a></p>"
       }
     ]
   },
@@ -87,7 +136,7 @@
       {
         "id": "before-you-start",
         "title": "Before you start",
-        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><div class=\"doc-callout\"><strong>Quick is the simplest planning path</strong><p>Use it for a well-defined fix. For ambiguous or larger work, <a href=\"../planning/index.html\">choose Full</a>. Ordinary direct tasks remain a separate path.</p></div>"
+        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. <a href=\"../install/index.html\">Install Rovara</a> before following this preview workflow.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><div class=\"doc-callout\"><strong>Quick is the simplest planning path</strong><p>Use it for a well-defined fix. For ambiguous or larger work, <a href=\"../planning/index.html\">choose Full</a>. Ordinary direct tasks remain a separate path.</p></div>"
       },
       {
         "id": "request",
@@ -136,7 +185,7 @@
       {
         "id": "before-you-start",
         "title": "Before you start",
-        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. The public self-hosted installation guide is coming soon.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><p>Choose Full when behavior, interfaces or implementation choices need discussion. Full changes planning depth; it does not relax project-required checks or review requirements.</p>"
+        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. <a href=\"../install/index.html\">Install Rovara</a> before following this preview workflow.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><p>Choose Full when behavior, interfaces or implementation choices need discussion. Full changes planning depth; it does not relax project-required checks or review requirements.</p>"
       },
       {
         "id": "request",
@@ -180,37 +229,42 @@
       {
         "id": "before-you-start",
         "title": "Before you start",
-        "html": "<p>You need a deployed environment, project access and the installed <code>agentx</code> CLI. Public installation instructions are coming soon. These commands connect an existing environment; they do not deploy it.</p><p>The product is called Rovara Code. Existing CLI commands use <code>agentx</code>, and MCP tool names use the <code>agentx_</code> prefix.</p>"
+        "html": "<p>You need Node 22.19 or newer (Node 22 LTS recommended), access to a deployed Rovara project, and your installation’s control-plane URL from your admin. Developers do not need AWS credentials. <a href=\"../install/index.html\">Install an environment first →</a></p><p>The package is <code>@preplabsai/rovara-code</code>. The MCP server remains <code>agentx</code>, and tools retain the <code>agentx_</code> prefix.</p>"
+      },
+      {
+        "id": "sign-in",
+        "title": "1. Sign in",
+        "html": "<pre><code>npx @preplabsai/rovara-code login &lt;your-control-plane-url&gt;</code></pre><p>Sign in through the browser with Slack or your company’s configured sign-in. The CLI shows your identity and available projects. Use the URL your administrator gives you; it is your team’s deployment, not a Rovara-hosted service.</p>"
       },
       {
         "id": "connect",
-        "title": "1. Add the MCP connection",
-        "html": "<p>Run the command for the client you use.</p><h3>Claude Code</h3><pre><code>agentx mcp install --client claude-code</code></pre><h3>Codex</h3><pre><code>agentx mcp install --client codex</code></pre><h3>Cursor</h3><pre><code>agentx mcp install --client cursor</code></pre><p>Reopen your client if the server does not appear. Complete sign-in when prompted.</p>"
+        "title": "2. Add the MCP connection",
+        "html": "<p>Run the command for your client, as yourself (without <code>sudo</code>):</p><h3>Claude Code</h3><pre><code>claude mcp add --scope user agentx -- npx -y @preplabsai/rovara-code mcp</code></pre><p>Or use <code>npx @preplabsai/rovara-code mcp install --client claude-code</code>.</p><h3>Codex</h3><pre><code>npx @preplabsai/rovara-code mcp install --client codex</code></pre><h3>Cursor</h3><pre><code>npx @preplabsai/rovara-code mcp install --client cursor</code></pre><p>Reopen your client if needed. <code>mcp install</code> pins the CLI version in the client entry; rerun it to update. Add <code>--env &lt;name&gt;</code> before <code>mcp install</code> if your administrator supplied an environment name.</p><p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/mcp-install.md\">Manual configuration and removal instructions →</a></p>"
+      },
+      {
+        "id": "direct-tasks",
+        "title": "3. Start a task",
+        "html": "<p>After connecting, ask your client to list your Rovara projects and start a task in the chosen project, for example “Hand Rovara the navigation fix in &lt;project-name&gt; and run the relevant tests.” The released direct-task path uses <code>agentx_start_task</code>; it does not automatically gain Quick/Full approvals.</p><p>The workflow tutorial above needs native workflow tools in your deployment. <a href=\"https://github.com/PrepLabsAI/Rovara/blob/mainline/docs/mcp-install.md\">Published coding-tool guide →</a></p>"
       },
       {
         "id": "delegate",
-        "title": "2. Start a workflow",
-        "html": "<p>Ask your client to find your projects and call the native workflow tool for the chosen project. Quick is the default.</p><pre><code>List my Rovara Code projects.\nStart a Quick workflow in &lt;project-name&gt; to improve the docs Copy button.\nReset its label after copying, announce success accessibly,\nand preserve manual copy on clipboard failure.\nShow me the plan before implementing.</code></pre><p>The client uses <code>agentx_start_workflow</code>. Include the remote task’s needed context; it does not receive your entire local conversation.</p>"
+        "title": "Native workflow preview: start with a plan",
+        "html": "<div class=\"doc-callout\"><strong>Requires native workflow tools</strong><p>v0.2.0 exposes the 11 direct-task tools. The workflow steps below describe a separate preview and require a compatible deployment.</p></div><p>Ask your client to find your projects and call the native workflow tool for the chosen project. Quick is the default.</p><pre><code>List my Rovara Code projects.\nStart a Quick workflow in &lt;project-name&gt; to improve the docs Copy button.\nReset its label after copying, announce success accessibly,\nand preserve manual copy on clipboard failure.\nShow me the plan before implementing.</code></pre><p>The client uses <code>agentx_start_workflow</code>. Include the remote task’s needed context; it does not receive your entire local conversation.</p>"
       },
       {
         "id": "inspect",
-        "title": "3. Read and decide on the plan",
+        "title": "Preview: read and decide on the plan",
         "html": "<p>Inspect the task’s current approval document, workflow revision and next action. Ask the client to show the whole document before you decide.</p><p>Your explicit decision calls <code>agentx_decide_workflow</code> with the current revision and artifact digest. An assistant should not approve a plan on your behalf without your instruction.</p><pre><code>Show the current plan for task &lt;task-id&gt;, including checks and scope.</code></pre>"
       },
       {
         "id": "continue",
-        "title": "4. Request reviews, then draft PRs",
+        "title": "Preview: request reviews, then draft PRs",
         "html": "<p>Follow the same task ID and inspect the diff and check output. A wait can time out while work continues; get current task state before retrying.</p><p>When the native task is <code>REVIEW / WAITING</code> with passing checks for the current candidate, ask your client to call <code>agentx_review_workflow_candidate</code> with that task ID and review instructions. This explicitly starts the initial read-only code and security reviews.</p><p>Inspect the reports. When the workflow is ready, explicitly request draft PR creation. Use the owner feedback-review controls for subsequent PR comments so the selected changes and fresh evidence stay connected.</p><a href=\"../feedback/index.html\">PR feedback guide →</a>"
       },
       {
         "id": "share",
         "title": "Sharing into Slack",
         "html": "<p>Tasks are private by default unless the project requires sharing. <strong>View</strong> mode lets channel members watch. <strong>Continue</strong> mode, when allowed, lets them send follow-ups in the thread. Check the channel and mode before sharing.</p><p>When finished, close the task to release its workspace. <a href=\"../operations/index.html\">Workspace actions →</a></p>"
-      },
-      {
-        "id": "direct-tasks",
-        "title": "Existing direct tasks",
-        "html": "<p><code>agentx_start_task</code> still starts the existing direct-task path. It does not automatically gain Quick/Full approvals. Use <code>agentx_start_workflow</code> when you want the native planning, review and PR coordination flow.</p>"
       }
     ]
   },
@@ -381,7 +435,7 @@
       {
         "id": "health",
         "title": "Check environment health",
-        "html": "<p>With an installed CLI and operator access, use:</p><pre><code>agentx --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre><p>Read the reported failures before making changes. Public upgrade, recovery and teardown instructions will arrive with the installation guide.</p><p><a href=\"../troubleshooting/index.html\">Troubleshoot a problem →</a></p>"
+        "html": "<p>With an installed CLI and operator access, use:</p><pre><code>npx @preplabsai/rovara-code --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre><p>Read the reported failures before making changes. <a href=\"../install/index.html#day-two\">Upgrade and teardown instructions →</a></p><p><a href=\"../troubleshooting/index.html\">Troubleshoot a problem →</a></p>"
       },
       {
         "id": "closeout",
@@ -472,13 +526,13 @@
       },
       {
         "id": "tools",
-        "title": "Developer tools",
+        "title": "Released developer tools (v0.2.0)",
         "html": "<div class=\"doc-table-wrap\"><table><thead><tr><th>Tool</th><th>Use</th></tr></thead><tbody><tr><td><code>agentx_whoami</code></td><td><strong>Check your environment and sign-in</strong><br>Returns developer identity, environment and API versions.</td></tr><tr><td><code>agentx_list_projects</code></td><td><strong>Find projects you can use</strong><br>Returns authorized projects and their task/sharing policies.</td></tr><tr><td><code>agentx_start_task</code></td><td><strong>Delegate a task</strong><br>Give the exact project name and complete instructions. Returns a task ID; wait_seconds is optional.</td></tr><tr><td><code>agentx_get_task</code></td><td><strong>Inspect status and results</strong><br>Returns progress, changed files, artifacts and PR links when available.</td></tr><tr><td><code>agentx_wait_for_task</code></td><td><strong>Wait for work to end</strong><br>Waits 1–600 seconds. A timeout does not stop the task.</td></tr><tr><td><code>agentx_list_tasks</code></td><td><strong>Find your existing tasks</strong><br>Lists tasks; use the returned IDs to inspect or continue them.</td></tr><tr><td><code>agentx_continue_task</code></td><td><strong>Send a follow-up</strong><br>Requires the task ID and complete new instructions. Reuses the workspace and branch after the current run ends.</td></tr><tr><td><code>agentx_cancel_task</code></td><td><strong>Stop current work</strong><br>Cancels the task; cancelling a wait alone does not do this.</td></tr><tr><td><code>agentx_close_task</code></td><td><strong>Release the workspace</strong><br>Checks for unpublished work; inspect the result if closure refuses.</td></tr><tr><td><code>agentx_share_task</code></td><td><strong>Share into the project’s Slack channel</strong><br>View lets others watch; continue permits follow-ups when project policy allows.</td></tr><tr><td><code>agentx_open_pull_request</code></td><td><strong>Request a PR</strong><br>Requires task ID and title. Draft defaults to true; inspect the task later for the PR URL.</td></tr></tbody></table></div>"
       },
       {
         "id": "workflow-tools",
-        "title": "Native workflow tools",
-        "html": "<div class=\"doc-table-wrap\"><table><thead><tr><th>Tool</th><th>Use</th></tr></thead><tbody><tr><td><code>agentx_start_workflow</code></td><td>Start Quick or Full with project and complete instructions. workflow_path defaults to quick. Returns the task and workflow state.</td></tr><tr><td><code>agentx_decide_workflow</code></td><td>Decide on the current document using task_id, expected_revision, artifact_digest, decision, reason and a retry-safe request_id.</td></tr><tr><td><code>agentx_review_workflow_candidate</code></td><td>Start the initial candidate review only in REVIEW / WAITING, with all required verification checks passing for the current candidate. Supply task_id and instructions; this is not a general re-review or feedback tool.</td></tr><tr><td><code>agentx_retry_workflow</code></td><td>Restart read-only planning only in PLAN / BLOCKED with an actionable workspace. Supply task_id and instructions; this does not retry arbitrary check, review, webhook or closeout operations.</td></tr></tbody></table></div><p>Use the tools your deployed server advertises. This reference covers the inspected native-workflow tool additions; an older server may only expose the direct-task tools.</p>"
+        "title": "Native workflow tools (preview)",
+        "html": "<p>These four tools were inspected in a separate native-workflow implementation. They are not in the v0.2.0 developer tool list. Use them only with a deployment that provides them.</p><div class=\"doc-table-wrap\"><table><thead><tr><th>Tool</th><th>Use</th></tr></thead><tbody><tr><td><code>agentx_start_workflow</code></td><td>Start Quick or Full with project and complete instructions. workflow_path defaults to quick. Returns the task and workflow state.</td></tr><tr><td><code>agentx_decide_workflow</code></td><td>Decide on the current document using task_id, expected_revision, artifact_digest, decision, reason and a retry-safe request_id.</td></tr><tr><td><code>agentx_review_workflow_candidate</code></td><td>Start the initial candidate review only in REVIEW / WAITING, with all required verification checks passing for the current candidate. Supply task_id and instructions; this is not a general re-review or feedback tool.</td></tr><tr><td><code>agentx_retry_workflow</code></td><td>Restart read-only planning only in PLAN / BLOCKED with an actionable workspace. Supply task_id and instructions; this does not retry arbitrary check, review, webhook or closeout operations.</td></tr></tbody></table></div><p>Use the tools your deployed server advertises. This reference covers the inspected native-workflow tool additions; an older server may only expose the direct-task tools.</p>"
       },
       {
         "id": "decisions",
@@ -571,7 +625,7 @@
       {
         "id": "operator",
         "title": "The environment itself is unhealthy",
-        "html": "<p>An operator with access can run:</p><pre><code>agentx --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre><p>When asking for help, include the CLI version, task ID, exact error and relevant redacted output. Keep credentials out of reports.</p>"
+        "html": "<p>An operator with access can run:</p><pre><code>npx @preplabsai/rovara-code --env &lt;env&gt; doctor --region &lt;region&gt;</code></pre><p>When asking for help, include the CLI version, task ID, exact error and relevant redacted output. Keep credentials out of reports.</p>"
       },
       {
         "id": "plan-stale",
@@ -604,13 +658,13 @@
     "sections": [
       {
         "id": "availability",
-        "title": "Public installation is coming soon",
-        "html": "<p>The public self-hosted installation guide is not available yet. These docs explain the currently inspected code and show how to work with an environment your team has already deployed.</p><p><a href=\"../../deployment/index.html\">Installation status →</a></p>"
+        "title": "Public source and published installer",
+        "html": "<p><a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a> is public. The npm package <a href=\"https://www.npmjs.com/package/@preplabsai/rovara-code\">@preplabsai/rovara-code</a> and <a href=\"https://github.com/PrepLabsAI/Rovara/releases/tag/v0.2.0\">v0.2.0 GitHub release</a> were available when checked on 6 October 2026.</p><p><a href=\"../install/index.html\">Install using Launch in AWS or the terminal →</a></p><p>Publication is separate from a fresh installation acceptance run. This website update checked release availability and documentation, and did not deploy a new AWS environment.</p>"
       },
       {
         "id": "names",
         "title": "Product name and existing commands",
-        "html": "<p><strong>Rovara Code</strong> is the product name. Existing installations still use the <code>agentx</code> CLI and <code>agentx_</code> MCP tool names. Use the commands shown in these docs, and select your installed app through Slack’s mention picker.</p>"
+        "html": "<p>The public product repository is <a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a>; this website uses the approved display name <strong>Rovara Code</strong>. Package <code>@preplabsai/rovara-code</code> installs both <code>rovara</code> and the compatible <code>agentx</code> command. Configuration paths, AWS resources and MCP identifiers keep their existing identities.</p>"
       },
       {
         "id": "license",
@@ -620,12 +674,12 @@
       {
         "id": "requirements",
         "title": "Runtime requirements",
-        "html": "<p>The current Rovara Code package declares Node <strong>22.19.0</strong> or newer, <strong>below 23</strong>. Setup also depends on AWS, GitHub, Slack or a coding-tool connection, and configured model access. Installation instructions will specify the release-matched prerequisites.</p>"
+        "html": "<p>The published CLI declares Node <strong>22.19.0</strong> or newer; Node 22 LTS is recommended. Launch in AWS does not need Node on your computer. The current install region is <code>us-east-1</code>.</p><p><a href=\"../install/index.html#prerequisites\">AWS, GitHub, Slack and model prerequisites →</a></p>"
       },
       {
         "id": "documentation",
         "title": "How these docs are maintained",
-        "html": "<p>The existing direct-task, CLI and project references were inspected at mainline <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow tools, candidate reviews and linked-PR feedback collection were inspected in committed local implementation at <code>3455a367005972659875667b82d7b5d28a2da727</code>. The product pull request is still a draft; this is not a released version.</p><p>The expanded workflow guides are preview documentation for the selected product direction. The feedback browser surface, dependency guide and closeout explanation include the owner-approved workflow design; their availability must be matched to the installed release before public installation instructions are published.</p><p>The <a href=\"../../data/workflow-preview.json\">workflow preview record</a> identifies these sources. Historical benchmark records retain their own dates, candidates and evidence. A website build does not prove a live installation.</p>"
+        "html": "<p>Installation and coding-tool commands were reconciled with <a href=\"https://github.com/PrepLabsAI/Rovara/blob/a03326359542ff3934838566d464cd188624c15e/README.md\">README revision <code>a03326359542ff3934838566d464cd188624c15e</code></a> and its installation, MCP and operations guides on 6 October 2026. <a href=\"../../data/installation.json\">Installation source record →</a></p><p>Existing architecture and direct-task references retain their historical mainline pin <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow guides retain local implementation pin <code>3455a367005972659875667b82d7b5d28a2da727</code> and remain preview documentation. Publishing the CLI does not establish that those preview capabilities are included in v0.2.0.</p><p>The <a href=\"../../data/workflow-preview.json\">workflow preview record</a> identifies that separate source. Historical benchmarks retain their own dates and candidates. A website build does not prove a live installation.</p>"
       }
     ]
   }

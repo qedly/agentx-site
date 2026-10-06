@@ -32,7 +32,7 @@
 </button>
 <nav aria-label="Main navigation">
 <a href="../../index.html">Product</a>
-<a href="index.html" class="docs-status" title="Public release in preparation">Preview docs</a>
+<a href="index.html" class="docs-status" title="Published installer and native workflow preview">Release &amp; preview status</a>
 </nav>
 </header>
 <div class="docs-layout">
@@ -43,9 +43,8 @@
 <div class="docs-nav-group">
 <p>Start here</p>
 <a href="../index.html" >Rovara Code documentation</a>
+<a href="../install/index.html" >Install Rovara</a>
 <a href="../concepts/index.html" >Core concepts</a>
-<a href="../../deployment/index.html">Installation <span>Coming soon</span>
-</a>
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara Code</p>
@@ -87,7 +86,7 @@
 <details class="docs-mobile-toc">
 <summary>On this page</summary>
 <nav aria-label="Page sections">
-<a href="#availability">Public installation is coming soon</a>
+<a href="#availability">Public source and published installer</a>
 <a href="#names">Product name and existing commands</a>
 <a href="#license">Current licence</a>
 <a href="#requirements">Runtime requirements</a>
@@ -96,18 +95,19 @@
 </details>
 <article class="docs-article">
 <section id="availability">
-<h2>Public installation is coming soon<a class="doc-heading-link" href="#availability" aria-label="Link to section Public installation is coming soon">#</a>
+<h2>Public source and published installer<a class="doc-heading-link" href="#availability" aria-label="Link to section Public source and published installer">#</a>
 </h2>
-<p>The public self-hosted installation guide is not available yet. These docs explain the currently inspected code and show how to work with an environment your team has already deployed.</p>
 <p>
-<a href="../../deployment/index.html">Installation status →</a>
+<a href="https://github.com/PrepLabsAI/Rovara">PrepLabsAI/Rovara</a> is public. The npm package <a href="https://www.npmjs.com/package/@preplabsai/rovara-code">@preplabsai/rovara-code</a> and <a href="https://github.com/PrepLabsAI/Rovara/releases/tag/v0.2.0">v0.2.0 GitHub release</a> were available when checked on 6 October 2026.</p>
+<p>
+<a href="../install/index.html">Install using Launch in AWS or the terminal →</a>
 </p>
+<p>Publication is separate from a fresh installation acceptance run. This website update checked release availability and documentation, and did not deploy a new AWS environment.</p>
 </section>
 <section id="names">
 <h2>Product name and existing commands<a class="doc-heading-link" href="#names" aria-label="Link to section Product name and existing commands">#</a>
 </h2>
-<p>
-<strong>Rovara Code</strong> is the product name. Existing installations still use the <code>agentx</code> CLI and <code>agentx_</code> MCP tool names. Use the commands shown in these docs, and select your installed app through Slack’s mention picker.</p>
+<p>The public product repository is <a href="https://github.com/PrepLabsAI/Rovara">PrepLabsAI/Rovara</a>; this website uses the approved display name <strong>Rovara Code</strong>. Package <code>@preplabsai/rovara-code</code> installs both <code>rovara</code> and the compatible <code>agentx</code> command. Configuration paths, AWS resources and MCP identifiers keep their existing identities.</p>
 </section>
 <section id="license">
 <h2>Current licence<a class="doc-heading-link" href="#license" aria-label="Link to section Current licence">#</a>
@@ -118,18 +118,23 @@
 <section id="requirements">
 <h2>Runtime requirements<a class="doc-heading-link" href="#requirements" aria-label="Link to section Runtime requirements">#</a>
 </h2>
-<p>The current Rovara Code package declares Node <strong>22.19.0</strong> or newer, <strong>below 23</strong>. Setup also depends on AWS, GitHub, Slack or a coding-tool connection, and configured model access. Installation instructions will specify the release-matched prerequisites.</p>
+<p>The published CLI declares Node <strong>22.19.0</strong> or newer; Node 22 LTS is recommended. Launch in AWS does not need Node on your computer. The current install region is <code>us-east-1</code>.</p>
+<p>
+<a href="../install/index.html#prerequisites">AWS, GitHub, Slack and model prerequisites →</a>
+</p>
 </section>
 <section id="documentation">
 <h2>How these docs are maintained<a class="doc-heading-link" href="#documentation" aria-label="Link to section How these docs are maintained">#</a>
 </h2>
-<p>The existing direct-task, CLI and project references were inspected at mainline <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow tools, candidate reviews and linked-PR feedback collection were inspected in committed local implementation at <code>3455a367005972659875667b82d7b5d28a2da727</code>. The product pull request is still a draft; this is not a released version.</p>
-<p>The expanded workflow guides are preview documentation for the selected product direction. The feedback browser surface, dependency guide and closeout explanation include the owner-approved workflow design; their availability must be matched to the installed release before public installation instructions are published.</p>
-<p>The <a href="../../data/workflow-preview.json">workflow preview record</a> identifies these sources. Historical benchmark records retain their own dates, candidates and evidence. A website build does not prove a live installation.</p>
+<p>Installation and coding-tool commands were reconciled with <a href="https://github.com/PrepLabsAI/Rovara/blob/a03326359542ff3934838566d464cd188624c15e/README.md">README revision <code>a03326359542ff3934838566d464cd188624c15e</code>
+</a> and its installation, MCP and operations guides on 6 October 2026. <a href="../../data/installation.json">Installation source record →</a>
+</p>
+<p>Existing architecture and direct-task references retain their historical mainline pin <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow guides retain local implementation pin <code>3455a367005972659875667b82d7b5d28a2da727</code> and remain preview documentation. Publishing the CLI does not establish that those preview capabilities are included in v0.2.0.</p>
+<p>The <a href="../../data/workflow-preview.json">workflow preview record</a> identifies that separate source. Historical benchmarks retain their own dates and candidates. A website build does not prove a live installation.</p>
 </section>
 </article>
 <div class="docs-maintenance">
-<span>Reviewed 5 October 2026</span>
+<span>Installation updated 6 October 2026</span>
 <a href="index.html#documentation">How these docs are maintained</a>
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
@@ -139,13 +144,14 @@
 </nav>
 <footer class="docs-footer">
 <span>Rovara Code · Coding agents in your AWS account.</span>
+<a href="https://github.com/PrepLabsAI/Rovara">Product source</a>
 <a href="index.html#license">Licence</a>
 </footer>
 </main>
 <aside class="docs-toc">
 <nav aria-label="On this page">
 <p>On this page</p>
-<a href="#availability">Public installation is coming soon</a>
+<a href="#availability">Public source and published installer</a>
 <a href="#names">Product name and existing commands</a>
 <a href="#license">Current licence</a>
 <a href="#requirements">Runtime requirements</a>

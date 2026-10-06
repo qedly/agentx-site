@@ -4,7 +4,7 @@ Standalone public website for Rovara Code, the coding workflow product. Static H
 
 ## Local preview
 
-Use Node 20 or newer for the website tooling (the product source build requires Node `>=22.19.0 <23`). No package installation is required.
+Use Node 20 or newer for the website tooling (the published product CLI requires Node 22.19 or newer; Node 22 LTS is recommended). No package installation is required.
 
 ```sh
 npm run dev
@@ -16,10 +16,11 @@ Open `http://127.0.0.1:8766/`. Choose another port with `npm run dev -- --port 8
 
 - `site/index.html`: complete product story, six-stage illustrative native workflow, Quick/Full planning, PR feedback decisions, linked PRs, historical Django evidence and an earlier 20-second workspace video.
 - `site/how-it-works/index.html`: four connected native-workflow diagrams: journey, candidate evidence, workspace/task lifecycle and architecture.
-- `site/deployment/index.html`: a simple installation-coming-soon placeholder, as requested.
-- `site/docs/index.html`: documentation hub with fifteen pages, persistent navigation, local full-text search, copyable examples and page contents.
+- `site/deployment/index.html`: Launch in AWS and terminal installation options.
+- `site/docs/install/index.html`: prerequisites, setup, first Slack task, recovery, upgrades and teardown, reconciled with the public Rovara README.
+- `site/docs/index.html`: documentation hub with sixteen pages, persistent navigation, local full-text search, copyable examples and page contents.
 
-The revised walkthrough shows request → plan approval → coding → check/review evidence → draft PR → feedback decision → refreshed evidence. The installation path remains a placeholder. The native workflow is distinct from existing direct tasks; the expanded guides are release-qualified preview documentation.
+The revised walkthrough shows request → plan approval → coding → check/review evidence → draft PR → feedback decision → refreshed evidence. The installation guide follows the public README and uses the published `@preplabsai/rovara-code` package. The native workflow is distinct from existing direct tasks; the expanded guides are release-qualified preview documentation.
 
 All pages use relative links. Evidence controls open an accessible native dialog; without JavaScript they lead to expandable explanations. Mobile navigation remains available without JavaScript. Reduced motion is respected.
 
@@ -31,7 +32,7 @@ AGENTX_SOURCE=/path/to/current/AgentX AGENTX_WORKFLOW_SOURCE=/path/to/native-wor
 npm run build
 ```
 
-`check` first checks that generated documentation and its search index match their authoring source, then inspects local routes, anchors, assets and required copy. It also checks artifact hashes/test counts and that both homepage regex excerpts match the preserved patch. `check:claims` checks pinned mainline source references against the authorized AgentX clone, verifies that its fetched mainline has not advanced, reconciles the combined mainline and native-workflow MCP names against both pinned sources, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. The native workflow MCP tools have a separate inspected branch pin in site/data/workflow-preview.json. Fresh code review and runtime evidence still qualify product claims.
+`check` first checks that generated documentation and its search index match their authoring source, then inspects local routes, anchors, assets and required copy. It also checks artifact hashes/test counts and that both homepage regex excerpts match the preserved patch. `check:claims` checks pinned mainline source references against the authorized Rovara clone, verifies that its fetched mainline has not advanced, reconciles the combined mainline and native-workflow MCP names against both pinned sources, and recomputes the illustrative cost. It is a drift guard, not proof of runtime behavior. The native workflow MCP tools have a separate inspected branch pin in site/data/workflow-preview.json. Fresh code review and runtime evidence still qualify product claims.
 
 `build` copies the static artifact to `dist/`. GitHub Pages currently uploads `site/` directly; no framework or runtime backend is needed.
 
@@ -43,7 +44,7 @@ Live URL: `https://rovara-dev.github.io/`. `.github/workflows/pages.yml` deploys
 
 `site/data/claims.json` records the reviewed source commit and primary references. Fetch current product mainline, read the affected implementation, then update the pin and copy together. Do not advertise a public installer until the product source, license and release artifacts are actually available.
 
-The current source license is FSL-1.1-ALv2. “Open source,” public install commands, customer results, aggregate benchmark scores, security certification and automatic merge-gate promises are not justified by this website build. Public display branding does not rename CLI commands, authorization or evidence identities.
+The current source license is FSL-1.1-ALv2. The public source, npm CLI and v0.2.0 release are observed in `site/data/installation.json`. Their publication does not establish a fresh live installation, customer results, an official full-benchmark score, security certification or automatic merge enforcement. The FSL licence does not justify an unqualified open-source label. Public display branding does not rename CLI commands, authorization or evidence identities.
 
 Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance: `ASSET-LICENSES.md`. Browser evidence: `design-qa.md`.
 
@@ -51,13 +52,13 @@ Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance
 
 Editable task journey, architecture, verification, and lifecycle sources: `docs/diagrams/`. Their SVG exports ship without a diagram runtime. User-started Motion walkthrough has direct stage selection, pause/replay, keyboard controls, reduced-motion handling, and a static no-JavaScript fallback.
 
-The Copy-button walkthrough is a constructed explanation, not real run evidence. A separate historical Django benchmark now has an inspectable patch, raw harness output, grader report, and allowlisted metadata in `site/assets/evidence/django-11099/`. Hashes and test counts are checked by `npm run check`. This selected task is not a full Slack-to-PR demo, aggregate solve rate, or proof of the current verification loop. The locally rendered 20-second video is embedded with controls, captions and a transcript. Production notes live in `docs/video/`; share media lives in `site/assets/video/`. No public deployment has been performed for this redesign.
+The Copy-button walkthrough is a constructed explanation, not real run evidence. A separate historical Django benchmark now has an inspectable patch, raw harness output, grader report, and allowlisted metadata in `site/assets/evidence/django-11099/`. Hashes and test counts are checked by `npm run check`. This selected task is not a full Slack-to-PR demo, aggregate solve rate, or proof of the current verification loop. The locally rendered 20-second video is embedded with controls, captions and a transcript. Production notes live in `docs/video/`; share media lives in `site/assets/video/`. The approved design is already public; new branch changes publish only after merge.
 
 ## Documentation authoring
 
 Edit `docs/content/pages.json` and run `npm run docs:generate`. The generator writes all documentation pages, the search index and `site/agent-guide.md` from the same content. Do not edit those generated files directly. `npm run check` refuses stale generated output.
 
-The reading order is overview → concepts → first Quick task → Full planning → coding-tool connection → evidence → PR feedback → dependencies/linked PRs → workspaces → configuration → architecture → MCP reference → recorded benchmarks → troubleshooting → release and licence. Tutorials state their prerequisites, user action, expected result and next step. The public installation path remains the owner's requested placeholder.
+The reading order is overview → concepts → first Quick task → Full planning → coding-tool connection → evidence → PR feedback → dependencies/linked PRs → workspaces → configuration → architecture → MCP reference → recorded benchmarks → troubleshooting → release and licence. Tutorials state their prerequisites, user action, expected result and next step. Installation is now the primary destination, following the owner's instruction on 6 October 2026.
 
 `site/assets/docs.css` and `site/assets/docs.js` provide the docs shell, responsive navigation, native search dialog, keyboard controls and copy buttons. Docs retain native links and disclosures without JavaScript. Search is hidden without JavaScript.
 
@@ -71,4 +72,10 @@ This pass preserves the existing benchmark artifacts and their failures. It adds
 
 ## Review and deployment checks
 
-Pull requests and review branches run the static website checks and build in GitHub Actions. The Pages deployment repeats those checks before uploading the site. Source-code claim reconciliation runs locally against the authorized private product clones; public CI does not need product credentials. The selected 50-task benchmark is checked against all saved grader receipts, outcomes and downloadable artifact hashes.
+Pull requests and review branches run the static website checks and build in GitHub Actions. The Pages deployment repeats those checks before uploading the site. Source-code claim reconciliation runs locally against the authorized product clones; public CI does not need product credentials. The selected 50-task benchmark is checked against all saved grader receipts, outcomes and downloadable artifact hashes.
+
+## Installation source maintenance (6 October 2026)
+
+Product repository: https://github.com/PrepLabsAI/Rovara. `site/data/installation.json` pins the reviewed README/guides, current package, release and AWS launch link separately from historical architecture/workflow evidence. Update the installation authoring page, deployment options, coding-tool commands, release status and generated search/agent guide together. The npm CLI declares Node >=22.19.0; recommend Node 22 LTS. Preserve `agentx` compatibility commands, MCP IDs, configuration paths and historical evidence.
+
+Installation was checked against mainline `a03326359542ff3934838566d464cd188624c15e`; published v0.2.0 has its own source commit in the installation record. This update checked published artifact availability, not a new AWS deployment. Native workflow material remains qualified as preview.
