@@ -2,7 +2,7 @@
   "source": {
     "repository": "PrepLabsAI/Rovara",
     "ref": "origin/mainline",
-    "commit": "8fdbba7d03a5d8d35e6ceedb2f0978a7ecbb2c28",
+    "commit": "1a1c4a555fc672b4558341005b99ee84dedcde41",
     "checkedAt": "2026-10-06",
     "note": "Reviewed against the MIT license change and retained Apache 2.0 grant. Historical workflow and architecture references retain their own pins; the source pin does not prove live installation or runtime acceptance."
   },

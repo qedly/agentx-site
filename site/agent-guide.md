@@ -1,6 +1,6 @@
 # Rovara Code agent guide
 
-Public source: https://github.com/PrepLabsAI/Rovara. Install with Launch in AWS or npx @preplabsai/rovara-code init --env <name>; see docs/install. Node 22.19 or newer is required for the CLI (Node 22 LTS recommended). The package supplies rovara and agentx aliases. Native workflow guides remain previews and require a compatible deployment. Existing references: mainline 8fdbba7d03a5d8d35e6ceedb2f0978a7ecbb2c28. Native workflow source: 3455a367005972659875667b82d7b5d28a2da727. Feedback, dependency and closeout guides include the owner-approved design; see docs/release for qualification.
+Public source: https://github.com/PrepLabsAI/Rovara. Install with Launch in AWS or npx @preplabsai/rovara-code init --env <name>; see docs/install. Node 22.19 or newer is required for the CLI (Node 22 LTS recommended). The package supplies rovara and agentx aliases. Native workflow guides remain previews and require a compatible deployment. Existing references: mainline 1a1c4a555fc672b4558341005b99ee84dedcde41. Native workflow source: 3455a367005972659875667b82d7b5d28a2da727. Feedback, dependency and closeout guides include the owner-approved design; see docs/release for qualification.
 
 # Rovara Code documentation
 

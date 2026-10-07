@@ -1,11 +1,11 @@
 {
   "repository": "PrepLabsAI/Rovara",
-  "sourceCommit": "8fdbba7d03a5d8d35e6ceedb2f0978a7ecbb2c28",
+  "sourceCommit": "1a1c4a555fc672b4558341005b99ee84dedcde41",
   "checkedAt": "2026-10-06",
   "npmPackage": "@preplabsai/rovara-code",
-  "npmVersion": "0.2.0",
-  "releaseTag": "v0.3.0",
-  "releaseCommit": "9a4c175f486a4763246291d9e36580167610fc00",
+  "npmVersion": "0.3.1",
+  "releaseTag": "v0.3.1",
+  "releaseCommit": "1a1c4a555fc672b4558341005b99ee84dedcde41",
   "nodeMinimum": "22.19.0",
   "recommendedNode": "Node 22 LTS",
   "region": "us-east-1",
@@ -22,5 +22,5 @@
     "LICENSE-APACHE": "c6034e3540236d24415832d93ac4dee6c543f0c3d8956a332d02ef6e880011ec",
     "RELICENSED.md": "81b656e4b305246b4bdfeea013d20fbf429b512c846ac49a9ede7c3e68f07ca7"
   },
-  "qualification": "The reviewed source commit declares MIT for PrepLabsAI-owned code and preserves the earlier Apache 2.0 grant. The v0.3.0 GitHub release remains the earlier Apache release; npm v0.3.0 was not published as of this check. No fresh AWS installation was performed by this website update."
+  "qualification": "The v0.3.1 source, GitHub release bundle and npm package were published with MIT as the current license for PrepLabsAI-owned code; the npm registry reports MIT metadata. The previously released v0.3.0 GitHub/npm artifacts remain Apache 2.0 releases, and PrepLabsAI also grants MIT rights to its owned code in earlier versions. No fresh AWS installation was performed by this website update."
 }
