@@ -44,7 +44,7 @@ OBSERVED:
 
 - `npm run check`: 27 pages, routes/anchors/assets, documentation freshness, approved copy and release labels pass. Both full and hero Django regex excerpts agree with the saved patch.
 - `npm run check:claims`: 10 source claims, 15 installation/operator source-file hashes, 11 released MCP names plus four separately pinned native additions, and illustrative $211.13 cost formula reconcile.
-- `npm run build`: static Pages artifact produced. `git diff --check` passed.
+- `npm run build`: static Pages artifact produced. `git diff --check` passed. Vendored GSAP header formatting and copied patch context retain their original whitespace via narrowly scoped Git attributes.
 - Preserved benchmark hashes/counts: selected Pro batch 40/50; all 100 raw grader downloads unchanged. Django saved output reports 22 tests, not rerun during this update.
 - Browser: mobile 390×844 homepage and all five public routes have no horizontal overflow and one h1. A heading overflow was corrected before delivery. Docs search finds model/open-weight sections; Escape closes search and restores focus. Patch dialog closes with Escape and restores its link. ArrowRight selects the next walkthrough stage. Reduced motion hides timed playback; manual stage selection remains. With JavaScript disabled and page reloaded, all five panels remain visible and controls disabled.
 - Video: native playback advanced with no media error, duration 20 seconds, no autoplay. FFprobe confirms 1920×1080, 30 fps, 600 frames and audio. Local composition check reports zero errors, seven reviewed asset/timeline organization warnings and 68/68 contrast checks passing. Scene/transition snapshots inspected. The renderer pin advanced 0.8.134 → 0.8.140 and was checked.
