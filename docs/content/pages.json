@@ -659,7 +659,7 @@
       {
         "id": "availability",
         "title": "Public source and published installer",
-        "html": "<p><a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a> is public. The npm package <a href=\"https://www.npmjs.com/package/@preplabsai/rovara-code\">@preplabsai/rovara-code</a> and <a href=\"https://github.com/PrepLabsAI/Rovara/releases/tag/v0.2.0\">v0.2.0 GitHub release</a> were available when checked on 6 October 2026.</p><p><a href=\"../install/index.html\">Install using Launch in AWS or the terminal →</a></p><p>Publication is separate from a fresh installation acceptance run. This website update checked release availability and documentation, and did not deploy a new AWS environment.</p>"
+        "html": "<p><a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a> is public. The npm package <a href=\"https://www.npmjs.com/package/@preplabsai/rovara-code\">@preplabsai/rovara-code</a> v0.3.1 (MIT) and <a href=\"https://github.com/PrepLabsAI/Rovara/releases/tag/v0.3.1\">v0.3.1 GitHub release</a> were checked on 6 October 2026. Earlier v0.3.0 artifacts retain their Apache 2.0 terms and grant.</p><p><a href=\"../install/index.html\">Install using Launch in AWS or the terminal →</a></p><p>Publication is separate from a fresh installation acceptance run. This website update checked release availability and documentation, and did not deploy a new AWS environment.</p>"
       },
       {
         "id": "names",
@@ -669,7 +669,7 @@
       {
         "id": "license",
         "title": "Current licence",
-        "html": "<p>The inspected product code uses <strong>FSL-1.1-ALv2</strong>. That is not an Apache-licensed open-source release at launch. The source licence grants a future Apache 2.0 licence effective on the second anniversary of the date the software is made available.</p><p>Read the complete <a href=\"../../assets/legal/AgentX-LICENSE.txt\">current product licence</a> for its terms. Website source and product source are separate repositories.</p>"
+        "html": "<p>PrepLabsAI grants the <strong>MIT License</strong> for all PrepLabsAI-owned Rovara code, including earlier releases. PrepLabsAI's previously issued Apache 2.0 grant also remains available for its owned code. Third-party components retain their own licenses.</p><p>Read the <a href=\"../../assets/legal/Rovara-LICENSE.txt\">MIT License</a>, the retained <a href=\"../../assets/legal/Rovara-LICENSE-APACHE.txt\">Apache License 2.0</a>, and the <a href=\"../../assets/legal/RELICENSED.txt\">license grant notice</a>.</p>"
       },
       {
         "id": "requirements",
@@ -679,7 +679,7 @@
       {
         "id": "documentation",
         "title": "How these docs are maintained",
-        "html": "<p>Installation and coding-tool commands were reconciled with <a href=\"https://github.com/PrepLabsAI/Rovara/blob/a03326359542ff3934838566d464cd188624c15e/README.md\">README revision <code>a03326359542ff3934838566d464cd188624c15e</code></a> and its installation, MCP and operations guides on 6 October 2026. <a href=\"../../data/installation.json\">Installation source record →</a></p><p>Existing architecture and direct-task references retain their historical mainline pin <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow guides retain local implementation pin <code>3455a367005972659875667b82d7b5d28a2da727</code> and remain preview documentation. Publishing the CLI does not establish that those preview capabilities are included in v0.2.0.</p><p>The <a href=\"../../data/workflow-preview.json\">workflow preview record</a> identifies that separate source. Historical benchmarks retain their own dates and candidates. A website build does not prove a live installation.</p>"
+        "html": "<p>Installation commands and release availability were checked against <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/README.md\">README revision <code>1a1c4a555fc672b4558341005b99ee84dedcde41</code></a> and the v0.3.1 package/release artifacts on 6 October 2026. npm v0.3.1 declares MIT; v0.3.0 remains the earlier Apache 2.0 release. See the <a href=\"../../data/installation.json\">installation source record →</a></p><p>Existing architecture and direct-task references retain their historical mainline pin <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow guides retain local implementation pin <code>3455a367005972659875667b82d7b5d28a2da727</code> and remain preview documentation. Publishing the CLI does not establish that those preview capabilities are included in v0.3.1.</p><p>The <a href=\"../../data/workflow-preview.json\">workflow preview record</a> identifies that separate source. Historical benchmarks retain their own dates and candidates. A website build does not prove a live installation.</p>"
       }
     ]
   }

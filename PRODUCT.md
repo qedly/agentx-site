@@ -29,7 +29,7 @@ Verification strengthens the complete coding workflow. It is not presented as th
 
 ## Current boundaries
 
-The Rovara repository is public, @preplabsai/rovara-code is published, and GitHub releases v0.1.0 and v0.2.0 exist. Installation is documented from the current README. The source still uses FSL-1.1-ALv2; retain its source-available qualification. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
+The Rovara repository is public, @preplabsai/rovara-code is published, and GitHub releases v0.1.0, v0.2.0 and v0.3.0 exist. MIT is the current grant for PrepLabsAI-owned code, and the previously issued Apache-2.0 grant remains available. Keep release availability separate from fresh installation acceptance. Do not imply a working public install, all checks passing before PR creation, universal exact-commit verification, automatic merge, cost caps, customer success or a controlled public benchmark.
 
 Implementation review is recorded in `site/data/claims.json` at `8acb7ac00c97e3e5ff547cb13af07e5ff160bc86`. Source references are drift guards; the repository is now publicly accessible. Refreshed installation references live separately in site/data/installation.json.
 

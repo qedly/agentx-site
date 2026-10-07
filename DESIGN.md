@@ -21,4 +21,4 @@ Use actual locally served vendor marks and unmodified Phosphor icons. Diagram da
 One brief staggered entrance for the hero's explanatory objects; no fictional activity or success animation. Reduced motion produces the static view. Existing selectable walkthrough, evidence dialog, Escape handling and focus restoration remain. The 20-second Brag/Hyperframes video shares the palette, has controls, captions and a transcript, and does not autoplay.
 
 ## Authority
-Rovara is display branding. AgentX commands and evidence identities remain unchanged. Installation is a placeholder. The product release and FSL license status stay visible. Review branches do not publish Pages. Live merge/publication requires owner approval.
+Rovara is display branding. AgentX commands and evidence identities remain unchanged. Installation is a placeholder. The product release and MIT license status stay visible, with the previously issued Apache 2.0 grant disclosed. Review branches do not publish Pages. Live merge/publication requires owner approval.

@@ -2,9 +2,9 @@
   "source": {
     "repository": "PrepLabsAI/Rovara",
     "ref": "origin/mainline",
-    "commit": "8acb7ac00c97e3e5ff547cb13af07e5ff160bc86",
-    "checkedAt": "2026-10-05",
-    "note": "Historical implementation snapshot. Public source has moved to PrepLabsAI/Rovara. Installation and publication status are separately refreshed in installation.json; these code references do not prove current runtime acceptance."
+    "commit": "1a1c4a555fc672b4558341005b99ee84dedcde41",
+    "checkedAt": "2026-10-06",
+    "note": "Reviewed against the MIT license change and retained Apache 2.0 grant. Historical workflow and architecture references retain their own pins; the source pin does not prove live installation or runtime acceptance."
   },
   "claims": [
     {
@@ -13,7 +13,7 @@
       "evidence": [
         {
           "file": "README.md",
-          "contains": "Every Slack thread, and every task a developer hands over from an AI tool, gets its own isolated, persistent workspace."
+          "contains": "Each Slack thread owns its own EC2 worker and encrypted EBS volume."
         },
         {
           "file": "docs/architecture-production.md",
@@ -27,7 +27,7 @@
       "evidence": [
         {
           "file": "README.md",
-          "contains": "idle reaper stops compute while preserving workspace files and conversation state."
+          "contains": "Files and conversation live on the thread's volume. The idle reaper stops compute and keeps the disk, so the next mention resumes."
         }
       ]
     },
@@ -47,15 +47,15 @@
     },
     {
       "id": "license",
-      "claim": "FSL-1.1-ALv2 is source-available, not OSI open source, and each release converts to Apache 2.0 two years after it ships.",
+      "claim": "MIT is the current license grant for PrepLabsAI-owned Rovara code, including earlier releases. The previously issued Apache 2.0 grant remains available; third-party components keep their own licenses.",
       "evidence": [
         {
           "file": "README.md",
-          "contains": "Source-available under [FSL-1.1-ALv2](LICENSE)"
+          "contains": "Licensed under the [MIT License](LICENSE)"
         },
         {
           "file": "README.md",
-          "contains": "release becomes Apache 2.0 two years after it ships"
+          "contains": "Apache 2.0 grant for"
         }
       ]
     },
