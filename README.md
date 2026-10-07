@@ -44,7 +44,7 @@ Live URL: `https://rovara-dev.github.io/`. `.github/workflows/pages.yml` deploys
 
 `site/data/claims.json` records the reviewed source commit and primary references. Fetch current product mainline, read the affected implementation, then update the pin and copy together. Do not advertise a public installer until the product source, license and release artifacts are actually available.
 
-The current source license is FSL-1.1-ALv2. The public source, npm CLI and v0.2.0 release are observed in `site/data/installation.json`. Their publication does not establish a fresh live installation, customer results, an official full-benchmark score, security certification or automatic merge enforcement. The FSL licence does not justify an unqualified open-source label. Public display branding does not rename CLI commands, authorization or evidence identities.
+The current source license is MIT for PrepLabsAI-owned code, and the previously issued Apache-2.0 grant remains available. The public source, npm CLI and release artifacts are tracked in `site/data/installation.json`. Their publication does not establish a fresh live installation, customer results, an official full-benchmark score, security certification or automatic merge enforcement. Public display branding does not rename CLI commands, authorization or evidence identities.
 
 Design decisions: `DESIGN.md`. Product messaging: `PRODUCT.md`. Asset provenance: `ASSET-LICENSES.md`. Browser evidence: `design-qa.md`.
 
