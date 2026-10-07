@@ -1,3 +1,11 @@
+# Current implementation — 7 October 2026
+
+The current review candidate is the owned coding workflow update. Published v0.3.1/MIT installation replaces the former placeholder. Homepage and five-stage walkthrough lead with task-to-PR in customer AWS; native workflow additions remain explicitly qualified as previews. Five practical docs pages and three focused sales routes were added. The updated local video uses the current release wording.
+
+Current verification and remaining work: [7 October review](research/owned-workflow-review-2026-10-07.md). The notes below are a historical implementation snapshot, not current release or acceptance status.
+
+---
+
 # Website implementation status — 5 October 2026
 
 ## Implemented

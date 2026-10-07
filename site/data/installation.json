@@ -1,7 +1,7 @@
 {
   "repository": "PrepLabsAI/Rovara",
   "sourceCommit": "1a1c4a555fc672b4558341005b99ee84dedcde41",
-  "checkedAt": "2026-10-06",
+  "checkedAt": "2026-10-07",
   "npmPackage": "@preplabsai/rovara-code",
   "npmVersion": "0.3.1",
   "releaseTag": "v0.3.1",
@@ -20,7 +20,14 @@
     "docs/teardown.md": "2f29f19e4397e51b84c5c44754666e630c637c217bdb87ac88b6309e1d802397",
     "LICENSE": "a896d42dcee674ae2790af91e090a7578bbc1766d61b819449a09597d62c8b67",
     "LICENSE-APACHE": "c6034e3540236d24415832d93ac4dee6c543f0c3d8956a332d02ef6e880011ec",
-    "RELICENSED.md": "81b656e4b305246b4bdfeea013d20fbf429b512c846ac49a9ede7c3e68f07ca7"
+    "RELICENSED.md": "81b656e4b305246b4bdfeea013d20fbf429b512c846ac49a9ede7c3e68f07ca7",
+    "docs/project-configuration.md": "842af1c20850e859f324f8e9612f138c788a501c62fa5554c7857bed9f2529bb",
+    "docs/model-providers.md": "250e784d38c097567f2149696ec7d3ee522f124ee7da0fcce5667a0a9776d510",
+    "docs/openrouter.md": "0cc2e6038464f153a72a89ba68cd25a3d1e8e1d37c5280c52a05bae23a424b39",
+    "docs/architecture-production.md": "8611f83e88b67b5ec356213593b7e2719c2211e09bec9c850490a571a90de6e1",
+    "packages/cli/src/setup/cli.ts": "e95cb557dfecb3ee49601769537650ddedab405605f913ac1f3258c302103201",
+    "packages/cli/src/setup/project-add.ts": "a8b78a3bd31237e5a13d7ec936935740b0161228c6bb05ab6eb17cbf77ad0117",
+    "packages/cli/src/upgrade/cli.ts": "7eb25ac2ebd0f1130aca5656eb868e73a8f954fab3857c20a1c4f186177458fd"
   },
   "qualification": "The v0.3.1 source, GitHub release bundle and npm package were published with MIT as the current license for PrepLabsAI-owned code; the npm registry reports MIT metadata. The previously released v0.3.0 GitHub/npm artifacts remain Apache 2.0 releases, and PrepLabsAI also grants MIT rights to its owned code in earlier versions. No fresh AWS installation was performed by this website update."
 }

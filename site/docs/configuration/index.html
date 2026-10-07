@@ -44,21 +44,21 @@
 <p>Start here</p>
 <a href="../index.html" >Rovara Code documentation</a>
 <a href="../install/index.html" >Install Rovara</a>
+<a href="../first-task/index.html" >Your first coding task</a>
 <a href="../concepts/index.html" >Core concepts</a>
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara Code</p>
-<a href="../tasks/index.html" >Your first Quick task</a>
-<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../team/index.html" >Share and continue tasks</a>
 <a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
-<a href="../feedback/index.html" >Respond to PR feedback</a>
-<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="../operations/index.html" >Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
 <p>Configure</p>
 <a href="index.html" aria-current="page">Projects and checks</a>
+<a href="../models/index.html" >Models and providers</a>
+<a href="../security/index.html" >Data flow and access</a>
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
@@ -68,8 +68,16 @@
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
+<a href="../maintenance/index.html" >Diagnostics, upgrades and recovery</a>
 <a href="../troubleshooting/index.html" >Troubleshooting</a>
 <a href="../release/index.html" >Release and licence</a>
+</div>
+<div class="docs-nav-group">
+<p>Preview workflows</p>
+<a href="../tasks/index.html" >Your first Quick task (preview)</a>
+<a href="../planning/index.html" >Plan a larger feature (preview)</a>
+<a href="../feedback/index.html" >Respond to PR feedback (preview)</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs (preview)</a>
 </div>
 </nav>
 </details>
@@ -86,13 +94,23 @@
 <details class="docs-mobile-toc">
 <summary>On this page</summary>
 <nav aria-label="Page sections">
+<a href="#released-project">Configure a repository for released tasks</a>
 <a href="#project-file">Define a project</a>
 <a href="#checks">Choose the checks</a>
-<a href="#workflow-checks">Required and optional workflow checks</a>
+<a href="#workflow-checks">Native workflow preview: required and optional checks</a>
 <a href="#access">Models, connections and access</a>
 </nav>
 </details>
 <article class="docs-article">
+<section id="released-project">
+<h2>Configure a repository for released tasks<a class="doc-heading-link" href="#released-project" aria-label="Link to section Configure a repository for released tasks">#</a>
+</h2>
+<p>A project defines repository URLs, setup commands and readiness checks. Start with a test repository. Register a new revision when you change the configuration; existing threads can retain their earlier project revision.</p>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; project add</code>
+</pre>
+<p>The wizard selects a repository, proposes setup and test commands, and registers the project definition. Configure a devcontainer separately if your project needs one, then run a small first task to verify the workspace and checks. See the <a href="https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/project-configuration.md">versioned project schema and examples</a>.</p>
+</section>
 <section id="project-file">
 <h2>Define a project<a class="doc-heading-link" href="#project-file" aria-label="Link to section Define a project">#</a>
 </h2>
@@ -150,8 +168,10 @@ orchestratorInstructions: &gt;-
             </p>
           </section>
 <section id="workflow-checks">
-<h2>Required and optional workflow checks<a class="doc-heading-link" href="#workflow-checks" aria-label="Link to section Required and optional workflow checks">#</a>
+<h2>Native workflow preview: required and optional checks<a class="doc-heading-link" href="#workflow-checks" aria-label="Link to section Native workflow preview: required and optional checks">#</a>
 </h2>
+<p>
+<strong>Preview:</strong> this plan-approval flow is separate from published direct tasks.</p>
 <p>Project-required checks remain on in Quick and Full. The owner can select only optional checks registered for that project at plan approval. Those choices are stored with the decision.</p>
 <p>Configure check working directories, executables, arguments and timeouts. A check name should describe its useful coverage. Do not treat optional selection as permission to bypass required checks or change repository merge controls.</p>
 </section>
@@ -190,15 +210,15 @@ orchestratorInstructions: &gt;-
           </section>
 </article>
 <div class="docs-maintenance">
-<span>Installation updated 6 October 2026</span>
+<span>Release v0.3.1 · checked 2026-10-07</span>
 <a href="../release/index.html#documentation">How these docs are maintained</a>
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
 <nav class="docs-pager" aria-label="Next and previous pages">
 <a href="../operations/index.html">
 <span>Previous</span>Workspaces and costs</a>
-<a href="../architecture/index.html">
-<span>Next</span>System architecture →</a>
+<a href="../models/index.html">
+<span>Next</span>Models and providers →</a>
 </nav>
 <footer class="docs-footer">
 <span>Rovara Code · Coding agents in your AWS account.</span>
@@ -209,9 +229,10 @@ orchestratorInstructions: &gt;-
 <aside class="docs-toc">
 <nav aria-label="On this page">
 <p>On this page</p>
+<a href="#released-project">Configure a repository for released tasks</a>
 <a href="#project-file">Define a project</a>
 <a href="#checks">Choose the checks</a>
-<a href="#workflow-checks">Required and optional workflow checks</a>
+<a href="#workflow-checks">Native workflow preview: required and optional checks</a>
 <a href="#access">Models, connections and access</a>
 </nav>
 </aside>
@@ -222,7 +243,7 @@ orchestratorInstructions: &gt;-
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try install, models, sharing or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">

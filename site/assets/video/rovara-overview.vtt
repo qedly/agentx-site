@@ -1,16 +1,16 @@
 WEBVTT
 
 00:00.000 --> 00:04.000
-Give it a task. Get the work back.
-Start from Slack or your coding tool.
+From task to PR. In your AWS.
+Hand off from Slack or your coding tool.
 
 00:04.000 --> 00:09.000
-A remote coding agent in your AWS account.
-A persistent workspace you can return to.
+A coding agent. A persistent workspace
+in your AWS account.
 
 00:09.000 --> 00:15.000
-Code to review. Evidence to inspect.
-Recorded Django example: 22 tests passed.
+Inspect the patch and raw check output.
+Saved Django benchmark: 22 tests passed.
 
 00:15.000 --> 00:20.000
 You decide what gets merged.

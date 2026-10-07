@@ -2,6 +2,7 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { createHash } from "node:crypto";
 
 if (!process.env.AGENTX_SOURCE) {
   console.error(
@@ -36,6 +37,15 @@ if (sourceRef !== commit)
   failures.push(
     `mainline advanced to ${sourceRef}; review and update the pinned source commit before publishing`,
   );
+const installation = JSON.parse(readFileSync(resolve("site/data/installation.json"), "utf8"));
+if (installation.sourceCommit !== commit) failures.push("installation and capability source pins differ");
+for (const [file, expected] of Object.entries(installation.sourceFiles)) {
+  try {
+    const bytes = execFileSync("git", ["-C", root, "show", `${installation.sourceCommit}:${file}`]);
+    if (createHash("sha256").update(bytes).digest("hex") !== expected) failures.push(`installation source hash mismatch: ${file}`);
+  } catch { failures.push(`cannot read pinned installation source: ${file}`); }
+}
+console.log(`installation references inspected: ${Object.keys(installation.sourceFiles).length} pinned files`);
 const readSource = (path) =>
   git("show", `${commit}:${path}`).replace(/\s+/g, " ");
 for (const claim of ledger.claims) {

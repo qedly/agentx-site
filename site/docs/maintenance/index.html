@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Diagnostics, upgrades and recovery — Rovara Code</title>
+<meta name="description" content="Operate an existing environment without hiding failed or interrupted work.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/maintenance/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara Code home">Rovara Code</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Published installer and native workflow preview">Release &amp; preview status</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara Code documentation</a>
+<a href="../install/index.html" >Install Rovara</a>
+<a href="../first-task/index.html" >Your first coding task</a>
+<a href="../concepts/index.html" >Core concepts</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara Code</p>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../team/index.html" >Share and continue tasks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+<a href="../models/index.html" >Models and providers</a>
+<a href="../security/index.html" >Data flow and access</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="index.html" aria-current="page">Diagnostics, upgrades and recovery</a>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+<div class="docs-nav-group">
+<p>Preview workflows</p>
+<a href="../tasks/index.html" >Your first Quick task (preview)</a>
+<a href="../planning/index.html" >Plan a larger feature (preview)</a>
+<a href="../feedback/index.html" >Respond to PR feedback (preview)</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs (preview)</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Help</div>
+<header class="docs-title">
+<p class="docs-kind">Guide</p>
+<h1>Diagnostics, upgrades and recovery</h1>
+<p>Operate an existing environment without hiding failed or interrupted work.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#health">Check environment health</a>
+<a href="#resume">Resume an interrupted installation</a>
+<a href="#upgrade">Upgrade deliberately</a>
+<a href="#task">When a task stops</a>
+<a href="#teardown">Remove the environment</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="health">
+<h2>Check environment health<a class="doc-heading-link" href="#health" aria-label="Link to section Check environment health">#</a>
+</h2>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; doctor --region us-east-1</code>
+</pre>
+<p>Use the operator/admin AWS profile configured for this environment. Doctor reports stack, Slack, GitHub, connector, model, budget and capacity problems. Some checks make live requests and model calls. Read warnings and skipped checks as well as failures.</p>
+</section>
+<section id="resume">
+<h2>Resume an interrupted installation<a class="doc-heading-link" href="#resume" aria-label="Link to section Resume an interrupted installation">#</a>
+</h2>
+<pre>
+<code>npx @preplabsai/rovara-code init --env &lt;name&gt; --resume</code>
+</pre>
+<p>Use the same environment and saved setup. Read the plan before continuing. If resource ownership is ambiguous, inspect it instead of starting another install with the same names.</p>
+</section>
+<section id="upgrade">
+<h2>Upgrade deliberately<a class="doc-heading-link" href="#upgrade" aria-label="Link to section Upgrade deliberately">#</a>
+</h2>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; upgrade --region us-east-1</code>
+</pre>
+<p>The CLI reads the release manifest, shows changes and estimates, checks active work and asks before applying changes. Follow the versioned upgrade guide for backup and rollback restrictions. A successful package update alone does not establish healthy deployed workers.</p>
+<a href="https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/day-two.md#upgrade">Upgrade reference →</a>
+</section>
+<section id="task">
+<h2>When a task stops<a class="doc-heading-link" href="#task" aria-label="Link to section When a task stops">#</a>
+</h2>
+<ol>
+<li>Inspect the task’s current status and latest operation.</li>
+<li>Read the last check report and error. Missing evidence stays unverified.</li>
+<li>Fix the named cause: setup, model access, repository permission or a failing check.</li>
+<li>Continue the same task where supported. Inspect the existing branch/PR before asking for publication again.</li>
+</ol>
+<p>Persistent files and conversation help resume work. Do not assume every process crash is automatically recovered. Preserve uncommitted, untracked and unpushed work when closing a workspace.</p>
+</section>
+<section id="teardown">
+<h2>Remove the environment<a class="doc-heading-link" href="#teardown" aria-label="Link to section Remove the environment">#</a>
+</h2>
+<pre>
+<code>npx @preplabsai/rovara-code --env &lt;name&gt; destroy --region us-east-1</code>
+</pre>
+<p>Review exactly which resources and retained artifacts the command will remove. Export needed evidence and resolve unfinished work first. AWS compute, storage and model costs have different lifecycles.</p>
+<a href="https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/teardown.md">Teardown reference →</a>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Release v0.3.1 · checked 2026-10-07</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../benchmarks/index.html">
+<span>Previous</span>Benchmarks and recorded runs</a>
+<a href="../troubleshooting/index.html">
+<span>Next</span>Troubleshooting →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara Code · Coding agents in your AWS account.</span>
+<a href="https://github.com/PrepLabsAI/Rovara">Product source</a>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#health">Check environment health</a>
+<a href="#resume">Resume an interrupted installation</a>
+<a href="#upgrade">Upgrade deliberately</a>
+<a href="#task">When a task stops</a>
+<a href="#teardown">Remove the environment</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try install, models, sharing or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>
