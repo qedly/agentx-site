@@ -44,21 +44,21 @@
 <p>Start here</p>
 <a href="../index.html" >Rovara Code documentation</a>
 <a href="index.html" aria-current="page">Install Rovara</a>
+<a href="../first-task/index.html" >Your first coding task</a>
 <a href="../concepts/index.html" >Core concepts</a>
 </div>
 <div class="docs-nav-group">
 <p>Work with Rovara Code</p>
-<a href="../tasks/index.html" >Your first Quick task</a>
-<a href="../planning/index.html" >Plan a larger feature</a>
 <a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="../team/index.html" >Share and continue tasks</a>
 <a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
-<a href="../feedback/index.html" >Respond to PR feedback</a>
-<a href="../coordination/index.html" >Dependencies and linked PRs</a>
 <a href="../operations/index.html" >Workspaces and costs</a>
 </div>
 <div class="docs-nav-group">
 <p>Configure</p>
 <a href="../configuration/index.html" >Projects and checks</a>
+<a href="../models/index.html" >Models and providers</a>
+<a href="../security/index.html" >Data flow and access</a>
 </div>
 <div class="docs-nav-group">
 <p>Reference</p>
@@ -68,8 +68,16 @@
 </div>
 <div class="docs-nav-group">
 <p>Help</p>
+<a href="../maintenance/index.html" >Diagnostics, upgrades and recovery</a>
 <a href="../troubleshooting/index.html" >Troubleshooting</a>
 <a href="../release/index.html" >Release and licence</a>
+</div>
+<div class="docs-nav-group">
+<p>Preview workflows</p>
+<a href="../tasks/index.html" >Your first Quick task (preview)</a>
+<a href="../planning/index.html" >Plan a larger feature (preview)</a>
+<a href="../feedback/index.html" >Respond to PR feedback (preview)</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs (preview)</a>
 </div>
 </nav>
 </details>
@@ -164,15 +172,8 @@ npx @preplabsai/rovara-code init --env &lt;name&gt;</code>
 <section id="first-task">
 <h2>3. Give it a first task<a class="doc-heading-link" href="#first-task" aria-label="Link to section 3. Give it a first task">#</a>
 </h2>
-<p>In the channel bound during setup, select the installed bot through Slack’s mention picker. Its default name still uses <code>AgentX</code>.</p>
-<pre>
-<code>@AgentX inspect the project and implement the navigation fix. Run the relevant tests.
-@AgentX create a pull request for the personal-website repository titled &quot;Improve navigation&quot;.</code>
-</pre>
-<p>These are the README examples; replace the task and repository with your project. Inspect the changes and evidence before asking for a PR. Your team decides what gets merged.</p>
-<p>Prefer an IDE? <a href="../coding-tools/index.html">Connect Claude Code, Codex or Cursor →</a>
-</p>
-<p>Quick/Full planning and feedback walkthroughs elsewhere in these docs describe the native workflow preview. They require a compatible deployment and are not promised by this installation guide.</p>
+<p>After setup, connect a trusted test repository, delegate a bounded task and inspect its check report before requesting a PR.</p>
+<a href="../first-task/index.html">Follow your first coding task →</a>
 </section>
 <section id="resume">
 <h2>Resume or diagnose setup<a class="doc-heading-link" href="#resume" aria-label="Link to section Resume or diagnose setup">#</a>
@@ -209,20 +210,20 @@ npx @preplabsai/rovara-code init --env &lt;name&gt;</code>
 rovara --help</code>
 </pre>
 <p>The package also provides <code>agentx</code> as a compatibility command. AWS resources, <code>~/.agentx</code>, MCP server/tool IDs and the default Slack app retain their existing names. Use the examples as written.</p>
-<p>Instructions checked against the README and linked guides on 6 October 2026. <a href="../release/index.html">Release, licence and documentation status →</a>
+<p>Instructions checked against the README and linked guides on 7 October 2026. <a href="../release/index.html">Release, licence and documentation status →</a>
 </p>
 </section>
 </article>
 <div class="docs-maintenance">
-<span>Installation updated 6 October 2026</span>
+<span>Release v0.3.1 · checked 2026-10-07</span>
 <a href="../release/index.html#documentation">How these docs are maintained</a>
 <a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
 </div>
 <nav class="docs-pager" aria-label="Next and previous pages">
 <a href="../index.html">
 <span>Previous</span>Rovara Code documentation</a>
-<a href="../concepts/index.html">
-<span>Next</span>Core concepts →</a>
+<a href="../first-task/index.html">
+<span>Next</span>Your first coding task →</a>
 </nav>
 <footer class="docs-footer">
 <span>Rovara Code · Coding agents in your AWS account.</span>
@@ -250,7 +251,7 @@ rovara --help</code>
 <button data-search-close aria-label="Close search">Esc</button>
 </div>
 <label class="sr-only" for="docs-search-input">Search terms</label>
-<input id="docs-search-input" type="search" placeholder="Try plan approval, PR feedback or checks…" autocomplete="off">
+<input id="docs-search-input" type="search" placeholder="Try install, models, sharing or checks…" autocomplete="off">
 <p class="docs-search-status" aria-live="polite">
 </p>
 <ul class="docs-search-results">

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f5ef">
+<title>Share and continue tasks — Rovara Code</title>
+<meta name="description" content="Let teammates inspect or continue an existing task within project policy.">
+<link rel="canonical" href="https://rovara-dev.github.io/docs/team/">
+<link rel="icon" href="../../assets/icons/git-pull-request.svg">
+<link rel="preload" href="../../assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/refined.css">
+<link rel="stylesheet" href="../../assets/docs.css">
+<script src="../../assets/docs.js" defer>
+</script>
+</head>
+<body class="docs-page">
+<noscript>
+<style>.docs-search-trigger{display:none}</style>
+</noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="docs-header">
+<div class="docs-brand">
+<a href="../../index.html" aria-label="Rovara Code home">Rovara Code</a>
+<span>Docs</span>
+</div>
+<button class="docs-search-trigger" data-doc-search aria-label="Search documentation" aria-haspopup="dialog">
+<img src="../../assets/icons/magnifying-glass.svg" width="18" height="18" alt="">
+<span>Search documentation</span>
+<kbd>⌘ K</kbd>
+</button>
+<nav aria-label="Main navigation">
+<a href="../../index.html">Product</a>
+<a href="../release/index.html" class="docs-status" title="Published installer and native workflow preview">Release &amp; preview status</a>
+</nav>
+</header>
+<div class="docs-layout">
+<aside class="docs-sidebar">
+<details class="docs-nav-disclosure" open>
+<summary>Browse documentation</summary>
+<nav aria-label="Documentation">
+<div class="docs-nav-group">
+<p>Start here</p>
+<a href="../index.html" >Rovara Code documentation</a>
+<a href="../install/index.html" >Install Rovara</a>
+<a href="../first-task/index.html" >Your first coding task</a>
+<a href="../concepts/index.html" >Core concepts</a>
+</div>
+<div class="docs-nav-group">
+<p>Work with Rovara Code</p>
+<a href="../coding-tools/index.html" >Connect your coding tool</a>
+<a href="index.html" aria-current="page">Share and continue tasks</a>
+<a href="../evidence/index.html" >Inspect changes, checks and reviews</a>
+<a href="../operations/index.html" >Workspaces and costs</a>
+</div>
+<div class="docs-nav-group">
+<p>Configure</p>
+<a href="../configuration/index.html" >Projects and checks</a>
+<a href="../models/index.html" >Models and providers</a>
+<a href="../security/index.html" >Data flow and access</a>
+</div>
+<div class="docs-nav-group">
+<p>Reference</p>
+<a href="../architecture/index.html" >System architecture</a>
+<a href="../mcp/index.html" >MCP tool reference</a>
+<a href="../benchmarks/index.html" >Benchmarks and recorded runs</a>
+</div>
+<div class="docs-nav-group">
+<p>Help</p>
+<a href="../maintenance/index.html" >Diagnostics, upgrades and recovery</a>
+<a href="../troubleshooting/index.html" >Troubleshooting</a>
+<a href="../release/index.html" >Release and licence</a>
+</div>
+<div class="docs-nav-group">
+<p>Preview workflows</p>
+<a href="../tasks/index.html" >Your first Quick task (preview)</a>
+<a href="../planning/index.html" >Plan a larger feature (preview)</a>
+<a href="../feedback/index.html" >Respond to PR feedback (preview)</a>
+<a href="../coordination/index.html" >Dependencies and linked PRs (preview)</a>
+</div>
+</nav>
+</details>
+</aside>
+<main id="main" class="docs-content">
+<div class="docs-breadcrumb">
+<a href="../index.html">Documentation</a>
+<span>/</span>Work with Rovara Code</div>
+<header class="docs-title">
+<p class="docs-kind">Guide</p>
+<h1>Share and continue tasks</h1>
+<p>Let teammates inspect or continue an existing task within project policy.</p>
+</header>
+<details class="docs-mobile-toc">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#share">Share a task from your coding tool</a>
+<a href="#modes">Choose the participation mode</a>
+<a href="#policy">Set project policy</a>
+<a href="#handoff">Try a two-person handoff</a>
+</nav>
+</details>
+<article class="docs-article">
+<section id="share">
+<h2>Share a task from your coding tool<a class="doc-heading-link" href="#share" aria-label="Link to section Share a task from your coding tool">#</a>
+</h2>
+<p>Tasks started through MCP are private unless shared or the project requires sharing. Ask your coding tool to share the task into one of its project-bound Slack channels:</p>
+<pre>
+<code>Share my Rovara task in &lt;project channel&gt; in view-only mode.</code>
+</pre>
+<p>The tool calls <code>agentx_share_task</code>. The new thread identifies the task owner and sharing mode. It is the same task and workspace.</p>
+</section>
+<section id="modes">
+<h2>Choose the participation mode<a class="doc-heading-link" href="#modes" aria-label="Link to section Choose the participation mode">#</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>What teammates can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View only</td>
+<td>Follow progress; the original owner continues through the coding tool.</td>
+</tr>
+<tr>
+<td>Continue</td>
+<td>Authorized channel members can mention the bot in the shared thread to steer the task. Requests run one at a time and name the requester.</td>
+</tr>
+</tbody>
+</table>
+<p>Continue requires project permission. Ask your coding tool for continue sharing explicitly if needed; the default can be view-only.</p>
+</section>
+<section id="policy">
+<h2>Set project policy<a class="doc-heading-link" href="#policy" aria-label="Link to section Set project policy">#</a>
+</h2>
+<pre>
+<code>developerTasks:
+  enabled: true
+  share: optional
+  shareMode:
+    default: view
+    allowContinue: true
+  channelMembersMayUse: true</code>
+</pre>
+<p>Set <code>share: required</code> for mandatory sharing or <code>allowContinue: false</code> for view-only access. Register a new project revision after editing. An administrator cannot use the share-mode command to share a private task or move a shared task to a different channel.</p>
+<a href="https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/project-configuration.md#developer-tasks">Complete access-policy reference →</a>
+</section>
+<section id="handoff">
+<h2>Try a two-person handoff<a class="doc-heading-link" href="#handoff" aria-label="Link to section Try a two-person handoff">#</a>
+</h2>
+<ol>
+<li>The owner starts and shares a task.</li>
+<li>A teammate opens the thread and inspects its diff and check evidence.</li>
+<li>In continue mode, the teammate requests a bounded follow-up.</li>
+<li>Inspect the new result before the team reviews the PR.</li>
+</ol>
+<p>This is a tutorial, not a claim that a two-person live demonstration has been recorded.</p>
+</section>
+</article>
+<div class="docs-maintenance">
+<span>Release v0.3.1 · checked 2026-10-07</span>
+<a href="../release/index.html#documentation">How these docs are maintained</a>
+<a href="https://github.com/rovara-dev/rovara-dev.github.io/issues/new">Report a docs issue</a>
+</div>
+<nav class="docs-pager" aria-label="Next and previous pages">
+<a href="../coding-tools/index.html">
+<span>Previous</span>Connect your coding tool</a>
+<a href="../evidence/index.html">
+<span>Next</span>Inspect changes, checks and reviews →</a>
+</nav>
+<footer class="docs-footer">
+<span>Rovara Code · Coding agents in your AWS account.</span>
+<a href="https://github.com/PrepLabsAI/Rovara">Product source</a>
+<a href="../release/index.html#license">Licence</a>
+</footer>
+</main>
+<aside class="docs-toc">
+<nav aria-label="On this page">
+<p>On this page</p>
+<a href="#share">Share a task from your coding tool</a>
+<a href="#modes">Choose the participation mode</a>
+<a href="#policy">Set project policy</a>
+<a href="#handoff">Try a two-person handoff</a>
+</nav>
+</aside>
+</div>
+<dialog class="docs-search-dialog" aria-labelledby="docs-search-title" data-index="../../data/docs-search.json">
+<div class="docs-search-heading">
+<h2 id="docs-search-title">Search documentation</h2>
+<button data-search-close aria-label="Close search">Esc</button>
+</div>
+<label class="sr-only" for="docs-search-input">Search terms</label>
+<input id="docs-search-input" type="search" placeholder="Try install, models, sharing or checks…" autocomplete="off">
+<p class="docs-search-status" aria-live="polite">
+</p>
+<ul class="docs-search-results">
+</ul>
+<p class="docs-search-help">↑ ↓ Navigate · Enter Open · Esc Close</p>
+</dialog>
+</body>
+</html>

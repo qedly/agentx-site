@@ -12,17 +12,13 @@ npm run dev
 
 Open `http://127.0.0.1:8766/`. Choose another port with `npm run dev -- --port 8767`. The server binds to the loopback interface by default.
 
-## Pages
+## Visitor journey
 
-- `site/index.html`: complete product story, six-stage illustrative native workflow, Quick/Full planning, PR feedback decisions, linked PRs, historical Django evidence and an earlier 20-second workspace video.
-- `site/how-it-works/index.html`: four connected native-workflow diagrams: journey, candidate evidence, workspace/task lifecycle and architecture.
-- `site/deployment/index.html`: Launch in AWS and terminal installation options.
-- `site/docs/install/index.html`: prerequisites, setup, first Slack task, recovery, upgrades and teardown, reconciled with the public Rovara README.
-- `site/docs/index.html`: documentation hub with sixteen pages, persistent navigation, local full-text search, copyable examples and page contents.
+Homepage → real recorded benchmark artifacts → released direct-task journey → ownership/model choice → architecture/data flow → installation and first task.
 
-The revised walkthrough shows request → plan approval → coding → check/review evidence → draft PR → feedback decision → refreshed evidence. The installation guide follows the public README and uses the published `@preplabsai/rovara-code` package. The native workflow is distinct from existing direct tasks; the expanded guides are release-qualified preview documentation.
+Focused sales pages: `/self-hosted/`, `/delegation/`, `/pr-workflow/`. Preview workflows remain in separate documentation.
 
-All pages use relative links. Evidence controls open an accessible native dialog; without JavaScript they lead to expandable explanations. Mobile navigation remains available without JavaScript. Reduced motion is respected.
+Documentation authoring uses `docs/content/pages.json`; regenerate with `npm run docs:generate`. Installation/release labels read `site/data/installation.json`. Do not edit generated docs or manually duplicate package version labels.
 
 ## Check and build
 
@@ -58,7 +54,7 @@ The Copy-button walkthrough is a constructed explanation, not real run evidence.
 
 Edit `docs/content/pages.json` and run `npm run docs:generate`. The generator writes all documentation pages, the search index and `site/agent-guide.md` from the same content. Do not edit those generated files directly. `npm run check` refuses stale generated output.
 
-The reading order is overview → concepts → first Quick task → Full planning → coding-tool connection → evidence → PR feedback → dependencies/linked PRs → workspaces → configuration → architecture → MCP reference → recorded benchmarks → troubleshooting → release and licence. Tutorials state their prerequisites, user action, expected result and next step. Installation is now the primary destination, following the owner's instruction on 6 October 2026.
+Start with install → first coding task → changes and checks → follow-up. Configure models, sharing and data flow as needed; use maintenance and troubleshooting when operating the deployment. Native Quick/Full, feedback and coordination guides live in a separate preview section. Tutorials state their prerequisites, user action, expected result and next step. Installation is now the primary destination, following the owner's instruction on 6 October 2026.
 
 `site/assets/docs.css` and `site/assets/docs.js` provide the docs shell, responsive navigation, native search dialog, keyboard controls and copy buttons. Docs retain native links and disclosures without JavaScript. Search is hidden without JavaScript.
 
@@ -74,8 +70,8 @@ This pass preserves the existing benchmark artifacts and their failures. It adds
 
 Pull requests and review branches run the static website checks and build in GitHub Actions. The Pages deployment repeats those checks before uploading the site. Source-code claim reconciliation runs locally against the authorized product clones; public CI does not need product credentials. The selected 50-task benchmark is checked against all saved grader receipts, outcomes and downloadable artifact hashes.
 
-## Installation source maintenance (6 October 2026)
+## Installation source maintenance (7 October 2026)
 
 Product repository: https://github.com/PrepLabsAI/Rovara. `site/data/installation.json` pins the reviewed README/guides, current package, release and AWS launch link separately from historical architecture/workflow evidence. Update the installation authoring page, deployment options, coding-tool commands, release status and generated search/agent guide together. The npm CLI declares Node >=22.19.0; recommend Node 22 LTS. Preserve `agentx` compatibility commands, MCP IDs, configuration paths and historical evidence.
 
-Installation was checked against mainline `a03326359542ff3934838566d464cd188624c15e`; published v0.2.0 has its own source commit in the installation record. This update checked published artifact availability, not a new AWS deployment. Native workflow material remains qualified as preview.
+Installation and new guides were checked against mainline/release `1a1c4a555fc672b4558341005b99ee84dedcde41` for v0.3.1. This update checked published artifact availability, not a new AWS deployment. Native workflow material remains qualified as preview.

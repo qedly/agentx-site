@@ -20,10 +20,10 @@ Landscape 1920×1080; 20 seconds. Cream #f8f5ef; ink #19212f; cobalt #2455d6. No
 
 ## Storyboard
 
-- 0–4s: “Give it a task. Get the work back.” A Slack icon and illustrative username-validation request. Land the request in a clean, readable composition. Small persistent “Illustrative workflow” label.
+- 0–4s: “From task to PR. In your AWS.” A Slack icon and illustrative username-validation request. Land the request in a clean, readable composition. Small persistent “Illustrative workflow” label.
 - 4–9s: “In your AWS account.” Request travels to the workspace portion of the actual journey diagram. Show AWS icon and “Remote coding agent.” Readability takes priority over beat synchronization.
 - 9–15s: “Code to review. Evidence to inspect.” Show the exact saved Django validator patch and 22-test result with its historical date and selected-task qualification. No invented all-checks status. Keep patch text large enough to read.
-- 15–20s: A return path connects follow-up to the workspace. “Pick up where the task left off.” Then “You decide what gets merged.” Final Rovara mark and “Public release in preparation.”
+- 15–20s: A return path connects follow-up to the workspace. “Pick up where the task left off.” Then “You decide what gets merged.” Final Rovara mark and “MIT · v0.3.1 · rovara-dev.github.io.”
 
 ## Audio
 

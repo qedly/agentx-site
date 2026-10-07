@@ -9,6 +9,9 @@ const pages = [
   "index.html",
   "how-it-works/index.html",
   "deployment/index.html",
+  "self-hosted/index.html",
+  "delegation/index.html",
+  "pr-workflow/index.html",
   ...docPages.map((p) =>
     p.slug ? `docs/${p.slug}/index.html` : "docs/index.html",
   ),
@@ -73,13 +76,25 @@ for (const phrase of [
   "You decide what gets merged.",
   "Code to review.",
   "Evidence to inspect.",
-  "Illustrative native workflow preview",
+  "From coding task to PR.",
+  "In your AWS.",
+  "Illustrative request",
+  "not established as included",
 ]) {
   if (!home.includes(phrase))
     failures.push(`Approved homepage phrase missing: ${phrase}`);
 }
 if (home.includes("AgentX cannot merge"))
   failures.push("Homepage presents merge authority as a missing feature");
+// Preserve the exact recorded regex in the hero as well as in the full patch below.
+for (const fragment of [String.raw`hero-removed">− regex = r'^[\w.@+-]+$'`, String.raw`hero-added">+ regex = r'\A[\w.@+-]+\Z'`]) {
+  if (!home.replaceAll("&#x27;", "'").includes(fragment)) failures.push("Hero differs from recorded Django patch");
+}
+const firstTask = get("docs/first-task/index.html");
+if (!firstTask.includes("channel add --channel &lt;channel-name&gt;") || firstTask.includes("channel bind")) failures.push("First-task channel command differs from published CLI");
+for (const route of ["docs/architecture/index.html", "docs/operations/index.html", "docs/configuration/index.html"]) {
+  if (!get(route).includes("preview")) failures.push(`${route}: preview qualification missing`);
+}
 const css = get("assets/site.css");
 if (!css.includes("prefers-reduced-motion"))
   failures.push("Reduced-motion support missing");
@@ -97,6 +112,7 @@ if (
 const install = JSON.parse(get("data/installation.json"));
 for (const route of ["deployment/index.html", "docs/install/index.html"]) {
   const html = get(route);
+  if (!html.includes(install.releaseTag) && route === "deployment/index.html") failures.push(`${route}: release version mismatch`);
   if (!html.includes(install.npmPackage)) failures.push(`${route}: npm scope mismatch`);
   if (!html.includes(install.awsLaunchUrl.replaceAll("&", "&amp;"))) failures.push(`${route}: AWS launch URL mismatch`);
 }

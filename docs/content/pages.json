@@ -3,33 +3,33 @@
     "slug": "",
     "title": "Rovara Code documentation",
     "group": "Start here",
-    "lead": "Give a task, agree on the plan, inspect the evidence, and keep the final decision with your team.",
+    "lead": "Install in your AWS account, delegate a task, and inspect the work that comes back.",
     "kind": "Overview",
     "sections": [
       {
         "id": "what-is-rovara",
-        "title": "A coding agent with a workflow you control",
-        "html": "<p>Rovara Code provides a coding workflow: remote implementation in your AWS account, plan approvals, named checks, separate code and security AI reviews, and help responding to PR feedback. Your team owns the final merge.</p><ol class=\"doc-flow\"><li>Request</li><li>Approve plan</li><li>Code + evidence</li><li>PR + feedback</li><li>Your review</li></ol>"
+        "title": "A coding workflow your team can run",
+        "html": "<p>Rovara Code runs a remote coding agent in persistent workspaces in your AWS account. Start work in Slack or through Claude Code, Codex or Cursor. Inspect the changes and reports of passed, failed or unverified checks, then request a pull request. Your team decides what gets merged.</p><ol class=\"doc-flow\"><li>Install</li><li>Connect a repository</li><li>Delegate</li><li>Inspect</li><li>Review PR</li></ol>"
       },
       {
         "id": "start",
-        "title": "Start with one useful task",
-        "html": "<div class=\"doc-start-grid\"><a class=\"doc-start\" href=\"tasks/index.html\"><img src=\"../assets/icons/slack-icon.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Your first Quick task</strong><span>One plan approval. A concrete change. Evidence and a draft PR.</span><span class=\"doc-start-action\">Follow the tutorial →</span></a><a class=\"doc-start\" href=\"coding-tools/index.html\"><img src=\"../assets/icons/terminal.svg\" width=\"28\" height=\"28\" alt=\"\"><strong>Use your coding tool</strong><span>Delegate from Claude Code, Codex or Cursor through MCP.</span><span class=\"doc-start-action\">Connect your tool →</span></a></div><div class=\"doc-callout\"><strong>New to Rovara?</strong><p>Deploy in your AWS account, connect GitHub and Slack, then give it a task. <a href=\"install/index.html\">Install Rovara →</a></p></div>"
-      },
-      {
-        "id": "learn",
-        "title": "Follow the complete journey",
-        "html": "<ul class=\"doc-link-list\"><li><a href=\"planning/index.html\">Plan a larger feature</a><span>Requirements, design and coding-plan approvals in Full.</span></li><li><a href=\"evidence/index.html\">Inspect changes, checks and reviews</a><span>Read actual output and identify gaps or stale evidence.</span></li><li><a href=\"feedback/index.html\">Respond to PR feedback</a><span>Review proposals and approve the fixes you want.</span></li><li><a href=\"coordination/index.html\">Follow dependencies and linked PRs</a><span>Understand blockers and what the task is waiting for.</span></li></ul>"
+        "title": "Start here",
+        "html": "<div class=\"doc-start-grid\"><a class=\"doc-start\" href=\"install/index.html\"><strong>1. Install Rovara</strong><span>Choose Launch in AWS or the npm CLI. Connect GitHub, Slack and model access.</span><span class=\"doc-start-action\">Start installation →</span></a><a class=\"doc-start\" href=\"first-task/index.html\"><strong>2. Run your first task</strong><span>A bounded change, check evidence and a PR to review on the released direct-task path.</span><span class=\"doc-start-action\">Follow the tutorial →</span></a></div>"
       },
       {
         "id": "configure",
-        "title": "Understand your environment",
-        "html": "<ul class=\"doc-link-list\"><li><a href=\"architecture/index.html\">System architecture</a><span>Where work, decisions and evidence live.</span></li><li><a href=\"configuration/index.html\">Projects and checks</a><span>Repository setup, required checks and optional check choices.</span></li><li><a href=\"operations/index.html\">Workspaces and costs</a><span>Continue, cancel, close and retain the record.</span></li><li><a href=\"troubleshooting/index.html\">Troubleshooting</a><span>Find the next useful action without duplicating work.</span></li></ul>"
+        "title": "Make it work for your team",
+        "html": "<ul class=\"doc-link-list\"><li><a href=\"models/index.html\">Models and providers</a><span>Configure model access, select an approved model and understand fallback.</span></li><li><a href=\"team/index.html\">Share and continue tasks</a><span>View-only and continue access for an existing task.</span></li><li><a href=\"configuration/index.html\">Projects and checks</a><span>Repositories, setup commands and readiness checks.</span></li><li><a href=\"security/index.html\">Data flow and access</a><span>AWS boundaries, external providers and worker access.</span></li></ul>"
       },
       {
-        "id": "examples",
-        "title": "Inspect recorded evidence",
-        "html": "<p>The historical benchmark report includes the saved Django patch and grader output, plus all 50 outcomes in a selected Pro batch. These records are separate from the illustrative new workflow.</p><a href=\"benchmarks/index.html\">Read the benchmark evidence →</a>"
+        "id": "operate",
+        "title": "Keep the system running",
+        "html": "<ul class=\"doc-link-list\"><li><a href=\"maintenance/index.html\">Diagnostics, upgrades and recovery</a><span>Check health, resume setup and handle interrupted work.</span></li><li><a href=\"operations/index.html\">Workspaces and costs</a><span>Compute, retained storage and model usage.</span></li><li><a href=\"benchmarks/index.html\">Recorded benchmark evidence</a><span>Inspect the selected 50-task batch, including failures.</span></li></ul>"
+      },
+      {
+        "id": "preview",
+        "title": "Explore native workflow previews",
+        "html": "<p>Quick/Full plan approvals, separate AI reviews, PR-feedback decisions and linked-PR coordination are documented from a separate implementation. They are <strong>not established as included in v0.3.1</strong>. Follow these guides only on a compatible deployment.</p><a href=\"tasks/index.html\">Native workflow preview →</a>"
       }
     ]
   },
@@ -63,7 +63,7 @@
       {
         "id": "first-task",
         "title": "3. Give it a first task",
-        "html": "<p>In the channel bound during setup, select the installed bot through Slack’s mention picker. Its default name still uses <code>AgentX</code>.</p><pre><code>@AgentX inspect the project and implement the navigation fix. Run the relevant tests.\n@AgentX create a pull request for the personal-website repository titled &quot;Improve navigation&quot;.</code></pre><p>These are the README examples; replace the task and repository with your project. Inspect the changes and evidence before asking for a PR. Your team decides what gets merged.</p><p>Prefer an IDE? <a href=\"../coding-tools/index.html\">Connect Claude Code, Codex or Cursor →</a></p><p>Quick/Full planning and feedback walkthroughs elsewhere in these docs describe the native workflow preview. They require a compatible deployment and are not promised by this installation guide.</p>"
+        "html": "<p>After setup, connect a trusted test repository, delegate a bounded task and inspect its check report before requesting a PR.</p><a href=\"../first-task/index.html\">Follow your first coding task →</a>"
       },
       {
         "id": "resume",
@@ -78,7 +78,46 @@
       {
         "id": "names",
         "title": "Rovara name, compatible commands",
-        "html": "<p>The product repository is <a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a>. The published package is <code>@preplabsai/rovara-code</code>. You can install the CLI once:</p><pre><code>npm install -g @preplabsai/rovara-code\nrovara --help</code></pre><p>The package also provides <code>agentx</code> as a compatibility command. AWS resources, <code>~/.agentx</code>, MCP server/tool IDs and the default Slack app retain their existing names. Use the examples as written.</p><p>Instructions checked against the README and linked guides on 6 October 2026. <a href=\"../release/index.html\">Release, licence and documentation status →</a></p>"
+        "html": "<p>The product repository is <a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a>. The published package is <code>@preplabsai/rovara-code</code>. You can install the CLI once:</p><pre><code>npm install -g @preplabsai/rovara-code\nrovara --help</code></pre><p>The package also provides <code>agentx</code> as a compatibility command. AWS resources, <code>~/.agentx</code>, MCP server/tool IDs and the default Slack app retain their existing names. Use the examples as written.</p><p>Instructions checked against the README and linked guides on 7 October 2026. <a href=\"../release/index.html\">Release, licence and documentation status →</a></p>"
+      }
+    ]
+  },
+  {
+    "slug": "first-task",
+    "title": "Your first coding task",
+    "group": "Start here",
+    "kind": "Guide",
+    "lead": "Use the released direct-task path to make a small, reviewable change.",
+    "sections": [
+      {
+        "id": "before",
+        "title": "Before you start",
+        "html": "<p>Complete <a href=\"../install/index.html\">installation</a>. Use a trusted test repository that your GitHub App can access. Confirm its setup command and readiness checks, and bind a Slack channel to the project. Choose a real, reproducible bug in that repository.</p><p>Already using Claude Code, Codex or Cursor? <a href=\"../coding-tools/index.html\">Connect your tool</a> and ask it to delegate the same request.</p>"
+      },
+      {
+        "id": "prepare",
+        "title": "1. Connect the repository",
+        "html": "<pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; project add</code></pre><p>Follow the wizard to select the repository, preparation steps and readiness commands. Then bind your test channel:</p><pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; channel add --channel &lt;channel-name&gt; --project &lt;project-name&gt;</code></pre><p><strong>Expected result:</strong> the binding command verifies the bot is in the channel and waits for a threaded reply. If preparation fails, fix the dependency or command before giving the agent work.</p>"
+      },
+      {
+        "id": "request",
+        "title": "2. Give it a bounded task",
+        "html": "<p>Mention the installed bot in that channel. Replace the angle-bracket fields with your repository’s actual bug and reproduction. The default app name may still be AgentX.</p><pre><code>@AgentX Fix &lt;the reproducible bug&gt; in &lt;repository&gt;.\nReproduce it first, add a regression test, and run the project checks.\nKeep the change focused. Report the changes and check output.</code></pre><p><strong>Expected result:</strong> a task acknowledgement, workspace preparation and a result in the same thread. The first request may take longer while the workspace is prepared. This direct-task path does not require the preview Quick/Full plan-approval flow.</p>"
+      },
+      {
+        "id": "inspect",
+        "title": "3. Inspect the work",
+        "html": "<p>Read Rovara’s check report before the agent’s summary. Inspect the diff, named commands and output. Passed checks cover those commands; they do not prove every behavior is correct. Failed, already-failing and unverified outcomes stay visible.</p><p>If checks fail, ask for a focused correction in the same thread. If nothing ran, add readiness checks and run another task. Do not treat missing evidence as a pass.</p>"
+      },
+      {
+        "id": "pr",
+        "title": "4. Ask for a pull request",
+        "html": "<pre><code>@AgentX Open a pull request for this change.</code></pre><p><strong>Expected result:</strong> a GitHub PR link or an actionable publication error. The PR can be a draft with failing checks described. Review the diff and GitHub’s own check results. <strong>You decide what gets merged.</strong></p>"
+      },
+      {
+        "id": "continue",
+        "title": "5. Continue or stop",
+        "html": "<p>Reply in the same thread with a follow-up. The workspace retains files and conversation. For tasks started from a coding tool, <a href=\"../team/index.html\">share view-only or continue access</a> according to project policy.</p><p>To interrupt work, mention the installed bot with <code>stop</code>. When finished, ask it to close the workspace:</p><pre><code>@AgentX stop\n@AgentX close this workspace</code></pre><p>Stopping work and closing a workspace are different actions. Inspect uncommitted or unpushed work and read the close response before confirming removal; do not delete work just to clear a limit.</p><a href=\"../maintenance/index.html\">Diagnose an interrupted task →</a>"
       }
     ]
   },
@@ -89,6 +128,11 @@
     "lead": "Five ideas help you understand where work happens and what comes back.",
     "kind": "Concepts",
     "sections": [
+      {
+        "id": "availability",
+        "title": "Released tasks and preview workflows",
+        "html": "<p>The released direct-task path runs a coding task and returns changes and check reporting. Native plan approvals, separate AI reviews and PR-feedback decision flows use separate preview documentation. See <a href=\"../release/index.html\">release status</a> before following a workflow tutorial.</p>"
+      },
       {
         "id": "project",
         "title": "Project",
@@ -123,99 +167,6 @@
         "id": "pull-request",
         "title": "Pull request and feedback",
         "html": "<p>GitHub hosts the proposed change, repository CI, comments and merge decision. Rovara Code connects registered PRs to the task and proposes feedback fixes for owner approval.</p>"
-      }
-    ]
-  },
-  {
-    "slug": "tasks",
-    "title": "Your first Quick task",
-    "group": "Work with Rovara Code",
-    "lead": "Approve one plan, let Rovara Code implement the change, and inspect the evidence before requesting a PR.",
-    "kind": "Tutorial",
-    "sections": [
-      {
-        "id": "before-you-start",
-        "title": "Before you start",
-        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. <a href=\"../install/index.html\">Install Rovara</a> before following this preview workflow.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><div class=\"doc-callout\"><strong>Quick is the simplest planning path</strong><p>Use it for a well-defined fix. For ambiguous or larger work, <a href=\"../planning/index.html\">choose Full</a>. Ordinary direct tasks remain a separate path.</p></div>"
-      },
-      {
-        "id": "request",
-        "title": "1. Request a bounded change",
-        "html": "<p>In the project-bound channel, select the app installed in your channel and send:</p><pre><code>@your-installed-app workflow: Make the docs Copy button reset its label after copying.\nAnnounce success accessibly, preserve manual copy if the clipboard fails,\nand add checks for success, reset and failure.</code></pre><p>This is an example request; replace it with work for your project. Expect a task thread and then a plan ready for your decision. Do not start another task because planning takes time.</p>"
-      },
-      {
-        "id": "plan",
-        "title": "2. Read the plan",
-        "html": "<p>Open the linked Canvas. Check the intended behavior, files or areas involved, scope exclusions and proposed checks. Rovara Code has inspected the request with read-only tools at this stage.</p><ul><li>Does it describe the change you actually want?</li><li>Are the acceptance checks useful?</li><li>Are assumptions or dependencies missing?</li></ul><p>If the plan needs correction, use <strong>Request changes</strong> and explain the adjustment. Review the revised version.</p>"
-      },
-      {
-        "id": "approve",
-        "title": "3. Approve the current version",
-        "html": "<p>Use <strong>Approve</strong> on the current decision prompt. Required project checks are locked on; choose from project-configured optional checks when offered.</p><p>Your decision applies to that plan version. A comment in the thread is feedback, not approval. An old prompt cannot authorize a revised plan.</p>"
-      },
-      {
-        "id": "review",
-        "title": "4. Inspect checks and request reviews",
-        "html": "<p>Rovara Code implements in the project’s remote workspace and runs the configured checks. Inspect the diff, raw output and candidate reference. Failed or missing required checks remain a visible blocker.</p><p>When the task reaches <code>REVIEW / WAITING</code> with passing checks for that candidate, explicitly request the separate code and security reviews. In your connected coding tool, ask:</p><pre><code>Use agentx_review_workflow_candidate for &lt;task-id&gt;.\nReview the current candidate against the approved plan.\nDo not edit code.</code></pre><p>Use the existing task ID. The tool starts the initial read-only reviews; it is not a generic retry. Inspect their reports before requesting draft PRs. If working only in Slack, use the review action supported by your installed version or ask the operator how to request it.</p><a href=\"../evidence/index.html\">Review guide →</a>"
-      },
-      {
-        "id": "pull-request",
-        "title": "5. Request draft PRs",
-        "html": "<p>When the workflow is ready, ask Rovara Code to open draft PRs for review. Inspect the task to find their GitHub links. PR creation is a separate request; readiness does not merge the code.</p><p>Review repository CI and the diff in GitHub. <strong>You decide what gets merged.</strong></p>"
-      },
-      {
-        "id": "continue",
-        "title": "6. Handle reviewer feedback",
-        "html": "<p>Rovara Code gathers feedback on the task’s linked PRs and proposes responses. Open the detailed review, choose the fixes you want, and approve them or request changes. Approved fixes produce a new candidate and fresh evidence.</p><a href=\"../feedback/index.html\">Follow the feedback tutorial →</a>"
-      },
-      {
-        "id": "finish",
-        "title": "7. Finish and preserve the work",
-        "html": "<p>A task with several required PRs waits until all are observed merged. Inspect the task’s next action and closeout state. Canonical artifacts and decisions remain in Rovara Code under configured retention; Canvas copies are cleaned up after preservation is verified.</p><p>Workspace closure is a separate action and can refuse if unpublished changes remain. <a href=\"../operations/index.html\">Workspace and closeout guide →</a></p>"
-      }
-    ]
-  },
-  {
-    "slug": "planning",
-    "title": "Plan a larger feature",
-    "group": "Work with Rovara Code",
-    "lead": "Use Full to agree on requirements, design and the coding plan before implementation.",
-    "kind": "Tutorial",
-    "sections": [
-      {
-        "id": "before-you-start",
-        "title": "Before you start",
-        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. <a href=\"../install/index.html\">Install Rovara</a> before following this preview workflow.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><p>Choose Full when behavior, interfaces or implementation choices need discussion. Full changes planning depth; it does not relax project-required checks or review requirements.</p>"
-      },
-      {
-        "id": "request",
-        "title": "1. Choose Full at task start",
-        "html": "<p>Select the Full workflow through your installed workflow surface. In a coding tool, explicitly ask it to call <code>agentx_start_workflow</code> with <code>workflow_path: \"full\"</code> for your project.</p><pre><code>Start a Full Rovara Code workflow in &lt;project-name&gt;.\nAdd password reset to the account page.\nShow me requirements, design and the coding plan for approval\nbefore implementation. Keep existing sign-in behavior.</code></pre><p>Use your project’s actual name. If your Slack app does not expose Full selection, use the workflow MCP path or ask the operator which installed version supports it.</p>"
-      },
-      {
-        "id": "requirements",
-        "title": "2. Agree on requirements",
-        "html": "<p>Inspect intended behavior, constraints, non-goals and acceptance scenarios. Use <strong>Request changes</strong> for omissions or wrong assumptions. Approve the current document when it represents the work you want.</p><p>For password reset, discuss expiry, error messages and existing authentication behavior here—not after implementation.</p>"
-      },
-      {
-        "id": "design",
-        "title": "3. Review the design",
-        "html": "<p>Inspect the proposed interfaces, component boundaries, dependencies and failure behavior. Ask for alternatives or corrections before approving this version.</p>"
-      },
-      {
-        "id": "plan",
-        "title": "4. Approve the coding plan",
-        "html": "<p>Review the implementation steps, dependency order and check choices. Required project checks stay on. Approve this version to authorize implementation.</p>"
-      },
-      {
-        "id": "after-approval",
-        "title": "5. Review the work",
-        "html": "<p>Implementation follows the approved plan. Inspect the code and candidate-bound checks. Once the task is in <code>REVIEW / WAITING</code> with passing checks, explicitly request initial candidate reviews through <code>agentx_review_workflow_candidate</code> in your coding tool, or the review action supported by your installed environment.</p><p>Inspect the separate code and security reports, then request draft PRs when ready. PR feedback follows the same owner-controlled proposal and fix loop as Quick.</p><a href=\"../tasks/index.html#review\">How to request reviews →</a>"
-      },
-      {
-        "id": "changes",
-        "title": "When a document changes",
-        "html": "<p>Revised documents require a decision on the current version. A previous approval does not approve a different scope or stale candidate. Keep the task’s current prompt and next action in view.</p>"
       }
     ]
   },
@@ -269,12 +220,46 @@
     ]
   },
   {
+    "slug": "team",
+    "title": "Share and continue tasks",
+    "group": "Work with Rovara Code",
+    "kind": "Guide",
+    "lead": "Let teammates inspect or continue an existing task within project policy.",
+    "sections": [
+      {
+        "id": "share",
+        "title": "Share a task from your coding tool",
+        "html": "<p>Tasks started through MCP are private unless shared or the project requires sharing. Ask your coding tool to share the task into one of its project-bound Slack channels:</p><pre><code>Share my Rovara task in &lt;project channel&gt; in view-only mode.</code></pre><p>The tool calls <code>agentx_share_task</code>. The new thread identifies the task owner and sharing mode. It is the same task and workspace.</p>"
+      },
+      {
+        "id": "modes",
+        "title": "Choose the participation mode",
+        "html": "<table><thead><tr><th>Mode</th><th>What teammates can do</th></tr></thead><tbody><tr><td>View only</td><td>Follow progress; the original owner continues through the coding tool.</td></tr><tr><td>Continue</td><td>Authorized channel members can mention the bot in the shared thread to steer the task. Requests run one at a time and name the requester.</td></tr></tbody></table><p>Continue requires project permission. Ask your coding tool for continue sharing explicitly if needed; the default can be view-only.</p>"
+      },
+      {
+        "id": "policy",
+        "title": "Set project policy",
+        "html": "<pre><code>developerTasks:\n  enabled: true\n  share: optional\n  shareMode:\n    default: view\n    allowContinue: true\n  channelMembersMayUse: true</code></pre><p>Set <code>share: required</code> for mandatory sharing or <code>allowContinue: false</code> for view-only access. Register a new project revision after editing. An administrator cannot use the share-mode command to share a private task or move a shared task to a different channel.</p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/project-configuration.md#developer-tasks\">Complete access-policy reference →</a>"
+      },
+      {
+        "id": "handoff",
+        "title": "Try a two-person handoff",
+        "html": "<ol><li>The owner starts and shares a task.</li><li>A teammate opens the thread and inspects its diff and check evidence.</li><li>In continue mode, the teammate requests a bounded follow-up.</li><li>Inspect the new result before the team reviews the PR.</li></ol><p>This is a tutorial, not a claim that a two-person live demonstration has been recorded.</p>"
+      }
+    ]
+  },
+  {
     "slug": "evidence",
     "title": "Inspect changes, checks and reviews",
     "group": "Work with Rovara Code",
     "lead": "Read the evidence for the current code, identify gaps, and decide what your team needs before merging.",
     "kind": "Guide",
     "sections": [
+      {
+        "id": "availability",
+        "title": "Start with the released check report",
+        "html": "<p>For v0.3.1 direct tasks, inspect the diff and Rovara’s report of passed, failed or unverified checks. A draft PR can still contain failures. Separate candidate-bound AI review sessions described below belong to the native workflow preview; they are not established as part of this release.</p>"
+      },
       {
         "id": "review",
         "title": "Start with the change",
@@ -318,95 +303,17 @@
     ]
   },
   {
-    "slug": "feedback",
-    "title": "Respond to PR feedback",
-    "group": "Work with Rovara Code",
-    "lead": "Inspect Rovara Code’s recommendations and approve the changes you want before coding resumes.",
-    "kind": "Tutorial",
-    "sections": [
-      {
-        "id": "before-you-start",
-        "title": "Before you start",
-        "html": "<p>You need a native workflow with registered, open task PRs and access as its authorized owner. Reviewers leave their original comments in GitHub. The installed environment must include the authenticated feedback review surface.</p>"
-      },
-      {
-        "id": "collect",
-        "title": "1. Open the feedback review",
-        "html": "<p>Follow the review link from the Slack task notice. Sign in if prompted; then return to the same review. A link is a route to the task, not permission to view or decide it.</p><p>Rovara Code gathers current comments across the task’s open PRs, groups related feedback and prioritizes the proposed responses.</p>"
-      },
-      {
-        "id": "inspect",
-        "title": "2. Inspect each recommendation",
-        "html": "<p>Read the original comment, the code it refers to, the recommendation, rationale and suggested checks. A separate read-only reviewer may recommend a fix, identify an already-addressed comment, or explain why the comment appears stale or out of scope.</p><div class=\"doc-table-wrap\"><table><thead><tr><th>Inspect</th><th>Why</th></tr></thead><tbody><tr><td>PR and code version</td><td>The recommendation must apply to the current code.</td></tr><tr><td>Original comment</td><td>Understand what the reviewer actually requested.</td></tr><tr><td>Proposed change and checks</td><td>Know what approving the fix will authorize.</td></tr><tr><td>Gaps or disagreement</td><td>The owner decides; a model recommendation is not a human decision.</td></tr></tbody></table></div>"
-      },
-      {
-        "id": "decide",
-        "title": "3. Choose the response",
-        "html": "<p>Approve all recommended fixes or a selected subset. Request changes when the proposal needs a different approach. Dismiss with a reason when appropriate. Your feedback and disposition become attributed task decisions.</p><div class=\"doc-callout\"><strong>Approval authorizes specific changes</strong><p>Reading comments or receiving a review notice does not start another coding run. No automatic GitHub reply is implied by approving a proposal.</p></div>"
-      },
-      {
-        "id": "stale",
-        "title": "If the code or comments change",
-        "html": "<p>A decision is tied to the PR heads, comment set and proposal. If those inputs change, the old approval cannot dispatch the old proposal. Reopen the refreshed review and decide on the current version.</p>"
-      },
-      {
-        "id": "recheck",
-        "title": "4. Inspect the updated candidate",
-        "html": "<p>Only the approved fixes go to the coding operation. After implementation, inspect the new diff and fresh required checks and separate reviews. Your repository’s CI and human review remain part of the final decision.</p><a href=\"../evidence/index.html\">Evidence and freshness →</a>"
-      },
-      {
-        "id": "finish",
-        "title": "5. Make the final review decision",
-        "html": "<p>Use GitHub’s existing review and merge controls. Rovara Code observes linked PR state; it does not take over the team’s merge decision.</p>"
-      }
-    ]
-  },
-  {
-    "slug": "coordination",
-    "title": "Dependencies and linked PRs",
-    "group": "Work with Rovara Code",
-    "lead": "Understand what can proceed, what is blocked, and which PRs still need your team’s decision.",
-    "kind": "Guide",
-    "sections": [
-      {
-        "id": "dependencies",
-        "title": "Read dependency order",
-        "html": "<p>A larger task can have work that depends on an earlier step. Inspect the prerequisite and blocker before retrying a downstream step. The initial workflow sequences dependent work; this guide does not assume concurrent agent execution.</p><ol class=\"doc-flow\"><li>Prerequisite work</li><li>Dependent work</li><li>Checks + reviews</li><li>Required PRs</li></ol>"
-      },
-      {
-        "id": "blocked",
-        "title": "When work is blocked",
-        "html": "<p>Inspect the stage, reason and responsible next action. A failed prerequisite prevents its dependent steps from proceeding. Correct the prerequisite or revise the plan through the task’s decision controls.</p>"
-      },
-      {
-        "id": "linked-prs",
-        "title": "Track the complete PR set",
-        "html": "<p>Rovara Code registers PRs against the task and candidate repositories. Unrelated PR events do not advance this task. If the candidate requires several PRs, a successful PR creation in one repository does not mean the rest were created.</p>"
-      },
-      {
-        "id": "merges",
-        "title": "Understand partial merges",
-        "html": "<p>The task waits for GitHub to report every required PR merged. A partial merge stays incomplete. If a linked PR reopens, inspect the updated task state rather than relying on an earlier notification.</p>"
-      },
-      {
-        "id": "recovery",
-        "title": "Recover without creating duplicate work",
-        "html": "<p>Read current task state and authoritative PR links first. Event delivery can be retried, so duplicate notices should not be treated as permission for a new coding run. Use the installed retry action for a blocked operation and inspect its result.</p>"
-      },
-      {
-        "id": "initiation",
-        "title": "Work starts with an explicit request",
-        "html": "<p>Ask Rovara Code in Slack or through your coding tool. Creating or updating a GitHub issue does not initiate a task. PR comments propose follow-up work; the owner approves changes before implementation.</p>"
-      }
-    ]
-  },
-  {
     "slug": "operations",
     "title": "Workspaces and costs",
     "group": "Work with Rovara Code",
     "lead": "Keep the context you need, stop the work you do not, and understand what remains on the bill.",
     "kind": "Guide",
     "sections": [
+      {
+        "id": "availability",
+        "title": "Released tasks and native workflow preview",
+        "html": "<p>Published v0.3.1 supports direct tasks from Slack and coding tools, persistent AWS workspaces, check reports and PR creation. The native workflow adds plan Canvas, authenticated feedback, separate review roles and coordinated GitHub events. Those additions are preview behavior, not established as included in this release. Check your deployed version before relying on them.</p><a href=\"../first-task/index.html\">Start with a released direct task →</a>"
+      },
       {
         "id": "continue",
         "title": "Come back to the same workspace",
@@ -452,6 +359,11 @@
     "kind": "Configuration",
     "sections": [
       {
+        "id": "released-project",
+        "title": "Configure a repository for released tasks",
+        "html": "<p>A project defines repository URLs, setup commands and readiness checks. Start with a test repository. Register a new revision when you change the configuration; existing threads can retain their earlier project revision.</p><pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; project add</code></pre><p>The wizard selects a repository, proposes setup and test commands, and registers the project definition. Configure a devcontainer separately if your project needs one, then run a small first task to verify the workspace and checks. See the <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/project-configuration.md\">versioned project schema and examples</a>.</p>"
+      },
+      {
         "id": "project-file",
         "title": "Define a project",
         "html": "\n            \n            <p>\n              A project file names repositories, setup commands,\n              readiness checks, and orchestration guidance. It contains\n              credential references, not secret values. Deployment and sign-in\n              settings belong to a separate deployment file.\n            </p>\n            <h3>Example project configuration</h3>\n            <pre><code>name: export-service\nrevision: 1\nrepositories:\n  - name: export-service\n    url: https://github.com/example/export-service.git\n    path: repo/export-service\n    defaultBranch: main\n    credentialRef: github-agentx-sdlc\nsetup:\n  - cwd: repo/export-service\n    executable: npm\n    args: [ci]\n    timeoutSeconds: 600\nreadiness:\n  - cwd: repo/export-service\n    executable: npm\n    args: [test]\n    timeoutSeconds: 600\norchestratorInstructions: &gt;-\n  Delegate repository reads, edits, builds, and tests\n  to the remote Rovara Code worker.</code></pre>\n            <p>\n              Replace the example repository and credential reference with your\n              configured project values. Use <code>agentx admin project register --help</code> to see the registration options for your installed version. Increase the immutable revision before\n              changing a registered definition.\n            </p>\n          "
@@ -463,13 +375,81 @@
       },
       {
         "id": "workflow-checks",
-        "title": "Required and optional workflow checks",
-        "html": "<p>Project-required checks remain on in Quick and Full. The owner can select only optional checks registered for that project at plan approval. Those choices are stored with the decision.</p><p>Configure check working directories, executables, arguments and timeouts. A check name should describe its useful coverage. Do not treat optional selection as permission to bypass required checks or change repository merge controls.</p>"
+        "title": "Native workflow preview: required and optional checks",
+        "html": "<p><strong>Preview:</strong> this plan-approval flow is separate from published direct tasks.</p><p>Project-required checks remain on in Quick and Full. The owner can select only optional checks registered for that project at plan approval. Those choices are stored with the decision.</p><p>Configure check working directories, executables, arguments and timeouts. A check name should describe its useful coverage. Do not treat optional selection as permission to bypass required checks or change repository merge controls.</p>"
       },
       {
         "id": "access",
         "title": "Models, connections and access",
         "html": "\n            \n            <dl>\n              <dt>Models</dt>\n              <dd>\n                Choose approved provider/model pairs. Worker and orchestration\n                configuration are distinct. External providers receive model\n                requests outside AWS.\n              </dd>\n              <dt>Connectors</dt>\n              <dd>\n                Linear, Jira, Asana, GitHub, and remote MCP tools have\n                configured project scopes and server-side credential handling.\n              </dd>\n              <dt>Action policy</dt>\n              <dd>\n                Rules allow, ask, or deny orchestrator tool calls. They do not\n                gate every shell command or file edit on the coding worker.\n              </dd>\n              <dt>Developer tasks</dt>\n              <dd>\n                Project settings control whether coding-tool tasks are enabled\n                and how they may be shared into Slack.\n              </dd>\n            </dl>\n            <p>\n              Do not place credentials in command environment fields or project\n              YAML. Verify scope and provider availability before enabling a\n              connection.\n            </p>\n          "
+      }
+    ]
+  },
+  {
+    "slug": "models",
+    "title": "Models and providers",
+    "group": "Configure",
+    "kind": "Guide",
+    "lead": "Choose supported models, understand where requests go, and keep usage visible.",
+    "sections": [
+      {
+        "id": "providers",
+        "title": "Choose the provider at installation",
+        "html": "<p>The installer offers Amazon Bedrock, OpenRouter, Anthropic API and OpenAI API. It configures three roles: the coding worker, Slack orchestrator and action classifier. These can have different provider/model settings.</p><p>For API providers, use the installer’s hidden prompt and a dedicated provider key with a spending limit. Do not enter keys in Slack, commands shown in recordings or project files.</p><p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/model-providers.md\">Direct-provider configuration</a> · <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/openrouter.md\">OpenRouter configuration</a></p>"
+      },
+      {
+        "id": "approved",
+        "title": "Select an approved coding model",
+        "html": "<p>An administrator adds provider/model pairs and unique labels to the project’s approved model list. In a bound Slack thread:</p><pre><code>@AgentX models\n@AgentX use &lt;approved model label&gt;</code></pre><p>The confirmation identifies the provider. Selection affects subsequent coding turns across the project’s workspaces. It does not change the orchestrator or classifier. Check the scope before switching.</p>"
+      },
+      {
+        "id": "open-weight",
+        "title": "Open-weight options",
+        "html": "<p>Supported catalogs include open-weight model options such as Qwen and GLM through compatible provider routes. Availability requires the installed Pi catalog, provider availability and tool support; a new or unknown model ID can be refused.</p><p>Open-weight does not automatically mean self-hosted inference. This release does not establish support for an arbitrary private model endpoint. Confirm the exact route before sending code or prompts.</p>"
+      },
+      {
+        "id": "routing",
+        "title": "Where requests go and how fallback works",
+        "html": "<table><thead><tr><th>Route</th><th>Where model requests go</th></tr></thead><tbody><tr><td>Bedrock</td><td>Amazon Bedrock using configured AWS model access</td></tr><tr><td>OpenRouter</td><td>OpenRouter and an eligible upstream provider</td></tr><tr><td>Anthropic / OpenAI</td><td>The provider’s API directly from AWS</td></tr></tbody></table><p>A missing or empty configured provider secret can select the default Bedrock model. Access denial and inference errors fail instead. Confirm provider configuration and observe the reported model; do not assume a missing key always stops execution.</p><p>OpenRouter requests disable provider fallback and request data-collection denial; that is not a zero-retention guarantee. Provider terms still matter. <a href=\"../security/index.html\">Read data-flow and access details</a>.</p>"
+      },
+      {
+        "id": "cost",
+        "title": "Understand usage and cost",
+        "html": "<p>Usage records identify provider and model. API-provider task costs use catalog list prices, not your negotiated invoice. An unknown price is unknown, not zero. Add AWS compute/storage and operating effort when comparing options. Cheaper tokens do not establish cheaper accepted changes.</p><a href=\"../operations/index.html\">Workspaces and costs →</a>"
+      }
+    ]
+  },
+  {
+    "slug": "security",
+    "title": "Data flow and access",
+    "group": "Configure",
+    "kind": "Guide",
+    "lead": "Understand the customer AWS boundary and the external systems a task uses.",
+    "sections": [
+      {
+        "id": "account",
+        "title": "What runs in your AWS account",
+        "html": "<p>The control plane, Slack orchestration service, EC2 coding workers, encrypted EBS workspaces and persisted task artifacts run in your AWS account. The documented account is the security boundary; a devcontainer is not a separate credential boundary.</p>"
+      },
+      {
+        "id": "external",
+        "title": "What crosses that boundary",
+        "html": "<p>Slack messages and GitHub repositories/PRs use those services. Model prompts and relevant code/context go to the configured model route. OpenRouter, Anthropic, OpenAI and remote connector servers can receive requests outside AWS. Workspace location alone does not guarantee that code never leaves your account.</p><a href=\"../models/index.html#routing\">Provider routes and fallback →</a>"
+      },
+      {
+        "id": "worker",
+        "title": "Worker credentials and trusted projects",
+        "html": "<p>Provider keys are resolved into an in-memory credential store, keeping them out of normal configuration files. However, worker shell commands and dependency scripts can reach the instance role and its permitted secrets. Do not treat in-memory storage or a devcontainer as isolation from code the agent runs.</p><p>Use trusted projects and dependencies, dedicated provider keys with limits, and rotation/revocation after suspected exposure. The GitHub App key stays in the control plane; repository operations can use short-lived scoped tokens. See the versioned provider guides for exact exposure.</p>"
+      },
+      {
+        "id": "authority",
+        "title": "Human authority and reporting",
+        "html": "<p>You decide what gets merged. Existing GitHub permissions and branch protection remain authoritative. Check reports describe what ran and what did not; they do not certify correctness or compliance. The workflow grants no production deployment authority.</p>"
+      },
+      {
+        "id": "source",
+        "title": "Source references",
+        "html": "<p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/openrouter.md#workspace-credential-exposure\">OpenRouter worker exposure</a> · <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/model-providers.md\">Direct-provider handling</a> · <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/architecture-production.md\">Architecture reference</a></p>"
       }
     ]
   },
@@ -480,6 +460,11 @@
     "lead": "Where the task, workspace, decisions and evidence live—and which systems remain authoritative.",
     "kind": "Reference",
     "sections": [
+      {
+        "id": "availability",
+        "title": "Released tasks and native workflow preview",
+        "html": "<p>Published v0.3.1 supports direct tasks from Slack and coding tools, persistent AWS workspaces, check reports and PR creation. The native workflow adds plan Canvas, authenticated feedback, separate review roles and coordinated GitHub events. Those additions are preview behavior, not established as included in this release. Check your deployed version before relying on them.</p><a href=\"../first-task/index.html\">Start with a released direct task →</a>"
+      },
       {
         "id": "overview",
         "title": "A task record connects the surfaces",
@@ -581,6 +566,40 @@
     ]
   },
   {
+    "slug": "maintenance",
+    "title": "Diagnostics, upgrades and recovery",
+    "group": "Help",
+    "kind": "Guide",
+    "lead": "Operate an existing environment without hiding failed or interrupted work.",
+    "sections": [
+      {
+        "id": "health",
+        "title": "Check environment health",
+        "html": "<pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; doctor --region us-east-1</code></pre><p>Use the operator/admin AWS profile configured for this environment. Doctor reports stack, Slack, GitHub, connector, model, budget and capacity problems. Some checks make live requests and model calls. Read warnings and skipped checks as well as failures.</p>"
+      },
+      {
+        "id": "resume",
+        "title": "Resume an interrupted installation",
+        "html": "<pre><code>npx @preplabsai/rovara-code init --env &lt;name&gt; --resume</code></pre><p>Use the same environment and saved setup. Read the plan before continuing. If resource ownership is ambiguous, inspect it instead of starting another install with the same names.</p>"
+      },
+      {
+        "id": "upgrade",
+        "title": "Upgrade deliberately",
+        "html": "<pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; upgrade --region us-east-1</code></pre><p>The CLI reads the release manifest, shows changes and estimates, checks active work and asks before applying changes. Follow the versioned upgrade guide for backup and rollback restrictions. A successful package update alone does not establish healthy deployed workers.</p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/day-two.md#upgrade\">Upgrade reference →</a>"
+      },
+      {
+        "id": "task",
+        "title": "When a task stops",
+        "html": "<ol><li>Inspect the task’s current status and latest operation.</li><li>Read the last check report and error. Missing evidence stays unverified.</li><li>Fix the named cause: setup, model access, repository permission or a failing check.</li><li>Continue the same task where supported. Inspect the existing branch/PR before asking for publication again.</li></ol><p>Persistent files and conversation help resume work. Do not assume every process crash is automatically recovered. Preserve uncommitted, untracked and unpushed work when closing a workspace.</p>"
+      },
+      {
+        "id": "teardown",
+        "title": "Remove the environment",
+        "html": "<pre><code>npx @preplabsai/rovara-code --env &lt;name&gt; destroy --region us-east-1</code></pre><p>Review exactly which resources and retained artifacts the command will remove. Export needed evidence and resolve unfinished work first. AWS compute, storage and model costs have different lifecycles.</p><a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/docs/teardown.md\">Teardown reference →</a>"
+      }
+    ]
+  },
+  {
     "slug": "troubleshooting",
     "title": "Troubleshooting",
     "group": "Help",
@@ -659,7 +678,7 @@
       {
         "id": "availability",
         "title": "Public source and published installer",
-        "html": "<p><a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a> is public. The npm package <a href=\"https://www.npmjs.com/package/@preplabsai/rovara-code\">@preplabsai/rovara-code</a> v0.3.1 (MIT) and <a href=\"https://github.com/PrepLabsAI/Rovara/releases/tag/v0.3.1\">v0.3.1 GitHub release</a> were checked on 6 October 2026. Earlier v0.3.0 artifacts retain their Apache 2.0 terms and grant.</p><p><a href=\"../install/index.html\">Install using Launch in AWS or the terminal →</a></p><p>Publication is separate from a fresh installation acceptance run. This website update checked release availability and documentation, and did not deploy a new AWS environment.</p>"
+        "html": "<p><a href=\"https://github.com/PrepLabsAI/Rovara\">PrepLabsAI/Rovara</a> is public. The npm package <a href=\"https://www.npmjs.com/package/@preplabsai/rovara-code\">@preplabsai/rovara-code</a> v0.3.1 (MIT) and <a href=\"https://github.com/PrepLabsAI/Rovara/releases/tag/v0.3.1\">v0.3.1 GitHub release</a> were checked on 7 October 2026. Earlier v0.3.0 artifacts retain their Apache 2.0 terms and grant.</p><p><a href=\"../install/index.html\">Install using Launch in AWS or the terminal →</a></p><p>Publication is separate from a fresh installation acceptance run. This website update checked release availability and documentation, and did not deploy a new AWS environment.</p>"
       },
       {
         "id": "names",
@@ -679,7 +698,183 @@
       {
         "id": "documentation",
         "title": "How these docs are maintained",
-        "html": "<p>Installation commands and release availability were checked against <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/README.md\">README revision <code>1a1c4a555fc672b4558341005b99ee84dedcde41</code></a> and the v0.3.1 package/release artifacts on 6 October 2026. npm v0.3.1 declares MIT; v0.3.0 remains the earlier Apache 2.0 release. See the <a href=\"../../data/installation.json\">installation source record →</a></p><p>Existing architecture and direct-task references retain their historical mainline pin <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow guides retain local implementation pin <code>3455a367005972659875667b82d7b5d28a2da727</code> and remain preview documentation. Publishing the CLI does not establish that those preview capabilities are included in v0.3.1.</p><p>The <a href=\"../../data/workflow-preview.json\">workflow preview record</a> identifies that separate source. Historical benchmarks retain their own dates and candidates. A website build does not prove a live installation.</p>"
+        "html": "<p>Installation commands and release availability were checked against <a href=\"https://github.com/PrepLabsAI/Rovara/blob/1a1c4a555fc672b4558341005b99ee84dedcde41/README.md\">README revision <code>1a1c4a555fc672b4558341005b99ee84dedcde41</code></a> and the v0.3.1 package/release artifacts on 7 October 2026. npm v0.3.1 declares MIT; v0.3.0 remains the earlier Apache 2.0 release. See the <a href=\"../../data/installation.json\">installation source record →</a></p><p>Existing architecture and direct-task references retain their historical mainline pin <code>8acb7ac00c97e3e5ff547cb13af07e5ff160bc86</code>. Native workflow guides retain local implementation pin <code>3455a367005972659875667b82d7b5d28a2da727</code> and remain preview documentation. Publishing the CLI does not establish that those preview capabilities are included in v0.3.1.</p><p>The <a href=\"../../data/workflow-preview.json\">workflow preview record</a> identifies that separate source. Historical benchmarks retain their own dates and candidates. A website build does not prove a live installation.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "tasks",
+    "title": "Your first Quick task (preview)",
+    "group": "Preview workflows",
+    "lead": "Preview: requires a compatible native-workflow deployment. Approve one plan, let Rovara Code implement the change, and inspect the evidence before requesting a PR.",
+    "kind": "Preview guide",
+    "sections": [
+      {
+        "id": "before-you-start",
+        "title": "Before you start",
+        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. <a href=\"../install/index.html\">Install Rovara</a> before following this preview workflow.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><div class=\"doc-callout\"><strong>Quick is the simplest planning path</strong><p>Use it for a well-defined fix. For ambiguous or larger work, <a href=\"../planning/index.html\">choose Full</a>. Ordinary direct tasks remain a separate path.</p></div>"
+      },
+      {
+        "id": "request",
+        "title": "1. Request a bounded change",
+        "html": "<p>In the project-bound channel, select the app installed in your channel and send:</p><pre><code>@your-installed-app workflow: Make the docs Copy button reset its label after copying.\nAnnounce success accessibly, preserve manual copy if the clipboard fails,\nand add checks for success, reset and failure.</code></pre><p>This is an example request; replace it with work for your project. Expect a task thread and then a plan ready for your decision. Do not start another task because planning takes time.</p>"
+      },
+      {
+        "id": "plan",
+        "title": "2. Read the plan",
+        "html": "<p>Open the linked Canvas. Check the intended behavior, files or areas involved, scope exclusions and proposed checks. Rovara Code has inspected the request with read-only tools at this stage.</p><ul><li>Does it describe the change you actually want?</li><li>Are the acceptance checks useful?</li><li>Are assumptions or dependencies missing?</li></ul><p>If the plan needs correction, use <strong>Request changes</strong> and explain the adjustment. Review the revised version.</p>"
+      },
+      {
+        "id": "approve",
+        "title": "3. Approve the current version",
+        "html": "<p>Use <strong>Approve</strong> on the current decision prompt. Required project checks are locked on; choose from project-configured optional checks when offered.</p><p>Your decision applies to that plan version. A comment in the thread is feedback, not approval. An old prompt cannot authorize a revised plan.</p>"
+      },
+      {
+        "id": "review",
+        "title": "4. Inspect checks and request reviews",
+        "html": "<p>Rovara Code implements in the project’s remote workspace and runs the configured checks. Inspect the diff, raw output and candidate reference. Failed or missing required checks remain a visible blocker.</p><p>When the task reaches <code>REVIEW / WAITING</code> with passing checks for that candidate, explicitly request the separate code and security reviews. In your connected coding tool, ask:</p><pre><code>Use agentx_review_workflow_candidate for &lt;task-id&gt;.\nReview the current candidate against the approved plan.\nDo not edit code.</code></pre><p>Use the existing task ID. The tool starts the initial read-only reviews; it is not a generic retry. Inspect their reports before requesting draft PRs. If working only in Slack, use the review action supported by your installed version or ask the operator how to request it.</p><a href=\"../evidence/index.html\">Review guide →</a>"
+      },
+      {
+        "id": "pull-request",
+        "title": "5. Request draft PRs",
+        "html": "<p>When the workflow is ready, ask Rovara Code to open draft PRs for review. Inspect the task to find their GitHub links. PR creation is a separate request; readiness does not merge the code.</p><p>Review repository CI and the diff in GitHub. <strong>You decide what gets merged.</strong></p>"
+      },
+      {
+        "id": "continue",
+        "title": "6. Handle reviewer feedback",
+        "html": "<p>Rovara Code gathers feedback on the task’s linked PRs and proposes responses. Open the detailed review, choose the fixes you want, and approve them or request changes. Approved fixes produce a new candidate and fresh evidence.</p><a href=\"../feedback/index.html\">Follow the feedback tutorial →</a>"
+      },
+      {
+        "id": "finish",
+        "title": "7. Finish and preserve the work",
+        "html": "<p>A task with several required PRs waits until all are observed merged. Inspect the task’s next action and closeout state. Canonical artifacts and decisions remain in Rovara Code under configured retention; Canvas copies are cleaned up after preservation is verified.</p><p>Workspace closure is a separate action and can refuse if unpublished changes remain. <a href=\"../operations/index.html\">Workspace and closeout guide →</a></p>"
+      }
+    ]
+  },
+  {
+    "slug": "planning",
+    "title": "Plan a larger feature (preview)",
+    "group": "Preview workflows",
+    "lead": "Preview: requires a compatible native-workflow deployment. Use Full to agree on requirements, design and the coding plan before implementation.",
+    "kind": "Preview guide",
+    "sections": [
+      {
+        "id": "before-you-start",
+        "title": "Before you start",
+        "html": "<p>You need an environment with the native workflow enabled, access to a registered project, and the project’s installed Slack app or coding-tool connection. <a href=\"../install/index.html\">Install Rovara</a> before following this preview workflow.</p><p>Use Slack’s mention picker to select the app installed in your channel. Existing CLI commands still use <code>agentx</code>.</p><p>Choose Full when behavior, interfaces or implementation choices need discussion. Full changes planning depth; it does not relax project-required checks or review requirements.</p>"
+      },
+      {
+        "id": "request",
+        "title": "1. Choose Full at task start",
+        "html": "<p>Select the Full workflow through your installed workflow surface. In a coding tool, explicitly ask it to call <code>agentx_start_workflow</code> with <code>workflow_path: \"full\"</code> for your project.</p><pre><code>Start a Full Rovara Code workflow in &lt;project-name&gt;.\nAdd password reset to the account page.\nShow me requirements, design and the coding plan for approval\nbefore implementation. Keep existing sign-in behavior.</code></pre><p>Use your project’s actual name. If your Slack app does not expose Full selection, use the workflow MCP path or ask the operator which installed version supports it.</p>"
+      },
+      {
+        "id": "requirements",
+        "title": "2. Agree on requirements",
+        "html": "<p>Inspect intended behavior, constraints, non-goals and acceptance scenarios. Use <strong>Request changes</strong> for omissions or wrong assumptions. Approve the current document when it represents the work you want.</p><p>For password reset, discuss expiry, error messages and existing authentication behavior here—not after implementation.</p>"
+      },
+      {
+        "id": "design",
+        "title": "3. Review the design",
+        "html": "<p>Inspect the proposed interfaces, component boundaries, dependencies and failure behavior. Ask for alternatives or corrections before approving this version.</p>"
+      },
+      {
+        "id": "plan",
+        "title": "4. Approve the coding plan",
+        "html": "<p>Review the implementation steps, dependency order and check choices. Required project checks stay on. Approve this version to authorize implementation.</p>"
+      },
+      {
+        "id": "after-approval",
+        "title": "5. Review the work",
+        "html": "<p>Implementation follows the approved plan. Inspect the code and candidate-bound checks. Once the task is in <code>REVIEW / WAITING</code> with passing checks, explicitly request initial candidate reviews through <code>agentx_review_workflow_candidate</code> in your coding tool, or the review action supported by your installed environment.</p><p>Inspect the separate code and security reports, then request draft PRs when ready. PR feedback follows the same owner-controlled proposal and fix loop as Quick.</p><a href=\"../tasks/index.html#review\">How to request reviews →</a>"
+      },
+      {
+        "id": "changes",
+        "title": "When a document changes",
+        "html": "<p>Revised documents require a decision on the current version. A previous approval does not approve a different scope or stale candidate. Keep the task’s current prompt and next action in view.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "feedback",
+    "title": "Respond to PR feedback (preview)",
+    "group": "Preview workflows",
+    "lead": "Preview: requires a compatible native-workflow deployment. Inspect Rovara Code’s recommendations and approve the changes you want before coding resumes.",
+    "kind": "Preview guide",
+    "sections": [
+      {
+        "id": "before-you-start",
+        "title": "Before you start",
+        "html": "<p>You need a native workflow with registered, open task PRs and access as its authorized owner. Reviewers leave their original comments in GitHub. The installed environment must include the authenticated feedback review surface.</p>"
+      },
+      {
+        "id": "collect",
+        "title": "1. Open the feedback review",
+        "html": "<p>Follow the review link from the Slack task notice. Sign in if prompted; then return to the same review. A link is a route to the task, not permission to view or decide it.</p><p>Rovara Code gathers current comments across the task’s open PRs, groups related feedback and prioritizes the proposed responses.</p>"
+      },
+      {
+        "id": "inspect",
+        "title": "2. Inspect each recommendation",
+        "html": "<p>Read the original comment, the code it refers to, the recommendation, rationale and suggested checks. A separate read-only reviewer may recommend a fix, identify an already-addressed comment, or explain why the comment appears stale or out of scope.</p><div class=\"doc-table-wrap\"><table><thead><tr><th>Inspect</th><th>Why</th></tr></thead><tbody><tr><td>PR and code version</td><td>The recommendation must apply to the current code.</td></tr><tr><td>Original comment</td><td>Understand what the reviewer actually requested.</td></tr><tr><td>Proposed change and checks</td><td>Know what approving the fix will authorize.</td></tr><tr><td>Gaps or disagreement</td><td>The owner decides; a model recommendation is not a human decision.</td></tr></tbody></table></div>"
+      },
+      {
+        "id": "decide",
+        "title": "3. Choose the response",
+        "html": "<p>Approve all recommended fixes or a selected subset. Request changes when the proposal needs a different approach. Dismiss with a reason when appropriate. Your feedback and disposition become attributed task decisions.</p><div class=\"doc-callout\"><strong>Approval authorizes specific changes</strong><p>Reading comments or receiving a review notice does not start another coding run. No automatic GitHub reply is implied by approving a proposal.</p></div>"
+      },
+      {
+        "id": "stale",
+        "title": "If the code or comments change",
+        "html": "<p>A decision is tied to the PR heads, comment set and proposal. If those inputs change, the old approval cannot dispatch the old proposal. Reopen the refreshed review and decide on the current version.</p>"
+      },
+      {
+        "id": "recheck",
+        "title": "4. Inspect the updated candidate",
+        "html": "<p>Only the approved fixes go to the coding operation. After implementation, inspect the new diff and fresh required checks and separate reviews. Your repository’s CI and human review remain part of the final decision.</p><a href=\"../evidence/index.html\">Evidence and freshness →</a>"
+      },
+      {
+        "id": "finish",
+        "title": "5. Make the final review decision",
+        "html": "<p>Use GitHub’s existing review and merge controls. Rovara Code observes linked PR state; it does not take over the team’s merge decision.</p>"
+      }
+    ]
+  },
+  {
+    "slug": "coordination",
+    "title": "Dependencies and linked PRs (preview)",
+    "group": "Preview workflows",
+    "lead": "Preview: requires a compatible native-workflow deployment. Understand what can proceed, what is blocked, and which PRs still need your team’s decision.",
+    "kind": "Preview guide",
+    "sections": [
+      {
+        "id": "dependencies",
+        "title": "Read dependency order",
+        "html": "<p>A larger task can have work that depends on an earlier step. Inspect the prerequisite and blocker before retrying a downstream step. The initial workflow sequences dependent work; this guide does not assume concurrent agent execution.</p><ol class=\"doc-flow\"><li>Prerequisite work</li><li>Dependent work</li><li>Checks + reviews</li><li>Required PRs</li></ol>"
+      },
+      {
+        "id": "blocked",
+        "title": "When work is blocked",
+        "html": "<p>Inspect the stage, reason and responsible next action. A failed prerequisite prevents its dependent steps from proceeding. Correct the prerequisite or revise the plan through the task’s decision controls.</p>"
+      },
+      {
+        "id": "linked-prs",
+        "title": "Track the complete PR set",
+        "html": "<p>Rovara Code registers PRs against the task and candidate repositories. Unrelated PR events do not advance this task. If the candidate requires several PRs, a successful PR creation in one repository does not mean the rest were created.</p>"
+      },
+      {
+        "id": "merges",
+        "title": "Understand partial merges",
+        "html": "<p>The task waits for GitHub to report every required PR merged. A partial merge stays incomplete. If a linked PR reopens, inspect the updated task state rather than relying on an earlier notification.</p>"
+      },
+      {
+        "id": "recovery",
+        "title": "Recover without creating duplicate work",
+        "html": "<p>Read current task state and authoritative PR links first. Event delivery can be retried, so duplicate notices should not be treated as permission for a new coding run. Use the installed retry action for a blocked operation and inspect its result.</p>"
+      },
+      {
+        "id": "initiation",
+        "title": "Work starts with an explicit request",
+        "html": "<p>Ask Rovara Code in Slack or through your coding tool. Creating or updating a GitHub issue does not initiate a task. PR comments propose follow-up work; the owner approves changes before implementation.</p>"
       }
     ]
   }
